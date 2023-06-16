@@ -1,0 +1,37 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+
+import { headerData } from '~/data';
+
+const meta = {
+  title: 'Plebnet.dev Join Us',
+};
+---
+
+<Layout {meta}>
+  <Fragment slot="header">
+    <Header
+      {...headerData}
+      actions={[
+        {
+          type: "primary",
+          text: 'Sign Up',
+          href: '#',
+        },
+      ]}
+      isSticky
+    />
+  </Fragment>
+
+  
+
+  <!-- Steps2 Widget ****************** -->
+
+  <Steps2
+    title="Join the plebnet.dev community"
+    subtitle="How to join? TODO: add web form and info here."
+  />
+
+</Layout>

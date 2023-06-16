@@ -1,0 +1,56 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Header from '~/components/widgets/Header.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+
+import { headerData } from '~/data';
+
+const meta = {
+  title: 'Plebnet.dev Projects',
+};
+---
+
+<Layout {meta}>
+  <Fragment slot="header">
+    <Header
+      {...headerData}
+      actions={[
+        {
+          type: "primary",
+          text: 'Sign Up',
+          href: '/join',
+        },
+      ]}
+      isSticky
+    />
+  </Fragment>
+
+  
+
+  <!-- Steps2 Widget ****************** -->
+
+  <Steps2
+    title="Projects We Work On."
+    subtitle="Engage with projects that members are building. Have a project you are working and want to share it? Looking for new contributors? Add yours here!"
+  
+    items={[
+      {
+        title: 'Responsive Elements',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla.',
+      },
+      {
+        title: 'Flexible Team',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla.',
+      },
+      {
+        title: 'Ecologic Software',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla.',
+      },
+    ]}
+  />
+
+</Layout>
