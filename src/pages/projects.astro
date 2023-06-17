@@ -2,7 +2,7 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Header from '~/components/widgets/Header.astro';
-import Steps2 from '~/components/widgets/Steps2.astro';
+import Features2 from '~/components/widgets/Features2.astro';
 
 import { headerData } from '~/data';
 
@@ -28,29 +28,70 @@ const meta = {
 
   
 
-  <!-- Steps2 Widget ****************** -->
+   <!-- Features2 Widget ************** -->
 
-  <Steps2
-    title="Projects We Work On."
-    subtitle="Engage with projects that members are building. Have a project you are working and want to share it? Looking for new contributors? Add yours here!"
-  
-    items={[
-      {
-        title: 'Responsive Elements',
-        description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla.',
-      },
-      {
-        title: 'Flexible Team',
-        description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla.',
-      },
-      {
-        title: 'Ecologic Software',
-        description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla.',
-      },
-    ]}
-  />
+   <Features2
+   title="Projects"
+   subtitle="Engage with projects that members are building. Have a project you are working and want to share it? Looking for new contributors? Add yours here!"
+ 
+   items={[
+     {
+       title: 'Project 1',
+       description:
+         'In general, Headers contain information that makes it easier for visitors to interact with the website.',
+       icon: 'flat-color-icons:template',
+     },
+     {
+       title: 'Project 2',
+       description:
+         'If you want your website to get more than its fair share of visitors, the Hero section needs to be stellar.',
+       icon: 'flat-color-icons:gallery',
+     },
+     {
+       title: 'Project 3',
+       description:
+         'Display your product in action and how the Features actually create a solution for your target customer.',
+       icon: 'flat-color-icons:todo-list',
+     },
+     {
+       title: 'Content',
+       description:
+         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+       icon: 'flat-color-icons:document',
+     },
+     {
+       title: 'Call-to-Action',
+       description:
+         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+       icon: 'flat-color-icons:advertising',
+     },
+     {
+       title: 'Pricing',
+       description:
+         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+       icon: 'flat-color-icons:currency-exchange',
+     },
+     {
+       title: 'Testimonial',
+       description:
+         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+       icon: 'flat-color-icons:voice-presentation',
+     },
+     {
+       title: 'Contact',
+       description:
+         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+       icon: 'flat-color-icons:business-contact',
+     },
+     {
+       title: 'Footers',
+       description:
+         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+       icon: 'icon-park:page-template',
+     },
+   ]}
+ />
+
+ <!-- HighlightedPosts Widget ******* -->
 
 </Layout>

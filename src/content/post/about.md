@@ -3,7 +3,7 @@ publishDate: 2023-06-16T00:00:00Z
 title: About Plebnet.dev
 description:  A story about Plebnet.dev and why we exist
 excerpt: A story about Plebnet.dev and why we exist
-image: /public/images/sd2.webp
+image: /images/code_image.jpg
 tags:
   - about
 ---
