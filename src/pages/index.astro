@@ -5,6 +5,7 @@ import Header from '~/components/widgets/Header.astro';
 import Hero2 from '~/components/widgets/Hero2.astro';
 //import Steps2 from '~/components/widgets/Steps2.astro';
 import Content from '~/components/widgets/Content.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
 
 import { headerData } from '~/data';
 
@@ -37,6 +38,7 @@ const meta = {
 
   <Hero2
     callToAction={{ text: 'Join Us', href: '/join' }}
+    callToAction2={{ text: 'Learn More', href: '#more' }}
     image={{ src: import('/public/images/electric_bitcoin.png'), alt: 'Plebnet.dev Hero Image' }}
   >
     <Fragment slot="title">
@@ -48,8 +50,7 @@ const meta = {
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
         <span class="font-semibold">Plebnet.dev</span> 
-        is an active developer group building, testing and deploying bitcoin and lightning
-        applications.
+       is a bitcoin first group that is looking to build the future using bitcoin and lightning payment rails.
         </span>
       <span class="block mb-1 sm:hidden font-bold text-blue-600">
         Plebnet.dev: Where developers come together.</span>
@@ -58,23 +59,24 @@ const meta = {
 
   <!-- Content Widget **************** -->
 
+  <span id="more"> </span>
   <Content
     isReversed
     items={[
       {
-        title: 'Per ei quaeque sensibus',
+        title: 'Code Mentors',
         description:
-          'Ex usu illum iudico molestie. Pro ne agam facete mediocritatem, ridens labore facete mea ei. Pro id apeirian dignissim.',
+        "Experienced Bitcoin and Lightning devs who want to give back and grow new talent"
+        },
+      {
+        title: 'Seeking Mentoring',
+        description:
+        'Plebians who are new to open source, or who are freshly out of bootcamp or code school, and are looking to contribute to their first OSS project'
       },
       {
-        title: 'Cu imperdiet posidonium sed',
+        title: 'New Open Source Project Developers',
         description:
-          'Amet utinam aliquando ut mea, malis admodum ocurreret nec et, elit tibique cu nec. Nec ex maluisset inciderint, ex quis.',
-      },
-      {
-        title: 'Nulla omittam sadipscing mel ne',
-        description:
-          'At sed possim oporteat probatus, justo graece ne nec, minim commodo legimus ut vix. Ut eos iudico quando soleat, nam modus.',
+        'Are you Starting a new OSS project in bitcoin or lightining, and are you looking for new Contributors? This is the place to be.'
       },
     ]}
     image={{
@@ -86,8 +88,48 @@ const meta = {
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
         Engage with Developers Worldwide 
       </h3>
-      A bit about us 
+      Who is Plebnet.dev for? 
     </Fragment>
   </Content>
+
+  <!-- FAQs Widget ******************* -->
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle=""
+    highlight="FAQs"
+    items={[
+      [
+        {
+          question: 'Why do I need to Apply to join?',
+          answer:
+          "To prevent bots, spammers, fake accounts and people who just join and don't ever say anything. The short application also helps members get to know you better and what your goals are in the space."
+        },
+        {
+          question: "Why should I pay to join? Why isn\'t this just a free chatroom?",
+          answer:
+          "If something is free you are the product. Building, maintaining and supporting Plebnet.dev services, as well as lightning services in the cloud has a price attached to it. By asking everybody to pay, we eliminate the noise (bots, scams, spammers, shitcoiners, fake account, etc...) and we will never have to track or sell your data."
+        },
+      ],
+      [
+        {
+          question: "Can I buy a membership with credit cards or fiat?",
+          answer:
+              "No we only accept payment in bitcoin or lightning. We are a bitcoin first group that is looking to build the future using bitcoin and lightning payment rails."
+        },
+        {
+          question: 'Why is there no free trial?',
+          answer:
+              "Unfortunately free trials attract the wrong kind of users such as spammers, scammers, bots, NFT enthusiasts, shitcoiners, and those with low engagement. This is contrary to the community we are building."
+        },
+        {
+          question: "In my country the income is lower, is it possible to get a discount?",
+          answer:
+            "Yes it is definitely possible, please reach out to us and we can offer a membership for developing countries."
+        },
+      ],
+    ]}
+  />
+
+
 
 </Layout>
