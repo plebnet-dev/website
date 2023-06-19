@@ -1,3 +1,9 @@
+# Plebnet.dev website
+
+Build the Future with Plebnet.dev on bitcoin and lightning. 
+
+This is the main website.
+
 # 🚀 AstroWind
 
 <img src="https://raw.githubusercontent.com/onwidget/.github/main/resources/astrowind/lighthouse-score.png" align="right"
