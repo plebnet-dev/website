@@ -1,0 +1,36 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Content from '~/components/widgets/Content.astro';
+
+import { headerData } from '~/data';
+
+const meta = {
+    title: 'PLEBNET.DEV Sponsors',
+};
+---
+
+<Layout {meta}>
+    <Fragment slot="header">
+        <Header
+            {...headerData}
+            actions={[
+                {
+                    type: 'primary',
+                    text: 'Sign Up',
+                    href: '/join',
+                },
+            ]}
+            isSticky
+        />
+    </Fragment>
+
+    <Content>
+        <Fragment slot="content">
+            <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Ad vix debet docendi</h3>
+            Ne dicta praesent ocurreret has, diam theophrastus at pro. os etiam regione ut, persius eripuit quo id. Sit te
+            euismod tacimates.
+            <a href="/faq"><b>FAQs</b></a> here
+        </Fragment>
+    </Content>
+</Layout>

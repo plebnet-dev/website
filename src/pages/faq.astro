@@ -1,0 +1,69 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Header from '~/components/widgets/Header.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+
+import { headerData } from '~/data';
+
+const meta = {
+  title: 'PLEBNET.DEV Home',
+};
+---
+
+<Layout {meta}>
+  <Fragment slot="header">
+    <Header
+      {...headerData}
+      actions={[
+        {
+          type: "primary",
+          text: 'Sign Up',
+          href: '/join',
+        },
+      ]}
+      isSticky
+    />
+  </Fragment>
+
+
+  <!-- FAQs Widget ******************* -->
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle=""
+    highlight="FAQs"
+    items={[
+      [
+        {
+          question: 'Why do I need to Apply to join?',
+          answer:
+          "To prevent bots, spammers, fake accounts and people who just join and don't ever say anything. The short application also helps members get to know you better and what your goals are in the space."
+        },
+        {
+          question: "Can I buy a membership with credit cards or fiat?",
+          answer:
+              "No we only accept payment in bitcoin or lightning. We are a bitcoin first group that is looking to build the future using bitcoin and lightning payment rails."
+        },
+        {
+          question: "Why should I pay to join? Why isn\'t this just a free chatroom?",
+          answer:
+          "If something is free you are the product. Building, maintaining and supporting Plebnet.dev services, as well as lightning services in the cloud has a price attached to it. By asking everybody to pay, we eliminate the noise (bots, scams, spammers, shitcoiners, fake account, etc...) and we will never have to track or sell your data."
+        },
+      ],
+      [ {
+          question: "In my country the income is lower, is it possible to get a discount?",
+          answer:
+            "Yes it is definitely possible, please reach out to us and we can offer a membership for developing countries."
+        },
+        {
+          question: 'Why is there no free trial?',
+          answer:
+              "Unfortunately free trials attract the wrong kind of users such as spammers, scammers, bots, NFT enthusiasts, shitcoiners, and those with low engagement. This is contrary to the community we are building."
+        },
+      ],
+    ]}
+  />
+
+
+
+</Layout>

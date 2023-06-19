@@ -1,13 +1,13 @@
 import defaultImage from './assets/images/default.png';
 
 const CONFIG = {
-  name: 'plebnet.dev',
+  name: 'PLEBNET.DEV',
 
   origin: 'https://plebnet.dev',
   basePathname: '/',
   trailingSlash: false,
 
-  title: 'Plebnet.dev',
+  title: 'PLEBNET.DEV',
   description:
     'Build the Bitcoin and Lightning Future',
   defaultImage: defaultImage,

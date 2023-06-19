@@ -5,12 +5,13 @@ import Header from '~/components/widgets/Header.astro';
 import Hero2 from '~/components/widgets/Hero2.astro';
 //import Steps2 from '~/components/widgets/Steps2.astro';
 import Content from '~/components/widgets/Content.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
 
 import { headerData } from '~/data';
 
 const meta = {
-  title: 'Plebnet.dev Home',
+  title: 'PLEBNET.DEV Home',
 };
 ---
 
@@ -19,11 +20,6 @@ const meta = {
     <Header
       {...headerData}
       actions={[
-        // {
-        //   type: "ghost",
-        //   text: 'Login',
-        //   href: '#',
-        // },
         {
           type: "primary",
           text: 'Sign Up',
@@ -50,7 +46,8 @@ const meta = {
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
         <span class="font-semibold">Plebnet.dev</span> 
-       is a bitcoin first group that is looking to build the future using bitcoin and lightning payment rails.
+      is a Bitcoin-centric group dedicated to shaping the future through 
+      open source Bitcoin and lightning infrastructure.
         </span>
       <span class="block mb-1 sm:hidden font-bold text-blue-600">
         Plebnet.dev: Where developers come together.</span>
@@ -92,44 +89,21 @@ const meta = {
     </Fragment>
   </Content>
 
-  <!-- FAQs Widget ******************* -->
-  <FAQs
-    title="Frequently Asked Questions"
-    subtitle=""
-    highlight="FAQs"
-    items={[
-      [
-        {
-          question: 'Why do I need to Apply to join?',
-          answer:
-          "To prevent bots, spammers, fake accounts and people who just join and don't ever say anything. The short application also helps members get to know you better and what your goals are in the space."
-        },
-        {
-          question: "Why should I pay to join? Why isn\'t this just a free chatroom?",
-          answer:
-          "If something is free you are the product. Building, maintaining and supporting Plebnet.dev services, as well as lightning services in the cloud has a price attached to it. By asking everybody to pay, we eliminate the noise (bots, scams, spammers, shitcoiners, fake account, etc...) and we will never have to track or sell your data."
-        },
-      ],
-      [
-        {
-          question: "Can I buy a membership with credit cards or fiat?",
-          answer:
-              "No we only accept payment in bitcoin or lightning. We are a bitcoin first group that is looking to build the future using bitcoin and lightning payment rails."
-        },
-        {
-          question: 'Why is there no free trial?',
-          answer:
-              "Unfortunately free trials attract the wrong kind of users such as spammers, scammers, bots, NFT enthusiasts, shitcoiners, and those with low engagement. This is contrary to the community we are building."
-        },
-        {
-          question: "In my country the income is lower, is it possible to get a discount?",
-          answer:
-            "Yes it is definitely possible, please reach out to us and we can offer a membership for developing countries."
-        },
-      ],
-    ]}
-  />
-
-
+   <!-- CallToAction Widget *********** -->
+   <CallToAction
+   callToAction={{
+     text: 'Join Us',
+     href: '/join',
+   }}
+ >
+   <Fragment slot="title">
+      <br class="block sm:hidden" />
+      <span class="sm:whitespace-nowrap"> Join The Community</span>
+   </Fragment>
+   <Fragment slot="subtitle">
+     <br class="hidden md:inline" />Don't
+     waste more time! Join plebnet.dev today!
+   </Fragment>
+ </CallToAction>
 
 </Layout>
