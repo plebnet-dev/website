@@ -6,6 +6,7 @@ excerpt: A story about Plebnet.dev and why we exist
 image: /images/code_image.jpg
 tags:
   - about
+  - plebnet.dev
 ---
 
 ## Who we are

@@ -5,10 +5,10 @@ import Layout from '~/layouts/PageLayout.astro';
 import BlogList from '~/components/blog/List.astro';
 import Headline from '~/components/blog/Headline.astro';
 import Pagination from '~/components/blog/Pagination.astro';
-// import PostTags from "~/components/blog/Tags.astro";
+import PostTags from "~/components/blog/Tags.astro";
 
 import { fetchPosts } from '~/utils/blog';
-// import { findTags, findCategories } from '~/utils/blog';
+import { findTags, findCategories } from '~/utils/blog';
 import { BLOG_BASE } from '~/utils/permalinks';
 
 export async function getStaticPaths({ paginate }) {
@@ -22,8 +22,8 @@ export async function getStaticPaths({ paginate }) {
 const { page } = Astro.props;
 const currentPage = page.currentPage ?? 1;
 
-// const allCategories = await findCategories();
-// const allTags = await findTags();
+const allCategories = await findCategories();
+const allTags = await findTags();
 
 const meta = {
   title: `Blog${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
@@ -38,13 +38,11 @@ const meta = {
     <Headline
       subtitle="News, tutorials, resources and other interesting content related to Plebnet.dev"
     >
-      The Blog
+      The Plebnet.dev Blog
     </Headline>
     <BlogList posts={page.data} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
-    <!--
       <PostTags tags={allCategories} class="mb-2" header="Search by Categories:" isCategory />
       <PostTags tags={allTags}  header="Search by Tags:" />
-    -->
   </section>
 </Layout>
