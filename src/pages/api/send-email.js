@@ -1,6 +1,6 @@
 import sgMail from '@sendgrid/mail';
 
-const sendgridApiKey = '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';
+const sendgridApiKey = '';
 sgMail.setApiKey(sendgridApiKey);
 
 export async function post({request}) {
@@ -12,7 +12,7 @@ export async function post({request}) {
     to: email,
     cc: 'eriknewland93@gmail.com', // CC is required, not sure who it should be
     from: 'join@plebnet.dev',
-    templateId: 'd-8fa74dff03b14b2ea3f061fd61a33ab5',
+    templateId: '',
     dynamic_template_data: {
       name,
       email,
