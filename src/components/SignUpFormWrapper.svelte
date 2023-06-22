@@ -1,8 +1,7 @@
 <script>
   import SignUpFormIndiv from './SignUpFormIndiv.svelte';
   import SignUpFormCorp from './SignUpFormCorp.svelte';
-  import MdPerson from 'svelte-icons/Md/MdPerson.svelte';
-  import MdBusiness from 'svelte-icons/Md/MdBusiness.svelte';
+  import { MdPerson, MdBusiness } from 'svelte-icons/Md';
   import { WrenchSolid } from 'svelte-awesome-icons';
 
 
