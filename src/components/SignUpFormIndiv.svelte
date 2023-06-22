@@ -252,9 +252,6 @@ input[type="checkbox"]:checked::before {
 </div>
 
   <button type="submit">Submit</button>
-  {#if responseMessage}
-  <p>{responseMessage}</p>
-{/if}
 
 {#if showModal}
   <div class="modal" transition:fade>
