@@ -2,8 +2,8 @@
   import { createClient } from '@supabase/supabase-js';
   import { fade } from 'svelte/transition';
 
-const supabaseUrl = 'https://mzzywujweygewjgkafrl.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im16enl3dWp3ZXlnZXdqZ2thZnJsIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODcxMzYwMDcsImV4cCI6MjAwMjcxMjAwN30.pzomGbckjTSz23dMmedHj2Am01oDaYRyeJdEq7ZwedQ';
+const supabaseUrl = '';
+const supabaseKey = '';
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
