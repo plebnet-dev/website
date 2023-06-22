@@ -1,6 +1,21 @@
 {
+  "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "dist" }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1",
+      "headers": { "cache-control": "public,max-age=0,must-revalidate" }
+    }
+  ],
   "headers": [
     {
       "source": "/_astro/(.*)",
