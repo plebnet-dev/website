@@ -22,6 +22,7 @@
     "@astrolib/analytics": "^0.3.0",
     "@astrolib/seo": "^0.4.0",
     "@fontsource/inter": "^4.5.15",
+    "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.9",
     "@typescript-eslint/eslint-plugin": "^5.59.11",
     "@typescript-eslint/parser": "^5.59.11",
@@ -54,5 +55,7 @@
     "dotenv": "^16.3.1",
     "svelte": "^3.59.2",
     "svelte-awesome-icons": "^0.4.12"
+    "@astrojs/svelte": "^3.0.0",
+    "eslint-plugin-svelte3": "^4.0.0"
   }
 }

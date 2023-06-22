@@ -28,13 +28,14 @@ export const footerData = {
       links: [
         { text: 'Join Us', href: '/join' },
         { text: 'FAQ', href: '/faq' },
+        { text: 'Projects', href: '/projects' },
       ],        
     },
     {
       title: 'Connect',
       links: [
-        { text: 'Projects', href: '/projects' },
         { text: 'Sponsors', href: '/sponsors' },
+        { text: 'Contact Us', href: '/contact' },
       ],
     },
     {
