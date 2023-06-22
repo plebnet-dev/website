@@ -10,7 +10,7 @@ import compress from 'astro-compress';
 import { readingTimeRemarkPlugin } from './src/utils/frontmatter.mjs';
 import { SITE } from './src/config.mjs';
 import svelte from "@astrojs/svelte";
-import node from '@astrojs/node';
+import vercelEdge from '@astrojs/vercel/edge'
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const whenExternalScripts = (items = []) => SITE.googleAnalyticsId ? Array.isArray(items) ? items.map(item => item()) : [items()] : [];
 
@@ -20,9 +20,7 @@ export default defineConfig({
   base: SITE.basePathname,
   trailingSlash: SITE.trailingSlash ? 'always' : 'never',
   output: 'server',
-  adapter: node({
-    mode: 'standalone'
-  }),
+  adapter: vercelEdge(),
   markdown: {
     remarkPlugins: [readingTimeRemarkPlugin]
   },
