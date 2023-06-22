@@ -10,9 +10,12 @@ import compress from 'astro-compress';
 import { readingTimeRemarkPlugin } from './src/utils/frontmatter.mjs';
 import { SITE } from './src/config.mjs';
 import svelte from "@astrojs/svelte";
-import vercelEdge from '@astrojs/vercel/edge'
+import node from '@astrojs/node';
+import vercelEdge from '@astrojs/vercel/edge';
+import vercel from "@astrojs/vercel/serverless";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const whenExternalScripts = (items = []) => SITE.googleAnalyticsId ? Array.isArray(items) ? items.map(item => item()) : [items()] : [];
+
 
 // https://astro.build/config
 export default defineConfig({
@@ -20,7 +23,7 @@ export default defineConfig({
   base: SITE.basePathname,
   trailingSlash: SITE.trailingSlash ? 'always' : 'never',
   output: 'server',
-  adapter: vercelEdge(),
+  adapter: vercel(),
   markdown: {
     remarkPlugins: [readingTimeRemarkPlugin]
   },
@@ -52,8 +55,8 @@ export default defineConfig({
     },
     build: {
       rollupOptions: {
-        external: ['svelte-icons/Md'],
-      },
-    },
+        external: ['svelte-icons/Md']
+      }
+    }
   }
 });
