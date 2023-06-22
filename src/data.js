@@ -20,7 +20,7 @@ export const headerData = {
     // { type: 'button', text: 'Download', href: 'https://github.com/onwidget/astrowind' }
   ],
 };
-  
+
 export const footerData = {
   links: [
     {
@@ -29,7 +29,7 @@ export const footerData = {
         { text: 'Join Us', href: '/join' },
         { text: 'FAQ', href: '/faq' },
         { text: 'Projects', href: '/projects' },
-      ],        
+      ],
     },
     {
       title: 'Connect',
