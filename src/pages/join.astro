@@ -2,6 +2,7 @@
 import Layout from '~/layouts/PageLayout.astro';
 import Header from '~/components/widgets/Header.astro';
 import { getHomePermalink } from '~/utils/permalinks';
+import SignUpForm from '../components/SignUpForm.svelte';
 
 import { headerData } from '~/data';
 
@@ -31,14 +32,13 @@ const meta = {
       <div class="max-w-md text-center">
         <p class="text-3xl font-semibold md:text-3xl">Join Us.</p>
         <p class="mt-4 mb-8 text-lg text-muted dark:text-slate-400">
-          How to join? Questions? <a href="/faq" class="text-orange-400 underline"><b>See FAQ.</b></a> 
+          How to join? Questions? <a href="/faq" class="text-orange-400 underline"><b>See FAQ.</b></a>
           <br/>
-            TODO: add web form with questions here."
         </p>
         <a rel="noopener noreferrer" href={getHomePermalink()} class="btn ml-4">Back to homepage</a>
       </div>
     </div>
   </section>
 
-
+        <SignUpForm client:only="svelte"/>
 </Layout>
