@@ -55,7 +55,7 @@ export default defineConfig({
     },
     build: {
       rollupOptions: {
-        external: ['svelte-icons/Md']
+        external: ['svelte-icons']
       }
     }
   }
