@@ -2,8 +2,8 @@
   import { createClient } from '@supabase/supabase-js';
   import { fade } from 'svelte/transition';
 
-const supabaseUrl = '';
-const supabaseKey = '';
+const supabaseUrl = 'https://mzzywujweygewjgkafrl.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im16enl3dWp3ZXlnZXdqZ2thZnJsIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODcxMzYwMDcsImV4cCI6MjAwMjcxMjAwN30.pzomGbckjTSz23dMmedHj2Am01oDaYRyeJdEq7ZwedQ';
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
@@ -18,29 +18,42 @@ const supabase = createClient(supabaseUrl, supabaseKey);
   let responseMessage = '';
   let showModal = false;
 
-  async function handleSubmit() {
-    const formData = {
-      name,
-      email,
-      twitter,
-      github,
-      experience,
-      goal,
-      pr_link: prLink,
-      mentor,
-    };
-    console.log(JSON.stringify(formData));
+async function handleSubmit() {
+  const formData = {
+    name,
+    email,
+    twitter,
+    github,
+    experience,
+    goal,
+    pr_link: prLink,
+    mentor,
+  };
+  console.log(JSON.stringify(formData));
 
-    const { data, error } = await supabase.from('members').insert([formData]);
+  const { data, error } = await supabase.from('members').insert([formData]);
 
-    if (error) {
-      responseMessage = `Error submitting form: ${error.message}`;
-    } else {
+  if (error) {
+    responseMessage = `Error submitting form: ${error.message}`;
+  } else {
+    // Call the API component to send an email
+    const response = await fetch('/api/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
       responseMessage = 'Form submitted successfully';
       await showThankYouModal();
       window.location.href = '/projects';
+    } else {
+      responseMessage = `Error sending email: ${response.statusText}`;
     }
   }
+}
 
   async function showThankYouModal() {
     showModal = true;
