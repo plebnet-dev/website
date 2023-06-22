@@ -5,25 +5,42 @@ sgMail.setApiKey(sendgridApiKey);
 
 export async function post({request}) {
 
-  const formData = await request.json()
-  const { email, name, twitter, github, experience, goal, prLink, mentor } = formData;
+  const formData = await request.json();
+  const { formType, ...otherData } = formData;
 
   const msg = {
-    to: email,
-    cc: 'eriknewland93@gmail.com', // CC is required, not sure who it should be
+    to: otherData.email,
+    cc: 'eriknewland93@gmail.com',
     from: 'join@plebnet.dev',
-    templateId: '',
-    dynamic_template_data: {
-      name,
-      email,
-      twitter,
-      github,
-      experience,
-      goal,
-      prLink,
-      mentor,
-    },
+    templateId:
+    formType === 'corporate'
+      ? '' //corp
+      : '', //indiv
   };
+
+  if (formType === 'corporate') {
+    msg.dynamic_template_data = {
+      orgName: otherData.org_name,
+      contact: otherData.contact_person,
+      email: otherData.email,
+      website: otherData.website,
+      twitter: otherData.twitter,
+      goal: otherData.goal,
+      industry: otherData.industry,
+      sponsor: otherData.sponsor,
+    };
+  } else {
+    msg.dynamic_template_data = {
+      name: otherData.name,
+      email: otherData.email,
+      twitter: otherData.twitter,
+      github: otherData.github,
+      experience: otherData.experience,
+      goal: otherData.goal,
+      pr_link: otherData.pr_link,
+      mentor: otherData.mentor,
+    };
+  }
 
   try {
     await sgMail.send(msg);

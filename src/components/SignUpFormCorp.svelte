@@ -2,36 +2,38 @@
   import { createClient } from '@supabase/supabase-js';
   import { fade } from 'svelte/transition';
 
-const supabaseUrl = '';
-const supabaseKey = '';
+  const supabaseUrl = '';
+  const supabaseKey = '';
 
-const supabase = createClient(supabaseUrl, supabaseKey);
+  const supabase = createClient(supabaseUrl, supabaseKey);
 
-  let name = '';
+  let orgName = '';
+  let contactPerson = '';
   let email = '';
+  let website = '';
   let twitter = '';
-  let github = '';
-  let experience = '';
   let goal = '';
-  let prLink = '';
-  let mentor = false;
+  let industry = '';
+  let sponsor = false;
   let responseMessage = '';
   let showModal = false;
 
-async function handleSubmit() {
-  const formData = {
-    name,
-    email,
-    twitter,
-    github,
-    experience,
-    goal,
-    pr_link: prLink,
-    mentor,
-  };
-  console.log(JSON.stringify(formData));
+  async function handleSubmit() {
+    const formData = {
+      formType: 'corporate',
+      org_name: orgName,
+      contact_person: contactPerson,
+      email,
+      website,
+      twitter,
+      goal,
+      industry,
+      sponsor,
+    };
+    console.log(JSON.stringify(formData));
 
-  const { data, error } = await supabase.from('members').insert([formData]);
+    const { data, error } = await supabase.from('members-corporate').insert([formData]);
+
 
   if (error) {
     responseMessage = `Error submitting form: ${error.message}`;
@@ -61,6 +63,7 @@ async function handleSubmit() {
     showModal = false;
   }
 </script>
+
 
 <style>
   form {
@@ -211,49 +214,46 @@ input[type="checkbox"]:checked::before {
 
 <form on:submit|preventDefault={handleSubmit}>
 <div class="input-wrapper">
-  <label for="name">Name*</label>
-  <input type="text" id="name" bind:value={name} required />
+  <label for="orgName">Organization Name*</label>
+  <input type="text" id="orgName" bind:value={orgName} required />
+</div>
+
+<div class="input-wrapper">
+  <label for="contactPerson">Contact Person*</label>
+  <input type="text" id="contactPerson" bind:value={contactPerson} required />
 </div>
 
 <div class="input-wrapper">
   <label for="email">Email*</label>
-  <input type="email" id="email" bind:value={email} required />
+  <input type="email" id="email" bind:value={email} />
 </div>
 
 <div class="input-wrapper">
-  <label for="twitter">Twitter or Nostr npub</label>
+  <label for="website">Website*</label>
+  <input type="text" id="website" bind:value={website} required />
+</div>
+
+<div class="input-wrapper">
+  <label for="twitter">Twitter/LinkedIn</label>
   <input type="text" id="twitter" bind:value={twitter} />
 </div>
 
 <div class="input-wrapper">
-  <label for="github">GitHub or GitLab*</label>
-  <input type="text" id="github" bind:value={github} required />
-</div>
-
-<div class="input-wrapper">
-  <label for="experience">Experience*</label>
-  <textarea type="text" id="experience" bind:value={experience} required />
-</div>
-
-<div class="input-wrapper">
-  <label for="goal">What do you want to get out of plebnet.dev?*</label>
+  <label for="goal">Why does your company want to join Pleb Devs?*</label>
   <textarea type="text" id="goal" bind:value={goal} required />
 </div>
 
 <div class="input-wrapper">
-  <label for="prLink">PR Link (if applicable)</label>
-  <input type="text" id="prLink" bind:value={prLink} />
+  <label for="industry">Industry*</label>
+  <input type="text" id="industry" bind:value={industry} required />
 </div>
 
 <div class="input-wrapper">
-  <label for="mentor">Do you want to mentor?</label>
-  <input type="checkbox" id="mentor" bind:checked={mentor} />
+  <label for="sponsor">Do you want to sponsor Pleb Devs?*</label>
+  <input type="checkbox" id="sponsor" bind:checked={sponsor} />
 </div>
 
   <button type="submit">Submit</button>
-  {#if responseMessage}
-  <p>{responseMessage}</p>
-{/if}
 
 {#if showModal}
   <div class="modal" transition:fade>
