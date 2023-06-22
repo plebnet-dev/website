@@ -2,7 +2,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 import { defineConfig } from 'astro/config';
-
+import svelte from '@astrojs/svelte';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import image from '@astrojs/image';
@@ -30,6 +30,7 @@ export default defineConfig({
   },
 
   integrations: [
+    svelte(),
     tailwind({
       config: {
         applyBaseStyles: false,
