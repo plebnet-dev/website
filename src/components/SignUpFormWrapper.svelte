@@ -1,8 +1,7 @@
 <script>
   import SignUpFormIndiv from './SignUpFormIndiv.svelte';
   import SignUpFormCorp from './SignUpFormCorp.svelte';
-  import { MdPerson, MdBusiness } from 'svelte-icons/Md';
-  import { WrenchSolid } from 'svelte-awesome-icons';
+  import { WrenchSolid, BriefcaseSolid, PersonSolid } from 'svelte-awesome-icons';
 
 
   let formType = ''; // default form type
@@ -32,6 +31,13 @@
     font-weight: 500;
     margin-bottom: 1rem;
     color: #10182B;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .card-title span {
+    margin-left: 0.5rem;
   }
 
   .card-content {
@@ -68,7 +74,8 @@
     on:click={() => (formType = 'individual')}
   >
     <div class="card-title">
-      <MdPerson size="24" class="mr-2" /> Individual Membership
+      <span>Individual Membership</span>
+      <PersonSolid size="24" class="mr-2" />
 </div>
     <div class="card-content">
       <ul>
@@ -92,7 +99,8 @@
     on:click={() => (formType = 'corporate')}
   >
     <div class="card-title">
-      <MdBusiness size="24" class="mr-2" /> Corporate Membership
+    <span>Corporate Membership</span>
+      <BriefcaseSolid size="24" class="mr-2" />
     </div>
     <div class="card-content">
       <ul>

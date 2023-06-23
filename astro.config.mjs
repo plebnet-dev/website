@@ -50,12 +50,7 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        '~': path.resolve(__dirname, './src'),
-      }
-    },
-    build: {
-      rollupOptions: {
-        external: ['svelte-icons/Md']
+        '~': path.resolve(__dirname, './src')
       }
     }
   }
