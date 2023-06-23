@@ -1,18 +1,14 @@
 <script>
   import { createClient } from '@supabase/supabase-js';
   import { fade } from 'svelte/transition';
+  import { onMount } from 'svelte';
+    let supabase;
 
-let supabase;
-
-// Fetch the Supabase API/URL from the new /api component when the page loads
-async function fetchSupabaseConfig() {
-  const response = await fetch('/api/get-supabase-config');
-  const { supabaseUrl, supabaseKey } = await response.json();
+onMount(() => {
+  const supabaseUrl = import.meta.env.VITE_PUBLIC_SUPABASE_URL;
+  const supabaseKey = import.meta.env.VITE_PUBLIC_SUPABASE_KEY;
   supabase = createClient(supabaseUrl, supabaseKey);
-}
-
-// Call the fetchSupabaseConfig function when the page loads
-fetchSupabaseConfig();
+});
 
   let orgName = '';
   let contactPerson = '';
