@@ -37,7 +37,7 @@ async function handleSubmit() {
   };
   console.log(JSON.stringify(formData));
 
-  const { data, error } = await supabase.from('members').insert([formData]);
+  const { data, error } = await supabase.from('members-individual').insert([formData]);
 
   if (error) {
     responseMessage = `Error submitting form: ${error.message}`;
