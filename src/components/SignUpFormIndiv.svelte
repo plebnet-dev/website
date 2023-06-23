@@ -1,7 +1,7 @@
 <script>
   import { createClient } from '@supabase/supabase-js';
   import { fade } from 'svelte/transition';
-  import { supabaseUrl, supabaseKey } from '../env.js';
+  import { supabaseUrl, supabaseKey } from './env.js';
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
