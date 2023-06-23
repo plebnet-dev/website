@@ -6,9 +6,6 @@ import SignUpFormWrapper from '../components/SignUpFormWrapper.svelte';
 
 import { headerData } from '~/data';
 
-const supabaseURLSecret = process.env.PUBLIC_SUPABASE_URL;
-const supabaseKeySecret = process.env.PUBLIC_SUPABASE_KEY;
-
 const meta = {
   title: 'PLEBNET.DEV Join Us',
 };
@@ -42,7 +39,7 @@ let formType = 'individual'; // default form type
 
       </div>
     <div class="w-full max-w-md">
-      <SignUpFormWrapper {supabaseURLSecret} {supabaseKeySecret}/>
+      <SignUpFormWrapper/>
     </div>
     <a rel="noopener noreferrer" href={getHomePermalink()} class="btn ml-4">Back to homepage</a>
   </div>
