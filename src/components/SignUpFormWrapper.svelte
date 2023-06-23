@@ -124,7 +124,7 @@
 </div>
 
 {#if formType === 'individual'}
-  <SignUpFormIndiv supabaseURLSecret={supabaseURLSecret} supabaseKeySecret={supabaseKeySecret}/>
+  <SignUpFormIndiv {supabaseURLSecret} {supabaseKeySecret}/>
 {:else if formType === 'corporate'}
-  <SignUpFormCorp supabaseURL={supabaseURL} supabaseKey={supabaseKey}/>
+  <SignUpFormCorp {supabaseURLSecret} {supabaseKeySecret}/>
 {/if}
