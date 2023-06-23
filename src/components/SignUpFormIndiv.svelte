@@ -2,8 +2,12 @@
   import { createClient } from '@supabase/supabase-js';
   import { fade } from 'svelte/transition';
 
-const supabaseUrl = '';
-const supabaseKey = '';
+  export let supabaseURLSecret;
+  export let supabaseKeySecret;
+
+  const supabaseUrl = supabaseURLSecret;
+  const supabaseKey = supabaseKeySecret;
+
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
