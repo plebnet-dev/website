@@ -53,8 +53,10 @@ export default defineConfig({
         '~': path.resolve(__dirname, './src')
       }
     },
-    optimizeDeps: {
-      include: ['svelte-icons'],
-    },
+    build: {
+      rollupOptions: {
+        external: ['svelte-icons/Md']
+      }
+    }
   }
 });
