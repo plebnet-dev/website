@@ -13,6 +13,7 @@ import svelte from "@astrojs/svelte";
 // import node from '@astrojs/node';
 // import vercelEdge from '@astrojs/vercel/edge';
 import vercel from "@astrojs/vercel/serverless";
+import 'dotenv/config'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const whenExternalScripts = (items = []) => SITE.googleAnalyticsId ? Array.isArray(items) ? items.map(item => item()) : [items()] : [];
