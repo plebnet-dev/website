@@ -1,3 +1,5 @@
+export const prerender = false;
+
 import sgMail from '@sendgrid/mail';
 
 const sendgridApiKey = process.env.PUBLIC_SENDGRID_API_KEY;
