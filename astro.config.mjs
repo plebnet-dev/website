@@ -1,7 +1,6 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { defineConfig } from 'astro/config';
-import svelte from '@astrojs/svelte';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import image from '@astrojs/image';
@@ -59,11 +58,7 @@ export default defineConfig({
   }), svelte()],
 
   integrations: [
-=======
-
-  integrations: [
     svelte(),
->>>>>>> 59b9e3e (add svelte form)
     tailwind({
       config: {
         applyBaseStyles: false,
@@ -94,10 +89,6 @@ export default defineConfig({
     }),
   ],
 
-<<<<<<< HEAD
->>>>>>> 5da0793 (add svelte form)
-=======
->>>>>>> 59b9e3e (add svelte form)
   vite: {
     resolve: {
       alias: {
