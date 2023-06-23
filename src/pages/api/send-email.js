@@ -14,7 +14,7 @@ export async function post({request}) {
 
   const msg = {
     to: otherData.email,
-    cc: 'eriknewland93@gmail.com',
+    cc: 'info@plebnet.dev',
     from: 'join@plebnet.dev',
     templateId:
     formType === 'corporate'
