@@ -3,6 +3,8 @@
   import SignUpFormCorp from './SignUpFormCorp.svelte';
   import { WrenchSolid, BriefcaseSolid, PersonSolid } from 'svelte-awesome-icons';
 
+  export let supabaseURLSecret;
+  export let supabaseKeySecret;
 
   let formType = ''; // default form type
 </script>
@@ -122,7 +124,7 @@
 </div>
 
 {#if formType === 'individual'}
-  <SignUpFormIndiv />
+  <SignUpFormIndiv supabaseURLSecret={supabaseURLSecret} supabaseKeySecret={supabaseKeySecret}/>
 {:else if formType === 'corporate'}
-  <SignUpFormCorp />
+  <SignUpFormCorp supabaseURL={supabaseURL} supabaseKey={supabaseKey}/>
 {/if}

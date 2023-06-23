@@ -1,6 +1,8 @@
 import sgMail from '@sendgrid/mail';
 
-const sendgridApiKey = '';
+const sendgridApiKey = process.env.SENDGRID_API_KEY;
+const corporateTemplate = process.env.SENDGRID_TEMPLATE_ID_CORP
+const individualTemplate = process.env.SENDGRID_TEMPLATE_ID_INDIV
 sgMail.setApiKey(sendgridApiKey);
 
 export async function post({request}) {
@@ -14,8 +16,8 @@ export async function post({request}) {
     from: 'join@plebnet.dev',
     templateId:
     formType === 'corporate'
-      ? '' //corp
-      : '', //indiv
+      ? corporateTemplate //corp
+      : individualTemplate, //indiv
   };
 
   if (formType === 'corporate') {
