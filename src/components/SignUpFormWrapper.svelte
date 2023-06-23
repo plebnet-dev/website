@@ -82,15 +82,17 @@
         <WrenchSolid size="32"/><span>Listing on the website</span>
       </li>
       <li>
-        <WrenchSolid size="32"/><span>Join events with Pleb Devs</span>
+        <WrenchSolid size="32"/><span>Join events with Plebnet.Dev</span>
       </li>
       <li>
-        <WrenchSolid size="32"/><span>5 individual members - all skill levels welcome</span>
+        <WrenchSolid size="32"/><span> Access to Mentoring - all skill levels welcome.
+        </span>
       </li>
       <li>
-        <WrenchSolid size="32"/><span>Discounted prices to partner events</span>
+        <WrenchSolid size="32"/><span> Access to Member only services.</span>
       </li>
-      </ul>
+
+    </ul>
     </div>
   </div>
   <div
@@ -104,16 +106,16 @@
     <div class="card-content">
       <ul>
  <li>
-        <WrenchSolid size="32"/><span>Listing on the website</span>
+        <WrenchSolid size="32"/><span> Network with other active Engineers.</span>
       </li>
       <li>
         <WrenchSolid size="32"/><span>Access to member-only events</span>
       </li>
       <li>
-        <WrenchSolid size="32"/><span>Network with other active Engineers</span>
+        <WrenchSolid size="32"/><span>Up to 5 individual members</span>
       </li>
       <li>
-        <WrenchSolid size="32"/><span>All Developers welcome!</span>
+        <WrenchSolid size="32"/><span>Corporate Partner Logo on website</span>
       </li>
       </ul>
     </div>
