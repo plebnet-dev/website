@@ -23,7 +23,7 @@ export default defineConfig({
   site: SITE.origin,
   base: SITE.basePathname,
   trailingSlash: SITE.trailingSlash ? 'always' : 'never',
-  output: 'server',
+  output: 'hybrid',
   adapter: vercel(),
   publicRuntimeConfig: {
     PUBLIC_SUPABASE_URL: process.env.PUBLIC_SUPABASE_URL,
