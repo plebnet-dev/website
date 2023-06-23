@@ -2,6 +2,23 @@
   import SignUpFormIndiv from './SignUpFormIndiv.svelte';
   import SignUpFormCorp from './SignUpFormCorp.svelte';
   import { WrenchSolid, BriefcaseSolid, PersonSolid } from 'svelte-awesome-icons';
+  import { createClient } from '@supabase/supabase-js';
+  import { onMount } from 'svelte';
+
+    let supabase;
+
+onMount(async () => {
+  const response = await fetch('/api/get-supabase');
+  console.log('Response Headers:', response.headers);
+  const responseBody = await response.text();
+  console.log('Response Body:', responseBody);
+  const { supabaseUrl, supabaseKey } = JSON.parse(responseBody);
+  console.log('Supabase URL:', supabaseUrl);
+  console.log('Supabase Key:', supabaseKey);
+  supabase = createClient(supabaseUrl, supabaseKey);
+});
+
+
 
   let formType = ''; // default form type
 </script>
