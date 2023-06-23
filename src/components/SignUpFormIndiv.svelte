@@ -1,12 +1,15 @@
 <script>
   import { createClient } from '@supabase/supabase-js';
   import { fade } from 'svelte/transition';
-  import { SUPABASE_URL, SUPABASE_KEY } from '$env/static/private';
+import { onMount } from 'svelte';
 
+let supabaseUrl;
+let supabaseKey;
 
-
-const supabaseUrl = SUPABASE_URL;
-const supabaseKey = SUPABASE_KEY;
+onMount(() => {
+  supabaseUrl = Astro?.env.PUBLIC_SUPABASE_URL;
+  supabaseKey = Astro?.env.PUBLIC_SUPABASE_KEY;
+});
 
 
 const supabase = createClient(supabaseUrl, supabaseKey);
