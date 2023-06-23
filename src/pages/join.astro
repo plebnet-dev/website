@@ -42,7 +42,7 @@ let formType = 'individual'; // default form type
 
       </div>
     <div class="w-full max-w-md">
-      <SignUpFormWrapper supabaseURLSecret={supabaseURLSecret} supabaseKeySecret={supabaseKeySecret}/>
+      <SignUpFormWrapper {supabaseURLSecret} {supabaseKeySecret}/>
     </div>
     <a rel="noopener noreferrer" href={getHomePermalink()} class="btn ml-4">Back to homepage</a>
   </div>
