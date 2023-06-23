@@ -2,23 +2,6 @@
   import SignUpFormIndiv from './SignUpFormIndiv.svelte';
   import SignUpFormCorp from './SignUpFormCorp.svelte';
   import { WrenchSolid, BriefcaseSolid, PersonSolid } from 'svelte-awesome-icons';
-  import { createClient } from '@supabase/supabase-js';
-  import { onMount } from 'svelte';
-
-    let supabase;
-
-onMount(async () => {
-  const response = await fetch('/api/get-supabase');
-  console.log('Response Headers:', response.headers);
-  const responseBody = await response.text();
-  console.log('Response Body:', responseBody);
-  const { supabaseUrl, supabaseKey } = JSON.parse(responseBody);
-  console.log('Supabase URL:', supabaseUrl);
-  console.log('Supabase Key:', supabaseKey);
-  supabase = createClient(supabaseUrl, supabaseKey);
-});
-
-
 
   let formType = ''; // default form type
 </script>
@@ -38,7 +21,7 @@ onMount(async () => {
 
   .card:hover,
   .card.active {
-    border-color: #0077b6;
+    border-color: #FF9950;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 0 10px 2px rgba(255, 153, 80, 1);
   }
 

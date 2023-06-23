@@ -1,5 +1,4 @@
 export async function get() {
-  console.log('Environment Variables:', process.env);
 
   const supabaseUrl = process.env.PUBLIC_SUPABASE_URL;
   const supabaseKey = process.env.PUBLIC_SUPABASE_KEY;
@@ -8,8 +7,6 @@ export async function get() {
     supabaseUrl,
     supabaseKey,
   });
-
-  console.log('Response Body:', responseBody);
 
   return {
     status: 200,

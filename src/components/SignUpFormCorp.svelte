@@ -2,13 +2,15 @@
   import { createClient } from '@supabase/supabase-js';
   import { fade } from 'svelte/transition';
   import { onMount } from 'svelte';
-    let supabase;
 
-onMount(() => {
-  const supabaseUrl = import.meta.env.VITE_PUBLIC_SUPABASE_URL;
-  const supabaseKey = import.meta.env.VITE_PUBLIC_SUPABASE_KEY;
-  supabase = createClient(supabaseUrl, supabaseKey);
-});
+  let supabase;
+
+  onMount(async () => {
+    const response = await fetch('/api/get-supabase');
+    const responseBody = await response.text();
+    const { supabaseUrl, supabaseKey } = JSON.parse(responseBody);
+    supabase = createClient(supabaseUrl, supabaseKey);
+  });
 
   let orgName = '';
   let contactPerson = '';
