@@ -1,3 +1,5 @@
+export const prerender = false;
+
 export async function get() {
 
   const supabaseUrl = process.env.PUBLIC_SUPABASE_URL;
