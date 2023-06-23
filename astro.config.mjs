@@ -29,6 +29,9 @@ export default defineConfig({
   publicRuntimeConfig: {
     PUBLIC_SUPABASE_URL: process.env.PUBLIC_SUPABASE_URL,
     PUBLIC_SUPABASE_KEY: process.env.PUBLIC_SUPABASE_KEY,
+    PUBLIC_SENDGRID_TEMPLATE_ID_INDIV: process.env.PUBLIC_SENDGRID_TEMPLATE_ID_INDIV,
+    PUBLIC_SENDGRID_TEMPLATE_ID_CORP: process.env.PUBLIC_SENDGRID_TEMPLATE_ID_CORP,
+    PUBLIC_SENDGRID_API_KEY: process.env.PUBLIC_SENDGRID_API_KEY,
   },
   markdown: {
     remarkPlugins: [readingTimeRemarkPlugin]
