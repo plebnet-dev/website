@@ -1,18 +1,18 @@
 <script>
   import { createClient } from '@supabase/supabase-js';
   import { fade } from 'svelte/transition';
-import { onMount } from 'svelte';
 
-let supabaseUrl;
-let supabaseKey;
+let supabase;
 
-onMount(() => {
-  supabaseUrl = Astro?.env.PUBLIC_SUPABASE_URL;
-  supabaseKey = Astro?.env.PUBLIC_SUPABASE_KEY;
-});
+// Fetch the Supabase API/URL from the new /api component when the page loads
+async function fetchSupabaseConfig() {
+  const response = await fetch('/api/get-supabase-config');
+  const { supabaseUrl, supabaseKey } = await response.json();
+  supabase = createClient(supabaseUrl, supabaseKey);
+}
 
-
-const supabase = createClient(supabaseUrl, supabaseKey);
+// Call the fetchSupabaseConfig function when the page loads
+fetchSupabaseConfig();
 
   let name = '';
   let email = '';

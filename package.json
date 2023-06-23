@@ -50,6 +50,7 @@
     "@astrojs/vercel": "^3.5.0",
     "@sendgrid/mail": "^7.7.0",
     "@supabase/supabase-js": "2.0",
+    "@sveltejs/adapter-vercel": "^3.0.1",
     "svelte": "^3.59.2",
     "svelte-awesome-icons": "^0.4.12"
   }
