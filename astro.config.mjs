@@ -24,11 +24,9 @@ export default defineConfig({
   trailingSlash: SITE.trailingSlash ? 'always' : 'never',
   output: 'server',
   adapter: vercel(),
-  buildOptions: {
-    env: {
-      PUBLIC_SUPABASE_URL: process.env.PUBLIC_SUPABASE_URL,
-      PUBLIC_SUPABASE_KEY: process.env.PUBLIC_SUPABASE_KEY,
-    },
+  publicRuntimeConfig: {
+    PUBLIC_SUPABASE_URL: process.env.PUBLIC_SUPABASE_URL,
+    PUBLIC_SUPABASE_KEY: process.env.PUBLIC_SUPABASE_KEY,
   },
   markdown: {
     remarkPlugins: [readingTimeRemarkPlugin]
