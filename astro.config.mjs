@@ -50,13 +50,18 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        '~': path.resolve(__dirname, './src')
-      }
+        '~': path.resolve(__dirname, './src'),
+        'svelte-icons/lib/MdPerson.svelte': require.resolve('svelte-icons/lib/MdPerson.svelte'),
+        'svelte-icons/lib/MdBusiness.svelte': require.resolve('svelte-icons/lib/MdBusiness.svelte'),
+      },
+    },
+    optimizeDeps: {
+      include: ['svelte-icons/lib/MdPerson.svelte', 'svelte-icons/lib/MdBusiness.svelte'],
     },
     build: {
       rollupOptions: {
-        external: ['svelte-icons/Md']
-      }
-    }
-  }
+        external: ['svelte-icons/Md'],
+      },
+    },
+  },
 });
