@@ -3,7 +3,7 @@ import defaultImage from './assets/images/default.png';
 const CONFIG = {
   name: 'PLEBNET.DEV',
 
-  origin: 'https://plebdevs-eriknewland.vercel.app',
+  origin: 'https://plebnet.dev',
   basePathname: '/',
   trailingSlash: false,
 
