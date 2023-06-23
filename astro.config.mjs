@@ -51,8 +51,6 @@ export default defineConfig({
     resolve: {
       alias: {
         '~': path.resolve(__dirname, './src'),
-        'svelte-icons/lib/MdPerson.svelte': require.resolve('svelte-icons/lib/MdPerson.svelte'),
-        'svelte-icons/lib/MdBusiness.svelte': require.resolve('svelte-icons/lib/MdBusiness.svelte'),
       },
     },
     optimizeDeps: {
@@ -63,5 +61,10 @@ export default defineConfig({
         external: ['svelte-icons/Md'],
       },
     },
+  },
+  async viteFinal(config) {
+    config.resolve.alias['svelte-icons/lib/MdPerson.svelte'] = await import.meta.resolve('svelte-icons/lib/MdPerson.svelte');
+    config.resolve.alias['svelte-icons/lib/MdBusiness.svelte'] = await import.meta.resolve('svelte-icons/lib/MdBusiness.svelte');
+    return config;
   },
 });
