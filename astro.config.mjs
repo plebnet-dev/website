@@ -48,10 +48,6 @@ export default defineConfig({
     logger: 1
   }), svelte()],
   vite: {
-    define: {
-      'import.meta.env.VITE_PUBLIC_SUPABASE_URL': JSON.stringify(process.env.PUBLIC_SUPABASE_URL),
-      'import.meta.env.VITE_PUBLIC_SUPABASE_KEY': JSON.stringify(process.env.PUBLIC_SUPABASE_KEY),
-    },
     resolve: {
       alias: {
         '~': path.resolve(__dirname, './src')
