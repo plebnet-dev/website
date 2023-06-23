@@ -51,20 +51,12 @@ export default defineConfig({
     resolve: {
       alias: {
         '~': path.resolve(__dirname, './src'),
-      },
-    },
-    optimizeDeps: {
-      include: ['svelte-icons/lib/MdPerson.svelte', 'svelte-icons/lib/MdBusiness.svelte'],
+      }
     },
     build: {
       rollupOptions: {
-        external: ['svelte-icons/Md'],
-      },
-    },
-  },
-  async viteFinal(config) {
-    config.resolve.alias['svelte-icons/lib/MdPerson.svelte'] = await import.meta.resolve('svelte-icons/lib/MdPerson.svelte');
-    config.resolve.alias['svelte-icons/lib/MdBusiness.svelte'] = await import.meta.resolve('svelte-icons/lib/MdBusiness.svelte');
-    return config;
-  },
+        external: ['svelte-icons/Md']
+      }
+    }
+  }
 });
