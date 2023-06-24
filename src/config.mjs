@@ -1,4 +1,4 @@
-import defaultImage from './assets/images/default.png';
+import defaultImage from './assets/images/default.jpg';
 
 const CONFIG = {
   name: 'PLEBNET.DEV',
