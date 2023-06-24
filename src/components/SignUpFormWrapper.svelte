@@ -71,6 +71,11 @@
   <div
     class="card {formType === 'individual' ? 'active' : ''}"
     on:click={() => (formType = 'individual')}
+    on:keydown={(e) => {
+      if (e.key === 'Enter') {
+        formType = 'individual';
+      }
+    }}
   >
     <div class="card-title">
       <span>Individual Membership</span>
@@ -98,6 +103,11 @@
   <div
     class="card {formType === 'corporate' ? 'active' : ''}"
     on:click={() => (formType = 'corporate')}
+    on:keydown={(e) => {
+      if (e.key === 'Enter') {
+        formType = 'corporate';
+      }
+    }}
   >
     <div class="card-title">
     <span>Corporate Membership</span>
