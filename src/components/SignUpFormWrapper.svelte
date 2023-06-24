@@ -56,11 +56,6 @@
     color: #FF9950
   }
 
-  .card-content li .bullet-icon {
-    color: #0077b6;
-    margin-right: 0.5rem;
-    font-size: 18px;
-  }
   span {
     margin-left: 1rem;
     margin-top: 0;
