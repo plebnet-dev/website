@@ -10,13 +10,12 @@
   .card {
     border: 1px solid #ccc;
     border-radius: 4px;
-    padding: 1rem;
+    padding: 0.75rem;
     margin: 0.5rem;
     cursor: pointer;
     transition: all 0.3s;
     background-color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    min-width: 420px;
   }
 
   .card:hover,
@@ -28,15 +27,11 @@
   .card-title {
     font-size: 1.25rem;
     font-weight: 500;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     color: #10182B;
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
-
-  .card-title span {
-    margin-left: 0.5rem;
   }
 
   .card-content {
@@ -53,16 +48,23 @@
     display: flex;
     align-items: center;
     margin-bottom: 0.5rem;
-    color: #FF9950
+    color: #FF9950;
   }
 
   span {
     margin-left: 1rem;
     margin-top: 0;
   }
+
+  /* Media queries for mobile devices */
+  @media (max-width: 768px) {
+    .card {
+      width: 100%;
+    }
+  }
 </style>
 
-<div class="flex justify-center">
+<div class="flex flex-wrap justify-center">
   <div
     class="card {formType === 'individual' ? 'active' : ''}"
     on:click={() => (formType = 'individual')}
@@ -75,24 +77,22 @@
     <div class="card-title">
       <span>Individual Membership</span>
       <PersonSolid size="24" class="mr-2" />
-</div>
+    </div>
     <div class="card-content">
       <ul>
- <li>
-        <WrenchSolid size="32"/><span>Listing on the website</span>
-      </li>
-      <li>
-        <WrenchSolid size="32"/><span>Join events with Plebnet.Dev</span>
-      </li>
-      <li>
-        <WrenchSolid size="32"/><span> Access to Mentoring - all skill levels welcome.
-        </span>
-      </li>
-      <li>
-        <WrenchSolid size="32"/><span> Access to Member only services.</span>
-      </li>
-
-    </ul>
+        <li>
+          <WrenchSolid size="32"/><span>Listing on the website</span>
+        </li>
+        <li>
+          <WrenchSolid size="32"/><span>Join events with Plebnet.Dev</span>
+        </li>
+        <li>
+          <WrenchSolid size="32"/><span>Access to Mentoring - all skill levels welcome.</span>
+        </li>
+        <li>
+          <WrenchSolid size="32"/><span>Access to Member only services.</span>
+        </li>
+      </ul>
     </div>
   </div>
   <div
@@ -105,23 +105,24 @@
     }}
   >
     <div class="card-title">
-    <span>Corporate Membership</span>
+      <span>Corporate Membership</span>
       <BriefcaseSolid size="24" class="mr-2" />
     </div>
     <div class="card-content">
       <ul>
- <li>
-        <WrenchSolid size="32"/><span> Network with other active Engineers.</span>
-      </li>
-      <li>
-        <WrenchSolid size="32"/><span>Access to member-only events</span>
-      </li>
-      <li>
-        <WrenchSolid size="32"/><span>Up to 5 individual members</span>
-      </li>
-      <li>
-        <WrenchSolid size="32"/><span>Corporate Partner Logo on website</span>
-      </li>
+        <li>
+          <WrenchSolid size="32"/><span>Network with other active Engineers.</span>
+        </li>
+        <li>
+          <WrenchSolid size="32"/><span>Access to member-only events</span>
+        </li>
+        <li>
+          <WrenchSolid size="32"/><span>Up to 5 individual members</span>
+        </li>
+        <li>
+          <WrenchSolid size="32"/><span>
+Corporate Partner Logo on website</span>
+        </li>
       </ul>
     </div>
   </div>

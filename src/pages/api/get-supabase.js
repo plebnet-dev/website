@@ -1,5 +1,7 @@
 export const prerender = false;
 
+// import { Response } from 'astro/runtime';
+
 export async function get() {
 
   const supabaseUrl = process.env.PUBLIC_SUPABASE_URL;
@@ -10,11 +12,10 @@ export async function get() {
     supabaseKey,
   });
 
-  return {
+  return new Response(responseBody, {
     status: 200,
     headers: {
       'Content-Type': 'application/json',
     },
-    body: responseBody,
-  };
+  });
 }
