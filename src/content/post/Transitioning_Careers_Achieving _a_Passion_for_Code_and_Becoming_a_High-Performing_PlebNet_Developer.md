@@ -17,7 +17,7 @@ tags:
 Embarking on a career change to become a high-performing plebnet developer with a focus on DevOps and managing tech firms can be an exciting and rewarding journey. However, it requires a significant amount of time, dedication, and a clear understanding of the learning process involved. In this article, we'll outline a realistic timeline for transitioning careers and achieving expertise in code, highlighting the different stages of learning and the essential skills to acquire along the way.
 
 ## 1. Learning the basics
-To begin, it's crucial to establish a solid foundation in programming concepts and essential languages such as Python, HTML, CSS, and JavaScript to name a few. This initial phase generally takes alot of upfront time, ranging from 6 to 12 months, to grasp the fundamentals such as web development frameworks. During this period, aspiring developers should dedicate themselves to learning the basics, experimenting with small projects, and understanding core programming principles.
+To begin, it's crucial to establish a solid foundation in programming concepts and essential languages such as Python, HTML, CSS, and JavaScript to name a few. This initial phase generally takes a lot of upfront time, ranging from 6 to 12 months, to grasp the fundamentals such as web development frameworks. During this period, aspiring developers should dedicate themselves to learning the basics, experimenting with small projects, and understanding core programming principles.
 
 For example, here's a simple HTML code snippet:
 
@@ -76,6 +76,6 @@ Building a strong track record as a high-performing DevOps professional and mana
 ## Conclusion
 Transitioning careers to become a high-performing plebnet developer with a focus on DevOps and managing tech firms requires time, dedication, and continuous learning. While the timeline provided is a rough estimate, individual progress may vary. Consistency, passion, and a continuous learning mindset are key to accelerating the learning process and achieving success. Remember to leverage internships, personal projects, and open-source contributions to gain practical experience and enhance your learning journey. By following this path and continuously expanding your skills, you can achieve your goal of becoming a highly sought-after full-stack developer in the dynamic world of technology.
 
-**Join us if you're interested in contributing as a senior developer or if you're new and want to learn basic prrogramming skills to start by [Clicking Here](https://plebnet.dev)**
+**Join us if you're interested in contributing as a senior developer or if you're new and want to learn basic programming skills to start by [Clicking Here](https://plebnet.dev)**
 
-**Attribution:** This content is a PlebNet Dev Contribution. The article was authored by bitcoinDad
+**Attribution: This content is a PlebNet Dev Contribution. The article was authored by [bitcoinDad](https://github.com/Bitc0indad)**
