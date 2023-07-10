@@ -2,8 +2,13 @@
   import { createClient } from '@supabase/supabase-js';
   import { fade } from 'svelte/transition';
   import { onMount } from 'svelte';
+  import { createEventDispatcher } from 'svelte';
+
+  const dispatch = createEventDispatcher();
 
   let supabase;
+
+  export let showFormModal = false;
 
   onMount(async () => {
     const response = await fetch('/api/get-supabase');
@@ -33,7 +38,7 @@
       twitter,
       goal,
       industry,
-      sponsor,
+      sponsor: sponsor ? 'yes' : 'no',
     };
     console.log(JSON.stringify(formData));
 
@@ -191,16 +196,31 @@ input[type="checkbox"]:checked::before {
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  padding: 20px; /* Add padding to the modal */
+  box-sizing: border-box; /* Ensure padding is included in the modal's width and height */
 }
 
 .modal-content {
+  position: relative;
   background-color: white;
   padding: 2rem;
   border-radius: 4px;
   text-align: center;
   box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
   min-width: 300px;
-  max-width: 90%;
+  max-width: calc(100% - 40px);
+  max-height: calc(100% - 40px);
+  overflow: auto;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 .modal-content h2 {
@@ -215,8 +235,35 @@ input[type="checkbox"]:checked::before {
   margin-top: 0.5rem;
   color: rgba(0, 0, 0, 0.6);
 }
+
+.modal-background {
+  background-color: #10182B
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #FF9900;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .close-button {
+    top: -15px;
+    right: 5px;
+  }
+}
 </style>
 
+{#if showFormModal}
+  <div class="modal" transition:fade>
+    <div class="modal-content modal-background">
+      <button class="close-button" on:click={() => {
+        showFormModal = false;
+        dispatch('modal', showFormModal);
+      }}>×</button>
+    <h1>Corporate Sign Up</h1>
 <form on:submit|preventDefault={handleSubmit}>
 <div class="input-wrapper">
   <label for="orgName">Organization Name*</label>
@@ -269,3 +316,6 @@ input[type="checkbox"]:checked::before {
   </div>
 {/if}
 </form>
+    </div>
+  </div>
+{/if}
