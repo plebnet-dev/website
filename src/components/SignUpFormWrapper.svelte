@@ -4,10 +4,25 @@
   import { WrenchSolid, BriefcaseSolid, PersonSolid } from 'svelte-awesome-icons';
 
   let formType = ''; // default form type
+  let showFormModal = false;
+
+  function handleCardClick(type) {
+  formType = type;
+  showFormModal = true;
+}
 </script>
 
 <style>
+  .flex {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+  }
+
   .card {
+    width: 500px;
+    max-width: 500px;
+    flex: 0 0 auto;
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 0.75rem;
@@ -57,20 +72,26 @@
   }
 
   /* Media queries for mobile devices */
-  @media (max-width: 768px) {
+  @media (max-width: 1040px) {
+    .flex {
+      flex-direction: column;
+      align-items: center; /* Center the cards on smaller screens */
+    }
     .card {
-      width: 100%;
+      flex: 1 0 80%; /* Increase the width to 80% on smaller screens */
+      max-width: 80%;
     }
   }
+
 </style>
 
 <div class="flex flex-wrap justify-center">
   <div
     class="card {formType === 'individual' ? 'active' : ''}"
-    on:click={() => (formType = 'individual')}
+    on:click={() => handleCardClick('individual')}
     on:keydown={(e) => {
       if (e.key === 'Enter') {
-        formType = 'individual';
+        handleCardClick('individual');
       }
     }}
   >
@@ -81,26 +102,38 @@
     <div class="card-content">
       <ul>
         <li>
-          <WrenchSolid size="32"/><span>Listing on the website</span>
+          <div style="flex-shrink: 0;">
+            <WrenchSolid size="32"/>
+          </div>
+          <span>Listing on the website</span>
         </li>
         <li>
-          <WrenchSolid size="32"/><span>Join events with Plebnet.Dev</span>
+          <div style="flex-shrink: 0;">
+            <WrenchSolid size="32"/>
+          </div>
+          <span>Join events with Plebnet.Dev</span>
         </li>
         <li>
-          <WrenchSolid size="32"/><span>Access to Mentoring - all skill levels welcome.</span>
+          <div style="flex-shrink: 0;">
+            <WrenchSolid size="32"/>
+          </div>
+          <span>Access to Mentoring - all skill levels welcome.</span>
         </li>
         <li>
-          <WrenchSolid size="32"/><span>Access to Member only services.</span>
+          <div style="flex-shrink: 0;">
+            <WrenchSolid size="32"/>
+          </div>
+          <span>Access to Member only services.</span>
         </li>
       </ul>
     </div>
   </div>
   <div
     class="card {formType === 'corporate' ? 'active' : ''}"
-    on:click={() => (formType = 'corporate')}
+    on:click={() => handleCardClick('corporate')}
     on:keydown={(e) => {
       if (e.key === 'Enter') {
-        formType = 'corporate';
+        handleCardClick('corporate');
       }
     }}
   >
@@ -111,16 +144,28 @@
     <div class="card-content">
       <ul>
         <li>
-          <WrenchSolid size="32"/><span>Network with other active Engineers.</span>
+          <div style="flex-shrink: 0;">
+            <WrenchSolid size="32"/>
+          </div>
+          <span>Network with other active Engineers.</span>
         </li>
         <li>
-          <WrenchSolid size="32"/><span>Access to member-only events</span>
+          <div style="flex-shrink: 0;">
+            <WrenchSolid size="32"/>
+          </div>
+          <span>Access to member-only events</span>
         </li>
         <li>
-          <WrenchSolid size="32"/><span>Up to 5 individual members</span>
+          <div style="flex-shrink: 0;">
+            <WrenchSolid size="32"/>
+          </div>
+          <span>Up to 5 individual members</span>
         </li>
         <li>
-          <WrenchSolid size="32"/><span>
+          <div style="flex-shrink: 0;">
+            <WrenchSolid size="32"/>
+          </div>
+          <span>
 Corporate Partner Logo on website</span>
         </li>
       </ul>
@@ -129,7 +174,7 @@ Corporate Partner Logo on website</span>
 </div>
 
 {#if formType === 'individual'}
-  <SignUpFormIndiv />
+  <SignUpFormIndiv {showFormModal} on:modal={(e) => showFormModal = e.detail} />
 {:else if formType === 'corporate'}
-  <SignUpFormCorp />
+  <SignUpFormCorp {showFormModal} on:modal={(e) => showFormModal = e.detail} />
 {/if}
