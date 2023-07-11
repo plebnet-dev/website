@@ -2,7 +2,14 @@
   import { createClient } from '@supabase/supabase-js';
   import { fade } from 'svelte/transition';
   import { onMount } from 'svelte';
-    import { createEventDispatcher } from 'svelte';
+  import { createEventDispatcher } from 'svelte';
+  import { paymentStatus } from '../store.js';
+
+  let isSubmitEnabled = false;
+
+  paymentStatus.subscribe(value => {
+    isSubmitEnabled = value;
+  });
 
   const dispatch = createEventDispatcher();
 
@@ -10,7 +17,15 @@
 
   export let showFormModal = false;
 
+  async function getQRCode() {
+    const response = await fetch('https://legend.lnbits.com/api/v1/qrcode/LNURL1DP68GURN8GHJ7MR9VAJKUEPWD3HXY6T5WVHXXMMD9AKXUATJD3CZ7STG0FG5G5GAR6M50');
+    const data = await response.text();
+    qrCode = data;
+    console.log(data)
+  }
+
   onMount(async () => {
+    await getQRCode();
     const response = await fetch('/api/get-supabase');
     const responseBody = await response.text();
     const { supabaseUrl, supabaseKey } = JSON.parse(responseBody);
@@ -27,6 +42,7 @@
   let mentor = false;
   let responseMessage = '';
   let showModal = false;
+  let qrCode = '';
 
 async function handleSubmit() {
   const formData = {
@@ -306,11 +322,15 @@ h1 {
   <label for="mentor">Do you want to mentor?</label>
   <input type="checkbox" id="mentor" bind:checked={mentor} />
 </div>
-
-  <button type="submit">Submit</button>
+  <div class="input-wrapper">
+  <label for="qrCode">QR Code</label>
+  <div id="qrCode" bind:innerHTML={qrCode} contenteditable></div>
+</div>
+  <button type="submit" disabled={!isSubmitEnabled}>Submit</button>
 
 {#if showModal}
   <div class="modal" transition:fade>
+
     <div class="modal-content">
       <h2>Thank you for signing up!</h2>
       <p>Check out some community projects and find one that's right for you</p>
