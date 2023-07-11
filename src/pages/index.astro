@@ -35,7 +35,7 @@ const meta = {
   <Hero2
     callToAction={{ text: 'Join Us', href: '/join' }}
     callToAction2={{ text: 'Learn More', href: '#more' }}
-    image={{ src: import('/public/images/electric_bitcoin.jpg'), alt: 'Plebnet.dev Hero Image' }}
+    image={{ src: import('~/assets/images/electricbitcoin.jpg'), alt: 'Plebnet.dev Hero Image' }}
   >
     <Fragment slot="title">
       Build the <br/> 
@@ -63,17 +63,20 @@ const meta = {
       {
         title: 'Code Mentors',
         description:
-        "Experienced Bitcoin and Lightning devs who want to give back and grow new talent"
+        "Experienced Bitcoin and Lightning devs who want to give back and grow new talent",
+        icon: 'tabler:bolt',
         },
       {
         title: 'Seeking Mentoring',
         description:
-        'Plebians who are new to open source, or who are freshly out of bootcamp or code school, and are looking to contribute to their first OSS project'
+        'Plebians who are new to open source, or who are freshly out of bootcamp or code school, and are looking to contribute to their first OSS project',
+        icon: 'tabler:bolt',
       },
       {
         title: 'New Open Source Project Developers',
         description:
-        'Are you Starting a new OSS project in bitcoin or lightining, and are you looking for new Contributors? This is the place to be.'
+        'Are you Starting a new OSS project in bitcoin or lightining, and are you looking for new Contributors? This is the place to be.',
+        icon: 'tabler:bolt',
       },
     ]}
     image={{
