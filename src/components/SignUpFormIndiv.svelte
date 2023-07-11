@@ -1,21 +1,31 @@
 <script>
   import { createClient } from '@supabase/supabase-js';
   import { fade } from 'svelte/transition';
-  import { onMount } from 'svelte';
+  import { onMount, onDestroy } from 'svelte';
   import { createEventDispatcher } from 'svelte';
-  import { paymentStatus } from '../store.js';
-
-  let isSubmitEnabled = false;
-
-  paymentStatus.subscribe(value => {
-    isSubmitEnabled = value;
-  });
 
   const dispatch = createEventDispatcher();
 
   let supabase;
 
   export let showFormModal = false;
+
+  let isSubmitEnabled = false;
+
+// Function to check payment status
+async function checkPaymentStatus() {
+  const response = await fetch('/api/payment-webhook', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  const data = await response.json();
+  console.log(data)
+  if (data.status) {
+    isSubmitEnabled = true;
+  }
+}
 
   async function getQRCode() {
     const response = await fetch('https://legend.lnbits.com/api/v1/qrcode/LNURL1DP68GURN8GHJ7MR9VAJKUEPWD3HXY6T5WVHXXMMD9AKXUATJD3CZ7STG0FG5G5GAR6M50');
@@ -25,11 +35,17 @@
   }
 
   onMount(async () => {
+    checkPaymentStatus();
+    intervalId = setInterval(checkPaymentStatus, 5000);
     await getQRCode();
     const response = await fetch('/api/get-supabase');
     const responseBody = await response.text();
     const { supabaseUrl, supabaseKey } = JSON.parse(responseBody);
     supabase = createClient(supabaseUrl, supabaseKey);
+  });
+
+  onDestroy(() => {
+    clearInterval(intervalId);
   });
 
   let name = '';
@@ -43,6 +59,7 @@
   let responseMessage = '';
   let showModal = false;
   let qrCode = '';
+  let intervalId;
 
 async function handleSubmit() {
   const formData = {

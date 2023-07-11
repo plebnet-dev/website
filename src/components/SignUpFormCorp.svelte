@@ -6,11 +6,19 @@
 
   const dispatch = createEventDispatcher();
 
+    async function getQRCode() {
+    const response = await fetch('https://legend.lnbits.com/api/v1/qrcode/LNURL1DP68GURN8GHJ7MR9VAJKUEPWD3HXY6T5WVHXXMMD9AKXUATJD3CZ732NVY6HW3GM2DES8');
+    const data = await response.text();
+    qrCode = data;
+    console.log(data)
+  }
+
   let supabase;
 
   export let showFormModal = false;
 
   onMount(async () => {
+    await getQRCode();
     const response = await fetch('/api/get-supabase');
     const responseBody = await response.text();
     const { supabaseUrl, supabaseKey } = JSON.parse(responseBody);
@@ -27,6 +35,7 @@
   let sponsor = false;
   let responseMessage = '';
   let showModal = false;
+  let qrCode = '';
 
   async function handleSubmit() {
     const formData = {
@@ -304,9 +313,11 @@ h1 {
   <label for="sponsor">Do you want to sponsor Pleb Devs?*</label>
   <input type="checkbox" id="sponsor" bind:checked={sponsor} />
 </div>
-
+  <div class="input-wrapper">
+  <label for="qrCode">QR Code</label>
+  <div id="qrCode" bind:innerHTML={qrCode} contenteditable></div>
   <button type="submit">Submit</button>
-
+  </div>
 {#if showModal}
   <div class="modal" transition:fade>
     <div class="modal-content">
