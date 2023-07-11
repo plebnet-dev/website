@@ -18,7 +18,7 @@
     method: 'GET',
     headers: {
       'accept': 'application/json',
-      'X-API-KEY': '09537d85b93a4d1ab36d6204313871bb'
+      'X-API-KEY': LNbitsApiKey
       }
     });
 
@@ -40,7 +40,8 @@
   onMount(async () => {
     const response = await fetch('/api/get-supabase');
     const responseBody = await response.text();
-    const { supabaseUrl, supabaseKey } = JSON.parse(responseBody);
+    const { supabaseUrl, supabaseKey, LNbitsAPI } = JSON.parse(responseBody);
+    LNbitsApiKey = LNbitsAPI
     supabase = createClient(supabaseUrl, supabaseKey);
 
       // Create LNbits paylink
@@ -48,7 +49,7 @@
     method: 'POST',
     headers: {
       'accept': 'application/json',
-      'X-API-KEY': 'a10b9ab53bcf436191dcd72c91a5ec8c',
+      'X-API-KEY': LNbitsApiKey,
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
@@ -91,6 +92,7 @@
   let paylinkID = '';
   let hasPaid = false;
   let intervalId;
+  let LNbitsApiKey = '';
 
   async function handleSubmit() {
     const formData = {
