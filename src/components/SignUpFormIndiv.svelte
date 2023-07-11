@@ -10,41 +10,70 @@
 
   export let showFormModal = false;
 
-  let isSubmitEnabled = false;
+  async function getQRCode() {
+    const response = await fetch(`https://legend.lnbits.com/api/v1/qrcode/${paylinkLNURL}`);
+    let data = await response.text();
+    data = data.replace(/stroke="#000"/g, 'stroke="#FF9500"');
+    qrCode = data;
+  }
 
-// Function to check payment status
-async function checkPaymentStatus() {
-  const response = await fetch('/api/payment-webhook', {
+  async function getPaylink() {
+    const response = await fetch(`https://legend.lnbits.com/lnurlp/api/v1/links/${paylinkID}`, {
+    method: 'GET',
+    headers: {
+      'accept': 'application/json',
+      'X-API-KEY': LNbitsApiKey
+      }
+    });
+
+    const data = await response.json();
+    console.log(data.served_pr);
+    if (data.served_pr > 0) {
+      console.log('The link has been paid at least once.');
+      hasPaid = true;
+      clearInterval(intervalId); // Stop checking
+    } else {
+      console.log('The link has not been paid yet.');
+    }
+  }
+
+onMount(async () => {
+  const response = await fetch('/api/get-supabase');
+  const responseBody = await response.text();
+  const { supabaseUrl, supabaseKey, LNbitsAPI } = JSON.parse(responseBody);
+  LNbitsApiKey = LNbitsAPI
+  supabase = createClient(supabaseUrl, supabaseKey);
+
+  // Create LNbits paylink
+  const paylinkResponse = await fetch('https://legend.lnbits.com/lnurlp/api/v1/links', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
+      'accept': 'application/json',
+      'X-API-KEY': LNbitsApiKey,
+      'Content-Type': 'application/json'
     },
+    body: JSON.stringify({
+      "description": "Pleb Devs Individual Membership",
+      "min": 100,
+      "max": 100,
+      "currency": "sats",
+      "comment_chars": 50,
+      "success_text": "Thanks for joining the PlebDev Community!",
+      "fiat_base_multiplier": 10000,
+      "zaps": false
+    })
   });
-  const data = await response.json();
-  console.log(data)
-  if (data.status) {
-    isSubmitEnabled = true;
-  }
-}
 
-  async function getQRCode() {
-    const response = await fetch('https://legend.lnbits.com/api/v1/qrcode/LNURL1DP68GURN8GHJ7MR9VAJKUEPWD3HXY6T5WVHXXMMD9AKXUATJD3CZ7STG0FG5G5GAR6M50');
-    const data = await response.text();
-    qrCode = data;
-    console.log(data)
-  }
-
-  onMount(async () => {
-    checkPaymentStatus();
-    intervalId = setInterval(checkPaymentStatus, 5000);
+    const paylinkData = await paylinkResponse.json();
+    paylinkLNURL = paylinkData.lnurl
+    paylinkID = paylinkData.id
+    console.log(paylinkData);
     await getQRCode();
-    const response = await fetch('/api/get-supabase');
-    const responseBody = await response.text();
-    const { supabaseUrl, supabaseKey } = JSON.parse(responseBody);
-    supabase = createClient(supabaseUrl, supabaseKey);
+    intervalId = setInterval(getPaylink, 3000);
   });
 
   onDestroy(() => {
+    // Clear the interval when the component is destroyed
     clearInterval(intervalId);
   });
 
@@ -59,7 +88,11 @@ async function checkPaymentStatus() {
   let responseMessage = '';
   let showModal = false;
   let qrCode = '';
+  let paylinkLNURL = '';
+  let paylinkID = '';
+  let hasPaid = false;
   let intervalId;
+  let LNbitsApiKey = '';
 
 async function handleSubmit() {
   const formData = {
@@ -135,14 +168,14 @@ async function handleSubmit() {
 
   input:focus {
     outline: none;
-    border-bottom-color: #FF9900;
+    border-bottom-color: #FF9500;
   }
 
   button {
     margin-top: 1rem;
     padding: 0.5rem 1rem;
     background-color: white;
-    color: #FF9900;
+    color: #FF9500;
     font-size: 1rem;
     font-weight: bold;
     border: none;
@@ -152,7 +185,7 @@ async function handleSubmit() {
   }
 
   button:hover {
-    background-color: #FF9900;
+    background-color: #FF9500;
     color: white
   }
 
@@ -174,7 +207,7 @@ async function handleSubmit() {
 
   textarea:focus {
     outline: none;
-    border-bottom-color: #FF9900;
+    border-bottom-color: #FF9500;
     resize: none;
   }
 
@@ -194,8 +227,8 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:checked {
-  background-color: #FF9900;
-  border-color: #FF9900;
+  background-color: #FF9500;
+  border-color: #FF9500;
 }
 
 input[type="checkbox"]:checked::before {
@@ -218,7 +251,7 @@ input[type="checkbox"]:checked::before {
 }
 
 .input-wrapper:focus-within label {
-  color:  #FF9900;
+  color:  #FF9500;
 }
 
 .modal {
@@ -263,7 +296,7 @@ input[type="checkbox"]:checked::before {
   font-size: 1.5rem;
   font-weight: 500;
   margin-bottom: 0;
-  color: #FF9900;
+  color: #FF9500;
 }
 
 .modal-content p {
@@ -278,7 +311,7 @@ input[type="checkbox"]:checked::before {
 h1 {
   font-size: 2rem;
   font-weight: bold;
-  color: #FF9900;
+  color: #FF9500;
   margin-top: 0;
   margin-bottom: 1rem;
 }
@@ -289,6 +322,11 @@ h1 {
     right: 5px;
   }
 }
+
+h6 {
+  color: #FF9500;
+}
+
 </style>
 
 {#if showFormModal}
@@ -340,10 +378,13 @@ h1 {
   <input type="checkbox" id="mentor" bind:checked={mentor} />
 </div>
   <div class="input-wrapper">
-  <label for="qrCode">QR Code</label>
-  <div id="qrCode" bind:innerHTML={qrCode} contenteditable></div>
+  <label style="font-size:1.5rem;" for="qrCode">Membership Dues</label>
+  <div style="margin:auto;" id="qrCode" bind:innerHTML={qrCode} contenteditable></div>
 </div>
-  <button type="submit" disabled={!isSubmitEnabled}>Submit</button>
+  {#if !hasPaid}
+    <h6>Please complete payment before signing up. Include your email in the comment field.</h6>
+  {/if}
+  <button type="submit" disabled={!hasPaid}>Submit</button>
 
 {#if showModal}
   <div class="modal" transition:fade>
