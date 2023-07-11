@@ -1,9 +1,15 @@
-import { paymentStatus } from '../../store.js';
-
-export async function post(req, res) {
+export async function post() {
   // Update the payment status in the store
   console.log('this is working')
-  paymentStatus.set(true);
+  const responseBody = JSON.stringify({
+    status: true,
+  });
 
-  return res.status(200).json({ status: true });
+  return new Response(responseBody, {
+    status: 200,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
 }
+
