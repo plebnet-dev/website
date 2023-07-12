@@ -3,6 +3,7 @@
   import { fade } from 'svelte/transition';
   import { onMount, onDestroy } from 'svelte';
   import { createEventDispatcher } from 'svelte';
+  import { ClipboardListSolid } from 'svelte-awesome-icons';
 
   const dispatch = createEventDispatcher();
 
@@ -54,9 +55,9 @@
       },
       body: JSON.stringify({
         description: 'Pleb Devs Individual Membership',
-        min: 100,
-        max: 100,
-        currency: 'sats',
+        min: 100 * 10000,
+        max: 100 * 10000,
+        currency: 'satoshi',
         comment_chars: 50,
         success_text: 'Thanks for joining the PlebDev Community!',
         fiat_base_multiplier: 10000,
@@ -184,7 +185,6 @@
           <label for="email">Email*</label>
           <input type="email" id="email" bind:value={email} required />
         </div>
-
         <div class="input-wrapper">
           <label for="twitter">Twitter or Nostr npub</label>
           <input type="text" id="twitter" bind:value={twitter} />
@@ -218,41 +218,21 @@
           <label style="font-size:1.5rem; margin-top: 2rem;" for="qrCode">Membership Dues</label>
           <p style="color: #FF9500">10,000 sats</p>
           <div
-            class="tooltip no-outline"
+            class="no-outline"
+            style="margin:auto; padding-right: 10px; cursor: pointer;"
+            id="qrCode"
+            bind:innerHTML={qrCode}
+            contenteditable
             on:keypress={copyToClipboard}
             on:click={copyToClipboard}
-            on:mousemove={updateTooltipPosition}
-            on:mouseleave={hideTooltip}
-          >
-            <div
-              class="no-outline"
-              style="margin:auto; padding-right: 10px; cursor: pointer;"
-              id="qrCode"
-              bind:innerHTML={qrCode}
-              contenteditable
-              on:keypress={copyToClipboard}
-              on:click={copyToClipboard}
-            />
-            <span class="tooltiptext" style="left: {tooltip.x}px; top: {tooltip.y}px;" class:show={tooltip.show}
-              >Click to copy</span
-            >
-          </div>
-
-          {#if qrCode}
-            <div
-              class="tooltip"
-              on:keypress={copyToClipboard}
-              on:click={copyToClipboard}
-              on:mousemove={updateTooltipPosition}
-              on:mouseleave={hideTooltip}
-            >
-              <h6 style="word-wrap: break-word; cursor: pointer;">{lnurl}</h6>
-              <span class="tooltiptext" style="left: {tooltip.x}px; top: {tooltip.y}px;" class:show={tooltip.show}
-                >Click to copy</span
-              >
-            </div>
-          {/if}
+          />
         </div>
+
+        {#if qrCode}
+          <button type="button" on:click={copyToClipboard} class="lnurl">
+            <div style="display: flex; justify-content: center;">Copy LNURL<ClipboardListSolid size={14} /></div>
+          </button>
+        {/if}
         {#if !hasPaid}
           <h6 style="font-size: 0.75rem;">
             <i>Please complete payment before signing up. Include your email in the comment field.</i>
@@ -311,6 +291,8 @@
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
+    align-items: center;
+    justify-content: center;
   }
 
   button:hover {
@@ -480,5 +462,21 @@
 
   .no-outline:focus {
     outline: none;
+  }
+
+  .lnurl {
+    background-color: #ff9500;
+    color: #10182b;
+    width: 25%;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 0.75rem;
+    justify-content: center;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .lnurl:hover {
+    color: #10182b;
   }
 </style>
