@@ -220,7 +220,8 @@
 
         <div class="input-wrapper">
           <label style="font-size:1.5rem; margin-top: 2rem;" for="qrCode">Membership Dues</label>
-          <div class="qr-code-container">
+          <p style="color: #FF9500">30,000 sats</p>
+          <div class="qr-code-container no-outline">
             <div
               class="tooltip"
               on:click={copyToClipboard}
@@ -229,6 +230,7 @@
               on:keypress={copyToClipboard}
             >
               <div
+                class="no-outline"
                 style="margin:auto; padding-right: 10px; cursor: pointer;"
                 id="qrCode"
                 bind:innerHTML={qrCode}
@@ -492,5 +494,9 @@
 
   .lnurl-container {
     display: block;
+  }
+
+  .no-outline:focus {
+    outline: none;
   }
 </style>

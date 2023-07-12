@@ -223,14 +223,16 @@
         </div>
         <div class="input-wrapper">
           <label style="font-size:1.5rem; margin-top: 2rem;" for="qrCode">Membership Dues</label>
+          <p style="color: #FF9500">10,000 sats</p>
           <div
-            class="tooltip"
+            class="tooltip no-outline"
             on:keypress={copyToClipboard}
             on:click={copyToClipboard}
             on:mousemove={updateTooltipPosition}
             on:mouseleave={hideTooltip}
           >
             <div
+              class="no-outline"
               style="margin:auto; padding-right: 10px; cursor: pointer;"
               id="qrCode"
               bind:innerHTML={qrCode}
@@ -481,5 +483,9 @@
 
   .tooltiptext.show {
     opacity: 1;
+  }
+
+  .no-outline:focus {
+    outline: none;
   }
 </style>
