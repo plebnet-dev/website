@@ -15,7 +15,6 @@
     data = data.replace(/width="[^"]*"/g, 'width="200"');
     data = data.replace(/height="[^"]*"/g, 'height="200"');
     qrCode = data;
-    console.log(data);
   }
 
   async function getPaylink() {
@@ -28,13 +27,9 @@
     });
 
     const data = await response.json();
-    console.log(data.served_pr);
     if (data.served_pr > 0) {
-      console.log('The link has been paid at least once.');
       hasPaid = true;
       clearInterval(intervalId); // Stop checking
-    } else {
-      console.log('The link has not been paid yet.');
     }
   }
 
@@ -73,7 +68,6 @@
     paylinkLNURL = paylinkData.lnurl;
     paylinkID = paylinkData.id;
     lnurl = paylinkData.lnurl;
-    console.log(paylinkData);
     intervalId = setInterval(getPaylink, 3000);
     await getQRCode();
   });
@@ -114,7 +108,6 @@
       industry,
       sponsor: sponsor ? 'yes' : 'no',
     };
-    console.log(JSON.stringify(formData));
 
     const { data, error } = await supabase.from('members-corporate').insert([formData]);
 
