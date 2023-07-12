@@ -55,8 +55,8 @@
       },
       body: JSON.stringify({
         description: 'Pleb Devs Corporate Membership',
-        min: 100,
-        max: 100,
+        min: 100 * 30000,
+        max: 100 * 30000,
         currency: 'sats',
         comment_chars: 50,
         success_text: 'Thanks for joining the PlebDev Community!',
@@ -228,8 +228,8 @@
           </div>
         </div>
         {#if qrCode}
-          <button type="button" on:click={copyToClipboard}>
-            <div style="display: flex; justify-content: center;">Copy LNURL<ClipboardListSolid /></div>
+          <button type="button" on:click={copyToClipboard} class="lnurl">
+            <div style="display: flex; justify-content: center;">Copy LNURL<ClipboardListSolid size={14} /></div>
           </button>
         {/if}
         {#if !hasPaid}
@@ -470,5 +470,21 @@
 
   .no-outline:focus {
     outline: none;
+  }
+
+  .lnurl {
+    background-color: #ff9500;
+    color: #10182b;
+    width: 25%;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 0.75rem;
+    justify-content: center;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .lnurl:hover {
+    color: #10182b;
   }
 </style>
