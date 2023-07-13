@@ -54,12 +54,12 @@
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        description: 'Pleb Devs Corporate Membership',
-        min: 100 * 30000,
-        max: 100 * 30000,
+        description: 'Plebnet.dev Corporate Membership',
+        min: 100 * 300000,
+        max: 100 * 300000,
         currency: 'sats',
         comment_chars: 50,
-        success_text: 'Thanks for joining the PlebDev Community!',
+        success_text: 'Thanks for joining the Plebnet.dev Community!',
         fiat_base_multiplier: 10000,
         zaps: false,
       }),
@@ -198,7 +198,7 @@
         </div>
 
         <div class="input-wrapper">
-          <label id="why-join" for="goal">Why does your company want to join Plebnet?*</label>
+          <label id="why-join" for="goal">Why does your company want to join Plebnet.dev?*</label>
           <textarea type="text" id="goal" bind:value={goal} required />
         </div>
 
@@ -208,13 +208,13 @@
         </div>
 
         <div class="input-wrapper">
-          <label for="sponsor">Do you want to sponsor Plebnet?*</label>
+          <label for="sponsor">Do you want to sponsor Plebnet.dev?*</label>
           <input type="checkbox" id="sponsor" bind:checked={sponsor} />
         </div>
 
         <div class="input-wrapper">
           <label style="font-size:1.5rem; margin-top: 2rem;" for="qrCode">Membership Dues</label>
-          <p style="color: #FF9500">30,000 sats</p>
+          <p style="color: #FF9500">300,000 sats</p>
           <div class="qr-code-container no-outline">
             <div
               class="no-outline"
