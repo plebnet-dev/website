@@ -54,12 +54,12 @@
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        description: 'Pleb Devs Individual Membership',
-        min: 100 * 10000,
-        max: 100 * 10000,
+        description: 'Plebnet.dev Individual Membership',
+        min: 100 * 100000,
+        max: 100 * 100000,
         currency: 'satoshi',
         comment_chars: 50,
-        success_text: 'Thanks for joining the PlebDev Community!',
+        success_text: 'Thanks for joining the Plebnet.dev Community!',
         fiat_base_multiplier: 10000,
         zaps: false,
       }),
@@ -216,7 +216,7 @@
         </div>
         <div class="input-wrapper">
           <label style="font-size:1.5rem; margin-top: 2rem;" for="qrCode">Membership Dues</label>
-          <p style="color: #FF9500">10,000 sats</p>
+          <p style="color: #FF9500">100,000 sats</p>
           <div
             class="no-outline"
             style="margin:auto; padding-right: 10px; cursor: pointer;"
