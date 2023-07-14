@@ -35,6 +35,7 @@ export const footerData = {
       title: 'Connect',
       links: [
         { text: 'Sponsors', href: '/sponsors' },
+        { text: 'FAQ Discord', href: 'https://discord.gg/UFJp72cf'},
       ],
     },
     {
