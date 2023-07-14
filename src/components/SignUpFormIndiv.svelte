@@ -12,7 +12,7 @@
   export let showFormModal = false;
 
   async function getQRCode() {
-    const response = await fetch(`https://legend.lnbits.com/api/v1/qrcode/${paylinkLNURL}`);
+    const response = await fetch(`https://sats.lnaddy.com/api/v1/qrcode/${paylinkLNURL}`);
     let data = await response.text();
     data = data.replace(/stroke="#000"/g, 'stroke="#FF9500"');
     data = data.replace(/scale\(3\)/g, 'scale(4.5)'); // Increase the scale value to increase the size
@@ -23,7 +23,7 @@
   }
 
   async function getPaylink() {
-    const response = await fetch(`https://legend.lnbits.com/lnurlp/api/v1/links/${paylinkID}`, {
+    const response = await fetch(`https:///sats.lnaddy.com/lnurlp/api/v1/links/${paylinkID}`, {
       method: 'GET',
       headers: {
         accept: 'application/json',
@@ -46,7 +46,7 @@
     supabase = createClient(supabaseUrl, supabaseKey);
 
     // Create LNbits paylink
-    const paylinkResponse = await fetch('https://legend.lnbits.com/lnurlp/api/v1/links', {
+    const paylinkResponse = await fetch('https://sats.lnaddy.com/lnurlp/api/v1/links', {
       method: 'POST',
       headers: {
         accept: 'application/json',
