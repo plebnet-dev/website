@@ -3,7 +3,7 @@
 publishDate: 2023-07-18T19:58:05-05:00
 title: Understanding the Git Push Process
 author: bitcoindad
-description: 
+description: Git is a powerful version control system that allows developers to track changes, collaborate on projects, and manage code effectively. 
 image: /images/gitlogo.jpg
 category: Education
 tags:
