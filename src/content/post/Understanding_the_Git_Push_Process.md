@@ -5,7 +5,7 @@ title: Understanding the Git Push Process
 author: bitcoindad
 description: 
 image: /images/gitlogo.jpg
- category: Education
+category: Education
 tags:
   - git 
   - version control
