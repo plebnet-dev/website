@@ -41,7 +41,7 @@
   onMount(async () => {
     const response = await fetch('/api/get-supabase');
     const responseBody = await response.text();
-    const { supabaseUrl, supabaseKey, LNbitsAPI } = JSON.parse(responseBody);
+    const { supabaseUrl, supabaseKey, LNbitsAPI, indivMembershipFee } = JSON.parse(responseBody);
     LNbitsApiKey = LNbitsAPI;
     supabase = createClient(supabaseUrl, supabaseKey);
 
@@ -54,14 +54,13 @@
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        description: 'Plebnet.dev Individual Membership',
-        min: 100 * 100000,
-        max: 100 * 100000,
-        currency: 'satoshi',
+        description: 'Pleb Devs Individual Membership',
+        min: indivMembershipFee,
+        max: indivMembershipFee,
+        amount: indivMembershipFee,
+        username: name,
         comment_chars: 50,
-        success_text: 'Thanks for joining the Plebnet.dev Community!',
-        fiat_base_multiplier: 10000,
-        zaps: false,
+        success_text: 'Thanks for joining the PlebDev Community!',
       }),
     });
 
