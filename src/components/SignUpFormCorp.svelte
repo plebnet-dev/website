@@ -228,6 +228,9 @@
             />
           </div>
         </div>
+        {#if !qrCode}
+          <h4>We're experiencing a problem with our Lightning Server. Please try to register later.</h4>
+        {/if}
         {#if qrCode}
           <button type="button" on:click={copyToClipboard} class="lnurl">
             <div style="display: flex; justify-content: center;">Copy LNURL<ClipboardListSolid size={14} /></div>
