@@ -31,6 +31,7 @@
     if (data.served_pr > 0) {
       hasPaid = true;
       clearInterval(intervalId); // Stop checking
+      updatePaylink();
     }
   }
 
@@ -38,31 +39,62 @@
 
   export let showFormModal = false;
 
+  async function updatePaylink() {
+    const response = await fetch(`${baseLNbitsURL}/lnurlp/api/v1/links/${paylinkID}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        accept: 'application/json',
+        'X-API-KEY': LNbitsXAPIKey,
+      },
+      body: JSON.stringify({
+        description: `${orgName} has paid (Corp Membership)`,
+        min: fee,
+        max: fee,
+        amount: fee,
+        comment_chars: 50,
+        success_text: 'Thanks for joining the PlebDev Community!',
+      }),
+    });
+    const test = await response.json();
+    console.log(test);
+  }
+
   onMount(async () => {
-    const response = await fetch('/api/get-supabase');
+    const response = await fetch('/api/get-env');
     const responseBody = await response.text();
-    const { baseURL, supabaseUrl, supabaseKey, LNbitsAPI, corpMembershipFee } = JSON.parse(responseBody);
+    const { baseURL, supabaseUrl, supabaseKey, LNbitsAPI, LNbitsXAPI, corpMembershipFee } = JSON.parse(responseBody);
+    LNbitsXAPIKey = LNbitsXAPI;
+    fee = corpMembershipFee;
     LNbitsApiKey = LNbitsAPI;
     baseLNbitsURL = baseURL;
     supabase = createClient(supabaseUrl, supabaseKey);
 
     // Create LNbits paylink
-    const paylinkResponse = await fetch(`${baseLNbitsURL}/lnurlp/api/v1/links`, {
+    // const paylinkResponse = await fetch(`${baseLNbitsURL}/lnurlp/api/v1/links`, {
+    //   method: 'POST',
+    //   headers: {
+    //     accept: 'application/json',
+    //     'X-API-KEY': LNbitsXAPI,
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({
+    //     description: 'Pleb Devs Corporate Membership',
+    //     min: corpMembershipFee,
+    //     max: corpMembershipFee,
+    //     amount: corpMembershipFee,
+    //     username: `New Corp Member ${getHumanReadableDate()}`,
+    //     comment_chars: 50,
+    //     success_text: 'Thanks for joining the PlebDev Community!',
+    //   }),
+    // });
+
+    const paylinkResponse = await fetch('/api/get-paylink', {
       method: 'POST',
       headers: {
-        accept: 'application/json',
-        'X-API-KEY': LNbitsApiKey,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        description: 'Pleb Devs Corporate Membership',
-        min: corpMembershipFee,
-        max: corpMembershipFee,
-        amount: corpMembershipFee,
-        username: orgName,
-        comment_chars: 50,
-        success_text: 'Thanks for joining the PlebDev Community!',
-      }),
+      body: JSON.stringify({ corporate: true }),
     });
 
     const paylinkData = await paylinkResponse.json();
@@ -96,13 +128,17 @@
   let LNbitsApiKey = '';
   let lnurl = '';
   let baseLNbitsURL = '';
+  let LNbitsXAPIKey = '';
   let tooltip = { x: 0, y: 0, show: false };
+  let fee = 0;
+  let discordHandle = '';
 
   async function handleSubmit() {
     const formData = {
       formType: 'corporate',
       org_name: orgName,
       contact_person: contactPerson,
+      discord_username: discordHandle,
       email,
       website,
       twitter,
@@ -159,6 +195,10 @@
   function hideTooltip() {
     tooltip.show = false;
   }
+
+  function formatNumberWithCommas(number) {
+    return Number(number).toLocaleString();
+  }
 </script>
 
 {#if showFormModal}
@@ -181,6 +221,11 @@
         <div class="input-wrapper">
           <label for="contactPerson">Contact Person*</label>
           <input type="text" id="contactPerson" bind:value={contactPerson} required />
+        </div>
+
+        <div class="input-wrapper">
+          <label for="discordHandle">Discord Handle*</label>
+          <input type="text" id="discordHandle" bind:value={discordHandle} required />
         </div>
 
         <div class="input-wrapper">
@@ -215,7 +260,7 @@
 
         <div class="input-wrapper">
           <label style="font-size:1.5rem; margin-top: 2rem;" for="qrCode">Membership Dues</label>
-          <p style="color: #FF9500">300,000 sats</p>
+          <p style="color: #FF9500">{`${formatNumberWithCommas(fee)} sats`}</p>
           <div class="qr-code-container no-outline">
             <div
               class="no-outline"
