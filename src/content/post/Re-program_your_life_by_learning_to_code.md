@@ -83,6 +83,6 @@ Building a strong track record as a high-performing DevOps professional and mana
 
 Transitioning careers to become a high-performing plebnet developer with a focus on DevOps and managing tech firms requires time, dedication, and continuous learning. While the timeline provided is a rough estimate, individual progress may vary. Consistency, passion, and a continuous learning mindset are key to accelerating the learning process and achieving success. Remember to leverage internships, personal projects, and open-source contributions to gain practical experience and enhance your learning journey. By following this path and continuously expanding your skills, you can achieve your goal of becoming a highly sought-after full-stack developer in the dynamic world of technology.
 
-**Join us if you're interested in contributing as a senior developer or if you're new and want to learn basic programming skills to start by [Clicking Here](https://plebnet.dev)**
+**Join us if you're interested in contributing as a senior dev, junior dev or you're code advocate wanting to learn more by [Clicking Here](https://plebnet.dev)**
 
 **Attribution: This content is a PlebNet Dev Contribution. The article was authored by [bitcoinDad](https://github.com/Bitc0indad)**
