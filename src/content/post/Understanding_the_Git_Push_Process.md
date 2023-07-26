@@ -3,7 +3,7 @@
 publishDate: 2023-07-18T19:58:05-05:00
 title: Understanding the Git Push Process
 author: bitcoindad
-description: 
+description: Understanding the Git Workflow; Pull, Push, and Commit
 image: /images/GIT_Logo.jpg
 category: Education
 tags:
