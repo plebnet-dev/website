@@ -115,7 +115,6 @@
   let github = '';
   let experience = '';
   let goal = '';
-  let prLink = '';
   let mentor = false;
   let responseMessage = '';
   let showModal = false;
@@ -142,7 +141,6 @@
       github,
       experience,
       goal,
-      pr_link: prLink,
       mentor: mentor ? 'yes' : 'no',
     };
 
@@ -248,11 +246,6 @@
         <div class="input-wrapper">
           <label for="goal">What do you want to get out of plebnet.dev?*</label>
           <textarea type="text" id="goal" bind:value={goal} required />
-        </div>
-
-        <div class="input-wrapper">
-          <label for="prLink">PR Link (if applicable)</label>
-          <input type="text" id="prLink" bind:value={prLink} />
         </div>
 
         <div class="input-wrapper">

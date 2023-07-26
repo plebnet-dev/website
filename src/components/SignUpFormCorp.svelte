@@ -117,7 +117,6 @@
   let twitter = '';
   let goal = '';
   let industry = '';
-  let sponsor = false;
   let responseMessage = '';
   let showModal = false;
   let qrCode = '';
@@ -144,7 +143,6 @@
       twitter,
       goal,
       industry,
-      sponsor: sponsor ? 'yes' : 'no',
     };
 
     const { data, error } = await supabase.from('members-corporate').insert([formData]);
@@ -251,11 +249,6 @@
         <div class="input-wrapper">
           <label for="industry">Industry*</label>
           <input type="text" id="industry" bind:value={industry} required />
-        </div>
-
-        <div class="input-wrapper">
-          <label for="sponsor">Do you want to sponsor Plebnet.dev?*</label>
-          <input type="checkbox" id="sponsor" bind:checked={sponsor} />
         </div>
 
         <div class="input-wrapper">
