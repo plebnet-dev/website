@@ -38,6 +38,9 @@ const { post, url } = Astro.props;
           }
           {post.readingTime && <> · {post.readingTime} min read</>}
         </p>
+        <p class="sm:items-center">
+          Written by {post.author}
+        </p>
       </div>
       <h1
         class="px-4 sm:px-6 max-w-3xl mx-auto text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading"
