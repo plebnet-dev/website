@@ -12,7 +12,7 @@
   export let showFormModal = false;
 
   async function getQRCode() {
-    const response = await fetch(`https://sats.lnaddy.com/api/v1/qrcode/${paylinkLNURL}`);
+    const response = await fetch(`${baseLNbitsURL}/api/v1/qrcode/${paylinkLNURL}`);
     let data = await response.text();
     data = data.replace(/stroke="#000"/g, 'stroke="#FF9500"');
     data = data.replace(/scale\(3\)/g, 'scale(4.5)'); // Increase the scale value to increase the size
@@ -23,7 +23,7 @@
   }
 
   async function getPaylink() {
-    const response = await fetch(`https:///sats.lnaddy.com/lnurlp/api/v1/links/${paylinkID}`, {
+    const response = await fetch(`${baseLNbitsURL}/lnurlp/api/v1/links/${paylinkID}`, {
       method: 'GET',
       headers: {
         accept: 'application/json',
@@ -35,35 +35,67 @@
     if (data.served_pr > 0) {
       hasPaid = true;
       clearInterval(intervalId); // Stop checking
+      updatePaylink();
     }
   }
 
-  onMount(async () => {
-    const response = await fetch('/api/get-supabase');
-    const responseBody = await response.text();
-    const { supabaseUrl, supabaseKey, LNbitsAPI, indivMembershipFee } = JSON.parse(responseBody);
-    LNbitsApiKey = LNbitsAPI;
-    supabase = createClient(supabaseUrl, supabaseKey);
-
-    // Create LNbits paylink
-    const paylinkResponse = await fetch('https://sats.lnaddy.com/lnurlp/api/v1/links', {
-      method: 'POST',
+  async function updatePaylink() {
+    const response = await fetch(`${baseLNbitsURL}/lnurlp/api/v1/links/${paylinkID}`, {
+      method: 'PUT',
       headers: {
-        accept: 'application/json',
-        'X-API-KEY': LNbitsApiKey,
         'Content-Type': 'application/json',
+        accept: 'application/json',
+        'X-API-KEY': LNbitsXAPIKey,
       },
       body: JSON.stringify({
-        description: 'Pleb Devs Individual Membership',
-        min: indivMembershipFee,
-        max: indivMembershipFee,
-        amount: indivMembershipFee,
-        username: name,
+        description: `${name} has paid (Individual Membership)`,
+        min: fee,
+        max: fee,
+        amount: fee,
         comment_chars: 50,
         success_text: 'Thanks for joining the PlebDev Community!',
       }),
     });
+    const test = await response.json();
+    console.log(test);
+  }
 
+  onMount(async () => {
+    const response = await fetch('/api/get-env');
+    const responseBody = await response.text();
+    const { baseURL, supabaseUrl, supabaseKey, LNbitsAPI, LNbitsXAPI, indivMembershipFee } = JSON.parse(responseBody);
+    LNbitsApiKey = LNbitsAPI;
+    LNbitsXAPIKey = LNbitsXAPI;
+    baseLNbitsURL = baseURL;
+    fee = indivMembershipFee;
+    supabase = createClient(supabaseUrl, supabaseKey);
+
+    // Create LNbits paylink
+    // const paylinkResponse = await fetch(`${baseLNbitsURL}/lnurlp/api/v1/links`, {
+    //   method: 'POST',
+    //   headers: {
+    //     accept: 'application/json',
+    //     'X-API-KEY': LNbitsXAPI,
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({
+    //     description: 'Pleb Devs Individual Membership',
+    //     min: indivMembershipFee,
+    //     max: indivMembershipFee,
+    //     amount: indivMembershipFee,
+    //     username: `Individual Membership ${getHumanReadableDate}`,
+    //     comment_chars: 50,
+    //     success_text: 'Thanks for joining the PlebDev Community!',
+    //   }),
+    // });
+
+    const paylinkResponse = await fetch('/api/get-paylink', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ corporate: false }),
+    });
     const paylinkData = await paylinkResponse.json();
     paylinkLNURL = paylinkData.lnurl;
     paylinkID = paylinkData.id;
@@ -83,7 +115,6 @@
   let github = '';
   let experience = '';
   let goal = '';
-  let prLink = '';
   let mentor = false;
   let responseMessage = '';
   let showModal = false;
@@ -94,18 +125,22 @@
   let intervalId;
   let LNbitsApiKey = '';
   let lnurl = '';
+  let baseLNbitsURL = '';
+  let LNbitsXAPIKey = '';
   let tooltip = { x: 0, y: 0, show: false };
+  let fee = 0;
+  let discordHandle = '';
 
   async function handleSubmit() {
     const formData = {
       formType: 'individual',
       name,
+      discord_username: discordHandle,
       email,
       twitter,
       github,
       experience,
       goal,
-      pr_link: prLink,
       mentor: mentor ? 'yes' : 'no',
     };
 
@@ -131,6 +166,10 @@
         responseMessage = `Error sending email: ${response.statusText}`;
       }
     }
+  }
+
+  function formatNumberWithCommas(number) {
+    return Number(number).toLocaleString();
   }
 
   async function showThankYouModal() {
@@ -181,6 +220,11 @@
         </div>
 
         <div class="input-wrapper">
+          <label for="discordHandle">Discord Handle*</label>
+          <input type="text" id="discordHandle" bind:value={discordHandle} required />
+        </div>
+
+        <div class="input-wrapper">
           <label for="email">Email*</label>
           <input type="email" id="email" bind:value={email} required />
         </div>
@@ -205,17 +249,12 @@
         </div>
 
         <div class="input-wrapper">
-          <label for="prLink">PR Link (if applicable)</label>
-          <input type="text" id="prLink" bind:value={prLink} />
-        </div>
-
-        <div class="input-wrapper">
           <label for="mentor">Do you want to mentor?</label>
           <input type="checkbox" id="mentor" bind:checked={mentor} />
         </div>
         <div class="input-wrapper">
           <label style="font-size:1.5rem; margin-top: 2rem;" for="qrCode">Membership Dues</label>
-          <p style="color: #FF9500">100,000 sats</p>
+          <p style="color: #FF9500">{`${formatNumberWithCommas(fee)} sats`}</p>
           <div
             class="no-outline"
             style="margin:auto; padding-right: 10px; cursor: pointer;"
@@ -226,7 +265,9 @@
             on:click={copyToClipboard}
           />
         </div>
-
+        {#if !qrCode}
+          <h4>We're experiencing a problem with our Lightning Server. Please try to register later.</h4>
+        {/if}
         {#if qrCode}
           <button type="button" on:click={copyToClipboard} class="lnurl">
             <div style="display: flex; justify-content: center;">Copy LNURL<ClipboardListSolid size={14} /></div>
@@ -466,7 +507,7 @@
   .lnurl {
     background-color: #ff9500;
     color: #10182b;
-    width: 25%;
+    width: 8rem;
     padding-left: 0;
     padding-right: 0;
     font-size: 0.75rem;
