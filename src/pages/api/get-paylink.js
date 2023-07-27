@@ -7,10 +7,11 @@ export async function post({request}) {
     return currentDate.toLocaleString();
   }
   const membershipType = await request.json();
+  console.log('this is membershipType:\n', membershipType)
   let fee;
   let description;
 
-  if (membershipType.corporate) {
+  if (!membershipType.corporate) {
     fee = process.env.PUBLIC_LNBITS_INDIV_FEE;
     description = `Pleb Devs Corporate Membership ${getHumanReadableDate()}`;
   } else {
