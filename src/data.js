@@ -11,12 +11,12 @@ export const headerData = {
       href:  getBlogPermalink(),
     },
     {
-      text: 'About',
-      href: '/about',
-    },
-    {
       text: 'Store',
       href: 'https://plebnet-dev.printify.me/',
+    },
+    {
+      text: 'About',
+      href: '/about',
     },
     
   ],
