@@ -29,6 +29,7 @@ export const footerData = {
         { text: 'Join Us', href: '/join' },
         { text: 'FAQ', href: '/faq' },
         { text: 'Projects', href: '/projects' },
+        { text: 'Store', href: '/store'},
       ],        
     },
     {
@@ -36,6 +37,7 @@ export const footerData = {
       links: [
         { text: 'Sponsors', href: '/sponsors' },
         { text: 'FAQ Discord', href: 'https://discord.gg/PdBcqnAyCD'},
+        { text: 'Store', href: 'https://plebnet-dev.printify.me/'},
       ],
     },
     {
