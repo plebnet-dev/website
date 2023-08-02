@@ -14,6 +14,11 @@ export const headerData = {
       text: 'About',
       href: '/about',
     },
+    {
+      text: 'Store',
+      href: '/store',
+    },
+    
   ],
   actions: [
     // adds a download button to the upper right nav on blog page
