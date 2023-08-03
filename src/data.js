@@ -34,8 +34,8 @@ export const footerData = {
       links: [
         { text: 'Join Us', href: '/join' },
         { text: 'FAQ', href: '/faq' },
-        { text: 'Projects', href: '/projects' },
-        { text: 'Store', href: '/store'},
+        { text: 'Projects', href: '/projects', target: '_blank'},
+        { text: 'Store', href: '/store', },
       ],        
     },
     {
