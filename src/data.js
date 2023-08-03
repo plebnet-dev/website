@@ -13,6 +13,7 @@ export const headerData = {
     {
       text: 'Store',
       href: 'https://plebnet-dev.printify.me/',
+      target: '_blank'
     },
     {
       text: 'About',
