@@ -13,7 +13,6 @@ export const headerData = {
     {
       text: 'Store',
       href: 'https://plebnet-dev.printify.me/',
-      target: '_blank'
     },
     {
       text: 'About',
@@ -34,8 +33,7 @@ export const footerData = {
       links: [
         { text: 'Join Us', href: '/join' },
         { text: 'FAQ', href: '/faq' },
-        { text: 'Projects', href: '/projects', target: '_blank'},
-        { text: 'Store', href: '/store', },
+        { text: 'Projects', href: '/projects' },
       ],        
     },
     {
