@@ -31,7 +31,6 @@ export async function post({request}) {
       twitter: otherData.twitter,
       goal: otherData.goal,
       industry: otherData.industry,
-      sponsor: otherData.sponsor,
     };
   } else {
     msg.dynamic_template_data = {
@@ -41,7 +40,6 @@ export async function post({request}) {
       github: otherData.github,
       experience: otherData.experience,
       goal: otherData.goal,
-      pr_link: otherData.pr_link,
       mentor: otherData.mentor,
     };
   }
