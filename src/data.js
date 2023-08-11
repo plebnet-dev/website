@@ -11,9 +11,14 @@ export const headerData = {
       href:  getBlogPermalink(),
     },
     {
+      text: 'Store',
+      href: 'https://plebnet-dev.printify.me/',
+    },
+    {
       text: 'About',
       href: '/about',
     },
+    
   ],
   actions: [
     // adds a download button to the upper right nav on blog page
@@ -36,6 +41,7 @@ export const footerData = {
       links: [
         { text: 'Sponsors', href: '/sponsors' },
         { text: 'FAQ Discord', href: 'https://discord.gg/PdBcqnAyCD'},
+        { text: 'Store', href: 'https://plebnet-dev.printify.me/'},
       ],
     },
     {
