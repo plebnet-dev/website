@@ -15,6 +15,13 @@ export const headerData = {
       href: 'https://plebnet-dev.printify.me/',
     },
     {
+      text: 'Resources',
+      href: getBlogPermalink('https://plebnet.dev/PlebNetDev_Resources'),
+      links: [
+        { text: 'LNBits Testnet', href: 'https://testnet.plebnet.dev' },
+        { text: 'Testnet Faucet', href: 'http://htlc.me/' },
+    },
+    {
       text: 'About',
       href: '/about',
     },
@@ -42,6 +49,7 @@ export const footerData = {
         { text: 'Sponsors', href: '/sponsors' },
         { text: 'FAQ Discord', href: 'https://discord.gg/PdBcqnAyCD'},
         { text: 'Store', href: 'https://plebnet-dev.printify.me/'},
+        { text: 'Resources', href: 'https://plebnet.dev/PlebNetDev_Resources'},
       ],
     },
     {
