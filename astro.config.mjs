@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 import image from '@astrojs/image';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
-import compress from '@otterlord/astro-compress';
+import compress from 'astro-compress';
 import { readingTimeRemarkPlugin } from './src/utils/frontmatter.mjs';
 import { SITE } from './src/config.mjs';
 import svelte from "@astrojs/svelte";
@@ -46,14 +46,14 @@ export default defineConfig({
       forward: ['dataLayer.push']
     }
   })), compress({
-    css: true,
-    html: {
+    CSS: true,
+    HTML: {
       removeAttributeQuotes: false
     },
-    img: false,
-    js: true,
-    svg: false,
-    logger: 1
+    Image: false,
+    JavaScript: true,
+    SVG: false,
+    Logger: 1
   }), svelte()],
   vite: {
     resolve: {
