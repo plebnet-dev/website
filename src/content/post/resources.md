@@ -3,7 +3,7 @@ publishDate: 2023-08-16T17:25:00Z
 title: Introducing Plebnet.dev Resources
 author: bitc0indad
 description: A new suite of resources being made available to PlebNet Devs.
-image: NEED TO PROVIDE
+image: /images/Build_The_Future
 category: Lightning, Nostr, Signet
 tags:
   - resources
@@ -32,12 +32,13 @@ At [Plebnet.dev](https://plebnet.dev), our aim is to continually enrich our user
 - **Nostr NIP-5 and Lightning Services**  
   For a seamless experience with Nostr, we recommend the Nostr Kit. Details coming soon.
 
-For design enthusiasts and contributors, we're contemplating whether to list these on a separate page or to create dropdown links. Given the possible extensive nature of this list, we're inclined toward a dedicated page. However, do explore our current theme, the [astrowind template](https://astrowind.vercel.app/), and let us know what you think, especially considering the varying experiences on mobile vs. desktop.
+- **Nostrogen**  
+  A simple nostr vanity address generator. [Access here](https://nostrogen.plebnet.dev/)
 
-Lastly, we're excited about our rebranded [nostrogen.com](https://nostrogen.com/). You can check out our forked repo at [plebnet-dev/nostrogen](https://github.com/plebnet-dev/nostrogen).
+For design enthusiasts and contributors, we're contemplating whether to list these on a separate page or to create dropdown links. Given the possible extensive nature of this list, we're inclined toward a dedicated page. However, do explore our current theme, the [astrowind template](https://astrowind.vercel.app/), and let us know what you think, especially considering the varying experiences on mobile vs. desktop.
 
 Your feedback and suggestions drive us. We'd love to hear your thoughts on this, whether it's on [GitHub](https://github.com/plebnet-dev) or any of our other platforms.
 
 **Join us if you're interested in contributing as a senior dev, junior dev, or a code advocate who wants to learn more start by [Clicking Here](https://plebnet.dev)**
 
-**Attribution: This content is a PlebNet Dev Contribution. The article was authored by [bitcoinDad](https://github.com/Bitc0indad)**
+**Attribution: This content is a PlebNet Dev Contribution. The article was authored by [bitc0inDad](https://github.com/Bitc0indad)**
