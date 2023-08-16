@@ -53,7 +53,6 @@ export const footerData = {
       title: 'Resources',
       links: [
         { text: 'LNBits Testnet', href: 'https://testnet.plebnet.dev'},
-        { text: 'Testnet Faucet', href: 'http://htlc.me/'},
         { text: 'CLN Testnet Node', href: 'https://mempool.space/testnet/lightning/node/03ba00a57cec1cef4873065ad54d0912696274cc53155b29a3b1256720e33a0943'},
         { text: 'Nostr Relay', href: 'https://testnet.plebnet.dev/nostrrelay/1'},
         { text: 'Nostrogen', href: 'https://nostrogen.plebnet.dev/'},
