@@ -39,6 +39,6 @@ For design enthusiasts and contributors, we're contemplating whether to list the
 
 Your feedback and suggestions drive us. We'd love to hear your thoughts on this, whether it's on [GitHub](https://github.com/plebnet-dev) or any of our other platforms.
 
-**Join us if you're interested in contributing as a senior dev, junior dev, or a code advocate who wants to learn more start by [Clicking Here](https://plebnet.dev)**
+**Join us if you're interested in contributing as a senior dev, junior dev, or a code advocate who wants to learn more start by [Clicking Here](https://plebnet.dev/join)**
 
 **Attribution: This content is a PlebNet Dev Contribution. The article was authored by [bitc0inDad](https://github.com/Bitc0indad)**
