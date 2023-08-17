@@ -63,7 +63,7 @@ export const footerData = {
       links: [
         { text: 'Blog', href: '/blog' },
         { text: 'Press Kit', href: 'https://github.com/plebnet-dev/presskit' },
-      ],
+        { text: 'Terms of Service', href: 'https://plebnet-dev/terms_of_service' },     ],
     },
   ],
   // secondaryLinks: [

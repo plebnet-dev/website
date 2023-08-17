@@ -1,9 +1,10 @@
 ---
 publishDate: 2023-08-16T23:34:00Z
 title: Terms of Service
+author: bitc0indad
 description: Guidelines safeguarding our mission while fostering innovation in the Bitcoin and Lightning space
 excerpt: n/a
-image: /images/code_image.jpg
+image: n/a
 tags:
   - TOS
   - Terms of Service
