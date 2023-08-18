@@ -16,12 +16,12 @@ Welcome to [Plebnet.Dev](https://plebnet.dev), where the future of Bitcoin and L
 **What sets us apart?**
 
 - **Diverse Perspectives**: With active members hailing from various countries, our discussions are rich, our solutions innovative.
-- **Mentorship and Guidance**: While there are several places developers can congregate, we pride ourselves on providing an environment where newcomers can easily find mentors and projects tailored to their interests. For instance, our recent [monthly meetup](#) saw enlightening discussions on topics ranging from testnet environments to NOSTR Relay services and more!
+- **Mentorship and Guidance**: While there are several places developers can congregate, we pride ourselves on providing an environment where newcomers can easily find mentors and projects tailored to their interests. For instance, our recent monthly meetup sparked enlightening discussions on topics ranging from testnet environments to NOSTR Relay services and more!
 
 - **Cost-Effective Infrastructure**: We understand that individually running lightning and NOSTR services can be financially draining. That's why, by joining us, members get to utilize these services at a more economical rate, freeing up their time and resources to dive straight into building.
 
 - **Real-time Engagement**: To get a glimpse into our monthly activities, check out the minutes from our [latest meetup](https://github.com/plebnet-dev/meeting-notes/blob/main/PlebNetDev_Meeting_Notes_Jul2023.md). It offers a sneak peek into the pressing topics we discuss, the innovations we're steering, and the camaraderie we share.
 
-By partnering with us, you're not just joining another developer space – you're stepping into a passionate community hell-bent on driving Bitcoin and Lightning innovations. Curious to learn more? Dive deep into the resources we're developing at [Plebnet.dev](https://plebnet.dev).
+By partnering with us, you're not just joining another developer space – you're stepping into a passionate community hell-bent on driving Bitcoin and Lightning innovations. Curious to learn more? Dive deep into the resources we're developing at [Plebnet.dev/resources](/resources).
 
 ![plebnet.dev](/images/logo-dark-horiz-transparent.png)
