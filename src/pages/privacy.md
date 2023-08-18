@@ -1,4 +1,7 @@
-# PlebNet.Dev Privacy Policy
+---
+title: 'PlebNet.Dev Privacy Policy'
+layout: '~/layouts/MarkdownLayout.astro'
+---
 
 **Last Updated**: August 16, 2023
 
