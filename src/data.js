@@ -7,6 +7,10 @@ export const headerData = {
       href: '/projects',
     },
     {
+      text: 'Resources',
+      href: '/resources',
+    },
+    {
       text: 'Blog',
       href:  getBlogPermalink(),
     },
@@ -14,7 +18,8 @@ export const headerData = {
       text: 'Store',
       href: 'https://plebnet-dev.printify.me/',
     },
-    {
+    
+      {
       text: 'About',
       href: '/about',
     },
@@ -34,6 +39,7 @@ export const footerData = {
         { text: 'Join Us', href: '/join' },
         { text: 'FAQ', href: '/faq' },
         { text: 'Projects', href: '/projects' },
+        // { text: 'Directory', href: '/directory' },
       ],        
     },
     {
@@ -42,6 +48,16 @@ export const footerData = {
         { text: 'Sponsors', href: '/sponsors' },
         { text: 'FAQ Discord', href: 'https://discord.gg/PdBcqnAyCD'},
         { text: 'Store', href: 'https://plebnet-dev.printify.me/'},
+        // { text: 'Donate', href: 'Future Wallet Address or Page'},
+      ],
+    },
+    {
+      title: 'Resources',
+      links: [
+        { text: 'LNBits Testnet', href: 'https://testnet.plebnet.dev'},
+        { text: 'CLN Testnet Node', href: 'https://mempool.space/testnet/lightning/node/03ba00a57cec1cef4873065ad54d0912696274cc53155b29a3b1256720e33a0943'},
+        { text: 'Nostr Relay', href: 'https://testnet.plebnet.dev/nostrrelay/1'},
+        { text: 'Nostrogen', href: 'https://nostrogen.plebnet.dev/'},
       ],
     },
     {
@@ -49,6 +65,8 @@ export const footerData = {
       links: [
         { text: 'Blog', href: '/blog' },
         { text: 'Press Kit', href: 'https://github.com/plebnet-dev/presskit' },
+        { text: 'Terms of Service', href: '/terms' },
+        { text: 'Privacy', href: '/privacy' },       
       ],
     },
   ],
