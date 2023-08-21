@@ -1,35 +1,44 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import Header from '~/components/widgets/Header.astro';
+import ContactUs from '~/components/widgets/Contact.astro';
 
-import { headerData } from '~/data';
-
-const meta = {
-  title: 'PLEBNET.DEV Contact us',
+const metadata = {
+  title: 'Contact',
 };
 ---
 
-<Layout {meta}>
-  <Fragment slot="header">
-    <Header
-      {...headerData}
-      actions={[
-        {
-          type: "primary",
-          text: 'Sign Up',
-          href: '/join',
-        },
-      ]}
-      isSticky
-    />
-  </Fragment>
+<Layout metadata={metadata}>
 
+  <section class="relative md:-mt-[76px] not-prose">
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
 
-  <section class="flex items-center h-full p-16">
-    <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
-      <div class="max-w-md text-center">
-          Todo, place contact form here
-      </div>
+      <ContactUs
+    title="Drop us a message today!"
+    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
+    inputs={[
+      {
+        type: 'text',
+        name: 'name',
+        label: 'Name',
+      },
+      {
+        type: 'email',
+        name: 'email',
+        label: 'Email',
+      },
+    ]}
+    textarea={{
+      label: 'Message',
+    }}
+    disclaimer={{
+      label:
+        'By submitting this contact form, you acknowledge and agree to the collection of your information.',
+    }}
+    description="Our team typically responds within 24 business hours."
+  />
+
+    </div>
     </div>
   </section>
 

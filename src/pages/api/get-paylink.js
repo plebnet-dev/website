@@ -13,10 +13,10 @@ export async function post({request}) {
 
   if (!membershipType.corporate) {
     fee = process.env.PUBLIC_LNBITS_INDIV_FEE;
-    description = `Pleb Devs Corporate Membership ${getHumanReadableDate()}`;
+    description = `PLEBNET.DEV Corporate Membership ${getHumanReadableDate()}`;
   } else {
     fee = process.env.PUBLIC_LNBITS_CORP_FEE
-    description = `Pleb Devs Individual Membership ${getHumanReadableDate()}`;
+    description = `PLEBNET.DEV Individual Membership ${getHumanReadableDate()}`;
   }
 
   const paylinkResponse = await fetch(`${process.env.PUBLIC_LNBITS_URL}/lnurlp/api/v1/links`, {
@@ -32,7 +32,7 @@ export async function post({request}) {
       max: fee,
       amount: fee,
       comment_chars: 50,
-      success_text: 'Thanks for joining the PlebDev Community!',
+      success_text: 'Thanks for joining the Plebnet.dev Community!',
     }),
   });
 
