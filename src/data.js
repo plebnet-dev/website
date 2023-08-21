@@ -37,18 +37,19 @@ export const footerData = {
       title: 'Members',
       links: [
         { text: 'Join Us', href: '/join' },
-        { text: 'FAQ', href: '/faq' },
+        { text: 'FAQ', href: '/join#faq' },
         { text: 'Projects', href: '/projects' },
+        { text: 'Blog', href: '/blog' },
         // { text: 'Directory', href: '/directory' },
       ],        
     },
     {
       title: 'Connect',
       links: [
-        { text: 'Sponsors', href: '/sponsors' },
         { text: 'FAQ Discord', href: 'https://discord.gg/PdBcqnAyCD'},
+        { text: 'Donate', href: '/donate'},
+        { text: 'Sponsors', href: '/sponsors' },
         { text: 'Store', href: 'https://plebnet-dev.printify.me/'},
-        // { text: 'Donate', href: 'Future Wallet Address or Page'},
       ],
     },
     {
@@ -63,7 +64,7 @@ export const footerData = {
     {
       title: 'About',
       links: [
-        { text: 'Blog', href: '/blog' },
+        // { text: 'Contact Us', href: '/contact' },
         { text: 'Press Kit', href: 'https://github.com/plebnet-dev/presskit' },
         { text: 'Terms of Service', href: '/terms' },
         { text: 'Privacy', href: '/privacy' },       

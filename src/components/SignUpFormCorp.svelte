@@ -70,25 +70,6 @@
     baseLNbitsURL = baseURL;
     supabase = createClient(supabaseUrl, supabaseKey);
 
-    // Create LNbits paylink
-    // const paylinkResponse = await fetch(`${baseLNbitsURL}/lnurlp/api/v1/links`, {
-    //   method: 'POST',
-    //   headers: {
-    //     accept: 'application/json',
-    //     'X-API-KEY': LNbitsXAPI,
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({
-    //     description: 'Pleb Devs Corporate Membership',
-    //     min: corpMembershipFee,
-    //     max: corpMembershipFee,
-    //     amount: corpMembershipFee,
-    //     username: `New Corp Member ${getHumanReadableDate()}`,
-    //     comment_chars: 50,
-    //     success_text: 'Thanks for joining the PlebDev Community!',
-    //   }),
-    // });
-
     const paylinkResponse = await fetch('/api/get-paylink', {
       method: 'POST',
       headers: {
@@ -184,14 +165,6 @@
       .catch((err) => {
         console.error('Could not copy text: ', err);
       });
-  }
-
-  function updateTooltipPosition(event) {
-    tooltip = { x: event.clientX, y: event.clientY, show: true };
-  }
-
-  function hideTooltip() {
-    tooltip.show = false;
   }
 
   function formatNumberWithCommas(number) {
