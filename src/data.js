@@ -3,29 +3,87 @@ import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 export const headerData = {
   links: [
     {
-      text: 'Projects',
-      href: '/projects',
+      text: 'Members',
+      links: [
+        {
+          text: 'Join Us',
+          href: '/join',    
+        },
+        {
+          text: 'FAQ',
+          href: '/join#faq',    
+        },
+        {
+          text: 'Projects',
+          href: '/projects',    
+        },
+      ]
     },
     {
       text: 'Resources',
-      href: '/resources',
+      links: [
+        {
+          text: 'Testnet LNBits',
+          href: 'https://testnet.plebnet.dev',          
+        },
+        {
+          text: 'Testnet LN Node',
+          href: 'https://mempool.space/testnet/lightning/node/03ba00a57cec1cef4873065ad54d0912696274cc53155b29a3b1256720e33a0943',          
+        },
+        {
+          text: 'Nostr Relay',
+          href: 'https://testnet.plebnet.dev/nostrrelay/1',          
+        },
+        {
+          text: 'Nostrogen',
+          href: 'https://nostrogen.plebnet.dev/',          
+        },
+        {
+          text: 'All Resources',
+          href: '/resources',
+        }
+        // {
+        //   text: 'Signet Faucet (coming soon)',
+        //   href: 'https://signet-faucet.plebnet.dev/',
+        // },
+        // {
+        //   text: 'Signet LN Node',
+        //   href: '',
+        // },
+      ],
     },
     {
-      text: 'Blog',
-      href:  getBlogPermalink(),
+      text: 'About',
+      links: [
+        {
+          text: 'Our Story',
+          href: '/about',
+        }, 
+        {
+          text: 'Blog',
+          href:  getBlogPermalink(),
+        }, 
+        { 
+          text: 'Donate',
+          href: '/donate'
+        },
+        {
+          text: 'Discord',
+          href: 'https://discord.gg/PdBcqnAyCD'
+        }
+      ],
     },
     {
       text: 'Store',
       href: 'https://plebnet-dev.printify.me/',
     },
-    
-      {
-      text: 'About',
-      href: '/about',
-    },
-    
   ],
   actions: [
+    {
+      type: 'orange',
+      text: 'Donate',
+      href: '/donate',
+    }
     // adds a download button to the upper right nav on blog page
     // { type: 'button', text: 'Download', href: 'https://github.com/onwidget/astrowind' }
   ],
@@ -64,6 +122,7 @@ export const footerData = {
     {
       title: 'About',
       links: [
+        { text: 'Our Story', href: '/about' },
         // { text: 'Contact Us', href: '/contact' },
         { text: 'Press Kit', href: 'https://github.com/plebnet-dev/presskit' },
         { text: 'Terms of Service', href: '/terms' },
@@ -78,8 +137,9 @@ export const footerData = {
   socialLinks: [
   // { text: 'Nostr', href: '#'},
   // { ariaLabel: 'Twitter', icon: 'tabler:brand-twitter', href: '#' },
-  { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
+  { ariaLabel: 'Discord', icon: 'tabler:brand-discord', href: 'https://discord.gg/PdBcqnAyCD' },
   { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/plebnet-dev/' },
+  { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
   ],
   footNote: `
     <span class=" float-left rounded-sm"></span>
