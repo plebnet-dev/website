@@ -62,15 +62,12 @@ const {
                       </ul>
                     )}
                   </div>
-                  {callToAction && (
+                  {callToAction && (          
+                    <a class="inline-flex items-center justify-center" href={callToAction.href}>       
                     <div class={`flex justify-center btn ${hasRibbon ? 'btn-primary' : ''}`}>
-                      {typeof callToAction === 'string' ? (
-                        <Fragment set:html={callToAction} />
-                      ) : (
-                        callToAction && callToAction.text && callToAction.href
-                         && <CTA callToAction={callToAction} />
-                      )}
+                        <Fragment set:html={callToAction.text} />                                                
                     </div>
+                    </a>
                   )}
                 </div>
               )}

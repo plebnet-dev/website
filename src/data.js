@@ -17,6 +17,10 @@ export const headerData = {
           text: 'Projects',
           href: '/projects',    
         },
+        // {
+        //   text: 'Services',
+        //   href: '/services',
+        // },
       ]
     },
     {
