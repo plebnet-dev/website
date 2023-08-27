@@ -7,16 +7,16 @@ export async function post({request}) {
     return currentDate.toLocaleString();
   }
   const membershipType = await request.json();
-  console.log('this is membershipType:\n', membershipType)
+  console.log('membershipType in get-paylink: \n', membershipType)
   let fee;
   let description;
 
   if (!membershipType.corporate) {
     fee = process.env.PUBLIC_LNBITS_INDIV_FEE;
-    description = `PLEBNET.DEV Corporate Membership ${getHumanReadableDate()}`;
+    description = `PLEBNET.DEV Individual Membership ${getHumanReadableDate()}`;
   } else {
     fee = process.env.PUBLIC_LNBITS_CORP_FEE
-    description = `PLEBNET.DEV Individual Membership ${getHumanReadableDate()}`;
+    description = `PLEBNET.DEV Corporate Membership ${getHumanReadableDate()}`;
   }
 
   const paylinkResponse = await fetch(`${process.env.PUBLIC_LNBITS_URL}/lnurlp/api/v1/links`, {

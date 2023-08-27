@@ -12,6 +12,7 @@
   }
 </script>
 
+
 <div class="flex flex-wrap justify-center">
   <div
     class="card {formType === 'individual' ? 'active' : ''}"
@@ -104,6 +105,7 @@
 {:else if formType === 'corporate'}
   <SignUpFormCorp {showFormModal} on:modal={(e) => (showFormModal = e.detail)} />
 {/if}
+
 
 <style>
   .flex {
