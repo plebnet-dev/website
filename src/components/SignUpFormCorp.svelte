@@ -172,7 +172,7 @@ let supabase;
 
 <div>
   <div>
-      <h1>Corporate Sign Up</h1>
+      <h1>Corporate Membership</h1>
       <form on:submit|preventDefault={handleSubmit}>
         <div class="input-wrapper">
           <label for="orgName">Organization Name*</label>
@@ -239,7 +239,7 @@ let supabase;
         {/if}
         {#if !hasPaid}
           <h6 style="font-size: 0.75rem;">
-            <i>Please complete payment before signing up. Include your email in the comment field.</i>
+            <i>Please complete payment first, then submit will be enabled. Include your email in the comment field.</i>
           </h6>
         {/if}
         <button type="submit" disabled={!hasPaid}>Submit</button>
@@ -331,7 +331,6 @@ let supabase;
   h1 {
     font-size: 2rem;
     font-weight: bold;
-    color: #ff9500;
     margin-top: 0;
     margin-bottom: 1rem;
   }

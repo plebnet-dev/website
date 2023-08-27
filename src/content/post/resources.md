@@ -23,7 +23,7 @@ At [Plebnet.dev](https://plebnet.dev), our aim is to continually enrich our user
 
 - **Signet Lightning Node**  
   Feel free to open a channel to us
-  [Find us Here]()
+  (Coming Soon)
 
 - **Testnet and Signet Faucets**  
   In the pipeline. Stay tuned! In the meantime, for testnet funds, you might want to try [htlc.me](http://htlc.me/).

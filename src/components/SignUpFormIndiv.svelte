@@ -213,14 +213,14 @@
         </div>
 
         <div class="input-wrapper">
-          <label for="mentor" style="margin-top:2.5rem;">Do you want to mentor? Check if Yes</label>
+          <label for="mentor" style="margin-top:2.5rem;">Do you want to mentor?</label>
           <input type="checkbox" id="mentor" bind:checked={mentor} />
         </div>
         <div class="input-wrapper">
           <label style="font-size:1.5rem; margin-top: 2rem;" class="text-center" for="qrCode">Membership Dues</label>
           <p style="color: #FF9500" class="text-center">{`${formatNumberWithCommas(fee)} sats`}</p>
           <div
-            class="no-outline"
+            class="no-outline text-center"
             style="margin:auto; padding-right: 10px; cursor: pointer;"
             id="qrCode"
             bind:innerHTML={qrCode}
@@ -239,7 +239,7 @@
         {/if}
         {#if !hasPaid}
           <h6 style="font-size: 0.75rem;">
-            <i>Please complete payment before signing up. Include your email in the comment field.</i>
+            <i>Please complete payment first, then submit will be enabled. Include your email in the comment field.</i>
           </h6>
         {/if}
         <button type="submit" disabled={!hasPaid}>Submit</button>
@@ -371,7 +371,6 @@ form {
   h1 {
     font-size: 2rem;
     font-weight: bold;
-    color: #ccc;
     margin-top: 0;
     margin-bottom: 1rem;
   }
