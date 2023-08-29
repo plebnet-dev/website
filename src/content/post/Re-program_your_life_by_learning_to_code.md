@@ -2,7 +2,7 @@
 publishDate: 2023-07-10T11:01:00-05:00
 title: Re-program your life by learning to code
 author: bitcoindad
-description: You do not need to be a rocket scientist to contribute to bitcoin, and learning to code is more about repetition creating daily habit versus being the smartest developer in the room it takes Proof of Work to become a reputable dev.
+description: You do not need to be a rocket scientist to contribute to Bitcoin, and learning to code is more about repetition and daily habit.
 image: /images/Bitcoin_Lightbulb_Effect.jpg
 category: Plebnet Dev
 tags:
