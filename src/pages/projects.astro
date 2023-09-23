@@ -5,6 +5,8 @@ import Header from '~/components/widgets/Header.astro';
 import FeaturesLink from '~/components/widgets/FeaturesLink.astro';
 
 import { headerData } from '~/data';
+import { getJoinPermalink } from '../utils/permalinks';
+
 
 const meta = {
   title: 'PLEBNET.DEV Projects',
@@ -18,8 +20,8 @@ const meta = {
       actions={[
         {
           type: "primary",
-          text: 'Sign Up',
-          href: '/join',
+          text: 'Join Us',
+          href: getJoinPermalink(),
         },
       ]}
       isSticky
