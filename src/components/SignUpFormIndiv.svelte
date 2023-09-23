@@ -1,15 +1,15 @@
 <script>
   import { createClient } from '@supabase/supabase-js';
-  import { fade } from 'svelte/transition';
   import { onMount, onDestroy } from 'svelte';
-  import { createEventDispatcher } from 'svelte';
   import { ClipboardListSolid } from 'svelte-awesome-icons';
 
-  const dispatch = createEventDispatcher();
+  // import { createEventDispatcher } from 'svelte';
+  // import { fade } from 'svelte/transition';
+
+  //  const dispatch = createEventDispatcher();
+  //  export let showFormModal = true;
 
   let supabase;
-
-  export let showFormModal = false;
 
   async function getQRCode() {
     const response = await fetch(`${baseLNbitsURL}/api/v1/qrcode/${paylinkLNURL}`);
@@ -53,10 +53,11 @@
         max: fee,
         amount: fee,
         comment_chars: 50,
-        success_text: 'Thanks for joining the PlebDev Community!',
+        success_text: 'Thanks for joining the Plebnet.Dev Community!',
       }),
     });
     const test = await response.json();
+    console.log("inside update paylink")
     console.log(test);
   }
 
@@ -70,25 +71,6 @@
     fee = indivMembershipFee;
     supabase = createClient(supabaseUrl, supabaseKey);
 
-    // Create LNbits paylink
-    // const paylinkResponse = await fetch(`${baseLNbitsURL}/lnurlp/api/v1/links`, {
-    //   method: 'POST',
-    //   headers: {
-    //     accept: 'application/json',
-    //     'X-API-KEY': LNbitsXAPI,
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({
-    //     description: 'Pleb Devs Individual Membership',
-    //     min: indivMembershipFee,
-    //     max: indivMembershipFee,
-    //     amount: indivMembershipFee,
-    //     username: `Individual Membership ${getHumanReadableDate}`,
-    //     comment_chars: 50,
-    //     success_text: 'Thanks for joining the PlebDev Community!',
-    //   }),
-    // });
-
     const paylinkResponse = await fetch('/api/get-paylink', {
       method: 'POST',
       headers: {
@@ -101,7 +83,7 @@
     paylinkID = paylinkData.id;
     lnurl = paylinkData.lnurl;
     await getQRCode();
-    intervalId = setInterval(getPaylink, 3000);
+    intervalId = setInterval(getPaylink, 10000);
   });
 
   onDestroy(() => {
@@ -127,7 +109,7 @@
   let lnurl = '';
   let baseLNbitsURL = '';
   let LNbitsXAPIKey = '';
-  let tooltip = { x: 0, y: 0, show: false };
+  //  let tooltip = { x: 0, y: 0, show: false };
   let fee = 0;
   let discordHandle = '';
 
@@ -144,11 +126,13 @@
       mentor: mentor ? 'yes' : 'no',
     };
 
+    console.log(formData)
     const { data, error } = await supabase.from('members-individual').insert([formData]);
 
     if (error) {
       responseMessage = `Error submitting form: ${error.message}`;
     } else {
+      console.log("sending email message to admins")
       // Call the API component to send an email
       const response = await fetch('/api/send-email', {
         method: 'POST',
@@ -161,7 +145,7 @@
       if (response.ok) {
         responseMessage = 'Form submitted successfully';
         await showThankYouModal();
-        window.location.href = '/projects';
+        window.location.href = '/thankyou';
       } else {
         responseMessage = `Error sending email: ${response.statusText}`;
       }
@@ -178,10 +162,6 @@
     showModal = false;
   }
 
-  function toggleFormModal() {
-    showFormModal = !showFormModal;
-  }
-
   function copyToClipboard() {
     navigator.clipboard
       .writeText(lnurl)
@@ -192,27 +172,11 @@
         console.error('Could not copy text: ', err);
       });
   }
-
-  function updateTooltipPosition(event) {
-    tooltip = { x: event.clientX, y: event.clientY, show: true };
-  }
-
-  function hideTooltip() {
-    tooltip.show = false;
-  }
 </script>
 
-{#if showFormModal}
-  <div class="modal" transition:fade>
-    <div class="modal-content modal-background">
-      <button
-        class="close-button"
-        on:click={() => {
-          showFormModal = false;
-          dispatch('modal', showFormModal);
-        }}>×</button
-      >
-      <h1>Individual Sign Up</h1>
+<div>
+  <div>
+      <h1>Individual Membership</h1>
       <form on:submit|preventDefault={handleSubmit}>
         <div class="input-wrapper">
           <label for="name">Name*</label>
@@ -249,14 +213,14 @@
         </div>
 
         <div class="input-wrapper">
-          <label for="mentor">Do you want to mentor?</label>
+          <label for="mentor" style="margin-top:2.5rem;">Do you want to mentor?</label>
           <input type="checkbox" id="mentor" bind:checked={mentor} />
         </div>
         <div class="input-wrapper">
-          <label style="font-size:1.5rem; margin-top: 2rem;" for="qrCode">Membership Dues</label>
-          <p style="color: #FF9500">{`${formatNumberWithCommas(fee)} sats`}</p>
+          <label style="font-size:1.5rem; margin-top: 2rem;" class="text-center" for="qrCode">Membership Dues</label>
+          <p style="color: #FF9500" class="text-center">{`${formatNumberWithCommas(fee)} sats`}</p>
           <div
-            class="no-outline"
+            class="no-outline text-center"
             style="margin:auto; padding-right: 10px; cursor: pointer;"
             id="qrCode"
             bind:innerHTML={qrCode}
@@ -275,26 +239,23 @@
         {/if}
         {#if !hasPaid}
           <h6 style="font-size: 0.75rem;">
-            <i>Please complete payment before signing up. Include your email in the comment field.</i>
+            <i>Please complete payment first, then submit will be enabled. Include your email in the comment field.</i>
           </h6>
         {/if}
         <button type="submit" disabled={!hasPaid}>Submit</button>
 
-        {#if showModal}
-          <div class="modal" transition:fade>
-            <div class="modal-content">
-              <h2>Thank you for signing up!</h2>
-              <p>Check out some community projects and find one that's right for you</p>
-            </div>
-          </div>
+       {#if showModal}
+        <div>
+          <h2>Thank you for signing up!</h2>
+        </div>
         {/if}
       </form>
     </div>
   </div>
-{/if}
 
 <style>
-  form {
+
+form {
     display: flex;
     flex-direction: column;
     max-width: 400px;
@@ -305,30 +266,31 @@
   label {
     font-weight: bold;
     margin-top: 1rem;
+    margin-bottom: 0.2rem;
   }
 
   input {
+    border-radius: 8px;
     padding: 0.5rem;
-    border: none;
-    border-bottom: 1px solid #ccc;
+    border: 1px solid #555;
     font-size: 1rem;
     background-color: transparent;
   }
 
   input:focus {
     outline: none;
-    border-bottom-color: #ff9500;
+    border-color: #fff;
   }
 
   button {
     margin-top: 1rem;
     padding: 0.5rem 1rem;
-    background-color: white;
-    color: #ff9500;
+    background-color: #1F40AE;
+    color: white;
     font-size: 1rem;
     font-weight: bold;
     border: none;
-    border-radius: 4px;
+    border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s;
     align-items: center;
@@ -336,8 +298,8 @@
   }
 
   button:hover {
-    background-color: #ff9500;
-    color: white;
+    background-color: #fff;
+    color: #1F40AE;
   }
 
   p {
@@ -346,27 +308,28 @@
   }
 
   textarea {
+    border-radius: 8px;
     padding: 0.5rem;
     border: none;
-    border-bottom: 1px solid #ccc;
+    border: 1px solid #555;
     font-size: 1rem;
     background-color: transparent;
     resize: vertical;
-    min-height: 80px;
+    min-height: 150px;
     resize: none;
   }
 
   textarea:focus {
     outline: none;
-    border-bottom-color: #ff9500;
+    border-color: #fff;
     resize: none;
   }
 
   input[type='checkbox'] {
     appearance: none;
     background-color: transparent;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     border: 1px solid #ccc;
     border-radius: 2px;
     cursor: pointer;
@@ -396,82 +359,20 @@
   }
 
   .input-wrapper {
-    position: relative;
+    /* position: relative;*/
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
   }
 
   .input-wrapper:focus-within label {
-    color: #ff9500;
-  }
-
-  .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-
-  .modal-content {
-    position: relative;
-    background-color: white;
-    padding: 2rem;
-    border-radius: 4px;
-    text-align: center;
-    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
-    min-width: 300px;
-    max-width: calc(100% - 40px);
-    max-height: calc(100% - 40px);
-    overflow: auto;
-  }
-
-  .close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-  }
-
-  .modal-content h2 {
-    font-size: 1.5rem;
-    font-weight: 500;
-    margin-bottom: 0;
-    color: #ff9500;
-  }
-
-  .modal-content p {
-    font-size: 1rem;
-    margin-top: 0.5rem;
-    color: rgba(0, 0, 0, 0.6);
-  }
-  .modal-background {
-    background-color: #10182b;
+    color: #fff;
   }
 
   h1 {
     font-size: 2rem;
     font-weight: bold;
-    color: #ff9500;
     margin-top: 0;
     margin-bottom: 1rem;
-  }
-
-  @media (max-width: 768px) {
-    .close-button {
-      top: -15px;
-      right: 5px;
-    }
   }
 
   h6 {
@@ -482,22 +383,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  .tooltiptext {
-    position: fixed;
-    width: 120px;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    z-index: 100;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-
-  .tooltiptext.show {
-    opacity: 1;
   }
 
   .no-outline:focus {
@@ -518,5 +403,6 @@
   }
   .lnurl:hover {
     color: #10182b;
-  }
+    background-color: #fff;
+  } 
 </style>

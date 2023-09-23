@@ -1,11 +1,11 @@
 <script lang="ts">
 </script>
 
-<div class="mx-auto max-w-xl">
+<div>
 	<h2 class="text-4xl font-bold tracking-tight sm:text-3xl mb-4">Contact Us</h2>
-
-    <form method="POST" class="group relative">
-			<label for="name" class="label float-left mt-8 mb-2">
+    <form method="POST" class="">
+		<div class="mb-6">
+			<label for="name" class="block text-sm font-medium">
 				<span class="label-text">Name</span>
 			</label>
 			<input
@@ -15,15 +15,11 @@
 				placeholder="Enter your name"
 				required
 				autocomplete="off"
-                class="input-bordered w-full text-black"
-
+				class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
 			/>
-			<label for="name" class="label">
-				<span class="label-text-alt">
-				</span>
-			</label>
-
-			<label for="email" class="label float-left mt-8 mb-2">
+			</div>
+			<div class="mb-6">
+			<label for="email" class="block text-sm font-medium">
 				<span class="label-text">Email</span>
 			</label>
 			<input
@@ -33,16 +29,11 @@
 				placeholder="you@email.com"
 				required
 				autocomplete="off"
-				class="input input-bordered w-full text-black"
+				class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"	    
 			/>
-			<label for="email" class="label">
-				<span
-					class="label-text-alt"
-				>
-				</span>
-			</label>
-
-			<label for="message" class="label float-left mt-8 mb-2">
+			</div>
+			<div class="mb-6">
+			<label for="message" class="block text-sm font-medium">
 				<span class="label-text">Message</span>
 			</label>
 			<textarea
@@ -52,19 +43,15 @@
 				required
 				rows="10"
 				autocomplete="off"
-				class="textarea input-bordered w-full text-black"
+				class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
 			/>
-			<label for="message" class="label">
-				<span class="label-text-alt">
-				</span>
-			</label>
-
+			</div>
+			<div class="mt-10 grid">
+				<button type="submit" class="btn btn-primary cursor-pointer">
 			<input
 				type="submit"
 				value="Submit"
-				class="btn btn-primary mt-10"
 			/>
+			</button></div>
 		</form>
-
-
 </div>

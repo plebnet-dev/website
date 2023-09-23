@@ -20,8 +20,12 @@ Welcome to [Plebnet.Dev](https://plebnet.dev), where the future of Bitcoin and L
 
 - **Cost-Effective Infrastructure**: We understand that individually running lightning and NOSTR services can be financially draining. That's why, by joining us, members get to utilize these services at a more economical rate, freeing up their time and resources to dive straight into building.
 
-- **Real-time Engagement**: To get a glimpse into our monthly activities, check out the minutes from our [latest meetup](https://github.com/plebnet-dev/meeting-notes/blob/main/PlebNetDev_Meeting_Notes_Jul2023.md). It offers a sneak peek into the pressing topics we discuss, the innovations we're steering, and the camaraderie we share.
+- **Real-time Engagement**: To get a glimpse into our monthly activities, check out the minutes from our [latest meetup](https://github.com/plebnet-dev/meeting-notes/). It offers a sneak peek into the pressing topics we discuss, the innovations we're steering, and the camaraderie we share.
 
 By partnering with us, you're not just joining another developer space – you're stepping into a passionate community hell-bent on driving Bitcoin and Lightning innovations. Curious to learn more? Dive deep into the resources we're developing at [Plebnet.dev/resources](/resources).
+
+## The Creators
+
+Made with 🧡 by [Bitkarrot](https://github.com/bitkarrot/) and [Bitc0inDad](https://github.com/Bitc0indad/) in collaboration with the [Plebnet-Playground](https://github.com/PLEBNET-PLAYGROUND/) crew.
 
 ![plebnet.dev](/images/logo-dark-horiz-transparent.png)
