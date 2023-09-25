@@ -10,16 +10,19 @@ import compress from 'astro-compress';
 import { readingTimeRemarkPlugin } from './src/utils/frontmatter.mjs';
 import { SITE } from './src/config.mjs';
 import svelte from "@astrojs/svelte";
-// import node from '@astrojs/node';
-// import vercelEdge from '@astrojs/vercel/edge';
 import vercel from "@astrojs/vercel/serverless";
 import 'dotenv/config';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const whenExternalScripts = (items = []) => SITE.googleAnalyticsId ? Array.isArray(items) ? items.map(item => item()) : [items()] : [];
 
-
 // https://astro.build/config
 export default defineConfig({
+  redirects: {
+    '/join': {
+      status: 302,
+      destination: '/join-us'
+    }
+  },
   site: SITE.origin,
   base: SITE.basePathname,
   trailingSlash: SITE.trailingSlash ? 'always' : 'never',

@@ -1,4 +1,4 @@
-import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
+import {getBlogPermalink, getJoinPermalink, getAsset } from './utils/permalinks';
 
 export const headerData = {
   links: [
@@ -7,11 +7,11 @@ export const headerData = {
       links: [
         {
           text: 'Join Us',
-          href: '/join',    
+          href:  getJoinPermalink(),
         },
         {
           text: 'FAQ',
-          href: '/join#faq',    
+          href:  getJoinPermalink() + '#faq',
         },
         {
           text: 'Projects',
@@ -98,8 +98,8 @@ export const footerData = {
     {
       title: 'Members',
       links: [
-        { text: 'Join Us', href: '/join' },
-        { text: 'FAQ', href: '/join#faq' },
+        { text: 'Join Us', href:  getJoinPermalink() },
+        { text: 'FAQ', href:  getJoinPermalink() + '#faq' },
         { text: 'Projects', href: '/projects' },
         { text: 'Blog', href: '/blog' },
         // { text: 'Directory', href: '/directory' },

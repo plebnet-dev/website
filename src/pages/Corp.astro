@@ -3,6 +3,7 @@ import Layout from "~/layouts/PageLayout.astro";
 import Header from "~/components/widgets/Header.astro";
 import { headerData } from "~/data";
 import SignUpFormCorp from '../components/SignUpFormCorp.svelte';
+import {getJoinPermalink } from '../utils/permalinks';
 
 const meta = {
   title: "PLEBNET.DEV Join Us",
@@ -17,7 +18,7 @@ const meta = {
           {
             type: "primary",
             text: "Sign Up",
-            href: "/join",
+            href:  getJoinPermalink(),
           },
         ]}
         isSticky

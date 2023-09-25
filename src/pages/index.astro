@@ -8,6 +8,7 @@ import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 
+import {getJoinPermalink } from '../utils/permalinks';
 
 import { headerData } from '~/data';
 
@@ -24,7 +25,7 @@ const meta = {
         {
           type: "primary",
           text: 'Join Us',
-          href: '/join',
+          href:  getJoinPermalink(),
         },
       ]}
       isSticky
@@ -34,7 +35,7 @@ const meta = {
   <!-- Hero2 Widget ******************* -->
 
   <Hero2
-    callToAction={{ text: 'Join Us', href: '/join' }}
+    callToAction={{ text: 'Join Us', href:  getJoinPermalink() }}
     callToAction2={{ text: 'Learn More', href: '#more' }}
     image={{ src: import('~/assets/images/electricbitcoin.jpg'), alt: 'Plebnet.dev Hero Image' }}
   >
@@ -108,7 +109,7 @@ const meta = {
    <CallToAction
    callToAction={{
      text: 'Join Us',
-     href: '/join',
+     href:  getJoinPermalink(),
    }}
  >
    <Fragment slot="title">
