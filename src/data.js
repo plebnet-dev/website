@@ -73,7 +73,7 @@ export const headerData = {
         },
         {
           text: 'Discord',
-          href: 'https://discord.gg/PdBcqnAyCD'
+          href: 'https://discord.gg/ph88YwmcrA'
         }
       ],
     },
@@ -108,7 +108,7 @@ export const footerData = {
     {
       title: 'Connect',
       links: [
-        { text: 'FAQ Discord', href: 'https://discord.gg/PdBcqnAyCD'},
+        { text: 'Discord', href: 'https://discord.gg/ph88YwmcrA'},
         { text: 'Donate', href: '/donate'},
         { text: 'Sponsors', href: '/sponsors' },
         { text: 'Store', href: 'https://plebnet-dev.printify.me/'},
@@ -141,7 +141,7 @@ export const footerData = {
   socialLinks: [
   // { text: 'Nostr', href: '#'},
   // { ariaLabel: 'Twitter', icon: 'tabler:brand-twitter', href: '#' },
-  { ariaLabel: 'Discord', icon: 'tabler:brand-discord', href: 'https://discord.gg/PdBcqnAyCD' },
+  { ariaLabel: 'Discord', icon: 'tabler:brand-discord', href: 'https://discord.gg/ph88YwmcrA' },
   { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/plebnet-dev/' },
   { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
   ],
