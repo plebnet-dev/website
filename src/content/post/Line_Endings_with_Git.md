@@ -3,7 +3,7 @@ publishDate: 2023-08-19T19:58:05-05:00
 title: Managing Line Endings with Git
 author: bitcoindad
 description: How Git helps manages line endings across platforms.
-image: /images/GIT_Logo.webp
+image: /images/Git_2.png
 category: Education
 tags:
   - git
