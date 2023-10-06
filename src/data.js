@@ -110,7 +110,7 @@ export const footerData = {
       links: [
         { text: 'Discord', href: 'https://discord.gg/ph88YwmcrA'},
         { text: 'Donate', href: '/donate'},
-        { text: 'Sponsors', href: '/sponsors' },
+        { text: 'Supporters', href: '/supporters' },
         { text: 'Store', href: 'https://plebnet-dev.printify.me/'},
       ],
     },
