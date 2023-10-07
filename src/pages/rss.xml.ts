@@ -8,7 +8,7 @@ export const get = async () => {
   if (BLOG.disabled) {
     return new Response(null, {
       status: 404,
-      statusText: 'Not found',
+      statusText: 'Content Not found',
     });
   }
 

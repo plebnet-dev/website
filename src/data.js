@@ -1,4 +1,4 @@
-import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
+import {getBlogPermalink, getJoinPermalink, getAsset } from './utils/permalinks';
 
 export const headerData = {
   links: [
@@ -7,11 +7,11 @@ export const headerData = {
       links: [
         {
           text: 'Join Us',
-          href: '/join',    
+          href:  getJoinPermalink(),
         },
         {
           text: 'FAQ',
-          href: '/join#faq',    
+          href:  getJoinPermalink() + '#faq',
         },
         {
           text: 'Projects',
@@ -73,7 +73,7 @@ export const headerData = {
         },
         {
           text: 'Discord',
-          href: 'https://discord.gg/PdBcqnAyCD'
+          href: 'https://discord.gg/ph88YwmcrA'
         }
       ],
     },
@@ -98,8 +98,8 @@ export const footerData = {
     {
       title: 'Members',
       links: [
-        { text: 'Join Us', href: '/join' },
-        { text: 'FAQ', href: '/join#faq' },
+        { text: 'Join Us', href:  getJoinPermalink() },
+        { text: 'FAQ', href:  getJoinPermalink() + '#faq' },
         { text: 'Projects', href: '/projects' },
         { text: 'Blog', href: '/blog' },
         // { text: 'Directory', href: '/directory' },
@@ -108,7 +108,7 @@ export const footerData = {
     {
       title: 'Connect',
       links: [
-        { text: 'FAQ Discord', href: 'https://discord.gg/PdBcqnAyCD'},
+        { text: 'Discord', href: 'https://discord.gg/ph88YwmcrA'},
         { text: 'Donate', href: '/donate'},
         { text: 'Sponsors', href: '/sponsors' },
         { text: 'Store', href: 'https://plebnet-dev.printify.me/'},
@@ -141,7 +141,7 @@ export const footerData = {
   socialLinks: [
   // { text: 'Nostr', href: '#'},
   // { ariaLabel: 'Twitter', icon: 'tabler:brand-twitter', href: '#' },
-  { ariaLabel: 'Discord', icon: 'tabler:brand-discord', href: 'https://discord.gg/PdBcqnAyCD' },
+  { ariaLabel: 'Discord', icon: 'tabler:brand-discord', href: 'https://discord.gg/ph88YwmcrA' },
   { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/plebnet-dev/' },
   { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
   ],

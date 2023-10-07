@@ -2,6 +2,7 @@
 import Layout from '~/layouts/PageLayout.astro';
 import Header from '~/components/widgets/Header.astro';
 import Content from '~/components/widgets/Content.astro';
+import {getJoinPermalink } from '../utils/permalinks';
 
 import { headerData } from '~/data';
 
@@ -17,8 +18,8 @@ const meta = {
       actions={[
         {
           type: 'primary',
-          text: 'Sign Up',
-          href: '/join',
+          text: 'Join Us',
+          href: getJoinPermalink(),
         },
       ]}
       isSticky
@@ -38,11 +39,6 @@ const meta = {
         <div>
           <a href="https://www.buckstobitcoin.com" target="_blank">
             <img src="/images/sponsors/Bucks_to_Bitcoin_Logo.webp" alt="Bucks 2 Bitcoin" width="100" />
-          </a>
-        </div>
-        <div>
-          <a href="https://www.spreadshot.jobs" target="_blank">
-            <img src="/images/sponsors/spreadshot-logo.webp" alt="icon" width="100" />
           </a>
         </div>
         <div>

@@ -4,6 +4,7 @@ import Header from '~/components/widgets/Header.astro';
 import ContactForm from "../components/ContactForm.svelte";
 
 import { headerData } from '~/data';
+import {getJoinPermalink } from '../utils/permalinks';
 
 const meta = {
   title: 'PLEBNET.DEV Contact us',
@@ -17,8 +18,8 @@ const meta = {
       actions={[
         {
           type: "primary",
-          text: 'Sign Up',
-          href: '/join',
+          text: 'Join Us',
+          href: getJoinPermalink(),
         },
       ]}
       isSticky
