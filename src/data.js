@@ -1,4 +1,4 @@
-import {getBlogPermalink, getJoinPermalink, getAsset } from './utils/permalinks';
+import { getBlogPermalink, getJoinPermalink, getAsset, getStorePermalink } from './utils/permalinks';
 
 export const headerData = {
   links: [
@@ -7,54 +7,54 @@ export const headerData = {
       links: [
         {
           text: 'Join Us',
-          href:  getJoinPermalink(),
+          href: getJoinPermalink(),
         },
         {
           text: 'FAQ',
-          href:  getJoinPermalink() + '#faq',
+          href: getJoinPermalink() + '#faq',
         },
         {
           text: 'Projects',
-          href: '/projects',    
+          href: '/projects',
         },
         // {
         //   text: 'Services',
         //   href: '/services',
         // },
-      ]
+      ],
     },
     //{
-      //text: 'Bitcoin',
-      //links: [
-        //{
-          //text: 'Bitcoin Info',
-          //href: '/bitcoin',
-        //},
-      //],
+    //text: 'Bitcoin',
+    //links: [
+    //{
+    //text: 'Bitcoin Info',
+    //href: '/bitcoin',
+    //},
+    //],
     //},
     {
       text: 'Resources',
       links: [
         {
           text: 'Testnet LNBits',
-          href: 'https://testnet.plebnet.dev',          
+          href: 'https://testnet.plebnet.dev',
         },
         {
           text: 'Testnet LN Node',
-          href: 'https://mempool.space/testnet/lightning/node/03ba00a57cec1cef4873065ad54d0912696274cc53155b29a3b1256720e33a0943',          
+          href: 'https://mempool.space/testnet/lightning/node/03ba00a57cec1cef4873065ad54d0912696274cc53155b29a3b1256720e33a0943',
         },
         {
           text: 'Nostr Relay',
-          href: 'https://testnet.plebnet.dev/nostrrelay/1',          
+          href: 'https://testnet.plebnet.dev/nostrrelay/1',
         },
         {
           text: 'Nostrogen',
-          href: 'https://nostrogen.plebnet.dev/',          
+          href: 'https://nostrogen.plebnet.dev/',
         },
         {
           text: 'All Resources',
           href: '/resources',
-        }
+        },
         // {
         //   text: 'Signet Faucet (coming soon)',
         //   href: 'https://signet-faucet.plebnet.dev/',
@@ -71,24 +71,24 @@ export const headerData = {
         {
           text: 'Our Story',
           href: '/about',
-        }, 
+        },
         {
           text: 'Blog',
-          href:  getBlogPermalink(),
-        }, 
-        { 
+          href: getBlogPermalink(),
+        },
+        {
           text: 'Donate',
-          href: '/donate'
+          href: '/donate',
         },
         {
           text: 'Discord',
-          href: 'https://discord.gg/ph88YwmcrA'
-        }
+          href: 'https://discord.gg/ph88YwmcrA',
+        },
       ],
     },
     {
       text: 'Store',
-      href: 'https://plebnet-dev.printify.me/',
+      href: getStorePermalink(),
     },
   ],
   actions: [
@@ -96,40 +96,43 @@ export const headerData = {
       type: 'orange',
       text: 'Donate',
       href: '/donate',
-    }
+    },
     // adds a download button to the upper right nav on blog page
     // { type: 'button', text: 'Download', href: 'https://github.com/onwidget/astrowind' }
   ],
 };
-  
+
 export const footerData = {
   links: [
     {
       title: 'Members',
       links: [
-        { text: 'Join Us', href:  getJoinPermalink() },
-        { text: 'FAQ', href:  getJoinPermalink() + '#faq' },
+        { text: 'Join Us', href: getJoinPermalink() },
+        { text: 'FAQ', href: getJoinPermalink() + '#faq' },
         { text: 'Projects', href: '/projects' },
         { text: 'Blog', href: '/blog' },
         // { text: 'Directory', href: '/directory' },
-      ],        
+      ],
     },
     {
       title: 'Connect',
       links: [
-        { text: 'Discord', href: 'https://discord.gg/ph88YwmcrA'},
-        { text: 'Donate', href: '/donate'},
+        { text: 'Discord', href: 'https://discord.gg/ph88YwmcrA' },
+        { text: 'Donate', href: '/donate' },
         { text: 'Supporters', href: '/supporters' },
-        { text: 'Store', href: 'https://plebnet-dev.printify.me/'},
+        { text: 'Store', href: getStorePermalink() },
       ],
     },
     {
       title: 'Resources',
       links: [
-        { text: 'LNBits Testnet', href: 'https://testnet.plebnet.dev'},
-        { text: 'CLN Testnet Node', href: 'https://mempool.space/testnet/lightning/node/03ba00a57cec1cef4873065ad54d0912696274cc53155b29a3b1256720e33a0943'},
-        { text: 'Nostr Relay', href: 'https://testnet.plebnet.dev/nostrrelay/1'},
-        { text: 'Nostrogen', href: 'https://nostrogen.plebnet.dev/'},
+        { text: 'LNBits Testnet', href: 'https://testnet.plebnet.dev' },
+        {
+          text: 'CLN Testnet Node',
+          href: 'https://mempool.space/testnet/lightning/node/03ba00a57cec1cef4873065ad54d0912696274cc53155b29a3b1256720e33a0943',
+        },
+        { text: 'Nostr Relay', href: 'https://testnet.plebnet.dev/nostrrelay/1' },
+        { text: 'Nostrogen', href: 'https://nostrogen.plebnet.dev/' },
       ],
     },
     {
@@ -139,7 +142,7 @@ export const footerData = {
         // { text: 'Contact Us', href: '/contact' },
         { text: 'Press Kit', href: 'https://github.com/plebnet-dev/presskit' },
         { text: 'Terms of Service', href: '/terms' },
-        { text: 'Privacy', href: '/privacy' },       
+        { text: 'Privacy', href: '/privacy' },
       ],
     },
   ],
@@ -148,11 +151,11 @@ export const footerData = {
   //   { text: 'Privacy Policy', href: getPermalink('/privacy') },
   // ],
   socialLinks: [
-  // { text: 'Nostr', href: '#'},
-  // { ariaLabel: 'Twitter', icon: 'tabler:brand-twitter', href: '#' },
-  { ariaLabel: 'Discord', icon: 'tabler:brand-discord', href: 'https://discord.gg/ph88YwmcrA' },
-  { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/plebnet-dev/' },
-  { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
+    // { text: 'Nostr', href: '#'},
+    // { ariaLabel: 'Twitter', icon: 'tabler:brand-twitter', href: '#' },
+    { ariaLabel: 'Discord', icon: 'tabler:brand-discord', href: 'https://discord.gg/ph88YwmcrA' },
+    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/plebnet-dev/' },
+    { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
   ],
   footNote: `
     <span class=" float-left rounded-sm"></span>
