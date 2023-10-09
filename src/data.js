@@ -23,15 +23,6 @@ export const headerData = {
         // },
       ],
     },
-    //{
-    //text: 'Bitcoin',
-    //links: [
-    //{
-    //text: 'Bitcoin Info',
-    //href: '/bitcoin',
-    //},
-    //],
-    //},
     {
       text: 'Resources',
       links: [
