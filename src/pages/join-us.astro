@@ -1,97 +1,97 @@
 ---
-import Layout from "~/layouts/PageLayout.astro";
-import Header from "~/components/widgets/Header.astro";
+import Layout from '~/layouts/PageLayout.astro';
+import Header from '~/components/widgets/Header.astro';
 import Prices from '~/components/widgets/Pricing.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 
-import { headerData } from "~/data";
+import { headerData } from '~/data';
+import { getStorePermalink } from '~/utils/permalinks';
 
 const meta = {
-  title: "PLEBNET.DEV Join Us",
+  title: 'PLEBNET.DEV Join Us',
 };
-
 ---
+
 <Layout {meta}>
   <Fragment slot="header">
     <Header
       {...headerData}
       actions={[
         {
-          type: "orange",
-          text: "Shop",
-          href: "https://plebnet-dev.printify.me/",
+          type: 'orange',
+          text: 'Shop',
+          href: getStorePermalink(),
         },
       ]}
       isSticky
     />
   </Fragment>
 
-
-<Prices
-  title="Join Us"
-  subtitle="Individual or Organizations welcome! Questions? See FAQ below."
-  prices={[
-    {
-      title: 'Individual',
-      subtitle: 'Optimal choice for personal use',
-      price: 100000,
-      period: 'sats per year',
-      items: [
-        {
-          description: 'Join Members only Events',
+  <Prices
+    title="Join Us"
+    subtitle="Individual or Organizations welcome! Questions? See FAQ below."
+    prices={[
+      {
+        title: 'Individual',
+        subtitle: 'Optimal choice for personal use',
+        price: 100000,
+        period: 'sats per year',
+        items: [
+          {
+            description: 'Join Members only Events',
+          },
+          {
+            description: 'Access to members only Discord',
+          },
+          {
+            description: 'Access to Member only resources',
+          },
+          {
+            description: 'Mentor or get access to mentoring',
+          },
+        ],
+        callToAction: {
+          targetBlank: false,
+          text: 'Get started',
+          href: '/Indiv',
         },
-        {
-          description: 'Access to members only Discord',
-        },
-        {
-          description: 'Access to Member only resources',
-        },
-        {
-          description: 'Mentor or get access to mentoring',
-        },
-      ],
-      callToAction: {
-        targetBlank: false,
-        text: 'Get started',
-        href: '/Indiv',
+        hasRibbon: true,
+        ribbonTitle: '',
       },
-      hasRibbon: true,
-      ribbonTitle: '',
-    },
-    {
-      title: 'Corporate',
-      subtitle: 'Optimal choice for organizations',
-      price: 300000,
-      period: 'sats per year',
-      items: [
-        {
-          description: 'Corporate Logo on website',
+      {
+        title: 'Corporate',
+        subtitle: 'Optimal choice for organizations',
+        price: 300000,
+        period: 'sats per year',
+        items: [
+          {
+            description: 'Corporate Logo on website',
+          },
+          {
+            description: 'Up to five corporate members',
+          },
+          {
+            description: 'Access to members only discord',
+          },
+          {
+            description: 'Sponsor a meetup or host an event',
+          },
+          {
+            description: 'Opportunity to post jobs openings',
+          },
+        ],
+        callToAction: {
+          targetBlank: false,
+          text: 'Get started',
+          href: '/Corp',
         },
-        {
-          description: 'Up to five corporate members',
-        },
-        {
-          description: 'Access to members only discord',
-        },
-        {
-          description: 'Sponsor a meetup or host an event',
-        },
-        {
-          description: 'Opportunity to post jobs openings',
-        },
-      ],
-      callToAction: {
-        targetBlank: false,
-        text: 'Get started',
-        href: '/Corp',
+        hasRibbon: true,
+        ribbonTitle: '',
       },
-      hasRibbon: true,
-      ribbonTitle: '',
-    },
-  ]}
-/>
+    ]}
+  />
 
-<span id="faq"> </span>
+  <span id="faq"> </span>
   <!-- FAQs Widget ******************* -->
   <FAQs
     title="Frequently Asked Questions"
@@ -99,40 +99,38 @@ const meta = {
     highlight="FAQs"
     items={[
       [
-       {
+        {
           question: 'How can I find out more about plebnet.dev before I join?',
-          answer:
-          "You can join a public monthly meetup on our Discord. See link below."
+          answer: 'You can join a public monthly meetup on our Discord. See link below.',
         },
         {
           question: 'Why do I need to Apply to join?',
           answer:
-          "To prevent bots, spammers, fake accounts and people who just join and don't ever say anything. The short application also helps members get to know you better and what your goals are in the space."
+            "To prevent bots, spammers, fake accounts and people who just join and don't ever say anything. The short application also helps members get to know you better and what your goals are in the space.",
         },
         {
-          question: "Can I buy a membership with credit cards or fiat?",
+          question: 'Can I buy a membership with credit cards or fiat?',
           answer:
-              "No we only accept payment in bitcoin or lightning for memberships. We are a bitcoin first group that is looking to build the future using bitcoin and lightning payment rails. The exception is the merch store, where print providers only accept fiat, we are working on accepting bitcoin as payment there as well. "
+            'No we only accept payment in bitcoin or lightning for memberships. We are a bitcoin first group that is looking to build the future using bitcoin and lightning payment rails. The exception is the merch store, where print providers only accept fiat, we are working on accepting bitcoin as payment there as well. ',
         },
       ],
-      [ {
-          question: "In my country the income is lower, is it possible to get a discount?",
+      [
+        {
+          question: 'In my country the income is lower, is it possible to get a discount?',
           answer:
-            "Yes it is definitely possible, please reach out to us and we can offer a membership for developing countries."
+            'Yes it is definitely possible, please reach out to us and we can offer a membership for developing countries.',
         },
         {
           question: 'Why is there no free trial?',
           answer:
-              "Unfortunately free trials attract the wrong kind of users such as spammers, scammers, bots, NFT enthusiasts, shitcoiners, and those with low engagement. This is contrary to the community we are building."
+            'Unfortunately free trials attract the wrong kind of users such as spammers, scammers, bots, NFT enthusiasts, shitcoiners, and those with low engagement. This is contrary to the community we are building.',
         },
         {
-          question: "Why should I pay to join? Why isn\'t this just a free chatroom?",
+          question: "Why should I pay to join? Why isn't this just a free chatroom?",
           answer:
-          "If something is free you are the product. Building, maintaining and supporting Plebnet.dev services, as well as lightning services in the cloud has a price attached to it. By asking everybody to pay, we eliminate the noise (bots, scams, spammers, shitcoiners, fake account, etc...) and we will never have to track or sell your data."
+            'If something is free you are the product. Building, maintaining and supporting Plebnet.dev services, as well as lightning services in the cloud has a price attached to it. By asking everybody to pay, we eliminate the noise (bots, scams, spammers, shitcoiners, fake account, etc...) and we will never have to track or sell your data.',
         },
-
       ],
     ]}
   />
-
 </Layout>
