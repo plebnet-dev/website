@@ -27,6 +27,9 @@ export const CATEGORY_BASE = cleanSlug(BLOG?.category?.pathname || 'category');
 export const TAG_BASE = cleanSlug(BLOG?.tag?.pathname) || 'tag';
 export const JOIN_US = 'join-us';
 
+export const DISCORD_LINK = 'https://discord.gg/CKFg2C9W4k';
+export const getDiscordPermalink = (): string => DISCORD_LINK;
+
 /** */
 export const getCanonical = (path = ''): string | URL => {
   const url = String(new URL(path, SITE.origin));

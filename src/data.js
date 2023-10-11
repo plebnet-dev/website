@@ -1,4 +1,4 @@
-import {getBlogPermalink, getJoinPermalink, getAsset } from './utils/permalinks';
+import {getBlogPermalink, getJoinPermalink, getDiscordPermalink, getAsset } from './utils/permalinks';
 
 export const headerData = {
   links: [
@@ -82,7 +82,7 @@ export const headerData = {
         },
         {
           text: 'Discord',
-          href: 'https://discord.gg/ph88YwmcrA'
+          href: getDiscordPermalink(),
         }
       ],
     },
@@ -117,7 +117,7 @@ export const footerData = {
     {
       title: 'Connect',
       links: [
-        { text: 'Discord', href: 'https://discord.gg/ph88YwmcrA'},
+        { text: 'Discord', href: getDiscordPermalink() },
         { text: 'Donate', href: '/donate'},
         { text: 'Supporters', href: '/supporters' },
         { text: 'Store', href: 'https://plebnet-dev.printify.me/'},
