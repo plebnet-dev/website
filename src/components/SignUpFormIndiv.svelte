@@ -3,6 +3,8 @@
   import { onMount, onDestroy } from 'svelte';
   import { ClipboardListSolid } from 'svelte-awesome-icons';
 
+  import PaymentModal from './PaymentModal.svelte';
+
   // import { createEventDispatcher } from 'svelte';
   // import { fade } from 'svelte/transition';
 
@@ -10,6 +12,8 @@
   //  export let showFormModal = true;
 
   let supabase;
+  let showPaymentModal = false;
+  let formData = {};
 
   async function getQRCode() {
     const response = await fetch(`${baseLNbitsURL}/api/v1/qrcode/${paylinkLNURL}`);
@@ -114,7 +118,7 @@
   let discordHandle = '';
 
   async function handleSubmit() {
-    const formData = {
+    formData = {
       formType: 'individual',
       name,
       discord_username: discordHandle,
@@ -125,31 +129,46 @@
       goal,
       mentor: mentor ? 'yes' : 'no',
     };
+    responseMessage = 'Form submitted successfully';
+        showPaymentModal = true; // Show the modal
+        await showPaymentModal();
 
-    console.log(formData)
-    const { data, error } = await supabase.from('members-individual').insert([formData]);
+    setTimeout(() => {
+      showPaymentModal = false;
+    }, 1);
 
-    if (error) {
-      responseMessage = `Error submitting form: ${error.message}`;
-    } else {
-      console.log("sending email message to admins")
-      // Call the API component to send an email
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+    // console.log(formData)
+    // if (showPaymentModal) {
+    //     responseMessage = 'Form submitted successfully';
+    //     showPaymentModal = true; // Show the modal
+    //     await showPaymentModal();
+    //     window.location.href = '/thankyou';
+    //   } else {
+    //     responseMessage = `Error sending email: ${response.statusText}`;
+    //   }
+    // const { data, error } = await supabase.from('members-individual').insert([formData]);
 
-      if (response.ok) {
-        responseMessage = 'Form submitted successfully';
-        await showThankYouModal();
-        window.location.href = '/thankyou';
-      } else {
-        responseMessage = `Error sending email: ${response.statusText}`;
-      }
-    }
+    // if (error) {
+    //   responseMessage = `Error submitting form: ${error.message}`;
+    // } else {
+    //   console.log("sending email message to admins")
+    //   // Call the API component to send an email
+    //   const response = await fetch('/api/send-email', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify(formData),
+    //   });
+
+    //   if (response.ok) {
+    //     responseMessage = 'Form submitted successfully';
+    //     await showThankYouModal();
+    //     window.location.href = '/thankyou';
+    //   } else {
+    //     responseMessage = `Error sending email: ${response.statusText}`;
+    //   }
+    // }
   }
 
   function formatNumberWithCommas(number) {
@@ -172,6 +191,14 @@
         console.error('Could not copy text: ', err);
       });
   }
+
+  function openModal() {
+    showPaymentModal = true;
+  }
+
+  function closeModal() {
+    showPaymentModal = false;
+  }
 </script>
 
 <div>
@@ -185,12 +212,12 @@
 
         <div class="input-wrapper">
           <label for="discordHandle">Discord Handle*</label>
-          <input type="text" id="discordHandle" bind:value={discordHandle} required />
+          <input type="text" id="discordHandle" bind:value={discordHandle}  />
         </div>
 
         <div class="input-wrapper">
           <label for="email">Email*</label>
-          <input type="email" id="email" bind:value={email} required />
+          <input type="email" id="email" bind:value={email}  />
         </div>
         <div class="input-wrapper">
           <label for="twitter">Twitter or Nostr npub</label>
@@ -199,17 +226,17 @@
 
         <div class="input-wrapper">
           <label for="github">GitHub or GitLab*</label>
-          <input type="text" id="github" bind:value={github} required />
+          <input type="text" id="github" bind:value={github}  />
         </div>
 
         <div class="input-wrapper">
           <label for="experience">Experience*</label>
-          <textarea type="text" id="experience" bind:value={experience} required />
+          <textarea type="text" id="experience" bind:value={experience}  />
         </div>
 
         <div class="input-wrapper">
           <label for="goal">What do you want to get out of plebnet.dev?*</label>
-          <textarea type="text" id="goal" bind:value={goal} required />
+          <textarea type="text" id="goal" bind:value={goal}  />
         </div>
 
         <div class="input-wrapper">
@@ -242,11 +269,13 @@
             <i>Please complete payment first, then submit will be enabled. Include your email in the comment field.</i>
           </h6>
         {/if}
-        <button type="submit" disabled={!hasPaid}>Submit</button>
+        
+        <button type="submit">Submit</button>
 
-       {#if showModal}
+       {#if showPaymentModal}
         <div>
-          <h2>Thank you for signing up!</h2>
+          <PaymentModal {showPaymentModal} {formData}/>
+          <!-- <h2>Thank you for signing up!</h2> -->
         </div>
         {/if}
       </form>
@@ -254,6 +283,7 @@
   </div>
 
 <style>
+  
 
 form {
     display: flex;
