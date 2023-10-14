@@ -38,7 +38,6 @@ At [Plebnet.dev](https://plebnet.dev), our aim is to continually enrich our user
 
   Details coming soon.
 
-
 For design enthusiasts and contributors, we're contemplating whether to list these on a separate page or to create dropdown links. Given the possible extensive nature of this list, we're inclined toward a dedicated page. However, do explore our current theme, the [astrowind template](https://astrowind.vercel.app/), and let us know what you think, especially considering the varying experiences on mobile vs. desktop.
 
 Your feedback and suggestions drive us. We'd love to hear your thoughts on this, whether it's on [GitHub](https://github.com/plebnet-dev) or any of our other platforms.

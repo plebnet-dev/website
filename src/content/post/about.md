@@ -26,6 +26,6 @@ By partnering with us, you're not just joining another developer space – you'r
 
 ## The Creators
 
-Made with 🧡 by [Bitkarrot](https://github.com/bitkarrot/) and [Bitc0inDad](https://github.com/Bitc0indad/) in collaboration with the [Plebnet-Playground](https://github.com/PLEBNET-PLAYGROUND/) crew.
+Made with 🧡 by [Bitkarrot](https://github.com/bitkarrot/) in collaboration with the [Plebnet-Playground](https://github.com/PLEBNET-PLAYGROUND/) crew.
 
 ![plebnet.dev](/images/logo-dark-horiz-transparent.png)
