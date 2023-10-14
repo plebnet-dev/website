@@ -1,7 +1,7 @@
 ---
 publishDate: 2023-08-16T17:25:00Z
 title: Introducing Plebnet.dev Resources
-author: bitc0indad
+author: PlebNet.Dev
 description: A new suite of resources being made available to PlebNet Devs.
 image: /images/Build_The_Future.webp
 category: Lightning, Nostr, Signet
