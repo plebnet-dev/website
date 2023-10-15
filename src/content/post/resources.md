@@ -42,9 +42,6 @@ At [Plebnet.dev](https://plebnet.dev), our aim is to continually enrich our user
 - **Nostrogen**
   A fork of the simple [nostr vanity address generator](https://nostrogen.plebnet.dev/).
 
-- **Nostr NIP-5 and Lightning Services**
-  Coming soon.
-
 - **Plebnet Wiki**
   [Wiki](https://plebnet.wiki) created by the Plebnet Community at Large
 
