@@ -17,10 +17,10 @@ export const headerData = {
           text: 'Projects',
           href: '/projects',
         },
-        // {
-        //   text: 'Services',
-        //   href: '/services',
-        // },
+        {
+           text: 'Plebnet Wiki',
+           href: 'https://plebnet.wiki',
+       },
       ],
     },
     {
@@ -35,12 +35,16 @@ export const headerData = {
           href: 'https://mempool.space/testnet/lightning/node/03ba00a57cec1cef4873065ad54d0912696274cc53155b29a3b1256720e33a0943',
         },
         {
+          text: 'Rate Converter',
+          href: 'https://rates.plebnet.dev',
+        },
+        {
           text: 'Nostr Relay',
           href: 'https://testnet.plebnet.dev/nostrrelay/1',
         },
         {
-          text: 'Nostrogen',
-          href: 'https://nostrogen.plebnet.dev/',
+          text: 'Nostr Metadata',
+          href: 'https://metadata.plebnet.dev/',
         },
         {
           text: 'All Resources',
@@ -123,6 +127,7 @@ export const footerData = {
           href: 'https://mempool.space/testnet/lightning/node/03ba00a57cec1cef4873065ad54d0912696274cc53155b29a3b1256720e33a0943',
         },
         { text: 'Nostr Relay', href: 'https://testnet.plebnet.dev/nostrrelay/1' },
+        { text: 'Nostr Metadata', href: 'https://metadata.plebnet.dev/' },
         { text: 'Nostrogen', href: 'https://nostrogen.plebnet.dev/' },
       ],
     },

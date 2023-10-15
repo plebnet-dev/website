@@ -1,5 +1,5 @@
 ---
-publishDate: 2023-04-09T00:00:00Z
+publishDate: 2023-10-03T00:00:00Z
 title: Why Nostr Wins
 excerpt: ... As a new Decentralized Social Network with Lightning Payments, in Short TLDR Bullet points
 image: /images/nostrich.webp

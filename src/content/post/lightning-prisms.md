@@ -1,5 +1,5 @@
 ---
-publishDate: 2023-03-23T00:00:00Z
+publishDate: 2023-10-02T00:00:00Z
 title: Lightning Prisms with LNBits
 excerpt: A step by step how-to guide to create a Lightning Prism split payments with LNBits
 image: /images/lnprisms/lnprisms.webp
