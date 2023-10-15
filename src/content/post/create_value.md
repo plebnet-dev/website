@@ -1,8 +1,8 @@
 ---
 publishDate: 2023-08-28T20:22:00-05:00
-title: Its not enough to be in one vertical anymore
+title: Instead of Seeking Value, Focus on Creating It
 author: Bitkarrot
-description: Its not enough to be in one vertical anymore
+description: Instead of Seeking Value, Focus on Creating It
 image: /images/purpleimg.webp
 category: Opinion
 tags:
