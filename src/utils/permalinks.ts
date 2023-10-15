@@ -26,6 +26,7 @@ export const BLOG_BASE = cleanSlug(BLOG?.list?.pathname);
 export const CATEGORY_BASE = cleanSlug(BLOG?.category?.pathname || 'category');
 export const TAG_BASE = cleanSlug(BLOG?.tag?.pathname) || 'tag';
 export const JOIN_US = 'join-us';
+export const DISCORD_LINK = 'https://discord.gg/ph88YwmcrA';
 
 /** */
 export const getCanonical = (path = ''): string | URL => {
@@ -72,6 +73,9 @@ export const getBlogPermalink = (): string => getPermalink(BLOG_BASE);
 
 /** */
 export const getJoinPermalink = (): string => getPermalink(JOIN_US);
+
+/** */
+export const getDiscordPermalink = (): string => DISCORD_LINK;
 
 /** */
 export const getStorePermalink = (): string => {
