@@ -34,6 +34,9 @@ At [Plebnet.dev](https://plebnet.dev), our aim is to continually enrich our user
 - **Nostrogen**  
   A fork of the simple nostr vanity address generator. [Access here](https://nostrogen.plebnet.dev/)
 
+- **Rate Converter**  
+  See how many satoshis your fiat is worth. [Check it out](https://rates.plebnet.dev/)
+
 - **Nostr NIP-5 and Lightning Services**
 
   Details coming soon.

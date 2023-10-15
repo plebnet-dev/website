@@ -43,6 +43,10 @@ export const headerData = {
           href: 'https://metadata.plebnet.dev/',
         },
         {
+          text: 'Rate Converter',
+          href: 'https://rates.plebnet.dev',
+        },
+        {
           text: 'All Resources',
           href: '/resources',
         },
