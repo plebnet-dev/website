@@ -10,6 +10,10 @@ export const headerData = {
           href: getJoinPermalink(),
         },
         {
+          text: 'Events',
+          href: '/events',
+        },
+        {
           text: 'FAQ',
           href: getJoinPermalink() + '#faq',
         },
