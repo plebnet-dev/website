@@ -4,9 +4,12 @@ title: Introducing Plebnet.dev Resources
 author: PlebNet.Dev
 description: A new suite of resources being made available to PlebNet Devs.
 image: /images/Build_The_Future.webp
-category: Lightning, Nostr, Signet
+category: News & Updates
 tags:
   - resources
+  - lighting
+  - nostr
+  - signet
 ---
 
 At [Plebnet.dev](https://plebnet.dev), our aim is to continually enrich our users' experience. We're thrilled to present a new suite of resources that we believe will be invaluable for the community. While we're still in the process of organizing and perfecting how these resources will be displayed, we invite you to explore them in this interim format.

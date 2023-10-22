@@ -3,19 +3,16 @@ publishDate: 2023-10-03T00:00:00Z
 title: Why Nostr Wins
 excerpt: ... As a new Decentralized Social Network with Lightning Payments, in Short TLDR Bullet points
 image: /images/nostrich.webp
-category: Nostr
+category: Opinion
 author: bitkarrot
 canonical: https://bitkarrot.substack.com/p/why-nostr-wins
 tags:
   - nostr
-  - social-network
-  - lightning-network
   - lightning
   - bitcoin
-  - innovation
 ---
 
-For the busy reader, this is a bullet point list on why Nostr is winning as a new network. It is much more than ‘just a twitter replacement’. 
+For the busy reader, this is a bullet point list on why Nostr is winning as a new network. It is much more than ‘just a twitter replacement’.
 
 ## How it started
 
@@ -32,9 +29,9 @@ For the busy reader, this is a bullet point list on why Nostr is winning as a ne
 
 ## How's it going?
 
-  - Jack Dorsey's Blue Sky - 10 Million dollars in initial funding - and all I got is a wait list for a decentralized twitter.
+- Jack Dorsey's Blue Sky - 10 Million dollars in initial funding - and all I got is a wait list for a decentralized twitter.
 
-  - Nostr - $0 dollars in initial funding, < 2 years and millions of users, instant payments and potential for infinite applications
+- Nostr - $0 dollars in initial funding, < 2 years and millions of users, instant payments and potential for infinite applications
 
 ## Concept
 
@@ -56,23 +53,21 @@ For the busy reader, this is a bullet point list on why Nostr is winning as a ne
 
 - Clients can help users filter and help specify what kinds of data that is published or subscribed to.
 
-
 ## Innovation
 
--    Users can cross over to any clients with the click of a button and bring their entire social network with them.
+- Users can cross over to any clients with the click of a button and bring their entire social network with them.
 
--    How do you mean? Like being able to login to twitter but also login to ebay or etsy or medium or substack and use the same credentials but also bring your entire social network with you, and the companies don't control the credentials, you do.
+- How do you mean? Like being able to login to twitter but also login to ebay or etsy or medium or substack and use the same credentials but also bring your entire social network with you, and the companies don't control the credentials, you do.
 
--    You can also run your own relay and pub/sub to keep your own archive of data published
+- You can also run your own relay and pub/sub to keep your own archive of data published
 
--    A copy of your data is published to every relay you subscribe to, and you can also export your data and reload it elsewhere if you want. 
-
+- A copy of your data is published to every relay you subscribe to, and you can also export your data and reload it elsewhere if you want.
 
 ## Censorship concerns
 
 - Fiatjaf said - when you have censorship to a domain, "just move", its dumb and inelegant but it works.
 
-- An Example of censorship where they still can't kill a website, Sci-Hub. 
+- An Example of censorship where they still can't kill a website, Sci-Hub.
 
 - There's no perfect model, we just need one that’s 'good enough' and people are willing to use it.
 

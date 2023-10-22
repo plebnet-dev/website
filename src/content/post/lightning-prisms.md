@@ -3,25 +3,24 @@ publishDate: 2023-10-02T00:00:00Z
 title: Lightning Prisms with LNBits
 excerpt: A step by step how-to guide to create a Lightning Prism split payments with LNBits
 image: /images/lnprisms/lnprisms.webp
-category: Lightning
+category: Guides and Tutorials
 author: bitkarrot
 canonical: https://bitkarrot.substack.com/p/why-nostr-wins
 tags:
-  - lightning-network
   - lightning
   - bitcoin
-  - innovation
   - LNBits
   - payments
 ---
 
-## What are Lightning Prisms? 
+## What are Lightning Prisms?
 
-> A Lightning Prism is a construct that allows for “lightning address value split workflows,” to quote the originator, Mr. Kukks. 
+> A Lightning Prism is a construct that allows for “lightning address value split workflows,” to quote the originator, Mr. Kukks.
 
 This guide is a step-by-step demo of how to implement prisms in LNBits and is inspired by [dergigi’s post](https://dergigi.com/2023/03/12/lightning-prisms/).
 
 ## Step 1. Get LNBits
+
 If you already have LNBits you can skip this step. But if you don’t, you can find out more here at https://lnbits.com
 
 ## Step 2. Payment Options in LNBits
@@ -38,8 +37,7 @@ There are three payment options:
 
 > ALSO: DO not split to 100% if you send to a wallet that is external (routing fees!).
 
-Within the LNBits LNURLp extension, you can check the comment characters and the lightning addresses in the QR Tab. 
-
+Within the LNBits LNURLp extension, you can check the comment characters and the lightning addresses in the QR Tab.
 
 ![LNBits QR Code Image](/images/lnprisms/lnprisms-lnbits1.webp)
 
@@ -47,7 +45,7 @@ Within the LNBits LNURLp extension, you can check the comment characters and the
 
 Now, the fun part. First within LNBits, enable the splitpayments extension. Next, select your main incoming wallet. For the purpose of this demo, we make the main wallet the LNBits Wallet, and 3 wallets (one, two, and three) as the destination of the splits.
 
-The main wallet can also have a LN address by creating it in the LNURLp extension, e.g. myorg@sats.lnaddy.com. 
+The main wallet can also have a LN address by creating it in the LNURLp extension, e.g. myorg@sats.lnaddy.com.
 
 ![LNBits Setup Image](/images/lnprisms/lnprisms-lnbits2.webp)
 
@@ -57,8 +55,7 @@ Depending on your needs, the target wallets can either be internal to the curren
 
 ![LNBits Split Image](/images/lnprisms/lnprisms-lnbits3.webp)
 
-
-Once all the targets have been saved, test your splits by sending to the main wallet, either by creating an invoice or sending to the lightning address associated with the main wallet. 
+Once all the targets have been saved, test your splits by sending to the main wallet, either by creating an invoice or sending to the lightning address associated with the main wallet.
 
 ![LNBits Payments Image](/images/lnprisms/lnprisms-lnbits4.webp)
 
