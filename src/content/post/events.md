@@ -2,6 +2,7 @@
 publishDate: 2023-10-21T00:00:00Z
 title: Events
 description: Events at Plebnet.dev
+image: /images/events.jpg
 tags:
   - events
   - plebnet.dev
