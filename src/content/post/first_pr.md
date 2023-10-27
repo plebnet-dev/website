@@ -3,7 +3,7 @@ publishDate: 2023-10-15T20:22:00-05:00
 title: A Guide to Crafting an Excellent First Pull Request on GitHub
 author: anonymous
 description: A Guide to Crafting an Excellent First Pull Request on GitHub
-image: /images/tools.jpg
+image:  ../../assets/images/tools.jpg
 category: Education
 tags:
     - git

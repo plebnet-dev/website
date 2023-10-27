@@ -3,7 +3,7 @@ publishDate: 2023-10-06T20:22:00-05:00
 title: Common Errors and Mistakes When Using GitHub and Git
 author: anonymous
 description: Common Errors and Mistakes When Using GitHub and Git
-image: /images/cityscape.webp
+image:  ../../assets/images/cityscape.webp
 category: Education
 tags:
     - git

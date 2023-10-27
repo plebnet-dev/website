@@ -2,7 +2,7 @@
 publishDate: 2023-10-02T00:00:00Z
 title: Lightning Prisms with LNBits
 excerpt: A step by step how-to guide to create a Lightning Prism split payments with LNBits
-image: /images/lnprisms/lnprisms.webp
+image:  ../../assets/images/lnprisms/lnprisms.webp
 category: Guides and Tutorials
 author: bitkarrot
 canonical: https://bitkarrot.substack.com/p/why-nostr-wins
@@ -39,7 +39,7 @@ There are three payment options:
 
 Within the LNBits LNURLp extension, you can check the comment characters and the lightning addresses in the QR Tab.
 
-![LNBits QR Code Image](/images/lnprisms/lnprisms-lnbits1.webp)
+![LNBits QR Code Image](../../assets/images/lnprisms/lnprisms-lnbits1.webp)
 
 ## Step 3. Flows and Splits
 
@@ -47,17 +47,17 @@ Now, the fun part. First within LNBits, enable the splitpayments extension. Next
 
 The main wallet can also have a LN address by creating it in the LNURLp extension, e.g. myorg@sats.lnaddy.com.
 
-![LNBits Setup Image](/images/lnprisms/lnprisms-lnbits2.webp)
+![LNBits Setup Image](../../assets/images/lnprisms/lnprisms-lnbits2.webp)
 
 To split payments between the other 3 wallets, we can set up the split payments with the source wallet as LNBits Wallet.
 
 Depending on your needs, the target wallets can either be internal to the current LNBits instance by using just the Wallet ID or external using Lightning addresses, such as one@sats.lnaddy.com or LNURL.
 
-![LNBits Split Image](/images/lnprisms/lnprisms-lnbits3.webp)
+![LNBits Split Image](../../assets/images/lnprisms/lnprisms-lnbits3.webp)
 
 Once all the targets have been saved, test your splits by sending to the main wallet, either by creating an invoice or sending to the lightning address associated with the main wallet.
 
-![LNBits Payments Image](/images/lnprisms/lnprisms-lnbits4.webp)
+![LNBits Payments Image](../../assets/images/lnprisms/lnprisms-lnbits4.webp)
 
 To watch it in action, see this [video](https://www.veed.io/view/94f29512-80b1-4644-9b75-4fd0a87da355?panel=share) or visit it on [twitter](https://twitter.com/bitkarrot/status/1639035993801261056?s=20)
 

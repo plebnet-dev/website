@@ -269,7 +269,7 @@ publishDate: 2023-10-07T20:22:00-05:00
 title: Your Blog Post Title
 author: Your Name
 description: Short description on blog
-image: /images/your_image_here.png
+image: ../../images/your_image_here.png
 categories:
   - Conferences
 tags:

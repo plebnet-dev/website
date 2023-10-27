@@ -3,7 +3,7 @@ publishDate: 2023-09-20T20:22:00-05:00
 title: Its not enough to be in one vertical anymore
 author: Bitkarrot
 description: Its not enough to be in one vertical anymore
-image: /images/do-more.jpg
+image:  ../../assets/images/do-more.jpg
 category: Opinion
 tags:
     - skills
