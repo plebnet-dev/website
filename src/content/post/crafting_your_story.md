@@ -3,7 +3,7 @@ publishDate: 2023-10-07T20:22:00-05:00
 title: Crafting Your Story - Paving Your Way to a Bitcoin Career
 author: Brandon Sauceda
 description: Learn how to share your unique journey into Bitcoin.
-image:  ../../assets/images/bitcoin_community_growth.png
+image:  /src/content/post/_images/bitcoin_community_growth.png
 category: Education
 tags:
   - Bitcoin

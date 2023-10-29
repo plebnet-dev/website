@@ -3,7 +3,7 @@ publishDate: 2023-10-06T20:22:00-05:00
 title: Git Basics - Navigating Pulls, Pushes, and Commits
 author: anonymous
 description: Git Basics -  Navigating Pulls, Pushes, and Commits
-image:  ../../assets/images/git.png
+image:  /src/content/post/_images/git.png
 category: Education
 tags:
     - git

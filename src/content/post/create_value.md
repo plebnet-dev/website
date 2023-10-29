@@ -3,7 +3,7 @@ publishDate: 2023-08-28T20:22:00-05:00
 title: Instead of Seeking Value, Focus on Creating It
 author: Bitkarrot
 description: Instead of Seeking Value, Focus on Creating It
-image:  ../../assets/images/purpleimg.webp
+image:  /src/content/post/_images/purpleimg.webp
 category: Opinion
 tags:
     - value
