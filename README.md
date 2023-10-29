@@ -1,12 +1,10 @@
 # Plebnet.dev website
 
-Build the Future with Plebnet.dev on bitcoin and lightning. 
+Build the Future with Plebnet.dev on bitcoin and lightning.
 
 This is the main website.
 
 <img width="1199" alt="Screenshot 2023-06-18 at 9 37 38 PM" src="https://github.com/plebnet-dev/website/assets/73979971/546c69d5-97a3-48ce-8045-5eaa02b7baac">
-
-
 
 # 🚀 AstroWind
 
@@ -29,7 +27,7 @@ This is the main website.
 
 <br>
 
--------
+---
 
 [![onWidget](https://custom-icon-badges.demolab.com/badge/made%20by%20-onWidget-556bf2?style=flat-square&logo=onwidget&logoColor=white&labelColor=101827)](https://onwidget.com)
 [![License](https://img.shields.io/github/license/onwidget/astrowind?style=flat-square&color=dddddd&labelColor=000000)](https://github.com/onwidget/astrowind/blob/main/LICENSE.md)
@@ -257,8 +255,45 @@ Clone this repository on own GitHub account and deploy to Vercel:
 
 ## Contributing
 
-If you have any idea, suggestions or find any bugs, feel free to open a discussion, an issue or create a pull request.
-That would be very useful for all of us and we would be happy to listen and take action.
+If you have any ideas, suggestions, or find any bugs, feel free to open a discussion, an issue, or create a pull request. Your contributions are valuable, and we're eager to hear from you and take action.
+
+### Blog Posts
+
+Creating a blog post is an excellent way to contribute and complete your first pull request! Here is some helpful information to get you started:
+
+Blog posts are written in Markdown and are automatically converted to HTML. To get started, add a new file `your_blog_post_name.md` inside the directory `src/content/post`. Don't forget to include metadata in the frontmatter fields at the beginning of your post. Select a single category to represent the main topic or theme of the post.
+
+```yaml
+---
+publishDate: 2023-10-07T20:22:00-05:00
+title: Your Blog Post Title
+author: Your Name
+description: Short description on blog
+image: /images/your_image_here.png
+categories:
+  - Conferences
+tags:
+  - TABConf
+---
+```
+
+#### Categories
+
+Choose one category that best represents the main topic of your blog post:
+
+- **Community**: For discussions, events, and networking within the Bitcoin community.
+- **Conferences**: Content related to Bitcoin conferences, meetups, and event experiences.
+- **Development**: Technical aspects and updates related to Bitcoin development.
+- **Education**: General educational content covering foundational knowledge about Bitcoin.
+- **Guides and Tutorials**: Step-by-step guides, how-tos, and practical tutorials for hands-on learning.
+- **News and Updates**: Posts providing news, updates, and current events in Bitcoin.
+- **Opinion**: Personal viewpoints and insightful commentary on various aspects of the Bitcoin ecosystem.
+- **Projects and Applications**: Real-world projects and applications built on Bitcoin.
+- **Research and Insights**: Discussion of research findings and insights in the Bitcoin space.
+
+#### Tags (Choose 1-3)
+
+Please choose 1-3 tags that best describe the specific topics or keywords covered in your blog post. Tags help readers find relevant content. Remember to keep tags concise and avoid redundancy.
 
 ## Acknowledgements
 

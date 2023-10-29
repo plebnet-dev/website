@@ -25,18 +25,19 @@ export const POST_PERMALINK_PATTERN = trimSlash(BLOG?.post?.permalink || '/%slug
 export const BLOG_BASE = cleanSlug(BLOG?.list?.pathname);
 export const CATEGORY_BASE = cleanSlug(BLOG?.category?.pathname || 'category');
 export const TAG_BASE = cleanSlug(BLOG?.tag?.pathname) || 'tag';
+export const JOIN_US = 'join-us';
+export const DISCORD_LINK = 'https://discord.gg/ph88YwmcrA';
 
 /** */
 export const getCanonical = (path = ''): string | URL => {
   const url = String(new URL(path, SITE.origin));
   if (SITE.trailingSlash == false && path && url.endsWith('/')) {
-    return url.slice(0,-1)
-  }
-  else if (SITE.trailingSlash == true && path && !url.endsWith('/') ) {
+    return url.slice(0, -1);
+  } else if (SITE.trailingSlash == true && path && !url.endsWith('/')) {
     return url + '/';
   }
   return url;
-}
+};
 
 /** */
 export const getPermalink = (slug = '', type = 'page'): string => {
@@ -69,6 +70,17 @@ export const getHomePermalink = (): string => getPermalink('/');
 
 /** */
 export const getBlogPermalink = (): string => getPermalink(BLOG_BASE);
+
+/** */
+export const getJoinPermalink = (): string => getPermalink(JOIN_US);
+
+/** */
+export const getDiscordPermalink = (): string => DISCORD_LINK;
+
+/** */
+export const getStorePermalink = (): string => {
+  return 'https://plebnet-dev.printify.me';
+};
 
 /** */
 export const getAsset = (path: string): string =>

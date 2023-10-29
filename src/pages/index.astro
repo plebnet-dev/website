@@ -6,7 +6,9 @@ import Hero2 from '~/components/widgets/Hero2.astro';
 //import Steps2 from '~/components/widgets/Steps2.astro';
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 
+import {getJoinPermalink } from '../utils/permalinks';
 
 import { headerData } from '~/data';
 
@@ -22,8 +24,8 @@ const meta = {
       actions={[
         {
           type: "primary",
-          text: 'Sign Up',
-          href: '/join',
+          text: 'Join Us',
+          href:  getJoinPermalink(),
         },
       ]}
       isSticky
@@ -33,7 +35,7 @@ const meta = {
   <!-- Hero2 Widget ******************* -->
 
   <Hero2
-    callToAction={{ text: 'Join Us', href: '/join' }}
+    callToAction={{ text: 'Join Us', href:  getJoinPermalink() }}
     callToAction2={{ text: 'Learn More', href: '#more' }}
     image={{ src: import('~/assets/images/electricbitcoin.jpg'), alt: 'Plebnet.dev Hero Image' }}
   >
@@ -92,11 +94,22 @@ const meta = {
     </Fragment>
   </Content>
 
+ <!-- HighlightedPosts Widget ******* -->
+
+  <BlogLatestPosts
+    title="Find out more in our blog"
+    information={`The blog is used for Plebnet.dev articles.
+                        Each new article will be an valuable step
+                        in a pleb's bitcoin and lightning developer journey.
+                `}
+  />
+
+
    <!-- CallToAction Widget *********** -->
    <CallToAction
    callToAction={{
      text: 'Join Us',
-     href: '/join',
+     href:  getJoinPermalink(),
    }}
  >
    <Fragment slot="title">
