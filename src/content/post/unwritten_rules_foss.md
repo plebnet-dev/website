@@ -1,7 +1,7 @@
 ---
 publishDate: 2023-11-05T00:00:00Z
 title: The Unwritten Rules of FOSS
-description: Open source development has revolutionized the way software is created, distributed, and maintained. It thrives on principles of transparency, collaboration, and community-driven innovation. Beyond the formal licenses and coding conventions, there exists a set of unwritten rules that govern the behavior and interactions within this dynamic ecosystem. These unwritten rules are the glue that holds the open source community together, fostering an environment of trust, respect, and mutual growth.
+description: Beyond the formal licenses and coding conventions, there exists a set of unwritten rules that govern the behavior and interactions within and holds the open source community together.
 image: /src/content/post/_images/foss.jpg
 categories:
   - Education
