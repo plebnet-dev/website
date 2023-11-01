@@ -3,7 +3,6 @@ import { fileURLToPath } from 'url';
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
-import image from '@astrojs/image';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import compress from 'astro-compress';
@@ -39,25 +38,23 @@ export default defineConfig({
     remarkPlugins: [readingTimeRemarkPlugin]
   },
   integrations: [tailwind({
-    config: {
-      applyBaseStyles: false
+      config: {
+        applyBaseStyles: false
     }
-  }), sitemap(), image({
-    serviceEntryPoint: '@astrojs/image/sharp'
-  }), mdx(), ...whenExternalScripts(() => partytown({
-    config: {
-      forward: ['dataLayer.push']
+  }), sitemap(), mdx(), ...whenExternalScripts(() => partytown({
+        config: {
+          forward: ['dataLayer.push']
     }
-  })), compress({
-    CSS: true,
-    HTML: {
-      removeAttributeQuotes: false
-    },
-    Image: false,
-    JavaScript: true,
-    SVG: false,
-    Logger: 1
-  }), svelte()],
+      })), compress({
+      CSS: true,
+      HTML: {
+        removeAttributeQuotes: false
+      },
+      Image: false,
+      JavaScript: true,
+      SVG: false,
+      Logger: 1
+    }), svelte()],
   vite: {
     resolve: {
       alias: {

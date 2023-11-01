@@ -3,7 +3,7 @@ publishDate: 2023-10-06T20:22:00-05:00
 title: Git Basics - Navigating Pulls, Pushes, and Commits
 author: anonymous
 description: Git Basics -  Navigating Pulls, Pushes, and Commits
-image: /images/git.png
+image:  /src/content/post/_images/git.png
 category: Education
 tags:
     - git
@@ -50,7 +50,7 @@ With your local repository in sync, follow these steps to commit your modificati
 a) Add the modified or new files to the staging area:
 
 ```bash
-$ git add public/images/gitlogo.jpg src/content/post/Understanding_the_Git_Push_Process.md
+$ git add src/content/images/gitlogo.jpg src/content/post/Understanding_the_Git_Push_Process.md
 ```
 
 b) Confirm the files set for commitment by running `git status`.

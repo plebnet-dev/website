@@ -2,7 +2,7 @@
 publishDate: 2023-10-03T00:00:00Z
 title: Why Nostr Wins
 excerpt: ... As a new Decentralized Social Network with Lightning Payments, in Short TLDR Bullet points
-image: /images/nostrich.webp
+image:  /src/content/post/_images/nostrich.webp
 category: Opinion
 author: bitkarrot
 canonical: https://bitkarrot.substack.com/p/why-nostr-wins
