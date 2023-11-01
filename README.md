@@ -2,6 +2,14 @@
 
 Build the Future with Plebnet.dev on bitcoin and lightning.
 
+## IMPORTANT BUILD NOTE: As of 31 OCT 2023
+
+Use Node version - lts/hydrogen -> v18.16.1
+```sh
+ npm install astro
+ npm install
+```
+
 This is the main website.
 
 <img width="1199" alt="Screenshot 2023-06-18 at 9 37 38 PM" src="https://github.com/plebnet-dev/website/assets/73979971/546c69d5-97a3-48ce-8045-5eaa02b7baac">
@@ -20,7 +28,7 @@ This is the main website.
 - ✅ Integration with **Tailwind CSS** ([@astrojs/tailwind](https://docs.astro.build/en/guides/integrations-guide/tailwind/)) supporting **Dark mode**.
 - ✅ **Production-ready** scores in [Lighthouse](https://web.dev/measure/) and [PageSpeed Insights](https://pagespeed.web.dev/) reports.
 - ✅ **Fast and SEO friendly blog** with automatic **RSS feed** ([@astrojs/rss](https://docs.astro.build/en/guides/rss/)), [**MDX** support](https://docs.astro.build/en/guides/integrations-guide/mdx/), **Categories & Tags**, **Social Share**, ...
-- ✅ **Image optimization** ([@astrojs/images](https://docs.astro.build/en/guides/integrations-guide/image/)) and **Font optimization**.
+- ✅ **Image optimization** ([astro:assets](https://docs.astro.build/en/guides/integrations-guide/image/)) and **Font optimization**.
 - ✅ Generation of **project sitemap** based on your routes ([@astrojs/sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/)).
 - ✅ **Open Graph tags** for social media sharing.
 - ✅ **Analytics** built-in Google Analytics, and Splitbee integration.
@@ -269,7 +277,7 @@ publishDate: 2023-10-07T20:22:00-05:00
 title: Your Blog Post Title
 author: Your Name
 description: Short description on blog
-image: /images/your_image_here.png
+image: ../../images/your_image_here.png
 categories:
   - Conferences
 tags:
