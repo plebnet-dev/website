@@ -107,9 +107,6 @@ Active involvement in open source can lead to job opportunities, consulting gigs
 
 While open source contributions may not offer immediate financial compensation, the benefits mentioned above can lead to long-term personal and professional growth, as well as open doors to exciting opportunities in the tech industry. It's a testament to the vibrant and collaborative nature of the open source community.
 
-Is the Open Source Model a new trend in corporations? How does the private and public model work? Can you give some examples of successful companies that are fully open source?
-
-The open source model is not a new trend, but it has gained significant traction and prominence in recent years. Initially, open source was primarily associated with community-driven projects and individual developers. However, it has now become a key aspect of many corporations' development strategies.
 
 ![XKCD dependencies](/src/content/post/_images/xkcd.png "XKCD dependencies")
 
@@ -159,7 +156,7 @@ In summary, the open source model has become a significant and sustainable appro
 
 Collaborating remotely requires a set of best practices to ensure effective communication, productivity, and a positive working environment. Here are some Do's and Don'ts for remote collaboration:
 
-**Do's:**
+### **Do's:**
 
 **Establish Clear Communication Channels**:
 
@@ -193,7 +190,7 @@ Keep a record of discussions, decisions, and agreements made during meetings to 
 
 Celebrate achievements and acknowledge the efforts of team members. Recognizing their contributions boosts morale and motivation.
 
-**Don'ts:**
+### **Don'ts:**
 
 **Don't Overlook Team Building**:
 
