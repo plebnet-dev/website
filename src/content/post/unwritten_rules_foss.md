@@ -111,6 +111,8 @@ Is the Open Source Model a new trend in corporations? How does the private and p
 
 The open source model is not a new trend, but it has gained significant traction and prominence in recent years. Initially, open source was primarily associated with community-driven projects and individual developers. However, it has now become a key aspect of many corporations' development strategies.
 
+![XKCD dependencies](/src/content/post/_images/xkcd.png "XKCD dependencies")
+
 <a name="models"></a>
 ## **Private vs. Public Open Source Models**:
 
