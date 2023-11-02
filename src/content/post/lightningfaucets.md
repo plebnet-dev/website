@@ -4,7 +4,7 @@ title: Lightning Fun N' Faucets
 author: bitkarrot
 description: You don't need to be technical to contribute to lightning ecosystem. Here's how to get started and rewarded all at once.
 excerpt: You don't need to be technical to contribute to lightning ecosystem. Here's how to get started and rewarded all at once.
-image: /images/lightningfaucet.webp
+image:  /src/content/post/_images/lightningfaucet.webp
 category: Guides and Tutorials
 tags:
   - bitcoin
@@ -50,7 +50,7 @@ What’s an issue?
 
 Or create a [pull request](https://www.howtogeek.com/devops/what-are-git-pull-requests-and-how-do-you-use-them/) to help edit documentation or add a new translation! Are you a language and grammar guru? Find a typo or spelling error in the docs? Find something that could be explained better or clarified? Want to fix it? Make a Pull request!
 
-![lightning faucet up close](/images/lightningfaucet2.webp)
+![lightning faucet up close](/src/content/post/_images/lightningfaucet2.webp)
 
 ## Don’t have sats for testing? No worries.
 

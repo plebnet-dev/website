@@ -18,6 +18,10 @@ export const fetchLocalImages = async () => {
 
 /** */
 export const findImage = async (imagePath?: string) => {
+  if (typeof imagePath == 'object') {
+    return imagePath
+  }
+
   if (typeof imagePath !== 'string') {
     return null;
   }

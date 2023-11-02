@@ -1,8 +1,8 @@
 ---
 publishDate: 2023-10-21T00:00:00Z
 title: Events
-description: Events at Plebnet.dev
-image: /images/events.jpg
+description: A list of Events at Plebnet.dev, both past and present in Discord.
+image: /src/content/post/_images/events.jpg
 categories:
   - News and Updates
 tags:
@@ -12,9 +12,55 @@ tags:
 
 ## Upcoming Events
 
--- TBD
+### Workshop: The Unwritten Rules of FOSS
+
+Date: Nov 5, 2023
+
+Description:
+Join Bitkarrot for a session.....
+
+where we talk about how to get started and succeed in Free Open Source development. Great for new to code and also experienced developers who are new to FOSS
+
+We'll discuss: Ethics, Etiquette & Engagement Workshop, and have an open floor discussion about experiences and how to navigate the space.
+
+Created By: Bitkarrot
+
+Location: Members-Stage
+
+### Event: November Monthly Meetup
+
+Date: Nov 18, 2023
+
+Description:
+Monthly Meetup - This is a public meetup in discord.
+Open House for guests of Plebnet.dev
+
+Location: Public-Stage
+
+
+### Workshop: Intro to Postman
+
+Date: Dec 7, 2023
+
+Description:
+Come learn about API testing using the postman application!
+
+Created By: Tony
+
+Location: Members-Stage
+
 
 ## Past Events
+
+### Event: October Monthly Meetup
+
+Date: Oct 28, 2023
+
+Description:
+Monthly Meetup - This is a public meetup in discord.
+Open House for guests of Plebnet.dev
+
+Location: Public-Stage
 
 ### Workshop: Intro to Docker
 
@@ -25,7 +71,7 @@ Docker has become an essential tool in software development and deployment. In t
 
 Created By: Smash
 
-Location: members-stage
+Location: Members-Stage
 
 ### Workshop: Multitude of Lightning Payments
 
@@ -37,7 +83,7 @@ Prerequiste: What you should know are how APIs work, and a basic understanding o
 
 Created By: Bitkarrot
 
-Location: members-stage
+Location: Members-Stage
 
 ### Event: September Monthly Meetup
 
@@ -45,4 +91,4 @@ Date: Sep 30, 2023
 
 Description: Open House for guests of Plebnet.dev
 
-Location: public-stage
+Location: Public-Stage

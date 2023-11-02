@@ -3,7 +3,7 @@ publishDate: 2023-10-14T17:25:00Z
 title: Introducing Plebnet.dev Resources
 author: PlebNet.Dev
 description: A new suite of resources being made available to PlebNet Devs.
-image: /images/Build_The_Future.webp
+image:  /src/content/post/_images/Build_The_Future.webp
 category: News & Updates
 tags:
   - resources
