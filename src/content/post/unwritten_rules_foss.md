@@ -24,6 +24,7 @@ Open source development has revolutionized the way software is created, distribu
 We will explore the following:
 
 * [The Why behind open source development.](#thewhy)
+* [Why should I contribute code for free?](#whycontribute)
 * [Private vs. Public Open Source Models](#models)
 * [Some Do's and Don'ts when collaborating remotely](#remote-collab)
 
@@ -61,7 +62,8 @@ Open source development places a premium on practical, real-world problem-solvin
 
 Open source projects often require long-term commitment for their success and sustainability. Developers are encouraged to support and maintain their projects, ensuring that they remain relevant and continue to serve the community over time.
 
-Why should I contribute code for free? It doesn't make sense to work for free, what are the real benefits here?
+
+## Why should I contribute code for free? What are the real benefits here? <a name="whycontribute"></a>
 
 Contributing code to open source projects without monetary compensation may seem counterintuitive at first glance, but there are several compelling reasons why individuals choose to participate in this collaborative ecosystem. Here are some of the key benefits:
 
