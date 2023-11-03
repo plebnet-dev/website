@@ -3,7 +3,7 @@ publishDate: 2023-06-16T00:00:00Z
 title: About Plebnet.dev
 description: A story about Plebnet.dev and why we exist
 excerpt: A story about Plebnet.dev and why we exist
-image: /images/code_image.jpg
+image:  /src/content/post/_images/code_image.jpg
 tags:
   - about
   - plebnet.dev
@@ -26,6 +26,6 @@ By partnering with us, you're not just joining another developer space – you'r
 
 ## The Creators
 
-Made with 🧡 by [Bitkarrot](https://github.com/bitkarrot/) and [Bitc0inDad](https://github.com/Bitc0indad/) in collaboration with the [Plebnet-Playground](https://github.com/PLEBNET-PLAYGROUND/) crew.
+Made with 🧡 by [Bitkarrot](https://github.com/bitkarrot/) in collaboration with the [Plebnet-Playground](https://github.com/PLEBNET-PLAYGROUND/) crew.
 
-![plebnet.dev](/images/logo-dark-horiz-transparent.png)
+![plebnet.dev](/src/content/post/_images/logo-dark-horiz-transparent.png)

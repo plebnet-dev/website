@@ -1,6 +1,6 @@
 export const prerender = false;
 
-export async function post({request}) {
+export async function POST({request}) {
 
   function getHumanReadableDate() {
     const currentDate = new Date(Date.now());

@@ -2,7 +2,7 @@ export const prerender = false;
 
 // import { Response } from 'astro/runtime';
 
-export async function get() {
+export async function GET() {
 
   const supabaseUrl = process.env.PUBLIC_SUPABASE_URL;
   const supabaseKey = process.env.PUBLIC_SUPABASE_KEY;
