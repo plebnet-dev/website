@@ -129,15 +129,10 @@
       goal,
       mentor: mentor ? 'yes' : 'no',
     };
-    responseMessage = 'Form submitted successfully';
-        showPaymentModal = true; // Show the modal
-        await showPaymentModal();
+    showPaymentModal = true; // Show the modal
+    // responseMessage = 'Form submitted successfully';
 
-    setTimeout(() => {
-      showPaymentModal = false;
-    }, 1);
-
-    // console.log(formData)
+    console.log(formData)
     // if (showPaymentModal) {
     //     responseMessage = 'Form submitted successfully';
     //     showPaymentModal = true; // Show the modal
@@ -146,29 +141,29 @@
     //   } else {
     //     responseMessage = `Error sending email: ${response.statusText}`;
     //   }
-    // const { data, error } = await supabase.from('members-individual').insert([formData]);
+    const { data, error } = await supabase.from('members-individual').insert([formData]);
 
-    // if (error) {
-    //   responseMessage = `Error submitting form: ${error.message}`;
-    // } else {
-    //   console.log("sending email message to admins")
-    //   // Call the API component to send an email
-    //   const response = await fetch('/api/send-email', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify(formData),
-    //   });
+    if (error) {
+      responseMessage = `Error submitting form: ${error.message}`;
+    } else {
+      console.log("sending email message to admins")
+      // Call the API component to send an email
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    //   if (response.ok) {
-    //     responseMessage = 'Form submitted successfully';
-    //     await showThankYouModal();
-    //     window.location.href = '/thankyou';
-    //   } else {
-    //     responseMessage = `Error sending email: ${response.statusText}`;
-    //   }
-    // }
+      if (response.ok) {
+        responseMessage = 'Form submitted successfully';
+        await showThankYouModal();
+        window.location.href = '/thankyou';
+      } else {
+        responseMessage = `Error sending email: ${response.statusText}`;
+      }
+    }
   }
 
   function formatNumberWithCommas(number) {
@@ -270,14 +265,14 @@
           </h6>
         {/if}
         
+        
+        <!-- {#if showPaymentModal} -->
         <button type="submit">Submit</button>
-
-       {#if showPaymentModal}
         <div>
-          <PaymentModal {showPaymentModal} {formData}/>
-          <!-- <h2>Thank you for signing up!</h2> -->
+            <PaymentModal showPaymentModal={showPaymentModal} formData={formData}/>
+            <!-- <h2>Thank you for signing up!</h2> -->
         </div>
-        {/if}
+        <!-- {/if} -->
       </form>
     </div>
   </div>
