@@ -1,6 +1,6 @@
 import slugify from 'limax';
 
-import { SITE, BLOG } from '~/config.mjs';
+import { SITE, BLOG, DISCORD_LINK } from '~/config.mjs';
 import { trim } from '~/utils/utils';
 
 export const trimSlash = (s: string) => trim(trim(s, '/'));
@@ -26,7 +26,6 @@ export const BLOG_BASE = cleanSlug(BLOG?.list?.pathname);
 export const CATEGORY_BASE = cleanSlug(BLOG?.category?.pathname || 'category');
 export const TAG_BASE = cleanSlug(BLOG?.tag?.pathname) || 'tag';
 export const JOIN_US = 'join-us';
-export const DISCORD_LINK = 'https://discord.gg/7eGt4JbD8e';
 
 /** */
 export const getCanonical = (path = ''): string | URL => {

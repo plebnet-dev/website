@@ -17,9 +17,7 @@ tags:
 Date: Nov 5, 2023
 
 Description:
-Join Bitkarrot for a session.....
-
-where we talk about how to get started and succeed in Free Open Source development. Great for new to code and also experienced developers who are new to FOSS
+Join Bitkarrot for a session.....where we talk about how to get started and succeed in Free Open Source development. Great for new to code and also experienced developers who are new to FOSS
 
 We'll discuss: Ethics, Etiquette & Engagement Workshop, and have an open floor discussion about experiences and how to navigate the space.
 
@@ -32,7 +30,7 @@ Location: Members-Stage
 Date: Nov 18, 2023
 
 Description:
-Monthly Meetup - This is a public meetup in discord.
+Monthly Meetup - This is a public meetup in [Discord](/discord).
 Open House for guests of Plebnet.dev
 
 Location: Public-Stage
@@ -57,7 +55,7 @@ Location: Members-Stage
 Date: Oct 28, 2023
 
 Description:
-Monthly Meetup - This is a public meetup in discord.
+Monthly Meetup - This is a public meetup in [Discord](/discord).
 Open House for guests of Plebnet.dev
 
 Location: Public-Stage
