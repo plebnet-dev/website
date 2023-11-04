@@ -2,6 +2,7 @@
 publishDate: 2023-11-05T00:00:00Z
 title: The Unwritten Rules of FOSS
 description: Beyond the formal licenses and coding conventions, there exists a set of unwritten rules that govern the behavior and interactions within and holds the open source community together.
+author: bitkarrot
 image: /src/content/post/_images/foss.jpg
 categories:
   - Education
