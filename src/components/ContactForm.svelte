@@ -3,7 +3,13 @@
 
 <div>
 	<h2 class="text-4xl font-bold tracking-tight sm:text-3xl mb-4">Contact Us</h2>
-    <form method="POST" class="">
+    <form action="https://api.staticforms.xyz/submit" method="POST" id="staticform">
+		<input type="hidden" name="accessKey" value="65fb46a2-2a38-404c-b8d8-fd56f707f079">
+		<input type="text" name="honeypot" style="display: none;">
+        <!-- Specify @ as reply to value if you want it to be customers email -->
+        <input type="hidden" name="replyTo" value="@"> <!-- Optional -->
+        <!-- If you want form to redirect to a specific url after submission -->
+        <input type="hidden" name="redirectTo" value="https://plebnet.dev/thankyou"> <!-- Optional -->
 		<div class="mb-6">
 			<label for="name" class="block text-sm font-medium">
 				<span class="label-text">Name</span>

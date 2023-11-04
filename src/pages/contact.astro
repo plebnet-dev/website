@@ -1,46 +1,36 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import ContactUs from '~/components/widgets/Contact.astro';
+import Header from '~/components/widgets/Header.astro';
+import ContactForm from "../components/ContactForm.svelte";
 
-const metadata = {
-  title: 'Contact',
+import { headerData } from '~/data';
+import {getJoinPermalink } from '../utils/permalinks';
+
+const meta = {
+  title: 'PLEBNET.DEV Contact us',
 };
 ---
 
-<Layout metadata={metadata}>
+<Layout {meta}>
+  <Fragment slot="header">
+    <Header
+      {...headerData}
+      actions={[
+        {
+          type: "primary",
+          text: 'Join Us',
+          href: getJoinPermalink(),
+        },
+      ]}
+      isSticky
+    />
+  </Fragment>
 
-  <section class="relative md:-mt-[76px] not-prose">
-    <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
-
-      <ContactUs
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
-    inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Name',
-      },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Email',
-      },
-    ]}
-    textarea={{
-      label: 'Message',
-    }}
-    disclaimer={{
-      label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your information.',
-    }}
-    description="Our team typically responds within 24 business hours."
-  />
-
-    </div>
-    </div>
-  </section>
-
+  <section class="flex items-center h-full p-16">
+  <div class="flex flex-col max-w-xl mx-auto rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow p-4 sm:p-6 lg:p-8 w-full">       
+        <!-- Svelte Contact Form -->
+        <ContactForm client:load />
+  </div>
+</section>
 
 </Layout>
