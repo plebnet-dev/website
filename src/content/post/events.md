@@ -10,9 +10,10 @@ tags:
   - plebnet.dev
 ---
 
-## Upcoming Events
+<!-- trunk-ignore(markdownlint/MD025) -->
+# Upcoming Events
 
-### Workshop: The Unwritten Rules of FOSS
+## Workshop: The Unwritten Rules of FOSS
 
 Date: Nov 5, 2023
 
@@ -23,11 +24,13 @@ We'll discuss: Ethics, Etiquette & Engagement Workshop, and have an open floor d
 
 Workshop Content - Available to Members only
 
-Created By: Bitkarrot
+Created By: [Bitkarrot](https://github.com/bitkarrot/)
 
 Location: Members-Stage
 
-### Event: November Monthly Meetup
+---
+
+## Event: November Monthly Meetup
 
 Date: Nov 18, 2023
 
@@ -39,22 +42,25 @@ Open House for guests of Plebnet.dev
 
 Location: Public-Stage
 
+---
 
-### Workshop: Intro to Postman
+## Workshop: Intro to Postman
 
 Date: Dec 7, 2023
 
 Description:
 Come learn about API testing using the postman application!
 
-Created By: Tony
+Created By: [Tony](https://github.com/amsalmeron)
 
 Location: Members-Stage
 
+---
 
-## Past Events
+<!-- trunk-ignore(markdownlint/MD025) -->
+# Past Events
 
-### Event: October Monthly Meetup
+## Event: October Monthly Meetup
 
 Date: Oct 28, 2023
 
@@ -66,7 +72,9 @@ Open House for guests of Plebnet.dev
 
 Location: Public-Stage
 
-### Workshop: Intro to Docker
+---
+
+## Workshop: Intro to Docker
 
 Date: Oct 21, 2023
 
@@ -75,11 +83,13 @@ Docker has become an essential tool in software development and deployment. In t
 
 [Workshop Content](https://github.com/plebnet-dev/plebnet-compose)
 
-Created By: Smash
+Created By: [Smash/Asherp](https://github.com/asherp)
 
 Location: Members-Stage
 
-### Workshop: Multitude of Lightning Payments
+---
+
+## Workshop: Multitude of Lightning Payments
 
 Date: Oct 15, 2023
 
@@ -89,11 +99,13 @@ Prerequiste: What you should know are how APIs work, and a basic understanding o
 
 [Workshop Content](https://github.com/plebnet-dev/Workshops/blob/main/Lightning_payments_16OCT2023Workshop.pdf)
 
-Created By: Bitkarrot
+Created By: [Bitkarrot](https://github.com/bitkarrot)
 
 Location: Members-Stage
 
-### Event: September Monthly Meetup
+---
+
+## Event: September Monthly Meetup
 
 Date: Sep 30, 2023
 
@@ -102,3 +114,5 @@ Description: Open House for guests of Plebnet.dev
 [Meeting Notes](https://github.com/plebnet-dev/meeting-notes/blob/main/30SEP2023MeetupPrezi.pdf)
 
 Location: Public-Stage
+
+---
