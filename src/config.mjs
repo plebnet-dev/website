@@ -60,3 +60,4 @@ const CONFIG = {
 export const SITE = { ...CONFIG, blog: undefined };
 export const BLOG = CONFIG.blog;
 export const DATE_FORMATTER = CONFIG.dateFormatter;
+export const DISCORD_LINK = 'https://discord.gg/7eGt4JbD8e';
