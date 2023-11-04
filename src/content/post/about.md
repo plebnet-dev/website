@@ -28,4 +28,4 @@ By partnering with us, you're not just joining another developer space – you'r
 
 Made with 🧡 by [Bitkarrot](https://github.com/bitkarrot/) in collaboration with the [Plebnet-Playground](https://github.com/PLEBNET-PLAYGROUND/) crew.
 
-![plebnet.dev](/src/content/post/_images/logo-dark-horiz-transparent.png "plebnet.dev")
+![plebnet.dev](/images/logodark.png "plebnet-dev")

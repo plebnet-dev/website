@@ -111,7 +111,7 @@ Active involvement in open source can lead to job opportunities, consulting gigs
 While open source contributions may not offer immediate financial compensation, the benefits mentioned above can lead to long-term personal and professional growth, as well as open doors to exciting opportunities in the tech industry. It's a testament to the vibrant and collaborative nature of the open source community.
 
 
-![XKCD dependencies](/src/content/post/_images/xkcd.png "XKCD dependencies")
+![XKCD dependencies](/images/xkcd.png "XKCD dependencies")
 
 <a name="models"></a>
 ## **Private vs. Public Open Source Models**:
