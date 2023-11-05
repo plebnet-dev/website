@@ -11,7 +11,7 @@ load_dotenv()
 # Load tokens and repo details from environment variables
 TOKEN = os.getenv('DISCORD_BOT_TOKEN')
 GITHUB_TOKEN = os.getenv('GH_PAT')
-REPO_NAME = "saucy-tech/plebnet-website"
+REPO_NAME = ""
 FILE_PATH = 'src/content/post/events.md'
 
 intents = discord.Intents.default()
