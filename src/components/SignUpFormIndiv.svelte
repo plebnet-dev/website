@@ -4,96 +4,56 @@
   import { ClipboardListSolid } from 'svelte-awesome-icons';
 
   import PaymentModal from './PaymentModal.svelte';
-
-  // import { createEventDispatcher } from 'svelte';
-  // import { fade } from 'svelte/transition';
-
-  //  const dispatch = createEventDispatcher();
-  //  export let showFormModal = true;
+  import { API_KEY } from '../../env'
 
   let supabase;
-  let showPaymentModal = false;
+  let paymentLink = '';
+  let invoice = '';
   let formData = {};
 
-  async function getQRCode() {
-    const response = await fetch(`${baseLNbitsURL}/api/v1/qrcode/${paylinkLNURL}`);
-    let data = await response.text();
-    data = data.replace(/stroke="#000"/g, 'stroke="#FF9500"');
-    data = data.replace(/scale\(3\)/g, 'scale(4.5)'); // Increase the scale value to increase the size
-    data = data.replace(/<svg/g, '<svg viewBox="0 0 200 200"'); // Add or replace the viewbox attribute
-    data = data.replace(/width="[^"]*"/g, 'width="200"');
-    data = data.replace(/height="[^"]*"/g, 'height="200"');
-    qrCode = data;
-  }
+  async function getPaymentLink() {
+      try {
+        const response = await fetch('https://testnet.plebnet.dev/satspay/api/v1/charge', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-Api-Key': API_KEY,
+            },
+            body: JSON.stringify({
+              "id": "6f900155ce2748c7bbcbc9f347da4906",
+              "amount": 10,
+              "time": 10,
+              "description": "Lightning Invoice",
+              // "expires_at": "2023-10-12T21:15:05Z",
+              // "payreq": "lnbc100110n1p0x752vv86304402952522256949n335fuv3t56cqj7q7g7y9atgup965n33x99c6sr9qypqxe6uxqd3exxv64454675p7ch95p928q9q9qsqq9q9sqq9q9sqq9q9sqq9q9s752vv86304402952522256949n335fuv3t56cqj7q7g7y9atgup965n33x99c6sr9qypqxe6uxqd3exxv64454675p7ch95p928q9q9qsqq9q9sqq9q9sqq9q9sqq9q9s",
+            })
+        });
 
-  async function getPaylink() {
-    const response = await fetch(`${baseLNbitsURL}/lnurlp/api/v1/links/${paylinkID}`, {
-      method: 'GET',
-      headers: {
-        accept: 'application/json',
-        'X-API-KEY': LNbitsApiKey,
-      },
-    });
-
-    const data = await response.json();
-    if (data.served_pr > 0) {
-      hasPaid = true;
-      clearInterval(intervalId); // Stop checking
-      updatePaylink();
+        if (response.ok) {
+            invoice = await response.json(); // Parse the response data if it's in JSON
+            console.log('GET request successful:', invoice);
+            paymentLink = "https://testnet.plebnet.dev/satspay/" + invoice.id;
+        } else {
+            console.error('GET request failed:', response.status, response.statusText);
+        } 
+      } catch (error) {
+        console.error('An error occurred:', error);
+        paymentLink = "https://testnet.plebnet.dev/"; // Replace with the actual payment link
+      }
     }
-  }
 
-  async function updatePaylink() {
-    const response = await fetch(`${baseLNbitsURL}/lnurlp/api/v1/links/${paylinkID}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        accept: 'application/json',
-        'X-API-KEY': LNbitsXAPIKey,
-      },
-      body: JSON.stringify({
-        description: `${name} has paid (Individual Membership)`,
-        min: fee,
-        max: fee,
-        amount: fee,
-        comment_chars: 50,
-        success_text: 'Thanks for joining the Plebnet.Dev Community!',
-      }),
+    onMount(async () => {
+      const response = await fetch('/api/get-env');
+      const responseBody = await response.text();
+      const { baseURL, supabaseUrl, supabaseKey, LNbitsAPI, LNbitsXAPI, corpMembershipFee } = JSON.parse(responseBody);
+      LNbitsXAPIKey = LNbitsXAPI;
+      fee = corpMembershipFee;
+      LNbitsApiKey = LNbitsAPI;
+      baseLNbitsURL = baseURL;
+      // supabase = createClient(supabaseUrl, supabaseKey);
+      await getPaymentLink();
     });
-    const test = await response.json();
-    console.log("inside update paylink")
-    console.log(test);
-  }
 
-  onMount(async () => {
-    const response = await fetch('/api/get-env');
-    const responseBody = await response.text();
-    const { baseURL, supabaseUrl, supabaseKey, LNbitsAPI, LNbitsXAPI, indivMembershipFee } = JSON.parse(responseBody);
-    LNbitsApiKey = LNbitsAPI;
-    LNbitsXAPIKey = LNbitsXAPI;
-    baseLNbitsURL = baseURL;
-    fee = indivMembershipFee;
-    supabase = createClient(supabaseUrl, supabaseKey);
-
-    const paylinkResponse = await fetch('/api/get-paylink', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ corporate: false }),
-    });
-    const paylinkData = await paylinkResponse.json();
-    paylinkLNURL = paylinkData.lnurl;
-    paylinkID = paylinkData.id;
-    lnurl = paylinkData.lnurl;
-    await getQRCode();
-    intervalId = setInterval(getPaylink, 10000);
-  });
-
-  onDestroy(() => {
-    // Clear the interval when the component is destroyed
-    clearInterval(intervalId);
-  });
 
   let name = '';
   let email = '';
@@ -113,7 +73,6 @@
   let lnurl = '';
   let baseLNbitsURL = '';
   let LNbitsXAPIKey = '';
-  //  let tooltip = { x: 0, y: 0, show: false };
   let fee = 0;
   let discordHandle = '';
 
@@ -129,18 +88,7 @@
       goal,
       mentor: mentor ? 'yes' : 'no',
     };
-    showPaymentModal = true; // Show the modal
-    // responseMessage = 'Form submitted successfully';
 
-    console.log(formData)
-    // if (showPaymentModal) {
-    //     responseMessage = 'Form submitted successfully';
-    //     showPaymentModal = true; // Show the modal
-    //     await showPaymentModal();
-    //     window.location.href = '/thankyou';
-    //   } else {
-    //     responseMessage = `Error sending email: ${response.statusText}`;
-    //   }
     const { data, error } = await supabase.from('members-individual').insert([formData]);
 
     if (error) {
@@ -166,33 +114,10 @@
     }
   }
 
-  function formatNumberWithCommas(number) {
-    return Number(number).toLocaleString();
-  }
-
   async function showThankYouModal() {
     showModal = true;
     await new Promise((resolve) => setTimeout(resolve, 3000));
     showModal = false;
-  }
-
-  function copyToClipboard() {
-    navigator.clipboard
-      .writeText(lnurl)
-      .then(() => {
-        console.log('copied');
-      })
-      .catch((err) => {
-        console.error('Could not copy text: ', err);
-      });
-  }
-
-  function openModal() {
-    showPaymentModal = true;
-  }
-
-  function closeModal() {
-    showPaymentModal = false;
   }
 </script>
 
@@ -238,41 +163,12 @@
           <label for="mentor" style="margin-top:2.5rem;">Do you want to mentor?</label>
           <input type="checkbox" id="mentor" bind:checked={mentor} />
         </div>
-        <div class="input-wrapper">
-          <label style="font-size:1.5rem; margin-top: 2rem;" class="text-center" for="qrCode">Membership Dues</label>
-          <p style="color: #FF9500" class="text-center">{`${formatNumberWithCommas(fee)} sats`}</p>
-          <div
-            class="no-outline text-center"
-            style="margin:auto; padding-right: 10px; cursor: pointer;"
-            id="qrCode"
-            bind:innerHTML={qrCode}
-            contenteditable
-            on:keypress={copyToClipboard}
-            on:click={copyToClipboard}
-          />
-        </div>
-        {#if !qrCode}
-          <h4>We're experiencing a problem with our Lightning Server. Please try to register later.</h4>
-        {/if}
-        {#if qrCode}
-          <button type="button" on:click={copyToClipboard} class="lnurl">
-            <div style="display: flex; justify-content: center;">Copy LNURL<ClipboardListSolid size={14} /></div>
-          </button>
-        {/if}
-        {#if !hasPaid}
-          <h6 style="font-size: 0.75rem;">
-            <i>Please complete payment first, then submit will be enabled. Include your email in the comment field.</i>
-          </h6>
-        {/if}
-        
-        
-        <!-- {#if showPaymentModal} -->
-        <button type="submit">Submit</button>
+
         <div>
-            <PaymentModal showPaymentModal={showPaymentModal} formData={formData}/>
-            <!-- <h2>Thank you for signing up!</h2> -->
+          <iframe class="iframe" src={paymentLink} allow="clipboard-read; clipboard-write;" title="Lightning Invoice" frameborder="0" style="width: 100%; height: 500px;"></iframe>
         </div>
-        <!-- {/if} -->
+        
+        <button type="submit">Submit</button>
       </form>
     </div>
   </div>
@@ -400,34 +296,8 @@ form {
     margin-bottom: 1rem;
   }
 
-  h6 {
-    color: #ff9500;
+  .iframe {
+    display: block;
+    text-align: center;
   }
-
-  #qrCode {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .no-outline:focus {
-    outline: none;
-  }
-
-  .lnurl {
-    background-color: #ff9500;
-    color: #10182b;
-    width: 8rem;
-    padding-left: 0;
-    padding-right: 0;
-    font-size: 0.75rem;
-    justify-content: center;
-    margin: auto;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
-  .lnurl:hover {
-    color: #10182b;
-    background-color: #fff;
-  } 
 </style>

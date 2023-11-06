@@ -1,47 +1,57 @@
 <!-- PaymentModal.svelte -->
+<meta http-equiv="permissions-policy" content="clipboard-read=(self)">
+
 <script>
     import { createEventDispatcher } from 'svelte';
-
+    import { API_KEY } from '../../env'
     const dispatch = createEventDispatcher();
 
     export let showPaymentModal;
     export let formData;
     let paymentLink = '';
     let invoice = '';
+    let amount = 300000;
+    let name = '';
 
     async function openModal() {
-      paymentLink = "https://testnet.plebnet.dev/satspay/kbHacWmjVU8PTVeE2eyhuj"; // Replace with the actual payment link
-        // try {
-    //     const response = await fetch('https://testnet.plebnet.dev/satspay/api/v1/charge', {
-    //         method: 'POST',
-    //         headers: {
-    //           'Content-Type': 'application/json',
-    //           'X-Api-Key': '42041be9fc424585bee06ed4baf23782',
-    //         // You can add headers if needed (e.g., authentication)
-    //         },
-    //         body: JSON.stringify({
-    //           "id": "6f900155ce2748c7bbcbc9f347da4906",
-    //           "amount": 10,
-    //           "time": 10,
-    //           "description": "My Lightning invoice",
-    //           "expires_at": "2023-10-12T21:15:05Z",
-    //           "payreq": "lnbc100110n1p0x752vv86304402952522256949n335fuv3t56cqj7q7g7y9atgup965n33x99c6sr9qypqxe6uxqd3exxv64454675p7ch95p928q9q9qsqq9q9sqq9q9sqq9q9sqq9q9s752vv86304402952522256949n335fuv3t56cqj7q7g7y9atgup965n33x99c6sr9qypqxe6uxqd3exxv64454675p7ch95p928q9q9qsqq9q9sqq9q9sqq9q9sqq9q9s",
-    //         })
-    //     });
+      // paymentLink = "https://testnet.plebnet.dev/satspay/kbHacWmjVU8PTVeE2eyhuj"; // Replace with the actual payment link
+      if (formData.formType = 'individual') {
+        amount = 10;
+        name = formData.name;
+      } else if (formData.formType = 'corporate'){
+        amount = 30;
+        name = formData.orgName;
+      }
 
-    //     if (response.ok) {
-    //         invoice = await response.json(); // Parse the response data if it's in JSON
-    //         console.log('GET request successful:', invoice);
-    //         paymentLink = "https://testnet.plebnet.dev/satspay/" + invoice.id;
-    //     } else {
-    //         console.error('GET request failed:', response.status, response.statusText);
-    //     }
-    //     } catch (error) {
-    //         console.error('An error occurred:', error);
-      // } catch (error) {
-      //   console.error('An error occurred:', error);
-      //   paymentLink = "https://testnet.plebnet.dev/"; // Replace with the actual payment link
-      // }
+      try {
+        const response = await fetch('https://testnet.plebnet.dev/satspay/api/v1/charge', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-Api-Key': API_KEY,
+            // You can add headers if needed (e.g., authentication)
+            },
+            body: JSON.stringify({
+              "id": "6f900155ce2748c7bbcbc9f347da4906",
+              "amount": amount,
+              "time": 10,
+              "description": name + " Lightning Invoice",
+              // "expires_at": "2023-10-12T21:15:05Z",
+              // "payreq": "lnbc100110n1p0x752vv86304402952522256949n335fuv3t56cqj7q7g7y9atgup965n33x99c6sr9qypqxe6uxqd3exxv64454675p7ch95p928q9q9qsqq9q9sqq9q9sqq9q9sqq9q9s752vv86304402952522256949n335fuv3t56cqj7q7g7y9atgup965n33x99c6sr9qypqxe6uxqd3exxv64454675p7ch95p928q9q9qsqq9q9sqq9q9sqq9q9sqq9q9s",
+            })
+        });
+
+        if (response.ok) {
+            invoice = await response.json(); // Parse the response data if it's in JSON
+            console.log('GET request successful:', invoice);
+            paymentLink = "https://testnet.plebnet.dev/satspay/" + invoice.id;
+        } else {
+            console.error('GET request failed:', response.status, response.statusText);
+        } 
+      } catch (error) {
+        console.error('An error occurred:', error);
+        paymentLink = "https://testnet.plebnet.dev/"; // Replace with the actual payment link
+      }
     }
 
     function closeModal() {
@@ -67,7 +77,7 @@
       <h2>{formData.goal}</h2>
       <h2>{formData.mentor}</h2> -->
       <!-- <h2>{paymentLink}</h2> -->
-      <iframe class="iframe" src={paymentLink} title="Lightning Invoice" frameborder="0" style="width: 100%; height: 100%;"></iframe>
+      <iframe class="iframe" src={paymentLink} allow="clipboard-read; clipboard-write;" title="Lightning Invoice" frameborder="0" style="width: 100%; height: 100%;"></iframe>
       <button class="close" on:click={closeModal}>Close</button>
     </div>
   </div>

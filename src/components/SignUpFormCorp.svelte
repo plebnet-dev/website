@@ -6,57 +6,60 @@
 // import { createEventDispatcher } from 'svelte';
 //  const dispatch = createEventDispatcher();
 //  export let showFormModal = false;
+  import PaymentModal from './PaymentModal.svelte';
 
-let supabase;
+  let showPaymentModal = false;
+  let formData = {};
+  let supabase;
 
-  async function getQRCode() {
-    const response = await fetch(`${baseLNbitsURL}/api/v1/qrcode/${paylinkLNURL}`);
-    let data = await response.text();
-    data = data.replace(/stroke="#000"/g, 'stroke="#FF9500"');
-    data = data.replace(/scale\(3\)/g, 'scale(4.5)'); // Increase the scale value to increase the size
-    data = data.replace(/<svg/g, '<svg viewBox="0 0 200 200"'); // Add or replace the viewbox attribute
-    data = data.replace(/width="[^"]*"/g, 'width="200"');
-    data = data.replace(/height="[^"]*"/g, 'height="200"');
-    qrCode = data;
-  }
+  // async function getQRCode() {
+  //   const response = await fetch(`${baseLNbitsURL}/api/v1/qrcode/${paylinkLNURL}`);
+  //   let data = await response.text();
+  //   data = data.replace(/stroke="#000"/g, 'stroke="#FF9500"');
+  //   data = data.replace(/scale\(3\)/g, 'scale(4.5)'); // Increase the scale value to increase the size
+  //   data = data.replace(/<svg/g, '<svg viewBox="0 0 200 200"'); // Add or replace the viewbox attribute
+  //   data = data.replace(/width="[^"]*"/g, 'width="200"');
+  //   data = data.replace(/height="[^"]*"/g, 'height="200"');
+  //   qrCode = data;
+  // }
 
-  async function getPaylink() {
-    const response = await fetch(`${baseLNbitsURL}/lnurlp/api/v1/links/${paylinkID}`, {
-      method: 'GET',
-      headers: {
-        accept: 'application/json',
-        'X-API-KEY': LNbitsApiKey,
-      },
-    });
+  // async function getPaylink() {
+  //   const response = await fetch(`${baseLNbitsURL}/lnurlp/api/v1/links/${paylinkID}`, {
+  //     method: 'GET',
+  //     headers: {
+  //       accept: 'application/json',
+  //       'X-API-KEY': LNbitsApiKey,
+  //     },
+  //   });
 
-    const data = await response.json();
-    if (data.served_pr > 0) {
-      hasPaid = true;
-      clearInterval(intervalId); // Stop checking
-      updatePaylink();
-    }
-  }
+  //   const data = await response.json();
+  //   if (data.served_pr > 0) {
+  //     hasPaid = true;
+  //     clearInterval(intervalId); // Stop checking
+  //     updatePaylink();
+  //   }
+  // }
  
-  async function updatePaylink() {
-    const response = await fetch(`${baseLNbitsURL}/lnurlp/api/v1/links/${paylinkID}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        accept: 'application/json',
-        'X-API-KEY': LNbitsXAPIKey,
-      },
-      body: JSON.stringify({
-        description: `${orgName} has paid (Corp Membership)`,
-        min: fee,
-        max: fee,
-        amount: fee,
-        comment_chars: 50,
-        success_text: 'Thanks for joining the PlebDev Community!',
-      }),
-    });
-    const test = await response.json();
-    console.log(test);
-  }
+  // async function updatePaylink() {
+  //   const response = await fetch(`${baseLNbitsURL}/lnurlp/api/v1/links/${paylinkID}`, {
+  //     method: 'PUT',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       accept: 'application/json',
+  //       'X-API-KEY': LNbitsXAPIKey,
+  //     },
+  //     body: JSON.stringify({
+  //       description: `${orgName} has paid (Corp Membership)`,
+  //       min: fee,
+  //       max: fee,
+  //       amount: fee,
+  //       comment_chars: 50,
+  //       success_text: 'Thanks for joining the PlebDev Community!',
+  //     }),
+  //   });
+  //   const test = await response.json();
+  //   console.log(test);
+  // }
 
   onMount(async () => {
     const response = await fetch('/api/get-env');
@@ -66,7 +69,7 @@ let supabase;
     fee = corpMembershipFee;
     LNbitsApiKey = LNbitsAPI;
     baseLNbitsURL = baseURL;
-    supabase = createClient(supabaseUrl, supabaseKey);
+    // supabase = createClient(supabaseUrl, supabaseKey);
 
     const paylinkResponse = await fetch('/api/get-paylink', {
       method: 'POST',
@@ -123,7 +126,7 @@ let supabase;
       goal,
       industry,
     };
-
+    showPaymentModal = true;
     const { data, error } = await supabase.from('members-corporate').insert([formData]);
 
     if (error) {
@@ -148,9 +151,9 @@ let supabase;
     }
   }
 
-  function formatNumberWithCommas(number) {
-    return Number(number).toLocaleString();
-  }
+  // function formatNumberWithCommas(number) {
+  //   return Number(number).toLocaleString();
+  // }
 
   async function showThankYouModal() {
     showModal = true;
@@ -213,36 +216,15 @@ let supabase;
           <label id="why-join" for="goal">Any comments for us?*</label>
           <textarea type="text" id="goal" bind:value={goal} required />
         </div>
-
-        <div class="input-wrapper">
-          <label style="font-size:1.5rem; margin-top: 2rem;" for="qrCode">Membership Dues</label>
-          <p style="color: #FF9500" class="text-center">{`${formatNumberWithCommas(fee)} sats`}</p>
-          <div class="qr-code-container no-outline">
-            <div
-              class="no-outline"
-              style="margin:auto; padding-right: 10px; cursor: pointer;"
-              id="qrCode"
-              bind:innerHTML={qrCode}
-              contenteditable
-              on:click={copyToClipboard}
-              on:keypress={copyToClipboard}
-            />
-          </div>
+      
+        <div>
+          <iframe class="iframe" src={paymentLink} allow="clipboard-read; clipboard-write;" title="Lightning Invoice" frameborder="0" style="width: 100%; height: 500px;"></iframe>
         </div>
-        {#if !qrCode}
-          <h4>We're experiencing a problem with our Lightning Server. Please try to register later.</h4>
-        {/if}
-        {#if qrCode}
-          <button type="button" on:click={copyToClipboard} class="lnurl">
-            <div style="display: flex; justify-content: center;">Copy LNURL<ClipboardListSolid size={14} /></div>
-          </button>
-        {/if}
-        {#if !hasPaid}
-          <h6 style="font-size: 0.75rem;">
-            <i>Please complete payment first, then submit will be enabled. Include your email in the comment field.</i>
-          </h6>
-        {/if}
-        <button type="submit" disabled={!hasPaid}>Submit</button>
+
+        <button type="submit">Submit</button>
+        <!-- <div>
+            <PaymentModal showPaymentModal={showPaymentModal} formData={formData}/>
+        </div> -->
       </form>
     </div>
   </div>
