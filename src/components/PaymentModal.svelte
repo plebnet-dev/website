@@ -3,7 +3,7 @@
 
 <script>
     import { createEventDispatcher } from 'svelte';
-    import { API_KEY } from '../../env'
+    // import { API_KEY } from '../../env'
     const dispatch = createEventDispatcher();
 
     export let showPaymentModal;
