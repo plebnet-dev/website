@@ -7,7 +7,7 @@
 //  const dispatch = createEventDispatcher();
 //  export let showFormModal = false;
   import PaymentModal from './PaymentModal.svelte';
-  import { API_KEY } from '../../env'
+
 
   // let showPaymentModal = false;
   let paymentLink = '';

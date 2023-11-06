@@ -4,7 +4,6 @@
   import { ClipboardListSolid } from 'svelte-awesome-icons';
 
   import PaymentModal from './PaymentModal.svelte';
-  import { API_KEY } from '../../env'
 
   let supabase;
   let paymentLink = '';
