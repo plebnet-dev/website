@@ -7,10 +7,44 @@
 //  const dispatch = createEventDispatcher();
 //  export let showFormModal = false;
   import PaymentModal from './PaymentModal.svelte';
+  import { API_KEY } from '../../env'
 
-  let showPaymentModal = false;
+  // let showPaymentModal = false;
+  let paymentLink = '';
+  let invoice = '';
   let formData = {};
   let supabase;
+
+  async function getPaymentLink() {
+      try {
+        const response = await fetch('https://testnet.plebnet.dev/satspay/api/v1/charge', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-Api-Key': API_KEY,
+            },
+            body: JSON.stringify({
+              "id": "6f900155ce2748c7bbcbc9f347da4906",
+              "amount": 10,
+              "time": 10,
+              "description": "Lightning Invoice",
+              // "expires_at": "2023-10-12T21:15:05Z",
+              // "payreq": "lnbc100110n1p0x752vv86304402952522256949n335fuv3t56cqj7q7g7y9atgup965n33x99c6sr9qypqxe6uxqd3exxv64454675p7ch95p928q9q9qsqq9q9sqq9q9sqq9q9sqq9q9s752vv86304402952522256949n335fuv3t56cqj7q7g7y9atgup965n33x99c6sr9qypqxe6uxqd3exxv64454675p7ch95p928q9q9qsqq9q9sqq9q9sqq9q9sqq9q9s",
+            })
+        });
+
+        if (response.ok) {
+            invoice = await response.json(); // Parse the response data if it's in JSON
+            console.log('GET request successful:', invoice);
+            paymentLink = "https://testnet.plebnet.dev/satspay/" + invoice.id;
+        } else {
+            console.error('GET request failed:', response.status, response.statusText);
+        } 
+      } catch (error) {
+        console.error('An error occurred:', error);
+        paymentLink = "https://testnet.plebnet.dev/"; // Replace with the actual payment link
+      }
+    }
 
   // async function getQRCode() {
   //   const response = await fetch(`${baseLNbitsURL}/api/v1/qrcode/${paylinkLNURL}`);
@@ -62,30 +96,41 @@
   // }
 
   onMount(async () => {
-    const response = await fetch('/api/get-env');
-    const responseBody = await response.text();
-    const { baseURL, supabaseUrl, supabaseKey, LNbitsAPI, LNbitsXAPI, corpMembershipFee } = JSON.parse(responseBody);
-    LNbitsXAPIKey = LNbitsXAPI;
-    fee = corpMembershipFee;
-    LNbitsApiKey = LNbitsAPI;
-    baseLNbitsURL = baseURL;
-    // supabase = createClient(supabaseUrl, supabaseKey);
-
-    const paylinkResponse = await fetch('/api/get-paylink', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ corporate: true }),
+      const response = await fetch('/api/get-env');
+      const responseBody = await response.text();
+      const { baseURL, supabaseUrl, supabaseKey, LNbitsAPI, LNbitsXAPI, corpMembershipFee } = JSON.parse(responseBody);
+      LNbitsXAPIKey = LNbitsXAPI;
+      fee = corpMembershipFee;
+      LNbitsApiKey = LNbitsAPI;
+      baseLNbitsURL = baseURL;
+      // supabase = createClient(supabaseUrl, supabaseKey);
+      await getPaymentLink();
     });
+  // onMount(async () => {
+  //   const response = await fetch('/api/get-env');
+  //   const responseBody = await response.text();
+  //   const { baseURL, supabaseUrl, supabaseKey, LNbitsAPI, LNbitsXAPI, corpMembershipFee } = JSON.parse(responseBody);
+  //   LNbitsXAPIKey = LNbitsXAPI;
+  //   fee = corpMembershipFee;
+  //   LNbitsApiKey = LNbitsAPI;
+  //   baseLNbitsURL = baseURL;
+  //   // supabase = createClient(supabaseUrl, supabaseKey);
 
-    const paylinkData = await paylinkResponse.json();
-    paylinkLNURL = paylinkData.lnurl;
-    paylinkID = paylinkData.id;
-    lnurl = paylinkData.lnurl;
-    intervalId = setInterval(getPaylink, 3000);
-    await getQRCode();
-  });
+  //   const paylinkResponse = await fetch('/api/get-paylink', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({ corporate: true }),
+  //   });
+
+  //   const paylinkData = await paylinkResponse.json();
+  //   paylinkLNURL = paylinkData.lnurl;
+  //   paylinkID = paylinkData.id;
+  //   lnurl = paylinkData.lnurl;
+  //   intervalId = setInterval(getPaylink, 3000);
+  //   await getQRCode();
+  // });
 
   onDestroy(() => {
     // Clear the interval when the component is destroyed
