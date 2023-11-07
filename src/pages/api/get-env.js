@@ -12,7 +12,7 @@ export async function GET() {
   const corpMembershipFee = process.env.PUBLIC_LNBITS_CORP_FEE
   const baseURL = process.env.PUBLIC_LNBITS_URL;
   const API_KEY = process.env.PUBLIC_API_KEY;
-  const lnbitsxwallet = process.env.PUBLIC_lnbitswallet;
+  const lnbitsxwallet = process.env.PUBLIC_lnbitsxwallet;
 
   const responseBody = JSON.stringify({
     supabaseUrl,

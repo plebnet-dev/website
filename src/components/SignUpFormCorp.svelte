@@ -26,7 +26,7 @@
               'X-Api-Key': key,
             },
             body: JSON.stringify({
-              "lnbitswallet": lnbitswallet,
+              "lnbitswallet": LNwallet,
               "amount": 10,
               "time": 10,
               "description": "Lightning Invoice",
@@ -104,7 +104,7 @@
       LNbitsApiKey = LNbitsAPI;
       baseLNbitsURL = baseURL;
       key = API_KEY;
-      lnbitswallet = lnbitsxwallet;
+      LNwallet = lnbitsxwallet;
 
       // supabase = createClient(supabaseUrl, supabaseKey);
       await getPaymentLink();
@@ -162,7 +162,7 @@
   let fee = 0;
   let discordHandle = '';
   let key = '';
-  let lnbitswallet = '';
+  let LNwallet = '';
 
   async function handleSubmit() {
     const formData = {
