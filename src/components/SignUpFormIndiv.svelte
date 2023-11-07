@@ -71,13 +71,13 @@
     onMount(async () => {
       const response = await fetch('/api/get-env');
       const responseBody = await response.text();
-      const { baseURL, supabaseUrl, supabaseKey, LNbitsAPI, LNbitsXAPI, corpMembershipFee, API_KEY, lnbitsxwallet } = JSON.parse(responseBody);
+      const { baseURL, supabaseUrl, supabaseKey, LNbitsAPI, LNbitsXAPI, corpMembershipFee, API_KEY, LNBITS_ID } = JSON.parse(responseBody);
       LNbitsXAPIKey = LNbitsXAPI;
       fee = corpMembershipFee;
       LNbitsApiKey = LNbitsAPI;
       baseLNbitsURL = baseURL;
       key = API_KEY;
-      LNwallet = lnbitsxwallet;
+      LNwallet = LNBITS_ID;
 
       // supabase = createClient(supabaseUrl, supabaseKey);
       await getPaymentLink();
