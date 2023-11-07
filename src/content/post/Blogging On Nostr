@@ -1,7 +1,19 @@
+---
+publishDate: 2023-10-07T20:22:00-05:00
+title: Blogging Bitcoin
+Story - Blogging On Nostr   
+author: Blogging Bitcoin  
+description: My experience contributing to habla.news     .
+image: https://paynym.is/PM8TJXVwNbJb8MGphGbijWucP3fw9mkDZ9BQT3pGkCsdFK21cR6v5xKrart2oBsqDMkxtqMGgkoTgn1NAczLznUeTwa4BG2rs1zZDfEtKin7WuBcdvcK/avatar
+category: Narrative  
+tags:
+  - Bitcoin
+  - Nostr  
+---
 
 #Blogging On Nostr
 
-I am old enough to remember the early days of the World Wide Web. Before Netscape, AOL was my only portal to the Internet.The browser unlocked the true decentralized nature of the Internet. My Sociology professor said public debate was controlled by the media that was controlled by coperations that paid for commercials. The Internet gave tge chance to speak and think without being controlled by corporations. The first amendment was now something that could be established, not by Congress but by the people.
+I am old enough to remember the early days of the World Wide Web. Before Netscape, AOL was my only portal to the Internet.The browser unlocked the true decentralized nature of the Internet. My Sociology professor said public debate was controlled by the media that was controlled by corperations that paid for commercials. The Internet gave the chance to speak and think without being controlled by corporations. The first amendment was now something that could be established, not by Congress but by the people.
 
 Then **I found MySpace**. MySpace was the first social media platform. It was also the  best dating app for a young nerd like me. It also taught me HTML and how to  *copy pasta* CSS. This made the Internet feel like something I helped build and made it look as if we had a bright, uncensorable future. Then Facebook took over. It was easy enough for my great-aunt Sally to use, even easier for Facebook to treat users like [guinea pigs](https://www.bbc.com/news/technology-28051930). Everything changed. We, the people, stopped building the Internet. The Internet began building the people. I could no longer debate politics because I could finish my interlocutors sentence before he or she did. I already saw that argument on Twitter 50 times that week. Political discourse became people shouting memes at people who were not listening anyway. This made me question my own political assumptions. Did I come to my own political conclusions based on rational thought, or **was I just parroting the ideas fed to me on YouTube**?
 
@@ -15,13 +27,13 @@ I was attracted to the idea of money without government because I didn't like ho
 
 
 
-At first, I was a little skeptical of buying it so I asked for a small amount on Twitter like a homeless dude on the sidewalk drinking Steel Reserve asks for change. I remember feeling like an Internet bum, but I wasn't interested in buying bitcoin on the exchange until I could see it in action. **A nym sent me some via change tip with the message, "Buy yourself a cup of coffee."** I finally did buy a cup of coffee with bitcoin at the Pacific Bitcon Conference in 2022.
+At first, I was a little skeptical of buying it so I asked for a small amount on Twitter like a homeless dude on the sidewalk drinking Steel Reserve asks for change. I remember feeling like an Internet bum, but I wasn't interested in buying bitcoin on the exchange until I could see it in action. **A nym sent me some via change tip with the message, "Buy yourself a cup of coffee."** I finally did buy a cup of coffee with bitcoin at the Pacific Bitcoin Conference in 2022.
  
 
 
 ![coffee](https://i.nostr.build/RoPv.jpg)
 
-Over a long enough amount of blocks, bitcoin becomes something you're willing to work and fight for. I wanted to work on bitcoin related open source software, but I didn't know where to begin. I decided to write a blog on Ghost. I took a Google IT course that taught me how to use Linux and spin up a virtual private network. I followed K3tan's guide, [Starting a New Digital Identity](https://k3tan.com/starting-a-new-digital-identity). I spun up a btcpay server on Luna Node and used it for "tips." 
+Over a long enough amount of blocks, bitcoin becomes something you're willing to work and fight for. I wanted to work on bitcoin related open source software, but I didn't know where to begin. I decided to write a blog on Ghost. I took a Google IT course that taught me how to use Linux and spin up a virtual private network. I followed K3tan's guide, [Starting a New Digital Identity](https://k3tan.com/starting-a-new-digital-identity). I spun up a BTCpayServer  on Luna Node and used it for "tips." 
 
  
 
@@ -56,7 +68,7 @@ I wrote about nostr after hearing about it on Citadel Dispatch. At first, it see
 
 ![hablanews](https://i.nostr.build/OQj5.png)
 
-Since I already wrote my blog on Ghost, transitioning to habla.news was easy. These blogging platforms all use markdown, which makes it easy to add links, pictures, and headings. I finally felt like I could contribute to something that was early, so I wrote a blog about using markdown. Then I made a video tutorial. I tried doing a pull request to add it, but I screwed something up and went back to my office with my tail between my legs. Then I saw Tony give a 2-minute introduction to Habla.news. I showed him my video, and he included it in the introduction.
+Since I already wrote my blog on Ghost, transitioning to habla.news was easy. These blogging platforms all use markdown, which makes it easy to add links, pictures, and headings. I finally felt like I could contribute to something that was early, so I wrote a blog about using markdown. Then I made a video tutorial. I tried doing a pull request to add it, but I screwed something up and went back to my office with my tail between my legs. Then I saw Tony give a 2-minute introduction to habla.news. I showed him my video, and he included it in the introduction.
 
  
 
@@ -81,22 +93,22 @@ There are four major blogging platforms I am aware of:
 
  
 
-https://blogstack.io
+- https://blogstack.io
 
-https://habla.news
+- https://habla.news
 
-https://flycat.club
+- https://flycat.club
 
-https://yakihonne.com/
+- https://yakihonne.com/
 
  
 
-I urge you to try writing a blog post on one of these clients yourself If you don't know markdown, check out https://habla.news/faq. Some green guy made a video that teaches you how to use the WYSIWYG tools on it. Need a key? I recomend https://getalby.com because it makes logging into nostr clients easy and they use NIP07 which is like BIP39. That's nerdspeak for, you can back up your key by writing down 12 words.
+I urge you to try writing a blog post on one of these clients yourself If you don't know markdown, check out https://habla.news/faq. Some green guy made a video that teaches you how to use the WYSIWYG tools on it. Need a key? I recommend https://getalby.com because it makes logging into nostr clients easy and they use NIP07 which is like BIP39. That's nerdspeak for, you can back up your key by writing down 12 words.
 
 [coding cat](https://i.nostr.build/yzQJ.jpg)
  
 
-If you thought about contributing to free and open source, I urge you to start today. Learning to code can be frustrating, and the people on Github can be brutal, but there are other ways to contribute to free and open source software. You can create an issue, make a video tutorial, or start a meetup.  You don't need to be a Cypherpunks, but  you should learn to write code. I have recently learned that I can use ChatGPT as a tutor. If you don't know where to start, try writing on nostr.  You may not get a lot of readers, but you'll probably make more money than you would on Substack unless your name is [Matt Tiabbi](https://primal.net/e/note1su0j0sfnvy23py5ql9vsk8cszuj8epa3z3gtexq7k25xl5a8ta2sxcx086).
+If you thought about contributing to free and open source, I urge you to start today. Learning to code can be frustrating, and the people on GitHub can be brutal, but there are other ways to contribute to free and open source software. You can create an issue, make a video tutorial, or start a meetup.  You don't need to be a Cypherpunks, but  you should learn to write code. I have recently learned that I can use ChatGPT as a tutor. If you don't know where to start, try writing on nostr.  You may not get a lot of readers, but you'll probably make more money than you would on Substack unless your name is [Matt Tiabbi](https://primal.net/e/note1su0j0sfnvy23py5ql9vsk8cszuj8epa3z3gtexq7k25xl5a8ta2sxcx086).
 
 I am currently working on making an Astroblog that automatically posts to habla.news. I feel a little in over my head, but I'm learning a lot with Plebnet.dev.  I knew a little bit of python, but I had no idea how to create documentation using a make file. Bitkarrot has helped me like a Sherpa guiding my climb up Mt Everest.  
 
@@ -106,7 +118,7 @@ I'm not sure where this journey will take me, but I feel like I'm doing meaningf
 
 [Onward](https://highlighter.com/e/nevent1qqsgar5rasvm2a952qf5kcyzw2ze73n2h24c3w2z3r3pynpv7lfl4ncpzamhxue69uhhyetvv9ujumn0wd68ytnzv9hxgtczyp6m7g6nrt5lnrrzn9d6quv3ujyw44r4jafhr43a0h75d00ph75f2xtnvrj)
 
---[Blogging Bitcoin](https://i.nostr.build/thumb/yzQJ.jpg)
+[Blogging Bitcoin](https://highlighter.com/p/npub1wkljx5c6a8uccc5etws8ry0y3r4dgavh2dcav0tal4rtmcdl4z2sfu5u0t)
 
 npub1wkljx5c6a8uccc5etws8ry0y3r4dgavh2dcav0tal4rtmcdl4z2sfu5u0t
 
