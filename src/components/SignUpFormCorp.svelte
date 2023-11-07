@@ -7,9 +7,11 @@
 //  const dispatch = createEventDispatcher();
 //  export let showFormModal = false;
   import PaymentModal from './PaymentModal.svelte';
+  // import { API_KEY } from './env';
 
 
   // let showPaymentModal = false;
+  // let key = import.meta.env.VITE_API_KEY;
   let paymentLink = '';
   let invoice = '';
   let formData = {};
@@ -21,15 +23,13 @@
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              'X-Api-Key': API_KEY,
+              'X-Api-Key': key,
             },
             body: JSON.stringify({
-              "id": "6f900155ce2748c7bbcbc9f347da4906",
+              "lnbitswallet": lnbitswallet,
               "amount": 10,
               "time": 10,
               "description": "Lightning Invoice",
-              // "expires_at": "2023-10-12T21:15:05Z",
-              // "payreq": "lnbc100110n1p0x752vv86304402952522256949n335fuv3t56cqj7q7g7y9atgup965n33x99c6sr9qypqxe6uxqd3exxv64454675p7ch95p928q9q9qsqq9q9sqq9q9sqq9q9sqq9q9s752vv86304402952522256949n335fuv3t56cqj7q7g7y9atgup965n33x99c6sr9qypqxe6uxqd3exxv64454675p7ch95p928q9q9qsqq9q9sqq9q9sqq9q9sqq9q9s",
             })
         });
 
@@ -98,11 +98,14 @@
   onMount(async () => {
       const response = await fetch('/api/get-env');
       const responseBody = await response.text();
-      const { baseURL, supabaseUrl, supabaseKey, LNbitsAPI, LNbitsXAPI, corpMembershipFee } = JSON.parse(responseBody);
+      const { baseURL, supabaseUrl, supabaseKey, LNbitsAPI, LNbitsXAPI, corpMembershipFee, API_KEY, lnbitsxwallet } = JSON.parse(responseBody);
       LNbitsXAPIKey = LNbitsXAPI;
       fee = corpMembershipFee;
       LNbitsApiKey = LNbitsAPI;
       baseLNbitsURL = baseURL;
+      key = API_KEY;
+      lnbitswallet = lnbitsxwallet;
+
       // supabase = createClient(supabaseUrl, supabaseKey);
       await getPaymentLink();
     });
@@ -158,6 +161,8 @@
 //  let tooltip = { x: 0, y: 0, show: false };
   let fee = 0;
   let discordHandle = '';
+  let key = '';
+  let lnbitswallet = '';
 
   async function handleSubmit() {
     const formData = {
@@ -206,15 +211,8 @@
     showModal = false;
   }
 
-  function copyToClipboard() {
-    navigator.clipboard
-      .writeText(lnurl)
-      .then(() => {
-        console.log('Text copied to clipboard');
-      })
-      .catch((err) => {
-        console.error('Could not copy text: ', err);
-      });
+  function redirectToInvoice() {
+    window.location.href = paymentLink;
   }
 </script>
 
@@ -262,11 +260,11 @@
           <textarea type="text" id="goal" bind:value={goal} required />
         </div>
       
-        <div>
+        <!-- <div>
           <iframe class="iframe" src={paymentLink} allow="clipboard-read; clipboard-write;" title="Lightning Invoice" frameborder="0" style="width: 100%; height: 500px;"></iframe>
-        </div>
+        </div> -->
 
-        <button type="submit">Submit</button>
+        <button type="submit" on:click={redirectToInvoice}>Submit</button>
         <!-- <div>
             <PaymentModal showPaymentModal={showPaymentModal} formData={formData}/>
         </div> -->

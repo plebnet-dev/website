@@ -1,5 +1,6 @@
 import defaultImage from './assets/images/default.jpg';
-
+import { config } from 'dotenv';
+config();
 const CONFIG = {
   name: 'PLEBNET.DEV',
 

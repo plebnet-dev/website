@@ -2,13 +2,42 @@
   import { createClient } from '@supabase/supabase-js';
   import { onMount, onDestroy } from 'svelte';
   import { ClipboardListSolid } from 'svelte-awesome-icons';
+  // import { API_KEY } from '../../env';
 
   import PaymentModal from './PaymentModal.svelte';
-
+  // let key = import.meta.env.VITE_API_KEY;
   let supabase;
   let paymentLink = '';
   let invoice = '';
   let formData = {};
+  // console.log(PUBLIC_API_KEY);
+//   async function copyExternalIframeContent() {
+//   // Get the external iframe element
+//   const iframe = document.querySelector('iframe#external-iframe');
+
+//   // Ensure the iframe is loaded and accessible
+//   if (iframe) {
+//     // Access the iframe document
+//     const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+
+//     // Get the content from the iframe
+//     const iframeContent = iframeDocument.body.innerHTML;
+
+//     try {
+//       // Copy the content to the clipboard
+//       await navigator.clipboard.writeText(iframeContent);
+//       console.log('Content copied to clipboard');
+//     } catch (error) {
+//       console.error('Unable to copy content:', error);
+//     }
+//   } else {
+//     console.error('Iframe not found or loaded.');
+//   }
+// }
+
+// // Attach the event listener to your copy button
+// document.querySelector('#copy-button').addEventListener('click', copyExternalIframeContent);
+
 
   async function getPaymentLink() {
       try {
@@ -16,15 +45,13 @@
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              'X-Api-Key': API_KEY,
+              'X-Api-Key': key,
             },
             body: JSON.stringify({
-              "id": "6f900155ce2748c7bbcbc9f347da4906",
+              "lnbitswallet": lnbitswallet,
               "amount": 10,
               "time": 10,
               "description": "Lightning Invoice",
-              // "expires_at": "2023-10-12T21:15:05Z",
-              // "payreq": "lnbc100110n1p0x752vv86304402952522256949n335fuv3t56cqj7q7g7y9atgup965n33x99c6sr9qypqxe6uxqd3exxv64454675p7ch95p928q9q9qsqq9q9sqq9q9sqq9q9sqq9q9s752vv86304402952522256949n335fuv3t56cqj7q7g7y9atgup965n33x99c6sr9qypqxe6uxqd3exxv64454675p7ch95p928q9q9qsqq9q9sqq9q9sqq9q9sqq9q9s",
             })
         });
 
@@ -44,11 +71,14 @@
     onMount(async () => {
       const response = await fetch('/api/get-env');
       const responseBody = await response.text();
-      const { baseURL, supabaseUrl, supabaseKey, LNbitsAPI, LNbitsXAPI, corpMembershipFee } = JSON.parse(responseBody);
+      const { baseURL, supabaseUrl, supabaseKey, LNbitsAPI, LNbitsXAPI, corpMembershipFee, API_KEY, lnbitsxwallet } = JSON.parse(responseBody);
       LNbitsXAPIKey = LNbitsXAPI;
       fee = corpMembershipFee;
       LNbitsApiKey = LNbitsAPI;
       baseLNbitsURL = baseURL;
+      key = API_KEY;
+      lnbitswallet = lnbitsxwallet;
+
       // supabase = createClient(supabaseUrl, supabaseKey);
       await getPaymentLink();
     });
@@ -74,6 +104,8 @@
   let LNbitsXAPIKey = '';
   let fee = 0;
   let discordHandle = '';
+  let key = '';
+  let lnbitswallet = '';
 
   async function handleSubmit() {
     formData = {
@@ -117,6 +149,10 @@
     showModal = true;
     await new Promise((resolve) => setTimeout(resolve, 3000));
     showModal = false;
+  }
+
+   function redirectToInvoice() {
+    window.location.href = paymentLink;
   }
 </script>
 
@@ -163,14 +199,15 @@
           <input type="checkbox" id="mentor" bind:checked={mentor} />
         </div>
 
-        <div>
-          <iframe class="iframe" src={paymentLink} allow="clipboard-read; clipboard-write;" title="Lightning Invoice" frameborder="0" style="width: 100%; height: 500px;"></iframe>
-        </div>
+        <!-- <div>
+          <iframe class="iframe" src={paymentLink} allow="clipboard-read; clipboard-write;" title="Lightning Invoice" frameborder="0" style="width: 100%; height: 500px;" allow-same-origin></iframe>
+        </div> -->
         
-        <button type="submit">Submit</button>
+        <button type="submit" on:click={redirectToInvoice}>Submit</button>
       </form>
     </div>
   </div>
+
 
 <style>
   
