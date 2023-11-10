@@ -40,10 +40,11 @@ Before creating a pull request, ensure that your code works as intended. Test it
 
 ### 6. **Commit Your Changes**
 
-Break your work into small, logical commits. Each commit should represent a single, meaningful change. Write clear and descriptive commit messages that explain what each change does.
+Break your work into small, logical commits. Each commit should represent a single, meaningful change. Write clear and descriptive commit messages that explain what each change does. A common pattern is to use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/), which are easy to understand and follow.
 
 ```bash
-git add .
+git add -u # stage all modified files
+git add . # stage all new files, don't do this if you don't want to add new files
 git commit -m "Brief description of the change"
 ```
 
