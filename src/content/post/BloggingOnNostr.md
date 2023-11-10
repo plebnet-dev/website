@@ -2,7 +2,7 @@
 publishDate: 2023-11-07T20:22:00-05:00
 title: Blogging Bitcoin Story - Blogging On Nostr
 author: Blogging Bitcoin  
-description: My experience contributing to habla.news
+description: My experience from the early days of the internet till today, where I contribute to nostr on the habla.news platform as Blogging Bitcoin
 image:  /src/content/post/_images/BloggingBitcoinAvatar.png
 categories:
   - opinion
