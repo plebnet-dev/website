@@ -1,7 +1,7 @@
 import os
 import requests
 import re
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timezone
 from github import Github
 
 # Load environment variables from .env file
@@ -45,14 +45,12 @@ def fetch_discord_channel_name(channel_id, bot_token):
         url = f"https://discord.com/api/v9/channels/{channel_id}"
         headers = {"Authorization": f"Bot {bot_token}"}
         response = requests.get(url, headers=headers)
-        response.raise_for_status()  # This will raise an exception for HTTP error responses
+        response.raise_for_status()
         channel = response.json()
-        return channel.get(
-            "name", "Unknown Channel"
-        )  # Return the name of the channel or 'Unknown Channel' if not found
+        return channel.get("name", "Unknown Channel")
     except Exception as e:
         print(f"Error fetching channel name: {e}")
-        return "Unknown Channel"  # Return a default value in case of any error
+        return "Unknown Channel"
 
 
 # Function to fetch events from Discord
@@ -75,7 +73,6 @@ def process_discord_events(events, bot_token):
     for event in events:
         if event["status"] == 1:  # 1 is for SCHEDULED events
             start_time = datetime.fromisoformat(event["scheduled_start_time"])
-            # Ensure start_time is aware by assigning UTC timezone if it's not set
             if start_time.tzinfo is None:
                 start_time = start_time.replace(tzinfo=timezone.utc)
             channel_id = event.get("channel_id")
@@ -84,17 +81,14 @@ def process_discord_events(events, bot_token):
                 if channel_id
                 else "No location"
             )
-            # Ensure that event names are not prefixed with multiple '##'
             event_name = event["name"].strip()
-            if not event_name.startswith("##"):
-                event_name = f"## {event_name}"
             structured_events.append(
                 {
-                    "name": f"## {event['name']}",
+                    "id": event["id"],  # Include the event ID
+                    "name": event_name,
                     "date": start_time.date(),
                     "description": event["description"].strip(),
                     "location": channel_name,
-                    # Determine if event is upcoming or past based on current date
                     "section": "upcoming"
                     if start_time.date() >= datetime.now().date()
                     else "past",
@@ -105,43 +99,79 @@ def process_discord_events(events, bot_token):
 
 # Function to parse markdown content and extract events
 def parse_markdown(content):
-    frontmatter, event_content = content.split("---\n", 2)[1:3]
+    frontmatter, events_content = content.split("---\n", 2)[1:3]
     current_datetime = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
     frontmatter = re.sub(
         r"publishDate:.*", f"publishDate: {current_datetime}", frontmatter
     )
-    pattern = r"(## [^\n]+)\n\nDate: ([^\n]+)\n\nDescription:\n([^\n]+(?:\n\n[^\n]+)*)\n\nLocation: ([^\n]+)"
-    matches = re.findall(pattern, event_content, re.DOTALL)
-    existing_events = []
+
+    upcoming_pattern = r"# Upcoming Events\n\n(.*?)(\n\n#|$)"
+    past_pattern = r"# Past Events\n\n(.*?)(\n\n#|$)"
+
+    upcoming_content = re.search(upcoming_pattern, events_content, re.DOTALL).group(1)
+    past_content = re.search(past_pattern, events_content, re.DOTALL).group(1)
+
+    event_pattern = r"(## [^\n]+)\nID: ([^\n]+)\nDate: ([^\n]+)\nDescription:\n([^\n]+(?:\n\n[^\n]+)*)\nLocation: ([^\n]+)"
+    upcoming_events = re.findall(event_pattern, upcoming_content, re.DOTALL)
+    past_events = re.findall(event_pattern, past_content, re.DOTALL)
+
+    def process_events(matches, section):
+        events = []
+        for match in matches:
+            name, event_id, date_str, description, location = match
+            date = datetime.strptime(date_str, "%b %d, %Y").date()
+            events.append(
+                {
+                    "name": name.strip(),
+                    "id": event_id,
+                    "date": date,
+                    "description": description.strip(),
+                    "location": location,
+                    "section": section,
+                }
+            )
+        return events
+
+    upcoming_events = process_events(upcoming_events, "upcoming")
+    past_events = process_events(past_events, "past")
+    return frontmatter, upcoming_events, past_events
+
+
+# Function to merge and generate markdown
+def merge_and_generate_markdown(
+    frontmatter, new_events, existing_upcoming_events, existing_past_events
+):
     today = datetime.now().date()
-    for match in matches:
-        name, date_str, description, location = match
-        date = datetime.strptime(date_str, "%b %d, %Y").date()
-        existing_events.append(
-            {
-                "name": name.strip("# "),
-                "date": date,
-                "description": description.strip(),
-                "location": location,
-                # Categorize event based on date comparison
-                "section": "upcoming" if date >= datetime.now().date() else "past",
-            }
+    all_events = {}
+
+    # Categorize and add existing events
+    for event in existing_upcoming_events + existing_past_events:
+        event["section"] = "upcoming" if event["date"] >= today else "past"
+        all_events[event["id"]] = event
+
+    # Merge new events
+    for event in new_events:
+        all_events[event["id"]] = event
+
+    # Categorize new events correctly
+    for event_id, event in all_events.items():
+        all_events[event_id]["section"] = (
+            "upcoming" if event["date"] >= today else "past"
         )
-    return frontmatter, existing_events
 
-
-def merge_and_generate_markdown(frontmatter, new_events):
-    # Generate updated markdown content only for upcoming events
+    # Generate Markdown content for upcoming and past events
     upcoming_events_md = "\n\n".join(
-        f"{event['name']}\n\nDate: {event['date'].strftime('%b %d, %Y')}\n\nDescription:\n{event['description']}\n\nLocation: {event['location']}"
-        for event in new_events
+        f"{event['name']}\nID: {event['id']}\nDate: {event['date'].strftime('%b %d, %Y')}\nDescription:\n{event['description']}\nLocation: {event['location']}"
+        for event in all_events.values()
         if event["section"] == "upcoming"
     )
-
-    # Combine the updated frontmatter with the updated upcoming events content
-    updated_content = (
-        f"---\n{frontmatter}---\n\n# Upcoming Events\n\n{upcoming_events_md}\n"
+    past_events_md = "\n\n".join(
+        f"{event['name']}\nID: {event['id']}\nDate: {event['date'].strftime('%b %d, %Y')}\nDescription:\n{event['description']}\nLocation: {event['location']}"
+        for event in all_events.values()
+        if event["section"] == "past"
     )
+
+    updated_content = f"---\n{frontmatter}---\n\n# Upcoming Events\n\n{upcoming_events_md}\n\n# Past Events\n\n{past_events_md}\n"
     return updated_content
 
 
@@ -149,19 +179,12 @@ def main():
     new_events = fetch_discord_events(GUILD_ID, BOT_TOKEN)
     try:
         content, sha = get_github_file(REPO, FILE_PATH, PAT)
-
-        frontmatter, existing_events = parse_markdown(content)
-
-        # Filter out past events only
-        past_events = [event for event in existing_events if event["section"] == "past"]
-
-        # Combine past events with new upcoming events for markdown generation
-        all_events = past_events + [
-            event for event in new_events if event["section"] == "upcoming"
-        ]
-
-        updated_content = merge_and_generate_markdown(frontmatter, all_events)
-
+        frontmatter, existing_upcoming_events, existing_past_events = parse_markdown(
+            content
+        )
+        updated_content = merge_and_generate_markdown(
+            frontmatter, new_events, existing_upcoming_events, existing_past_events
+        )
         update_github_file(REPO, FILE_PATH, updated_content, sha, PAT)
         print("The events.md file has been updated successfully on GitHub.")
     except Exception as e:
