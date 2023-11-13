@@ -13,23 +13,6 @@ tags:
 <!-- trunk-ignore(markdownlint/MD025) -->
 # Upcoming Events
 
-## Workshop: The Unwritten Rules of FOSS
-
-Date: Nov 5, 2023
-
-Description:
-Join Bitkarrot for a session.....where we talk about how to get started and succeed in Free Open Source development. Great for new to code and also experienced developers who are new to FOSS
-
-We'll discuss: Ethics, Etiquette & Engagement Workshop, and have an open floor discussion about experiences and how to navigate the space.
-
-Workshop Content - Available to Members only
-
-Created By: [Bitkarrot](https://github.com/bitkarrot/)
-
-Location: Members-Stage
-
----
-
 ## Event: November Monthly Meetup
 
 Date: Nov 18, 2023
@@ -59,6 +42,23 @@ Location: Members-Stage
 
 <!-- trunk-ignore(markdownlint/MD025) -->
 # Past Events
+
+## Workshop: The Unwritten Rules of FOSS
+
+Date: Nov 5, 2023
+
+Description:
+Join Bitkarrot for a session.....where we talk about how to get started and succeed in Free Open Source development. Great for new to code and also experienced developers who are new to FOSS
+
+We'll discuss: Ethics, Etiquette & Engagement Workshop, and have an open floor discussion about experiences and how to navigate the space.
+
+Workshop Content - Available to Members only
+
+Created By: [Bitkarrot](https://github.com/bitkarrot/)
+
+Location: Members-Stage
+
+---
 
 ## Event: October Monthly Meetup
 
