@@ -105,13 +105,13 @@ def parse_markdown(content):
         r"publishDate:.*", f"publishDate: {current_datetime}", frontmatter
     )
 
-    upcoming_pattern = r"# Upcoming Events\n\n(.*?)(\n\n#|$)"
-    past_pattern = r"# Past Events\n\n(.*?)(\n\n#|$)"
+    upcoming_pattern = r"#\s*Upcoming Events\s*\n\s*(.*?)(\n\s*#|$)"
+    past_pattern = r"#\s*Past Events\s*\n\s*(.*?)(\n\s*#|$)"
 
     upcoming_content = re.search(upcoming_pattern, events_content, re.DOTALL).group(1)
     past_content = re.search(past_pattern, events_content, re.DOTALL).group(1)
 
-    event_pattern = r"(## [^\n]+)\nID: ([^\n]+)\nDate: ([^\n]+)\nDescription:\n([^\n]+(?:\n\n[^\n]+)*)\nLocation: ([^\n]+)"
+    event_pattern = r"(##\s*[^\n]+)\s*\n\s*ID:\s*([^\n]+)\s*\n\s*Date:\s*([^\n]+)\s*\n\s*Description:\s*\n\s*([^\n]+(?:\n\n[^\n]+)*)\s*\n\s*Location:\s*([^\n]+)"
     upcoming_events = re.findall(event_pattern, upcoming_content, re.DOTALL)
     past_events = re.findall(event_pattern, past_content, re.DOTALL)
 
