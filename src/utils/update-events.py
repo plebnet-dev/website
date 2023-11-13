@@ -161,12 +161,12 @@ def merge_and_generate_markdown(
 
     # Generate Markdown content for upcoming and past events
     upcoming_events_md = "\n\n".join(
-        f"{event['name']}\nID: {event['id']}\nDate: {event['date'].strftime('%b %d, %Y')}\nDescription:\n{event['description']}\nLocation: {event['location']}"
+        f"{event['name']}<br>\nID: {event['id']}<br>\nDate: {event['date'].strftime('%b %d, %Y')}<br>\nDescription:\n{event['description']}<br>\nLocation: {event['location']}"
         for event in all_events.values()
         if event["section"] == "upcoming"
     )
     past_events_md = "\n\n".join(
-        f"{event['name']}\nID: {event['id']}\nDate: {event['date'].strftime('%b %d, %Y')}\nDescription:\n{event['description']}\nLocation: {event['location']}"
+        f"{event['name']}<br>\nID: {event['id']}<br>\nDate: {event['date'].strftime('%b %d, %Y')}<br>\nDescription:\n{event['description']}<br>\nLocation: {event['location']}"
         for event in all_events.values()
         if event["section"] == "past"
     )
