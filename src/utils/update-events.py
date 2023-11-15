@@ -111,7 +111,7 @@ def parse_markdown(content):
     upcoming_content = re.search(upcoming_pattern, events_content, re.DOTALL).group(1)
     past_content = re.search(past_pattern, events_content, re.DOTALL).group(1)
 
-    event_pattern = r"(##\s*[^\n]+)\s*\n\s*ID:\s*([^\n]+)\s*\n\s*Date:\s*([^\n]+)\s*\n\s*Description:\s*\n\s*([^\n]+(?:\n\n[^\n]+)*)\s*\n\s*Location:\s*([^\n]+)"
+    event_pattern = r"([^\n]+)<br>\nID: ([^\n]+)<br>\nDate: ([^\n]+)<br>\nDescription:\n([^\n]+)<br>\nLocation: ([^\n]+)"
     upcoming_events = re.findall(event_pattern, upcoming_content, re.DOTALL)
     past_events = re.findall(event_pattern, past_content, re.DOTALL)
 
@@ -120,6 +120,8 @@ def parse_markdown(content):
         for match in matches:
             name, event_id, date_str, description, location = match
             date = datetime.strptime(date_str, "%b %d, %Y").date()
+            if section == "upcoming" and date < datetime.now().date():
+                section = "past"  # Move to past events if date has passed
             events.append(
                 {
                     "name": name.strip(),
@@ -139,35 +141,17 @@ def parse_markdown(content):
 
 # Function to merge and generate markdown
 def merge_and_generate_markdown(
-    frontmatter, new_events, existing_upcoming_events, existing_past_events
+    frontmatter, existing_upcoming_events, existing_past_events
 ):
-    today = datetime.now().date()
-    all_events = {}
-
-    # Categorize and add existing events
-    for event in existing_upcoming_events + existing_past_events:
-        event["section"] = "upcoming" if event["date"] >= today else "past"
-        all_events[event["id"]] = event
-
-    # Merge new events
-    for event in new_events:
-        all_events[event["id"]] = event
-
-    # Categorize new events correctly
-    for event_id, event in all_events.items():
-        all_events[event_id]["section"] = (
-            "upcoming" if event["date"] >= today else "past"
-        )
-
     # Generate Markdown content for upcoming and past events
     upcoming_events_md = "\n\n".join(
         f"{event['name']}<br>\nID: {event['id']}<br>\nDate: {event['date'].strftime('%b %d, %Y')}<br>\nDescription:\n{event['description']}<br>\nLocation: {event['location']}"
-        for event in all_events.values()
+        for event in existing_upcoming_events
         if event["section"] == "upcoming"
     )
     past_events_md = "\n\n".join(
         f"{event['name']}<br>\nID: {event['id']}<br>\nDate: {event['date'].strftime('%b %d, %Y')}<br>\nDescription:\n{event['description']}<br>\nLocation: {event['location']}"
-        for event in all_events.values()
+        for event in existing_past_events + existing_upcoming_events
         if event["section"] == "past"
     )
 
@@ -182,14 +166,19 @@ def main():
         frontmatter, existing_upcoming_events, existing_past_events = parse_markdown(
             content
         )
+
+        # Combine new events with existing events
+        all_events = existing_upcoming_events + existing_past_events
+        for new_event in new_events:
+            # If a new event ID is not found in all_events, add it
+            if not any(event["id"] == new_event["id"] for event in all_events):
+                all_events.append(new_event)
+
+        # Now call the updated merge_and_generate_markdown function
         updated_content = merge_and_generate_markdown(
-            frontmatter, new_events, existing_upcoming_events, existing_past_events
+            frontmatter, all_events, all_events
         )
         update_github_file(REPO, FILE_PATH, updated_content, sha, PAT)
         print("The events.md file has been updated successfully on GitHub.")
     except Exception as e:
         print(f"An error occurred: {e}")
-
-
-if __name__ == "__main__":
-    main()
