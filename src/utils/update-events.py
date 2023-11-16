@@ -99,21 +99,45 @@ def process_discord_events(events, bot_token):
 
 # Function to parse markdown content and extract events
 def parse_markdown(content):
+    print("Content received for parsing:", content)
+
+    # Splitting the content to extract frontmatter and events content
     frontmatter, events_content = content.split("---\n", 2)[1:3]
+    print("Frontmatter:", frontmatter)
+    print("Events content:", events_content)
+
+    # Updating the publish date in frontmatter
     current_datetime = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
     frontmatter = re.sub(
         r"publishDate:.*", f"publishDate: {current_datetime}", frontmatter
     )
 
+    # Defining regex patterns for upcoming and past events
     upcoming_pattern = r"#\s*Upcoming Events\s*\n\s*(.*?)(\n\s*#|$)"
     past_pattern = r"#\s*Past Events\s*\n\s*(.*?)(\n\s*#|$)"
 
-    upcoming_content = re.search(upcoming_pattern, events_content, re.DOTALL).group(1)
-    past_content = re.search(past_pattern, events_content, re.DOTALL).group(1)
+    # Searching for upcoming and past events in the content
+    upcoming_content = re.search(upcoming_pattern, events_content, re.DOTALL)
+    past_content = re.search(past_pattern, events_content, re.DOTALL)
 
-    event_pattern = r"([^\n]+)<br>\nID: ([^\n]+)<br>\nDate: ([^\n]+)<br>\nDescription:\n([^\n]+)<br>\nLocation: ([^\n]+)"
+    # Check if sections are found
+    if not upcoming_content or not past_content:
+        print("Failed to find upcoming or past events sections.")
+        return frontmatter, [], []
+
+    upcoming_content = upcoming_content.group(1)
+    past_content = past_content.group(1)
+
+    print("Upcoming content:", upcoming_content)
+    print("Past content:", past_content)
+
+    # Regex pattern for individual events
+    event_pattern = r".*?<br>\nID: (.*?)<br>\nDate: (.*?)<br>\nDescription:(.*?)<br>\nLocation: (.*?)\n"
     upcoming_events = re.findall(event_pattern, upcoming_content, re.DOTALL)
     past_events = re.findall(event_pattern, past_content, re.DOTALL)
+
+    print("Upcoming events found:", upcoming_events)
+    print("Past events found:", past_events)
 
     def process_events(matches, section):
         events = []
@@ -167,18 +191,27 @@ def main():
             content
         )
 
-        # Combine new events with existing events
-        all_events = existing_upcoming_events + existing_past_events
-        for new_event in new_events:
-            # If a new event ID is not found in all_events, add it
-            if not any(event["id"] == new_event["id"] for event in all_events):
-                all_events.append(new_event)
+        # Create a copy of the list for safe iteration
+        for event in existing_upcoming_events[:]:
+            if event["date"] < datetime.now().date():
+                existing_past_events.append(event)
+                existing_upcoming_events.remove(event)
 
-        # Now call the updated merge_and_generate_markdown function
+        # Add new events to upcoming or past based on their dates
+        for new_event in new_events:
+            if new_event["date"] >= datetime.now().date():
+                existing_upcoming_events.append(new_event)
+            else:
+                existing_past_events.append(new_event)
+
         updated_content = merge_and_generate_markdown(
-            frontmatter, all_events, all_events
+            frontmatter, existing_upcoming_events, existing_past_events
         )
         update_github_file(REPO, FILE_PATH, updated_content, sha, PAT)
         print("The events.md file has been updated successfully on GitHub.")
     except Exception as e:
         print(f"An error occurred: {e}")
+
+
+if __name__ == "__main__":
+    main()
