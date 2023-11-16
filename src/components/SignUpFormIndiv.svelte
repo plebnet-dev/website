@@ -21,8 +21,8 @@
             },
             body: JSON.stringify({
               "lnbitswallet": LNwallet,
-              "amount": 10,
-              "time": 10,
+              "amount": 100000,
+              "time": 15,
               "description": "Lightning Invoice",
             })
         });
