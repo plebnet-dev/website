@@ -7,12 +7,14 @@ import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import compress from 'astro-compress';
 import { readingTimeRemarkPlugin } from './src/utils/frontmatter.mjs';
-import { SITE } from './src/config.mjs';
+import { SITE, DISCORD_LINK } from './src/config.mjs';
 import svelte from "@astrojs/svelte";
 import vercel from "@astrojs/vercel/serverless";
 import 'dotenv/config';
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const whenExternalScripts = (items = []) => SITE.googleAnalyticsId ? Array.isArray(items) ? items.map(item => item()) : [items()] : [];
+
 
 // https://astro.build/config
 export default defineConfig({
@@ -20,6 +22,10 @@ export default defineConfig({
     '/join': {
       status: 302,
       destination: '/join-us'
+    },
+    '/discord': {
+      status: 302,
+      destination: DISCORD_LINK
     }
   },
   site: SITE.origin,
