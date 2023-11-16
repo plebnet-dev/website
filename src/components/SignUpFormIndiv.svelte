@@ -2,42 +2,14 @@
   import { createClient } from '@supabase/supabase-js';
   import { onMount, onDestroy } from 'svelte';
   import { ClipboardListSolid } from 'svelte-awesome-icons';
-  // import { API_KEY } from '../../env';
 
   import PaymentModal from './PaymentModal.svelte';
-  // let key = import.meta.env.VITE_API_KEY;
+
   let supabase;
   let paymentLink = '';
   let invoice = '';
   let formData = {};
-  // console.log(PUBLIC_API_KEY);
-//   async function copyExternalIframeContent() {
-//   // Get the external iframe element
-//   const iframe = document.querySelector('iframe#external-iframe');
-
-//   // Ensure the iframe is loaded and accessible
-//   if (iframe) {
-//     // Access the iframe document
-//     const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-
-//     // Get the content from the iframe
-//     const iframeContent = iframeDocument.body.innerHTML;
-
-//     try {
-//       // Copy the content to the clipboard
-//       await navigator.clipboard.writeText(iframeContent);
-//       console.log('Content copied to clipboard');
-//     } catch (error) {
-//       console.error('Unable to copy content:', error);
-//     }
-//   } else {
-//     console.error('Iframe not found or loaded.');
-//   }
-// }
-
-// // Attach the event listener to your copy button
-// document.querySelector('#copy-button').addEventListener('click', copyExternalIframeContent);
-
+  let chargeID = '';
 
   async function getPaymentLink() {
       try {
@@ -55,6 +27,7 @@
             })
         });
 
+        
         if (response.ok) {
             invoice = await response.json(); // Parse the response data if it's in JSON
             console.log('GET request successful:', invoice);
@@ -79,7 +52,7 @@
       key = API_KEY;
       LNwallet = LNBITS_ID;
 
-      // supabase = createClient(supabaseUrl, supabaseKey);
+      supabase = createClient(supabaseUrl, supabaseKey);
       await getPaymentLink();
     });
 
@@ -121,7 +94,6 @@
     };
 
     const { data, error } = await supabase.from('members-individual').insert([formData]);
-
     if (error) {
       responseMessage = `Error submitting form: ${error.message}`;
     } else {
@@ -134,13 +106,26 @@
         },
         body: JSON.stringify(formData),
       });
-
-      if (response.ok) {
+      
+      const resp = await fetch('https://testnet.plebnet.dev/satspay/api/v1/charge/' + invoice.id, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Api-Key': key,
+        },
+      });
+      
+      if (resp.ok) {
         responseMessage = 'Form submitted successfully';
-        await showThankYouModal();
-        window.location.href = '/thankyou';
-      } else {
-        responseMessage = `Error sending email: ${response.statusText}`;
+        invoice = await resp.json(); // Parse the response data if it's in JSON
+        if (invoice.paid == false) {
+          responseMessage = `Error sending email: ${response.statusText}`;
+          return false;
+        } else {
+          await showThankYouModal();
+          window.location.href = '/thankyou';
+          return true;
+        }
       }
     }
   }
@@ -151,9 +136,6 @@
     showModal = false;
   }
 
-   function redirectToInvoice() {
-    window.location.href = paymentLink;
-  }
 </script>
 
 <div>
@@ -167,12 +149,12 @@
 
         <div class="input-wrapper">
           <label for="discordHandle">Discord Handle*</label>
-          <input type="text" id="discordHandle" bind:value={discordHandle}  />
+          <input type="text" id="discordHandle" bind:value={discordHandle} required />
         </div>
 
         <div class="input-wrapper">
           <label for="email">Email*</label>
-          <input type="email" id="email" bind:value={email}  />
+          <input type="email" id="email" bind:value={email} required />
         </div>
         <div class="input-wrapper">
           <label for="twitter">Twitter or Nostr npub</label>
@@ -181,17 +163,17 @@
 
         <div class="input-wrapper">
           <label for="github">GitHub or GitLab*</label>
-          <input type="text" id="github" bind:value={github}  />
+          <input type="text" id="github" bind:value={github} required />
         </div>
 
         <div class="input-wrapper">
           <label for="experience">Experience*</label>
-          <textarea type="text" id="experience" bind:value={experience}  />
+          <textarea type="text" id="experience" bind:value={experience} required />
         </div>
 
         <div class="input-wrapper">
           <label for="goal">What do you want to get out of plebnet.dev?*</label>
-          <textarea type="text" id="goal" bind:value={goal}  />
+          <textarea type="text" id="goal" bind:value={goal} required />
         </div>
 
         <div class="input-wrapper">
@@ -199,11 +181,11 @@
           <input type="checkbox" id="mentor" bind:checked={mentor} />
         </div>
 
-        <!-- <div>
+        <div>
           <iframe class="iframe" src={paymentLink} allow="clipboard-read; clipboard-write;" title="Lightning Invoice" frameborder="0" style="width: 100%; height: 500px;" allow-same-origin></iframe>
-        </div> -->
+        </div>
         
-        <button type="submit" on:click={redirectToInvoice}>Submit</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   </div>
