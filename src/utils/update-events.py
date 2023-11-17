@@ -2,7 +2,7 @@ import os
 import requests
 import json
 from datetime import datetime
-from github import Github
+from github import Github, GithubException
 
 # Load environment variables from .env file
 from dotenv import load_dotenv
@@ -107,8 +107,11 @@ def update_github_json_file(
         repo.update_file(
             contents.path, commit_message, content, contents.sha, branch="main"
         )
-    except Github.GithubException:
-        repo.create_file(file_path, commit_message, content, branch="main")
+    except GithubException as e:  # Corrected exception handling
+        if e.status == 404:  # File not found
+            repo.create_file(file_path, commit_message, content, branch="main")
+        else:
+            raise
 
 
 # Write the JSON file locally
