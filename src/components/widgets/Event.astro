@@ -1,0 +1,11 @@
+---
+// Props
+const { event } = Astro.props;
+---
+
+<article>
+  <h3>{event.title}</h3>
+  <p>{event.date}</p>
+  <p>{event.description}</p>
+  <p>{event.location}</p>
+</article>

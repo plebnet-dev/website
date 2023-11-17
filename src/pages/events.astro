@@ -1,0 +1,32 @@
+---
+import Header from '~/components/widgets/Header.astro';
+import EventComponent from '~/components/widgets/Event.astro';
+import fs from 'fs';
+import path from 'path';
+
+// Define the path to the JSON file
+const jsonFilePath = path.join(process.cwd(), 'public/data/events.json');
+
+// Read the JSON file
+let eventsData = { upcomingEvents: [], pastEvents: [] };
+if (fs.existsSync(jsonFilePath)) {
+  const rawData = fs.readFileSync(jsonFilePath);
+  eventsData = JSON.parse(rawData);
+}
+
+// Assign data to events and pastEvents
+const events = eventsData.upcomingEvents;
+const pastEvents = eventsData.pastEvents;
+---
+
+<Header />
+
+<section>
+  <h2>Upcoming Events</h2>
+  {events.map((event) => <EventComponent event={event} />)}
+</section>
+
+<section>
+  <h2>Past Events</h2>
+  {pastEvents.map((event) => <EventComponent event={event} />)}
+</section>
