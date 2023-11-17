@@ -63,7 +63,7 @@ def fetch_discord_channel_name(channel_id, bot_token):
 
 
 # Helper function to process and return upcoming events in a structured format
-def process_upcoming_events(events, bot_token):
+def process_discord_events(events, bot_token):
     upcoming_events = []
     for event in events:
         if event["status"] == 1:  # 1 is for SCHEDULED events
