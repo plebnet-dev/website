@@ -133,12 +133,12 @@ def main():
             events_data["upcomingEvents"].append(new_event)
 
     # Testing - Write the JSON file locally
-    write_local_json(file_path, events_data)
-    print("Events updated successfully.")
+    # write_local_json(file_path, events_data)
+    # print("Events updated successfully.")
 
     # Write the JSON file on Github
-    # update_github_json_file(repo_name, file_path, events_data, github_pat)
-    # print("The events.json file has been updated successfully on GitHub.")
+    update_github_json_file(repo_name, file_path, events_data, github_pat)
+    print("The events.json file has been updated successfully on GitHub.")
 
 
 if __name__ == "__main__":
