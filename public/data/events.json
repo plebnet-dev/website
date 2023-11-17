@@ -23,6 +23,14 @@
       "description": "",
       "location": "General",
       "section": "upcoming"
+    },
+    {
+      "id": "past1",
+      "name": "Workshop: The Unwritten Rules of FOSS",
+      "date": "2023-11-05",
+      "description": "Join Bitkarrot for a session where we talk about how to get started and succeed in Free Open Source development. Great for new to code and also experienced developers who are new to FOSS. We'll discuss: Ethics, Etiquette & Engagement Workshop, and have an open floor discussion about experiences and how to navigate the space. Workshop Content - Available to Members only. Created By: Bitkarrot: https://github.com/bitkarrot/",
+      "location": "Members-Stage",
+      "section": "past"
     }
   ],
   "pastEvents": [
@@ -56,14 +64,6 @@
       "date": "2023-10-28",
       "description": "Monthly Meetup - This is a public meetup in Discord. Open House for guests of Plebnet.dev. Meeting Notes: https://github.com/plebnet-dev/meeting-notes",
       "location": "Public-Stage",
-      "section": "past"
-    },
-    {
-      "id": "past1",
-      "name": "Workshop: The Unwritten Rules of FOSS",
-      "date": "2023-11-05",
-      "description": "Join Bitkarrot for a session where we talk about how to get started and succeed in Free Open Source development. Great for new to code and also experienced developers who are new to FOSS. We'll discuss: Ethics, Etiquette & Engagement Workshop, and have an open floor discussion about experiences and how to navigate the space. Workshop Content - Available to Members only. Created By: Bitkarrot: https://github.com/bitkarrot/",
-      "location": "Members-Stage",
       "section": "past"
     }
   ]
