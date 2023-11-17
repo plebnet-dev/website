@@ -10,33 +10,31 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Configuration
-BOT_TOKEN = os.getenv("DISCORD_BOT_TOKEN")
-GUILD_ID = os.getenv("DISCORD_GUILD_ID")
-PAT = os.getenv("GH_PAT")  # Personal Access Token for GitHub
-REPO = os.getenv("REPO_NAME")
-JSON_FILE_PATH = "public/data/events.json"
+bot_token = os.getenv("DISCORD_BOT_TOKEN")
+guild_id = os.getenv("DISCORD_GUILD_ID")
+github_pat = os.getenv("MY_GITHUB_PAT")  # Personal Access Token for GitHub
+repo_name = "saucy-tech/plebnet-website"
+file_path = "public/data/events.json"
 
 
-# Function to authenticate with GitHub
-def authenticate_with_github(GH_PAT):
-    return Github(GH_PAT)
+# Load existing events from JSON
+def read_json(file_path):
+    with open(file_path, "r") as file:
+        return json.load(file)
 
 
-# Function to fetch channel name for events from Discord
-def fetch_discord_channel_name(channel_id, bot_token):
-    try:
-        url = f"https://discord.com/api/v9/channels/{channel_id}"
-        headers = {"Authorization": f"Bot {bot_token}"}
-        response = requests.get(url, headers=headers)
-        response.raise_for_status()
-        channel = response.json()
-        return channel.get("name", "Unknown Channel")
-    except Exception as e:
-        print(f"Error fetching channel name: {e}")
-        return "Unknown Channel"
+# Move events to pastEvents in JSON
+def move_events(events_data):
+    today = datetime.now().date()
+    for event in events_data["upcomingEvents"][:]:
+        event_date = datetime.strptime(event["date"], "%Y-%m-%d").date()
+        if event_date < today:
+            events_data["pastEvents"].append(event)
+            events_data["upcomingEvents"].remove(event)
+    return events_data
 
 
-# Function to fetch events from Discord
+# Fetch events from Discord
 def fetch_discord_events(guild_id, bot_token):
     url = f"https://discord.com/api/v9/guilds/{guild_id}/scheduled-events"
     headers = {"Authorization": f"Bot {bot_token}"}
@@ -50,9 +48,23 @@ def fetch_discord_events(guild_id, bot_token):
         return []
 
 
-# Function to process and return events in a structured format
-def process_discord_events(events, bot_token):
-    structured_events = []
+# Fetch channel name for events from Discord
+def fetch_discord_channel_name(channel_id, bot_token):
+    try:
+        url = f"https://discord.com/api/v9/channels/{channel_id}"
+        headers = {"Authorization": f"Bot {bot_token}"}
+        response = requests.get(url, headers=headers)
+        response.raise_for_status()
+        channel = response.json()
+        return channel.get("name", "Unknown Channel")
+    except Exception as e:
+        print(f"Error fetching channel name: {e}")
+        return "Unknown Channel"
+
+
+# Helper function to process and return upcoming events in a structured format
+def process_upcoming_events(events, bot_token):
+    upcoming_events = []
     for event in events:
         if event["status"] == 1:  # 1 is for SCHEDULED events
             start_time = datetime.fromisoformat(event["scheduled_start_time"])
@@ -65,37 +77,29 @@ def process_discord_events(events, bot_token):
                 else "No location"
             )
             event_name = event["name"].strip()
-            structured_events.append(
-                {
-                    "id": event["id"],
-                    "name": event_name,
-                    "date": start_time.date().isoformat(),  # Convert date to string
-                    "description": event["description"].strip(),
-                    "location": channel_name,
-                    "section": "upcoming"
-                    if start_time.date() >= datetime.now().date()
-                    else "past",
-                }
-            )
-    return structured_events
-
-
-# Function to fetch and process events from Discord
-def fetch_and_process_discord_events(guild_id, bot_token):
-    events = fetch_discord_events(guild_id, bot_token)
-    upcoming_events = [
-        event
-        for event in events
-        if datetime.fromisoformat(event["date"]).date() >= datetime.now().date()
-    ]
+            if start_time.date() >= datetime.now().date():
+                upcoming_events.append(
+                    {
+                        "id": event["id"],
+                        "name": event_name,
+                        "date": start_time.date().isoformat(),  # Convert date to string
+                        "description": event["description"].strip(),
+                        "location": channel_name,
+                    }
+                )
     return upcoming_events
 
 
-# Function to update JSON file on GitHub
+# Authenticate with GitHub using a personal access token
+def authenticate_with_github(github_pat):
+    return Github(github_pat)
+
+
+# Write the JSON file on GitHub
 def update_github_json_file(
-    repo_name, file_path, data, GH_PAT, commit_message="Update events"
+    repo_name, file_path, data, github_pat, commit_message="Update events"
 ):
-    g = authenticate_with_github(GH_PAT)
+    g = authenticate_with_github(github_pat)
     repo = g.get_repo(repo_name)
     content = json.dumps(data, indent=4)
     try:
@@ -107,50 +111,33 @@ def update_github_json_file(
         repo.create_file(file_path, commit_message, content, branch="main")
 
 
-# Function to read the JSON file
-def read_local_json(file_path):
-    with open(file_path, "r") as file:
-        return json.load(file)
-
-
-# Function to write the JSON file
+# Write the JSON file locally
 def write_local_json(file_path, data):
     with open(file_path, "w") as file:
         json.dump(data, file, indent=4)
 
 
-# Function to move events to pastEvents in JSON
-def update_events(events_data):
-    today = datetime.now().date()
-    for event in events_data["upcomingEvents"][:]:
-        event_date = datetime.strptime(event["date"], "%Y-%m-%d").date()
-        if event_date < today:
-            events_data["pastEvents"].append(event)
-            events_data["upcomingEvents"].remove(event)
-    return events_data
-
-
 def main():
     # Load existing events
-    events_data = read_local_json(JSON_FILE_PATH)
+    events_data = read_json(file_path)
 
-    # Update events based on date
-    events_data = update_events(events_data)
+    # Move past events based on date
+    events_data = move_events(events_data)
 
     # Fetch new events from Discord
-    new_events = fetch_and_process_discord_events(GUILD_ID, BOT_TOKEN)
+    new_events = fetch_discord_events(guild_id, bot_token)
 
-    # Add new events to upcomingEvents
+    # Add new events to upcomingEvents dictionary
     for new_event in new_events:
         if new_event not in events_data["upcomingEvents"]:
             events_data["upcomingEvents"].append(new_event)
 
-    # Save updated events
-    write_local_json(JSON_FILE_PATH, events_data)
+    # Testing - Write the JSON file locally
+    write_local_json(file_path, events_data)
     print("Events updated successfully.")
 
-    # For updating GitHub
-    # update_github_json_file(REPO, JSON_FILE_PATH, events_data, PAT)
+    # Write the JSON file on Github
+    # update_github_json_file(repo_name, file_path, events_data, github_pat)
     # print("The events.json file has been updated successfully on GitHub.")
 
 
