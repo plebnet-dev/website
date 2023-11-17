@@ -15,7 +15,6 @@ guild_id = os.getenv("DISCORD_GUILD_ID")
 github_pat = os.getenv("MY_GITHUB_PAT")  # Personal Access Token for GitHub
 repo_name = "saucy-tech/plebnet-website"
 file_path = "public/data/events.json"
-public / data
 
 
 # Load existing events from JSON
