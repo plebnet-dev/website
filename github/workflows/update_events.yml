@@ -1,0 +1,39 @@
+name: Update Events
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs at midnight every day
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  update-events:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run Update Script
+        env:
+          bot_token: ${{ secrets.DISCORD_BOT_TOKEN }}
+          guild_id: ${{ secrets.DISCORD_GUILD_ID }}
+          github_pat: ${{ secrets.MY_GITHUB_PAT }}
+
+        run: python src/utils/update-events.py
+
+      - name: Commit and Push if Changes
+        run: |
+          git config --global user.name 'Your Name'
+          git config --global user.email 'your-email@example.com'
+          git add public/data/events.json
+          git commit -m "Automatically update events" || exit 0
+          git push

@@ -1,0 +1,58 @@
+---
+import Header from '~/components/widgets/Header.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import EventComponent from '~/components/widgets/Event.astro';
+import fs from 'fs';
+import path from 'path';
+const title = `Events`;
+import { headerData } from '~/data';
+import { getStorePermalink } from '~/utils/permalinks';
+
+const meta = {
+  title: 'PLEBNET.DEV Events',
+};
+
+// Define the path to the JSON file
+const jsonFilePath = path.join(process.cwd(), 'public/data/events.json');
+
+// Read the JSON file
+let eventsData = { upcomingEvents: [], pastEvents: [] };
+if (fs.existsSync(jsonFilePath)) {
+  const rawData = fs.readFileSync(jsonFilePath);
+  eventsData = JSON.parse(rawData);
+}
+
+// Assign data to events and pastEvents
+const events = eventsData.upcomingEvents;
+const pastEvents = eventsData.pastEvents;
+---
+
+<Layout meta={{ title }}>
+  <Fragment slot="header">
+    <Header
+      {...headerData}
+      actions={[
+        {
+          type: 'orange',
+          text: 'Shop',
+          href: getStorePermalink(),
+        },
+      ]}
+      isSticky
+    />
+  </Fragment>
+
+  <section>
+    <h2 class="mb-4 font-bold text-4xl text-accent dark:text-orange-400 text-center">Upcoming Events</h2>
+    <div>
+      {events.map((event) => <EventComponent event={event} />)}
+    </div>
+  </section>
+
+  <section class="my-8 px-4">
+    <h2 class="mb-4 font-bold text-4xl text-accent dark:text-orange-400 text-center">Past Events</h2>
+    <div>
+      {pastEvents.map((event) => <EventComponent event={event} />)}
+    </div>
+  </section>
+</Layout>
