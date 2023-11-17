@@ -15,6 +15,7 @@ guild_id = os.getenv("DISCORD_GUILD_ID")
 github_pat = os.getenv("MY_GITHUB_PAT")  # Personal Access Token for GitHub
 repo_name = "saucy-tech/plebnet-website"
 file_path = "public/data/events.json"
+public / data
 
 
 # Load existing events from JSON
@@ -114,10 +115,10 @@ def update_github_json_file(
             raise
 
 
-# Write the JSON file locally
-def write_local_json(file_path, data):
-    with open(file_path, "w") as file:
-        json.dump(data, file, indent=4)
+# # Write the JSON file locally
+# def write_local_json(file_path, data):
+#     with open(file_path, "w") as file:
+#         json.dump(data, file, indent=4)
 
 
 def main():
