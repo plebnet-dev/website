@@ -1,6 +1,6 @@
 ---
 publishDate: 2023-11-16T00:00:00Z
-title: Member Contributions To Open Source Software - October 2023
+title: Member Contributions To Open Source Software - November 2023
 image: /src/content/post/_images/November.jpg
 description: Contributions for the month of November 2023
 category: News and Updates
