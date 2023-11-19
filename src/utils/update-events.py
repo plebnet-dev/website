@@ -10,11 +10,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Configuration
-bot_token = os.getenv("DISCORD_BOT_TOKEN")
-guild_id = os.getenv("DISCORD_GUILD_ID")
-github_pat = os.getenv("MY_GITHUB_PAT")  # Personal Access Token for GitHub
-repo_name = "saucy-tech/plebnet-website"
-file_path = "public/data/events.json"
+DISCORD_BOT_TOKEN = os.getenv("DISCORD_BOT_TOKEN")
+DISCORD_GUILD_ID = os.getenv("DISCORD_GUILD_ID")
+MY_GITHUB_PAT = os.getenv("MY_GITHUB_PAT")  # Personal Access Token for GitHub
+REPO_NAME = "saucy-tech/plebnet-website"
+FILE_PATH = "public/data/events.json"
 
 
 # Load existing events from JSON
@@ -126,13 +126,13 @@ def update_github_json_file(
 
 def main():
     # Load existing events
-    events_data = read_json(file_path)
+    events_data = read_json(FILE_PATH)
 
     # Move past events based on date
     events_data = move_events(events_data)
 
     # Fetch new events from Discord
-    new_events = fetch_discord_events(guild_id, bot_token)
+    new_events = fetch_discord_events(DISCORD_GUILD_ID, DISCORD_BOT_TOKEN)
 
     # Add new events to upcomingEvents dictionary
     for new_event in new_events:
@@ -144,7 +144,7 @@ def main():
     # print("Events updated successfully.")
 
     # Write the JSON file on Github
-    update_github_json_file(repo_name, file_path, events_data, github_pat)
+    update_github_json_file(REPO_NAME, FILE_PATH, events_data, MY_GITHUB_PAT)
     print("The events.json file has been updated successfully on GitHub.")
 
 

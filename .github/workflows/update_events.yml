@@ -24,9 +24,9 @@ jobs:
 
       - name: Run Update Script
         env:
-          bot_token: ${{ secrets.DISCORD_BOT_TOKEN }}
-          guild_id: ${{ secrets.DISCORD_GUILD_ID }}
-          github_pat: ${{ secrets.MY_GITHUB_PAT }}
+          DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+          DISCORD_GUILD_ID: ${{ secrets.DISCORD_GUILD_ID }}
+          MY_GITHUB_PAT: ${{ secrets.MY_GITHUB_PAT }}
 
         run: python src/utils/update-events.py
 
