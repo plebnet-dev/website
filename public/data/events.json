@@ -1,20 +1,19 @@
 {
   "upcomingEvents": [
     {
-      "id": "upcoming1",
-      "name": "November Monthly Meetup",
-      "date": "2023-11-18",
-      "description": "Monthly Meetup - This is a public meetup in Discord. Open House for guests of Plebnet.dev. Meeting Notes: https://github.com/plebnet-dev/meeting-notes",
-      "location": "Public-Stage",
-      "section": "upcoming"
-    },
-    {
       "id": "upcoming2",
       "name": "Workshop: Intro to Postman",
       "date": "2023-12-07",
       "description": "Come learn about API testing using the postman application! Created By: Tony: https://github.com/amsalmeron",
       "location": "Members-Stage",
       "section": "upcoming"
+    },
+    {
+      "id": "1174533886219403354",
+      "name": "test 4",
+      "date": "2023-11-21",
+      "description": "",
+      "location": "General"
     }
   ],
   "pastEvents": [
@@ -57,6 +56,14 @@
       "description": "Join Bitkarrot for a session where we talk about how to get started and succeed in Free Open Source development. Great for new to code and also experienced developers who are new to FOSS. We'll discuss: Ethics, Etiquette & Engagement Workshop, and have an open floor discussion about experiences and how to navigate the space. Workshop Content - Available to Members only. Created By: Bitkarrot: https://github.com/bitkarrot/",
       "location": "Members-Stage",
       "section": "past"
+    },
+    {
+      "id": "upcoming1",
+      "name": "November Monthly Meetup",
+      "date": "2023-11-18",
+      "description": "Monthly Meetup - This is a public meetup in Discord. Open House for guests of Plebnet.dev. Meeting Notes: https://github.com/plebnet-dev/meeting-notes",
+      "location": "Public-Stage",
+      "section": "upcoming"
     }
   ]
 }
