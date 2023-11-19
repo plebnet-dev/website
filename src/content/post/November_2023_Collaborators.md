@@ -41,3 +41,5 @@ In no particular order, let's celebrate all the member contributions from Plebne
 ### Asher
 - Working on nostr-mail kivy [app](https://github.com/asherp/nostr-mail/tree/app)
 
+### Randy McMillian
+-  Contributed and released [Miniscript docker](https://github.com/bitcoincore-dev/miniscript-docker/pkgs/container/miniscript-docker)
