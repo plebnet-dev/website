@@ -37,3 +37,9 @@ In no particular order, let's celebrate all the member contributions from Plebne
 
 ### Brandon
 - Working on Event automation from Discord to Website [PR 83](https://github.com/plebnet-dev/website/pull/83)
+
+### Asher
+- Working on nostr-mail kivy [app](https://github.com/asherp/nostr-mail/tree/app)
+
+### Randy McMillian
+-  Contributed and released [Miniscript docker](https://github.com/bitcoincore-dev/miniscript-docker/pkgs/container/miniscript-docker)
