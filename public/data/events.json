@@ -1,62 +1,69 @@
 {
-  "upcomingEvents": [
-    {
-      "id": "upcoming1",
-      "name": "November Monthly Meetup",
-      "date": "2023-11-18",
-      "description": "Monthly Meetup - This is a public meetup in Discord. Open House for guests of Plebnet.dev. Meeting Notes: https://github.com/plebnet-dev/meeting-notes",
-      "location": "Public-Stage",
-      "section": "upcoming"
-    },
-    {
-      "id": "upcoming2",
-      "name": "Workshop: Intro to Postman",
-      "date": "2023-12-07",
-      "description": "Come learn about API testing using the postman application! Created By: Tony: https://github.com/amsalmeron",
-      "location": "Members-Stage",
-      "section": "upcoming"
-    }
-  ],
-  "pastEvents": [
-    {
-      "id": "past5",
-      "name": "Event: September Monthly Meetup",
-      "date": "2023-09-30",
-      "description": "Monthly Meetup - This is a public meetup in Discord. Open House for guests of Plebnet.dev. Meeting Notes: https://github.com/plebnet-dev/meeting-notes",
-      "location": "Public-Stage",
-      "section": "past"
-    },
-    {
-      "id": "past4",
-      "name": "Workshop: Multitude of Lightning Payments",
-      "date": "2023-10-15",
-      "description": "A 1 hour workshop that is an overview of the multiple ways to send and receive lightning payments: We'll cover the basics of Bolt11, LNURL, LNAddress and see how they fold into LNBits, a widely used Lightning platform for developers. We'll do another workshop to cover Zaps, Bolt12 in the future. Prerequisite: What you should know are how APIs work, and a basic understanding of internet protocols. You should also have a basic understanding of how the Lightning Network works, and HTLCs. Workshop Content: https://github.com/plebnet-dev/Workshops/blob/main/Lightning_payments_16OCT2023Workshop.pdf Created By: Bitkarrot: https://github.com/bitkarrot",
-      "location": "Members-Stage",
-      "section": "past"
-    },
-    {
-      "id": "past3",
-      "name": "Workshop: Intro to Docker",
-      "date": "2023-10-21",
-      "description": "Docker has become an essential tool in software development and deployment. In this course we'll containerize a basic flask application, build and run with docker compose along with a documentation site. Workshop Content: https://github.com/plebnet-dev/plebnet-compose Created By: Smash/Asherp: https://github.com/asherp",
-      "location": "Members-Stage",
-      "section": "past"
-    },
-    {
-      "id": "past2",
-      "name": "Event: October Monthly Meetup",
-      "date": "2023-10-28",
-      "description": "Monthly Meetup - This is a public meetup in Discord. Open House for guests of Plebnet.dev. Meeting Notes: https://github.com/plebnet-dev/meeting-notes",
-      "location": "Public-Stage",
-      "section": "past"
-    },
-    {
-      "id": "past1",
-      "name": "Workshop: The Unwritten Rules of FOSS",
-      "date": "2023-11-05",
-      "description": "Join Bitkarrot for a session where we talk about how to get started and succeed in Free Open Source development. Great for new to code and also experienced developers who are new to FOSS. We'll discuss: Ethics, Etiquette & Engagement Workshop, and have an open floor discussion about experiences and how to navigate the space. Workshop Content - Available to Members only. Created By: Bitkarrot: https://github.com/bitkarrot/",
-      "location": "Members-Stage",
-      "section": "past"
-    }
-  ]
+    "upcomingEvents": [
+        {
+            "id": "upcoming2",
+            "name": "Workshop: Intro to Postman",
+            "date": "2023-12-07",
+            "description": "Come learn about API testing using the postman application! Created By: Tony: https://github.com/amsalmeron",
+            "location": "Members-Stage",
+            "section": "upcoming"
+        },
+        {
+            "id": "1174533886219403354",
+            "name": "test 4",
+            "date": "2023-11-21",
+            "description": "",
+            "location": "General"
+        }
+    ],
+    "pastEvents": [
+        {
+            "id": "past5",
+            "name": "Event: September Monthly Meetup",
+            "date": "2023-09-30",
+            "description": "Monthly Meetup - This is a public meetup in Discord. Open House for guests of Plebnet.dev. Meeting Notes: https://github.com/plebnet-dev/meeting-notes",
+            "location": "Public-Stage",
+            "section": "past"
+        },
+        {
+            "id": "past4",
+            "name": "Workshop: Multitude of Lightning Payments",
+            "date": "2023-10-15",
+            "description": "A 1 hour workshop that is an overview of the multiple ways to send and receive lightning payments: We'll cover the basics of Bolt11, LNURL, LNAddress and see how they fold into LNBits, a widely used Lightning platform for developers. We'll do another workshop to cover Zaps, Bolt12 in the future. Prerequisite: What you should know are how APIs work, and a basic understanding of internet protocols. You should also have a basic understanding of how the Lightning Network works, and HTLCs. Workshop Content: https://github.com/plebnet-dev/Workshops/blob/main/Lightning_payments_16OCT2023Workshop.pdf Created By: Bitkarrot: https://github.com/bitkarrot",
+            "location": "Members-Stage",
+            "section": "past"
+        },
+        {
+            "id": "past3",
+            "name": "Workshop: Intro to Docker",
+            "date": "2023-10-21",
+            "description": "Docker has become an essential tool in software development and deployment. In this course we'll containerize a basic flask application, build and run with docker compose along with a documentation site. Workshop Content: https://github.com/plebnet-dev/plebnet-compose Created By: Smash/Asherp: https://github.com/asherp",
+            "location": "Members-Stage",
+            "section": "past"
+        },
+        {
+            "id": "past2",
+            "name": "Event: October Monthly Meetup",
+            "date": "2023-10-28",
+            "description": "Monthly Meetup - This is a public meetup in Discord. Open House for guests of Plebnet.dev. Meeting Notes: https://github.com/plebnet-dev/meeting-notes",
+            "location": "Public-Stage",
+            "section": "past"
+        },
+        {
+            "id": "past1",
+            "name": "Workshop: The Unwritten Rules of FOSS",
+            "date": "2023-11-05",
+            "description": "Join Bitkarrot for a session where we talk about how to get started and succeed in Free Open Source development. Great for new to code and also experienced developers who are new to FOSS. We'll discuss: Ethics, Etiquette & Engagement Workshop, and have an open floor discussion about experiences and how to navigate the space. Workshop Content - Available to Members only. Created By: Bitkarrot: https://github.com/bitkarrot/",
+            "location": "Members-Stage",
+            "section": "past"
+        },
+        {
+            "id": "upcoming1",
+            "name": "November Monthly Meetup",
+            "date": "2023-11-18",
+            "description": "Monthly Meetup - This is a public meetup in Discord. Open House for guests of Plebnet.dev. Meeting Notes: https://github.com/plebnet-dev/meeting-notes",
+            "location": "Public-Stage",
+            "section": "upcoming"
+        }
+    ]
 }
