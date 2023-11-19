@@ -36,6 +36,10 @@ def move_events(events_data):
 
 # Fetch events from Discord
 def fetch_discord_events(guild_id, bot_token):
+    if not guild_id:
+        raise ValueError(
+            "DISCORD_GUILD_ID is not set. Please check your environment variables."
+        )
     url = f"https://discord.com/api/v9/guilds/{guild_id}/scheduled-events"
     headers = {"Authorization": f"Bot {bot_token}"}
     try:
