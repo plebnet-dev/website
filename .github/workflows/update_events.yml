@@ -8,6 +8,7 @@ on:
 jobs:
   update-events:
     runs-on: ubuntu-latest
+    if: github.repository == 'plebnet-dev/website' # Only run on this repo, prevents forks from running
 
     steps:
       - name: Checkout Repository
