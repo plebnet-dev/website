@@ -7,13 +7,6 @@
             "description": "Come learn about API testing using the postman application! Created By: Tony: https://github.com/amsalmeron",
             "location": "Members-Stage",
             "section": "upcoming"
-        },
-        {
-            "id": "1174533886219403354",
-            "name": "test 4",
-            "date": "2023-11-21",
-            "description": "",
-            "location": "General"
         }
     ],
     "pastEvents": [
@@ -64,6 +57,13 @@
             "description": "Monthly Meetup - This is a public meetup in Discord. Open House for guests of Plebnet.dev. Meeting Notes: https://github.com/plebnet-dev/meeting-notes",
             "location": "Public-Stage",
             "section": "upcoming"
+        },
+        {
+            "id": "1174533886219403354",
+            "name": "test 4",
+            "date": "2023-11-21",
+            "description": "",
+            "location": "General"
         }
     ]
 }
