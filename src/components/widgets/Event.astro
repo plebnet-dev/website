@@ -3,8 +3,8 @@ const { event } = Astro.props;
 ---
 
 <div class="px-3 py-3 max-w-lg mx-auto">
-  <h3 class="text-center text-xl font-semibold uppercase leading-6 tracking-wider mb-2">{event.name}</h3>
-  <p class="text-center font-light sm:text-lg text-gray-600 dark:text-slate-400 mb-1">{event.description}</p>
-  <p class="text-center font-light sm:text-lg text-gray-600 dark:text-slate-400 mb-1">Date: {event.date}</p>
-  <p class="text-center font-light sm:text-lg text-gray-600 dark:text-slate-400 mb-1">Location: {event.location}</p>
+  <h3 class="text-xl font-semibold uppercase leading-6 tracking-wider mb-2">{event.name}</h3><br />
+  <p class="font-light sm:text-lg text-gray-600 dark:text-slate-400 mb-1">Description: {event.description}</p><br />
+  <p class="font-light sm:text-lg text-gray-600 dark:text-slate-400 mb-1">Date: {event.date}</p><br />
+  <p class="font-light sm:text-lg text-gray-600 dark:text-slate-400 mb-1">Location: {event.location}</p><br />
 </div>
