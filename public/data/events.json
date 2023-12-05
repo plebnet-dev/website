@@ -7,6 +7,13 @@
             "description": "Come learn about API testing using the postman application! Created By: Tony: https://github.com/amsalmeron",
             "location": "Members-Stage",
             "section": "upcoming"
+        },
+        {
+            "id": "1181207718086844437",
+            "name": "TEST EVENT 6",
+            "date": "2023-12-11",
+            "description": "description test",
+            "location": "General"
         }
     ],
     "pastEvents": [
