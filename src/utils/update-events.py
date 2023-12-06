@@ -4,7 +4,6 @@ import json
 from datetime import datetime
 from github import Github, GithubException
 import logging
-from datetime import datetime
 import pytz
 
 # Load environment variables from .env file
@@ -13,11 +12,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Configuration
-DISCORD_BOT_TOKEN = os.getenv("DISCORD_BOT_TOKEN")
-DISCORD_GUILD_ID = os.getenv("DISCORD_GUILD_ID")
+DISCORD_BOT_TOKEN = os.getenv("DISCORD_BOT_TOKEN")  # Discord Bot Token
+DISCORD_GUILD_ID = os.getenv("DISCORD_GUILD_ID")  # Discord Server ID
 MY_GITHUB_PAT = os.getenv("MY_GITHUB_PAT")  # Personal Access Token for GitHub
-REPO_NAME = "saucy-tech/plebnet-website"
-FILE_PATH = "public/data/events.json"
+REPO_NAME = "saucy-tech/plebnet-website"  # Repository name where the events.json file is located
+FILE_PATH = "public/data/events.json"  # Path to the events.json file in the repository
 
 # Initialize logging
 logging.basicConfig(
@@ -103,28 +102,23 @@ def update_upcoming_events(existing_events, fetched_events):
     return list(updated_events.values())
 
 
-# Authenticate with GitHub using a personal access token
-def authenticate_with_github(github_pat):
-    return Github(github_pat)
+# Load last known events from JSON
+def read_last_known_events(file_path):
+    try:
+        with open(file_path, "r") as file:
+            return set(json.load(file)["lastKnownEvents"])
+    except FileNotFoundError:
+        logging.error(f"Last known events file not found: {file_path}")
+        return set()
 
 
-# Write the JSON file on GitHub
-# def update_github_json_file(
-#     repo_name, file_path, data, github_pat, commit_message="Update events"
-# ):
-#     g = authenticate_with_github(github_pat)
-#     repo = g.get_repo(repo_name)
-#     content = json.dumps(data, indent=4)
-#     try:
-#         contents = repo.get_contents(file_path, ref="main")
-#         repo.update_file(
-#             contents.path, commit_message, content, contents.sha, branch="main"
-#         )
-#     except GithubException as e:  # Corrected exception handling
-#         if e.status == 404:  # File not found
-#             repo.create_file(file_path, commit_message, content, branch="main")
-#         else:
-#             raise
+# Write last known events to JSON
+def write_last_known_events(file_path, event_ids):
+    try:
+        with open(file_path, "w") as file:
+            json.dump({"lastKnownEvents": list(event_ids)}, file, indent=4)
+    except IOError as e:
+        logging.error(f"Error writing last known events file: {e}")
 
 
 # Write the JSON file locally
@@ -136,9 +130,34 @@ def write_local_json(file_path, data):
         logging.error(f"Error writing file: {e}")
 
 
+# Authenticate with GitHub using a personal access token
+def authenticate_with_github(github_pat):
+    return Github(github_pat)
+
+
+# Write the JSON file on GitHub
+def update_github_json_file(
+    repo_name, file_path, data, github_pat, commit_message="Update events"
+):
+    g = authenticate_with_github(github_pat)
+    repo = g.get_repo(repo_name)
+    content = json.dumps(data, indent=4)
+    try:
+        contents = repo.get_contents(file_path, ref="main")
+        repo.update_file(
+            contents.path, commit_message, content, contents.sha, branch="main"
+        )
+    except GithubException as e:  # File not found
+        if e.status == 404:
+            repo.create_file(file_path, commit_message, content, branch="main")
+        else:
+            raise
+
+
 def main():
     # Load existing events
     events_data = read_json(FILE_PATH)
+    last_known_events = read_last_known_events("public/data/last_known_events.json")
 
     # Move past events based on date
     events_data = move_events(events_data)
@@ -151,13 +170,32 @@ def main():
         events_data["upcomingEvents"], fetched_events
     )
 
+    # Identify missing events (completed or cancelled)
+    fetched_event_ids = {event["id"] for event in fetched_events}
+    missing_events = last_known_events - fetched_event_ids
+
+    # Remove or move missing events
+    for event_id in missing_events:
+        event = next(
+            (e for e in events_data["upcomingEvents"] if e["id"] == event_id), None
+        )
+        if event:
+            event_date = datetime.strptime(event["date"], "%Y-%m-%d").date()
+            if event_date < datetime.now().date():
+                events_data["pastEvents"].append(event)
+            events_data["upcomingEvents"].remove(event)
+
     # Write the JSON file locally
     write_local_json(FILE_PATH, events_data)
     logging.info("Events updated successfully.")
 
+    # # Write the JSON file on GitHub
+    # update_github_json_file(REPO_NAME, FILE_PATH, events_data, MY_GITHUB_PAT)
+    # logging.info("Events pushed to GitHub successfully.")
 
-# # Write the JSON file on Github
-# update_github_json_file(REPO_NAME, FILE_PATH, events_data, MY_GITHUB_PAT)
-# print("The events.json file has been updated successfully on GitHub.")
+    # Update last known events
+    write_last_known_events("public/data/last_known_events.json", fetched_event_ids)
+
+
 if __name__ == "__main__":
     main()
