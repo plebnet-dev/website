@@ -15,7 +15,7 @@ load_dotenv()
 DISCORD_BOT_TOKEN = os.getenv("DISCORD_BOT_TOKEN")  # Discord Bot Token
 DISCORD_GUILD_ID = os.getenv("DISCORD_GUILD_ID")  # Discord Server ID
 MY_GITHUB_PAT = os.getenv("MY_GITHUB_PAT")  # Personal Access Token for GitHub
-REPO_NAME = "saucy-tech/plebnet-website"  # Repository name where the events.json file is located
+REPO_NAME = os.getenv("REPO_NAME")  # Repository you are updating
 FILE_PATH = "public/data/events.json"  # Path to the events.json file in the repository
 
 # Initialize logging
@@ -92,11 +92,19 @@ def update_upcoming_events(existing_events, fetched_events):
                 if event.get("channel_id")
                 else "No location"
             )
+
+            # Handling no url in event description
+            description = event.get("description", "").strip()
+            if description.startswith("http"):
+                description = description
+            else:
+                description = None  # or use an empty string ''
+
             updated_events[event_id] = {
                 "id": event_id,
                 "name": event["name"].strip(),
                 "date": start_time.date().isoformat(),
-                "description": event.get("description", "").strip(),
+                "description": description,
                 "location": channel_name,
             }
     return list(updated_events.values())
