@@ -185,13 +185,13 @@ def main():
                 events_data["pastEvents"].append(event)
             events_data["upcomingEvents"].remove(event)
 
-    # Write the JSON file locally
-    write_local_json(FILE_PATH, events_data)
-    logging.info("Events updated successfully.")
+    # # Write the JSON file locally
+    # write_local_json(FILE_PATH, events_data)
+    # logging.info("Events updated successfully.")
 
-    # # Write the JSON file on GitHub
-    # update_github_json_file(REPO_NAME, FILE_PATH, events_data, MY_GITHUB_PAT)
-    # logging.info("Events pushed to GitHub successfully.")
+    # Write the JSON file on GitHub
+    update_github_json_file(REPO_NAME, FILE_PATH, events_data, MY_GITHUB_PAT)
+    logging.info("Events pushed to GitHub successfully.")
 
     # Update last known events
     write_last_known_events("public/data/last_known_events.json", fetched_event_ids)
