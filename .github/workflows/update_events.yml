@@ -6,7 +6,7 @@ on:
   workflow_dispatch: # Allows manual triggering
   push:
     branches:
-      - feature-73-automate-events
+      - main
 
 jobs:
   update-events:
