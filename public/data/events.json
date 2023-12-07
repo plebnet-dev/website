@@ -4,7 +4,7 @@
       "id": "upcoming2",
       "name": "Workshop: Intro to Postman",
       "date": "2023-12-07",
-      "description": "Come learn about API testing using the postman application! Created By: Tony: https://github.com/amsalmeron",
+      "description": "Come learn about API testing using the postman application! Created By Tony https://github.com/amsalmeron",
       "location": "Members-Stage",
       "section": "upcoming"
     }
@@ -38,7 +38,7 @@
       "id": "past2",
       "name": "Event: October Monthly Meetup",
       "date": "2023-10-28",
-      "description": "Monthly Meetup - This is a public meetup in Discord. Open House for guests of Plebnet.dev. Meeting Notes: https://github.com/plebnet-dev/meeting-notes",
+      "description": "Monthly Meetup - This is a public meetup in Discord. Open House for guests of Plebnet.dev. Meeting notes https://github.com/plebnet-dev/meeting-notes",
       "location": "Public-Stage",
       "section": "past"
     },
@@ -46,7 +46,7 @@
       "id": "past1",
       "name": "Workshop: The Unwritten Rules of FOSS",
       "date": "2023-11-05",
-      "description": "Join Bitkarrot for a session where we talk about how to get started and succeed in Free Open Source development. Great for new to code and also experienced developers who are new to FOSS. We'll discuss: Ethics, Etiquette & Engagement Workshop, and have an open floor discussion about experiences and how to navigate the space. Workshop Content - Available to Members only. Created by Bitkarrot https://github.com/bitkarrot/",
+      "description": "Join Bitkarrot for a session where we talk about how to get started and succeed in Free Open Source development. Great for new to code and also experienced developers who are new to FOSS. We'll discuss: Ethics, Etiquette & Engagement Workshop, and have an open floor discussion about experiences and how to navigate the space. Created by Bitkarrot https://github.com/bitkarrot/",
       "location": "Members-Stage",
       "section": "past"
     },
