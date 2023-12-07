@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: '0 0 * * *' # Runs at midnight every day
   workflow_dispatch: # Allows manual triggering
+  push:
+    branches:
+      - feature-73-automate-events
 
 jobs:
   update-events:
