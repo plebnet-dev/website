@@ -7,8 +7,14 @@ const { event } = Astro.props;
   <p class="font-light sm:text-lg text-gray-400 mb-1">Date: {event.date}</p>
   <p class="font-light sm:text-lg text-gray-400 mb-1">Location: {event.location}</p>
   <p class="font-light sm:text-lg text-gray-400 mb-1">
-    Description: {event.description.split('http')[0]}
+    Description: {event.description.includes('http') ? event.description.split('http')[0] : event.description}
   </p>
-  <a href={'http' + event.description.split('http')[1]} target="_blank">{'http' + event.description.split('http')[1]}</a
-  ><br /><br />
+  {
+    event.description.includes('http') && (
+      <a href={'http' + event.description.split('http')[1]} target="_blank">
+        {'http' + event.description.split('http')[1]}
+      </a>
+    )
+  }
+  <br /><br />
 </div>

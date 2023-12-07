@@ -92,19 +92,11 @@ def update_upcoming_events(existing_events, fetched_events):
                 if event.get("channel_id")
                 else "No location"
             )
-
-            # Handling no url in event description
-            description = event.get("description", "").strip()
-            if description.startswith("http"):
-                description = description
-            else:
-                description = None  # or use an empty string ''
-
             updated_events[event_id] = {
                 "id": event_id,
                 "name": event["name"].strip(),
                 "date": start_time.date().isoformat(),
-                "description": description,
+                "description": event.get("description", "").strip(),
                 "location": channel_name,
             }
     return list(updated_events.values())
