@@ -11,7 +11,7 @@ const { event } = Astro.props;
   </p>
   {
     event.description.includes('http') && (
-      <a href={'http' + event.description.split('http')[1]} target="_blank">
+      <a href={'http' + event.description.split('http')[1]} target="_blank" rel="noopener noreferrer">
         {'http' + event.description.split('http')[1]}
       </a>
     )
