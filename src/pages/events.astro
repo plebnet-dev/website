@@ -43,14 +43,14 @@ const pastEvents = eventsData.pastEvents;
   </Fragment>
 
   <section>
-    <h2 class="mb-4 font-bold text-4xl text-accent dark:text-orange-400 text-center">Upcoming Events</h2>
+    <h2 class="mb-4 font-bold text-4xl text-accent dark:text-orange-400 text-center p-4">Upcoming Events</h2>
     <div>
       {events.map((event) => <EventComponent event={event} />)}
     </div>
   </section>
 
   <section class="my-8 px-4">
-    <h2 class="mb-4 font-bold text-4xl text-accent dark:text-orange-400 text-center">Past Events</h2>
+    <h2 class="mb-4 font-bold text-4xl text-accent dark:text-orange-400 text-center p-4">Past Events</h2>
     <div>
       {pastEvents.map((event) => <EventComponent event={event} />)}
     </div>
