@@ -25,11 +25,10 @@ Description: Cozy e-meetup of
 
 [Meetup Link](https://meet.fulmo.org/AlbyCommunityCall)
 
-Location: Members-Stage
 
 ---
 
-## Event: December Monthly Metup
+## Event: December Monthly Meetup
 
 Date: Dec 17, 2023, 12:00 PM PST
 
@@ -47,11 +46,15 @@ Location: Public-Stage
 
 Date: Dec 19, 2023, 6:00 PM PST
 
+This is a Members Only Event.
+
 Description: Nostr Q and A
 
 Nostr is more than social media. It's a censorship-resistant communications protocol that has the potential to change the Internet and maybe even the way we organize society.  I use it to write my blog. organize a meetup, create bitcoin monthly subscriptions and shop in the bitcoin circular economy and a whole lot more.
 
 Join me to learn how to get onboard, ask me anything about it, and hang out.
+
+Created By: Blogging Bitcoin
 
 Location: Members-Stage
 
@@ -61,11 +64,15 @@ Location: Members-Stage
 
 Date: Jan 7, 2023, 8:00 AM PST
 
+This is a Members Only Event.
+
 Description: Hi! I'm Andrew and am the PM at Stakwork. The product I lead is called the Bounties Platform and would like to share with you how you can simultaneously sharpen your coding skills while earning bitcoin at the same time!
 
 Duration: 1 hour
 
 [Site](https://community.sphinx.chat/bounties)
+
+Created By: eCurrencyHodler
 
 Location: Members-Stage
 
@@ -75,19 +82,58 @@ Location: Members-Stage
 
 Date: Jan 7, 2023, 2:00 PM PST
 
+This is a Members Only Event.
+
 Description: Hi! I'm Andrew and am the PM at Stakwork. The product I lead is called the Bounties Platform and would like to share with you how you can simultaneously sharpen your coding skills while earning bitcoin at the same time!
 
 Duration: 1 hour
 
 [Site](https://community.sphinx.chat/bounties)
 
+Created By: eCurrencyHodler
+
 Location: Members-Stage
 
+---
+
+## Workshop: Intro to Postman
+
+Date: Jan 13, 2023, 7:00 PM PST
+
+This is a Members Only Event.
+
+Description:
+Come learn about API testing using the postman application!
+
+Created By: [Tony](https://github.com/amsalmeron)
+
+Location: Members-Stage
+
+
+---
+
+## Workshop: Building Apps with LNBits
+
+Date: Jan 21, 2023, 2:00 PM PST
+
+This is a 1 hr members only workshop.
+
+Bitkarrot will walk through how to get started in development with LNBits as someone new to the lightning network. We will cover the lightning resources that Plebnet.dev currently provides. If time permits, we'll also cover the mechanics of how to build LNBits extensions. (If not, we'll make a separate workshop, pending demand)
+
+🚩Pre-requisite: An understanding and ability to write web apps and use web APIs. Knowledge of python and/or javascript is not required but is a plus as much of the workshop will be digging into code in these languages.
+
+What is LNBits? A Free Open-Source Bitcoin Lightning Accounts System with Extensions . See more at https://lnbits.com/
+
+Created By: Bitkarrot
+
+Location: Members-stage
+
+---
 
 <!-- trunk-ignore(markdownlint/MD025) -->
 # Past Events
 
-## Workshop: Intro to Postman
+## Workshop: Introduction to Postman
 
 Date: Dec 7, 2023
 
