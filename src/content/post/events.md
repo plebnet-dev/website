@@ -1,7 +1,7 @@
 ---
-publishDate: 2023-10-21T00:00:00Z
+publishDate: 2023-12-09T00:00:00Z
 title: Events
-description: A list of Events at Plebnet.dev, both past and present in Discord.
+description: A list of Events at Plebnet.dev, both past and present in Discord. Last updated 9 Dec 2023.
 image: /src/content/post/_images/events.jpg
 categories:
   - News and Updates
