@@ -3,87 +3,22 @@
   import { onMount, onDestroy } from 'svelte';
   import { ClipboardListSolid } from 'svelte-awesome-icons';
 
-  // import { createEventDispatcher } from 'svelte';
-  // import { fade } from 'svelte/transition';
-
-  //  const dispatch = createEventDispatcher();
-  //  export let showFormModal = true;
+// use dotenv 
+  const supabaseUrl = process.env.PUBLIC_SUPABASE_URL;
+  const supabaseKey = process.env.PUBLIC_SUPABASE_KEY;
+  const indivMembershipFee = process.env.PUBLIC_LNBITS_INDIV_FEE
+  const baseURL = process.env.PUBLIC_LNBITS_URL;
 
   let supabase;
 
-  async function getQRCode() {
-    const response = await fetch(`${baseLNbitsURL}/api/v1/qrcode/${paylinkLNURL}`);
-    let data = await response.text();
-    data = data.replace(/stroke="#000"/g, 'stroke="#FF9500"');
-    data = data.replace(/scale\(3\)/g, 'scale(4.5)'); // Increase the scale value to increase the size
-    data = data.replace(/<svg/g, '<svg viewBox="0 0 200 200"'); // Add or replace the viewbox attribute
-    data = data.replace(/width="[^"]*"/g, 'width="200"');
-    data = data.replace(/height="[^"]*"/g, 'height="200"');
-    qrCode = data;
-  }
-
-  async function getPaylink() {
-    const response = await fetch(`${baseLNbitsURL}/lnurlp/api/v1/links/${paylinkID}`, {
-      method: 'GET',
-      headers: {
-        accept: 'application/json',
-        'X-API-KEY': LNbitsApiKey,
-      },
-    });
-
-    const data = await response.json();
-    if (data.served_pr > 0) {
-      hasPaid = true;
-      clearInterval(intervalId); // Stop checking
-      updatePaylink();
-    }
-  }
-
-  async function updatePaylink() {
-    const response = await fetch(`${baseLNbitsURL}/lnurlp/api/v1/links/${paylinkID}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        accept: 'application/json',
-        'X-API-KEY': LNbitsXAPIKey,
-      },
-      body: JSON.stringify({
-        description: `${name} has paid (Individual Membership)`,
-        min: fee,
-        max: fee,
-        amount: fee,
-        comment_chars: 50,
-        success_text: 'Thanks for joining the Plebnet.Dev Community!',
-      }),
-    });
-    const test = await response.json();
-    console.log("inside update paylink")
-    console.log(test);
+  async function getPaylink(name) {
+    const paylink = await fetch(`${baseURL}/amt/${indivMembershipFee}?description=${name}`)    
+    return paylink
   }
 
   onMount(async () => {
-    const response = await fetch('/api/get-env');
-    const responseBody = await response.text();
-    const { baseURL, supabaseUrl, supabaseKey, LNbitsAPI, LNbitsXAPI, indivMembershipFee } = JSON.parse(responseBody);
-    LNbitsApiKey = LNbitsAPI;
-    LNbitsXAPIKey = LNbitsXAPI;
-    baseLNbitsURL = baseURL;
     fee = indivMembershipFee;
     supabase = createClient(supabaseUrl, supabaseKey);
-
-    const paylinkResponse = await fetch('/api/get-paylink', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ corporate: false }),
-    });
-    const paylinkData = await paylinkResponse.json();
-    paylinkLNURL = paylinkData.lnurl;
-    paylinkID = paylinkData.id;
-    lnurl = paylinkData.lnurl;
-    await getQRCode();
-    intervalId = setInterval(getPaylink, 10000);
   });
 
   onDestroy(() => {
@@ -100,16 +35,13 @@
   let mentor = false;
   let responseMessage = '';
   let showModal = false;
-  let qrCode = '';
-  let paylinkLNURL = '';
-  let paylinkID = '';
   let hasPaid = false;
   let intervalId;
-  let LNbitsApiKey = '';
   let lnurl = '';
-  let baseLNbitsURL = '';
-  let LNbitsXAPIKey = '';
+
+  let qrCode = '';
   //  let tooltip = { x: 0, y: 0, show: false };
+
   let fee = 0;
   let discordHandle = '';
 
@@ -143,9 +75,10 @@
       });
 
       if (response.ok) {
+        // forward to payment page. 
         responseMessage = 'Form submitted successfully';
         await showThankYouModal();
-        window.location.href = '/thankyou';
+        window.location.href = '/payment?name=' + name + '&fee=' + fee;
       } else {
         responseMessage = `Error sending email: ${response.statusText}`;
       }
@@ -219,7 +152,7 @@
         <div class="input-wrapper">
           <label style="font-size:1.5rem; margin-top: 2rem;" class="text-center" for="qrCode">Membership Dues</label>
           <p style="color: #FF9500" class="text-center">{`${formatNumberWithCommas(fee)} sats`}</p>
-          <div
+          <!-- <div
             class="no-outline text-center"
             style="margin:auto; padding-right: 10px; cursor: pointer;"
             id="qrCode"
@@ -227,9 +160,11 @@
             contenteditable
             on:keypress={copyToClipboard}
             on:click={copyToClipboard}
-          />
+          /> 
         </div>
-        {#if !qrCode}
+      -->
+      
+        <!-- {#if !qrCode}
           <h4>We're experiencing a problem with our Lightning Server. Please try to register later.</h4>
         {/if}
         {#if qrCode}
@@ -241,8 +176,11 @@
           <h6 style="font-size: 0.75rem;">
             <i>Please complete payment first, then submit will be enabled. Include your email in the comment field.</i>
           </h6>
-        {/if}
-        <button type="submit" disabled={!hasPaid}>Submit</button>
+        {/if} -->
+        <!-- <button type="submit" disabled={!hasPaid}>Submit</button> -->
+
+        <button type="submit">Submit</button>
+
 
        {#if showModal}
         <div>
@@ -375,10 +313,11 @@ form {
     margin-bottom: 1rem;
   }
 
-  h6 {
+/*  h6 {
     color: #ff9500;
   }
-
+*/
+  /*
   #qrCode {
     display: flex;
     justify-content: center;
@@ -405,4 +344,5 @@ form {
     color: #10182b;
     background-color: #fff;
   } 
+  */
 </style>
