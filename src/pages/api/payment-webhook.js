@@ -1,3 +1,5 @@
+// delete this file
+
 export async function post() {
   // Update the payment status in the store
   console.log('this is working')
