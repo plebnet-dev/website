@@ -2,12 +2,12 @@ export const prerender = false;
 
 import sgMail from '@sendgrid/mail';
 
-const sendgridApiKey = process.env.PUBLIC_SENDGRID_API_KEY;
-const corporateTemplate = process.env.PUBLIC_SENDGRID_TEMPLATE_ID_CORP
-const individualTemplate = process.env.PUBLIC_SENDGRID_TEMPLATE_ID_INDIV
+const sendgridApiKey = import.meta.env.SENDGRID_API_KEY;
+const corporateTemplate =  import.meta.env.SENDGRID_TEMPLATE_ID_CORP
+const individualTemplate = import.meta.env.SENDGRID_TEMPLATE_ID_INDIV
 sgMail.setApiKey(sendgridApiKey);
 
-export async function post({request}) {
+export async function POST({request}) {
 
   const formData = await request.json();
   const { formType, ...otherData } = formData;

@@ -34,11 +34,11 @@ export default defineConfig({
   output: 'hybrid',
   adapter: vercel(),
   publicRuntimeConfig: {
-    PUBLIC_SUPABASE_URL: process.env.PUBLIC_SUPABASE_URL,
-    PUBLIC_SUPABASE_KEY: process.env.PUBLIC_SUPABASE_KEY,
-    PUBLIC_SENDGRID_TEMPLATE_ID_INDIV: process.env.PUBLIC_SENDGRID_TEMPLATE_ID_INDIV,
-    PUBLIC_SENDGRID_TEMPLATE_ID_CORP: process.env.PUBLIC_SENDGRID_TEMPLATE_ID_CORP,
-    PUBLIC_SENDGRID_API_KEY: process.env.PUBLIC_SENDGRID_API_KEY
+    SUPABASE_URL: process.env.SUPABASE_URL,
+    SUPABASE_KEY: process.env.SUPABASE_KEY,
+    SENDGRID_TEMPLATE_ID_INDIV: process.env.SENDGRID_TEMPLATE_ID_INDIV,
+    SENDGRID_TEMPLATE_ID_CORP: process.env.SENDGRID_TEMPLATE_ID_CORP,
+    SENDGRID_API_KEY: process.env.SENDGRID_API_KEY
   },
   markdown: {
     remarkPlugins: [readingTimeRemarkPlugin]
