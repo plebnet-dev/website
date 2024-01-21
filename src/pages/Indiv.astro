@@ -2,7 +2,7 @@
 import Layout from "~/layouts/PageLayout.astro";
 import Header from "~/components/widgets/Header.astro";
 import { headerData } from "~/data";
-import SignUpFormIndiv from '../components/SignUpFormIndiv.svelte';
+import IndivForm from '../components/IndivForm.svelte';
 import { getJoinPermalink } from '../utils/permalinks';
 
 const meta = {
@@ -28,7 +28,7 @@ const meta = {
   
 <section class="flex items-center h-full p-6 dark:bg-slate-800">
   <div class="flex flex-col h-full max-w-xl mx-auto rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow p-4 sm:p-6 lg:p-8 w-full">
-    <SignUpFormIndiv client:load />
+    <IndivForm client:load />
   </div>
 </section>
   
