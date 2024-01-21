@@ -48,7 +48,7 @@
     "@astrojs/svelte": "^4.0.3",
     "@astrojs/vercel": "^5.0.2",
     "@fontsource-variable/inter": "^5.0.15",
-    "@sendgrid/mail": "^7.7.0",
+    "@sendgrid/mail": "^8.1.0",
     "@supabase/supabase-js": "2.38",
     "@sveltejs/adapter-vercel": "^3.0.3",
     "astro-compress": "^2.1.5",
