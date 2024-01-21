@@ -13,7 +13,7 @@ tags:
 
 <!-- trunk-ignore(markdownlint/MD025) -->
 
-# Upcoming Events | [Past Events - Click Here](#past-events)
+# Upcoming Events | [Past Events](#past-events)
 
 ## PLEBNET DEV Virtual - Bitcoin Halving 2024
 
