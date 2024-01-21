@@ -222,6 +222,18 @@ const CONFIG = {
 
 ### Deploy
 
+#### Deploy locally (docker compose)
+
+Make sure you [get Docker](https://docs.docker.com/get-docker/), then:
+
+```
+docker compose run app_dev
+```
+
+Navigate to [localhost:3000](http://localhost:3000)
+
+To build: `docker compose run app_build`
+
 #### Deploy to production (manual)
 
 You can create an optimized production build with:
