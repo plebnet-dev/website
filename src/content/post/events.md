@@ -1,7 +1,8 @@
 ---
-publishDate: 2023-12-09T00:00:00Z
-title: Events
-description: A list of Events at Plebnet.dev, both past and present in Discord. Last updated 9 Dec 2023.
+publishDate: 2024-01-20T00:00:00Z
+title: Upcoming and Past Events
+author: bitcoindad
+description: A list of Events at Plebnet.dev, both past and present in Discord. Last updated 20 Jan 2024.
 image: /src/content/post/_images/events.jpg
 categories:
   - News and Updates
@@ -11,225 +12,186 @@ tags:
 ---
 
 <!-- trunk-ignore(markdownlint/MD025) -->
+
 # Upcoming Events | [Past Events](#past-events)
 
-## Event: Alby Community Call
+## PLEBNET DEV Virtual - Bitcoin Halving 2024
 
-Date: Dec 14, 2023, 7:00 AM PST
-
-Description: Cozy e-meetup of
-- Alby's team
-- power-users
-- you
-- interesting new LN apps
-
-[Meetup Link](https://meet.fulmo.org/AlbyCommunityCall)
-
+- **Date:** Apr 25, 2024, 10:00 PM EST
+- **Description:** Come join us to discuss how Miners’ block rewards are halved, affecting the rate of new Bitcoin entering circulation and emphasizing scarcity!
+- **Location:** Members-Stage
+- **Duration:** 1 hour
 
 ---
 
-## Event: December Monthly Meetup
+## Chill and Chat (Bi-Weekly Event)
 
-Date: Dec 17, 2023, 12:00 PM PST
-
-Description:
-Monthly Meetup - This is a public meetup in [Discord](/discord).
-Open House for guests of Plebnet.dev
-
-[Meeting Notes](https://github.com/plebnet-dev/meeting-notes)
-
-Location: Public-Stage
+- **Date:** Jan 31, 2024, 09:00 PM EST
+- **Description:** Come chat and chill about anything code related or anything else in the space, Get to know what other members are working on or use this time to pair program and trouble shoot issues that you are working on.
+- **Location:** Members-Stage
+- **Duration:** 1 hour
 
 ---
 
-## Event: Nostr Q and A
+## How to get community contributions and build open-source based business models by Moritz Kaminski
 
-Date: Dec 19, 2023, 6:00 PM PST
-
-This is a Members Only Event.
-
-Description: Nostr Q and A
-
-Nostr is more than social media. It's a censorship-resistant communications protocol that has the potential to change the Internet and maybe even the way we organize society.  I use it to write my blog. organize a meetup, create bitcoin monthly subscriptions and shop in the bitcoin circular economy and a whole lot more.
-
-Join me to learn how to get onboard, ask me anything about it, and hang out.
-
-Created By: Blogging Bitcoin
-
-Location: Members-Stage
+- **Date:** Jan 27, 2024, 01:00 PM EST
+- **Description:** Join us Jan 27th for a hands-on workshop from Moritz cofounder of Alby
+- [Meetup Link](https://www.youtube.com/@pbs_plebs/streams)
+- **Duration:** 1 hour
 
 ---
 
-## Event: Introducing Bitcoin Bounties(Stakwork) - Europe Time Zone
+## Python Blitz: Code and Conquer Weekly (Weekly Event)
 
-Date: Jan 7, 2023, 8:00 AM PST
-
-This is a Members Only Event.
-
-Description: Hi! I'm Andrew and am the PM at Stakwork. The product I lead is called the Bounties Platform and would like to share with you how you can simultaneously sharpen your coding skills while earning bitcoin at the same time!
-
-Duration: 1 hour
-
-[Site](https://community.sphinx.chat/bounties)
-
-Created By: eCurrencyHodler
-
-Location: Members-Stage
+- **Date:** Jan 26, 2024, 09:00 PM EST
+- **Description:** Join the excitement at "Python Blitz: Code & Conquer Weekly," where each session is an adventure in the world of Python programming.
+- **Duration:** 1 hour
+- **Location:** Members-Stage
 
 ---
 
-## Event: Introducing Bitcoin Bounties(Stakwork) - US Time Zone
+## Alby Community Call
 
-Date: Jan 7, 2023, 2:00 PM PST
-
-This is a Members Only Event.
-
-Description: Hi! I'm Andrew and am the PM at Stakwork. The product I lead is called the Bounties Platform and would like to share with you how you can simultaneously sharpen your coding skills while earning bitcoin at the same time!
-
-Duration: 1 hour
-
-[Site](https://community.sphinx.chat/bounties)
-
-Created By: eCurrencyHodler
-
-Location: Members-Stage
+- **Date:** Jan 25, 2024, 10:00 AM EST
+- **Description:** Join the cozy e-meetup featuring Alby's team, power-users, and interesting new LN apps!
+- [Meetup Link](https://meet.fulmo.org/AlbyCommunityCall)
+- **Duration:** 1 hour
 
 ---
 
-## Workshop: Intro to Postman
+## Bitcoin Lightning Network Live Show/Pod
 
-Date: Jan 13, 2023, 7:00 PM PST
-
-This is a Members Only Event.
-
-Description:
-Come learn about API testing using the postman application!
-
-Created By: [Tony](https://github.com/amsalmeron)
-
-Location: Members-Stage
-
+- **Date:** Jan 22, 2024, 5:00 PM EST (Reoccuring Every Monday)
+- **Description:** A Live show/pod focused on the Bitcoin Lightning Network ongoing developments, news, and discussions. Join us on http://zap.stream/ every Monday at 4pm central!
+- **Location:** Members-Stage
 
 ---
 
 ## Workshop: Building Apps with LNBits
 
-Date: Jan 21, 2023, 2:00 PM PST
-
-This is a 1 hr members only workshop.
-
-Bitkarrot will walk through how to get started in development with LNBits as someone new to the lightning network. We will cover the lightning resources that Plebnet.dev currently provides. If time permits, we'll also cover the mechanics of how to build LNBits extensions. (If not, we'll make a separate workshop, pending demand)
-
-🚩Pre-requisite: An understanding and ability to write web apps and use web APIs. Knowledge of python and/or javascript is not required but is a plus as much of the workshop will be digging into code in these languages.
-
-What is LNBits? A Free Open-Source Bitcoin Lightning Accounts System with Extensions . See more at https://lnbits.com/
-
-Created By: Bitkarrot
-
-Location: Members-stage
+- **Date:** Jan 21, 2024, 2:00 PM PST
+- **Description:** Bitkarrot hosts a 1 hr Members Only workshop, guiding you through LNBits development. Get insights into Plebnet.dev's lightning resources and the mechanics of building LNBits extensions.
+- 🚩**Pre-requisite:** Basic understanding of web apps, web APIs, and coding knowledge in python/javascript.
+- [More about LNBits](https://lnbits.com/)
+- **Location:** Members-Stage
 
 ---
 
 <!-- trunk-ignore(markdownlint/MD025) -->
+
 # Past Events
 
-## Workshop: Introduction to Postman
+## Workshop: Intro to Postman
 
-Date: Dec 7, 2023
-
-Description:
-Come learn about API testing using the postman application!
-
-Created By: [Tony](https://github.com/amsalmeron)
-
-Location: Members-Stage
+- **Date:** Jan 13, 2024, 7:00 PM PST
+- **Description:** Master API testing with the Postman application in this Members Only Event. Created by [Tony](https://github.com/amsalmeron).
+- **Location:** Members-Stage
 
 ---
 
-## Event: November Monthly Meetup
+## Introducing Bitcoin Bounties(Stakwork) - Europe Time Zone
 
-Date: Nov 18, 2023
+- **Date:** Jan 7, 2024, 8:00 AM PST
+- **Description:** Join Andrew, the PM at Stakwork, for an exclusive Members Only Event. Discover how the Bounties Platform can refine your coding skills while you earn bitcoin.
+- [Site](https://community.sphinx.chat/bounties)
+- **Duration:** 1 hour
+- **Location:** Members-Stage
 
-Description:
-Monthly Meetup - This is a public meetup in [Discord](/discord).
-Open House for guests of Plebnet.dev
+---
 
-[Meeting Notes](https://github.com/plebnet-dev/meeting-notes)
+## Introducing Bitcoin Bounties(Stakwork) - US Time Zone
 
-Location: Public-Stage
+- **Date:** Jan 7, 2024, 2:00 PM PST
+- **Description:** Same as the Europe Time Zone event but tailored for US attendees. Engage with Andrew and explore the Stakwork Bounties Platform.
+- [Site](https://community.sphinx.chat/bounties)
+- **Duration:** 1 hour
+- **Location:** Members-Stage
+
+---
+
+## Nostr Q and A
+
+- **Date:** Dec 19, 2023, 6:00 PM PST
+- **Description:** Dive into Nostr, a censorship-resistant communications protocol, with Blogging Bitcoin. This Members Only Event offers an insightful Q and A session.
+- **Location:** Members-Stage
+
+---
+
+## December Monthly Meetup
+
+- **Date:** Dec 17, 2023, 12:00 PM PST
+- **Description:** This public meetup in [Discord](/discord) serves as an Open House for guests of Plebnet.dev.
+- [Meeting Notes](https://github.com/plebnet-dev/meeting-notes)
+- **Location:** Public-Stage
+
+---
+
+## Alby Community Call
+
+- **Date:** Dec 14, 2023, 7:00 AM PST
+- **Description:** Join the cozy e-meetup featuring Alby's team, power-users, and interesting new LN apps!
+- [Meetup Link](https://meet.fulmo.org/AlbyCommunityCall)
+
+---
+
+## Workshop: Introduction to Postman
+
+- **Date:** Dec 7, 2023
+- **Description:** Learn API testing with the postman application. Hosted by [Tony](https://github.com/amsalmeron).
+- **Location:** Members-Stage
+
+---
+
+## November Monthly Meetup
+
+- **Date:** Nov 18, 2023
+- **Description:** A public meetup in [Discord](/discord) serving as an Open House for Plebnet.dev guests.
+- [Meeting Notes](https://github.com/plebnet-dev/meeting-notes)
+- **Location:** Public-Stage
 
 ---
 
 ## Workshop: The Unwritten Rules of FOSS
 
-Date: Nov 5, 2023
-
-Description:
-Join Bitkarrot for a session.....where we talk about how to get started and succeed in Free Open Source development. Great for new to code and also experienced developers who are new to FOSS
-
-We'll discuss: Ethics, Etiquette & Engagement Workshop, and have an open floor discussion about experiences and how to navigate the space.
-
-Workshop Content - Available to Members only
-
-Created By: [Bitkarrot](https://github.com/bitkarrot/)
-
-Location: Members-Stage
+- **Date:** Nov 5, 2023
+- **Description:** Join Bitkarrot to explore the ethos of Free Open Source development. Discuss Ethics, Etiquette & Engagement in this insightful workshop.
+- **Location:** Members-Stage
 
 ---
 
-## Event: October Monthly Meetup
+## October Monthly Meetup
 
-Date: Oct 28, 2023
-
-Description:
-Monthly Meetup - This is a public meetup in [Discord](/discord).
-Open House for guests of Plebnet.dev
-
-[Meeting Notes](https://github.com/plebnet-dev/meeting-notes/blob/main/PlebNetDev_Meeting_Notes_Oct2023.md)
-
-Location: Public-Stage
+- **Date:** Oct 28, 2023
+- **Description:** Engage in our public meetup in [Discord](/discord), an Open House for Plebnet.dev guests.
+- [Meeting Notes](https://github.com/plebnet-dev/meeting-notes/blob/main/PlebNetDev_Meeting_Notes_Oct2023.md)
+- **Location:** Public-Stage
 
 ---
 
 ## Workshop: Intro to Docker
 
-Date: Oct 21, 2023
-
-Description:
-Docker has become an essential tool in software development and deployment. In this course we'll containerize a basic flask application, build and run with docker compose along with a documentation site.
-
-[Workshop Content](https://github.com/plebnet-dev/plebnet-compose)
-
-Created By: [Smash/Asherp](https://github.com/asherp)
-
-Location: Members-Stage
+- **Date:** Oct 21, 2023
+- **Description:** Dive into the world of Docker, containerize a basic flask application, and learn to build and run with docker compose.
+- [Workshop Content](https://github.com/plebnet-dev/plebnet-compose)
+- **Location:** Members-Stage
 
 ---
 
 ## Workshop: Multitude of Lightning Payments
 
-Date: Oct 15, 2023
-
-Description:
-A 1 hour workshop that is an overview of the multiple ways to send and receive lightning payments: We'll cover the basics of Bolt11, LNURL, LNAddress and see how they fold into LNBits, a widely used Lightning platform for developers. We'll do another workshop to cover Zaps, Bolt12 in the future.
-Prerequiste: What you should know are how APIs work, and a basic understanding of internet protocols. You should also have a basic understanding of how the Lightning Network works, and HTLCs.
-
-[Workshop Content](https://github.com/plebnet-dev/Workshops/blob/main/Lightning_payments_16OCT2023Workshop.pdf)
-
-Created By: [Bitkarrot](https://github.com/bitkarrot)
-
-Location: Members-Stage
+- **Date:** Oct 15, 2023
+- **Description:** A comprehensive 1-hour workshop covering various methods of sending and receiving lightning payments. Discover the potential of LNBits and its applications.
+- [Workshop Content](https://github.com/plebnet-dev/Workshops/blob/main/Lightning_payments_16OCT2023Workshop.pdf)
+- **Location:** Members-Stage
 
 ---
 
-## Event: September Monthly Meetup
+## September Monthly Meetup
 
-Date: Sep 30, 2023
-
-Description: Open House for guests of Plebnet.dev
-
-[Meeting Notes](https://github.com/plebnet-dev/meeting-notes/blob/main/30SEP2023MeetupPrezi.pdf)
-
-Location: Public-Stage
+- **Date:** Sep 30, 2023
+- **Description:** Open House for Plebnet.dev guests, a platform for engagement and learning.
+- [Meeting Notes](https://github.com/plebnet-dev/meeting-notes/blob/main/30SEP2023MeetupPrezi.pdf)
+- **Location:** Public-Stage
 
 ---
