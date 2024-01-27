@@ -18,13 +18,13 @@ In no particular order, let's celebrate all the member contributions from Plebne
 
 ### Msgilligan
 
-Working on [jextract: 2023-04-14 -> 2023-11-27 (JDK 21)](https://github.com/NixOS/nixpkgs/pull/271127)
-Working on [wallettemplate: use jakarta.annotations (instead of javax)](https://github.com/bitcoinj/bitcoinj/pull/3325)
-Working on [build.gradle: Update Jackson to 2.16.0](https://github.com/bitcoinj/bitcoinj/pull/3323)
-Working on [Update BouncyCastle to 1.77](https://github.com/bitcoinj/bitcoinj/pull/3322)
-Working on [Block: Use stream in readTransactions](https://github.com/bitcoinj/bitcoinj/pull/3321)
+- Working on [jextract: 2023-04-14 -> 2023-11-27 (JDK 21)](https://github.com/NixOS/nixpkgs/pull/271127)
+- Working on [wallettemplate: use jakarta.annotations (instead of javax)](https://github.com/bitcoinj/bitcoinj/pull/3325)
+- Working on [build.gradle: Update Jackson to 2.16.0](https://github.com/bitcoinj/bitcoinj/pull/3323)
+- Working on [Update BouncyCastle to 1.77](https://github.com/bitcoinj/bitcoinj/pull/3322)
+- Working on [Block: Use stream in readTransactions](https://github.com/bitcoinj/bitcoinj/pull/3321)
 
-### BlogginBitcoin
+### BloggingBitcoin
 
 - [nostr.cooking](https://github.com/github-tijlxyz/nostr.cooking)
 
@@ -46,4 +46,4 @@ Working on [Block: Use stream in readTransactions](https://github.com/bitcoinj/b
 
 ### Surfersol
 
-- Created blog post for Member Contributions, Dec 2023. [PR 8X](github)
+- Created blog post for Member Contributions, Dec 2023. [PR 93](https://github.com/plebnet-dev/website/pull/93)
