@@ -88,6 +88,8 @@ export const headerData = {
     {
       text: 'Store',
       href: getStorePermalink(),
+      target: "_blank",
+      rel:'noopener noreferrer',
     },
   ],
   actions: [
