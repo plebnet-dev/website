@@ -78,7 +78,7 @@ export const getDiscordPermalink = (): string => DISCORD_LINK;
 
 /** */
 export const getStorePermalink = (): string => {
-  return 'https://plebnet-dev.printify.me';
+  return 'https://store.plebnet.dev';
 };
 
 /** */
