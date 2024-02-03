@@ -1,5 +1,5 @@
 ---
-publishDate: 2024-01-20T00:00:00Z
+publishDate: 2024-02-02T00:00:00Z
 title: Upcoming and Past Events
 author: bitcoindad
 description: A list of Events at Plebnet.dev, both past and present in Discord. Last updated 20 Jan 2024.
@@ -15,14 +15,45 @@ tags:
 
 # Upcoming Events | [Past Events](#past-events)
 
-## PLEBNET DEV Virtual - Bitcoin Halving 2024
+## JavaScript 102: Another Cypher Deployment
 
-- **Date:** Apr 25, 2024, 10:00 PM EST
-- **Description:** Come join us to discuss how Miners’ block rewards are halved, affecting the rate of new Bitcoin entering circulation and emphasizing scarcity!
-- **Location:** Members-Stage
+- **Date:** Feb 9th, 2024, 03:00 PM EST
+- **Description:** Basic Nuxt3 repo clone, setup & deployment.
 - **Duration:** 1 hour
+- [Meetup Link](https://discord.com/events/1097749919445569606/1203069451906584576)
 
 ---
+
+## Python Blitz: Code and Conquer Weekly (Weekly Event)
+
+- **Date:** Feb 2nd, 9th, & 23rd 2024, 09:00 PM EST
+- **Description:** Join the excitement at "Python Blitz: Code & Conquer Weekly," where each session is an adventure in the world of Python programming.
+- **Duration:** 1 hour
+- [Meetup Link](https://discord.com/events/1097749919445569606/1195830162374275233)
+
+---
+
+## Chill and Chat (Bi-Weekly Event)
+
+- **Date:** Feb 14th & 28th, 2024, 09:00 PM EST
+- **Description:** Come chat and chill about anything code related or anything else in the space, Get to know what other members are working on or use this time to pair program and trouble shoot issues that you are working on.
+- **Duration:** 1 hour
+- [Meetup Link](https://discord.com/events/1097749919445569606/1199827678849667202)
+
+---
+
+## Alby Community Call
+
+- **Date:** Feb 8th & 22nd 2024, 10:00 AM EST
+- **Description:** Join the cozy e-meetup featuring Alby's team, power-users, and interesting new LN apps!
+- **Duration:** 1 hour
+- [Meetup Link](https://meet.fulmo.org/AlbyCommunityCall)
+
+---
+
+<!-- trunk-ignore(markdownlint/MD025) -->
+
+# Past Events
 
 ## Chill and Chat (Bi-Weekly Event)
 
@@ -77,10 +108,6 @@ tags:
 - **Location:** Members-Stage
 
 ---
-
-<!-- trunk-ignore(markdownlint/MD025) -->
-
-# Past Events
 
 ## Workshop: Intro to Postman
 
