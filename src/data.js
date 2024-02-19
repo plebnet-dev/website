@@ -161,6 +161,6 @@ export const footerData = {
   ],
   footNote: `
     <span class=" float-left rounded-sm"></span>
-    Copyright © 2023 - Plebnet.dev · All rights reserved.
+    Copyright © 2024 - Plebnet.dev · All rights reserved.
   `,
 };
