@@ -1,6 +1,6 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
+import Brands from '~/components/widgets/Brands.astro';
 import Header from '~/components/widgets/Header.astro';
 import Hero2 from '~/components/widgets/Hero2.astro';
 //import Steps2 from '~/components/widgets/Steps2.astro';
@@ -104,6 +104,36 @@ const meta = {
                 `}
   />
 
+
+<!-- partnerships -->
+<Brands
+    title="Partnerships & Collaborations"
+    subtitle=""
+    icons={[]}
+    images={[
+      {
+        href: 'https://shop.lightnin.games',
+        src: 'images/supporters/light_lngames.png',
+        alt: 'Lightning Games',
+      },
+
+      {
+        href: 'https://getalby.com/',
+        src: 'images/supporters/darkalby.png',
+        alt: 'Alby',
+      },
+      {
+        href: 'https://stakwork.com/',
+        src: 'images/supporters/logo-stak.svg',
+        alt: 'StakWork',
+      },
+      {
+        href: 'https://sphinx.chat/',
+        src: 'images/supporters/Sphinx-Logo-V1.png',
+        alt: 'Sphinx',
+      },
+  ]}
+  />
 
    <!-- CallToAction Widget *********** -->
    <CallToAction
