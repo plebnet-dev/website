@@ -29,7 +29,7 @@ Welcome to [Plebnet.Dev](https://plebnet.dev), where the future of Bitcoin and L
 
 - **Active Building not Passive Learning**: One of the biggest road blocks in learning how to code is getting stuck in tutorial hell and working in isolation while developing bad habits. An alternative way is to actively work together to build projects from the beginning and start contributing to real world projects as soon as possible. We're committed to the learn, build and feedback loop. 
 
-![FeedbackLoop]( /src/content/post/_images/prfeedback.png "Feedback Loop")
+![Feedback Loop](/images/prfeedback.png "Feedback Loop")
 
 - **Real-time Engagement**: To get a glimpse into our activities, come to a meetup in our [discord server](https://plebnet.dev/discord) or checkout our [github](https://github.com/plebnet-dev/meeting-notes/). It offers a sneak peek into the pressing topics we discuss, the innovations we're steering, and the camaraderie we share.
 
