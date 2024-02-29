@@ -1,6 +1,6 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
+import Brands from '~/components/widgets/Brands.astro';
 import Header from '~/components/widgets/Header.astro';
 import Hero2 from '~/components/widgets/Hero2.astro';
 //import Steps2 from '~/components/widgets/Steps2.astro';
@@ -80,6 +80,12 @@ const meta = {
         'Are you Starting a new OSS project in bitcoin or lightining, and are you looking for new Contributors? This is the place to be.',
         icon: 'tabler:bolt',
       },
+      {
+        title: 'Showcase your Skills', 
+        description: 
+        ' Any member can run a Workshop or a virtual event. Write about your experiences on our blog, or add your contributions to our monthly blog post. This organization belongs to you, the developers!',
+        icon: 'tabler:bolt',
+      }
     ]}
     image={{
       src: import('~/assets/images/caos.jpg'),
@@ -94,6 +100,42 @@ const meta = {
     </Fragment>
   </Content>
 
+  <span id="more"> </span>
+  <Content
+    items={[
+      {
+        title: 'Resource Toolkit',
+        description: 'Leverage ready to go tools and resources to accelerate development and testing in bitcoin, lightning, nostr and more.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: 'Peer to Peer learning',
+        description:
+        'Learn by doing: work on open issues inside and outside the community. Test code, edit docs. Avoid tutorial hell. Get feedback and peer support which are key to success!',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: 'Bounties',
+        description:
+        "New to Bitcoin? Sharpen your skills by working on bounties listed by our partners. Be in touch with industry PMs, devs, and veterans. Get a taste of what its like to work in the space.",
+        icon: 'tabler:bolt',
+        },
+      {
+        title: 'Need a Consultation?',
+        description:
+        'Perhaps you are not a developer, and looking to get advice? Or perhaps you are coming from another industry? Book a private session with an expert.',
+        icon: 'tabler:bolt',
+      },
+
+    ]}
+    image={{
+      src: import('~/assets/images/laptops.avif'),
+      alt: 'Colorful Image',
+    }}
+  >
+  </Content>
+
+
  <!-- HighlightedPosts Widget ******* -->
 
   <BlogLatestPosts
@@ -104,6 +146,36 @@ const meta = {
                 `}
   />
 
+
+<!-- partnerships -->
+<Brands
+    title="Partnerships & Collaborations"
+    subtitle=""
+    icons={[]}
+    images={[
+      {
+        href: 'https://shop.lightnin.games',
+        src: 'images/supporters/light_lngames.png',
+        alt: 'Lightning Games',
+      },
+
+      {
+        href: 'https://getalby.com/',
+        src: 'images/supporters/darkalby.png',
+        alt: 'Alby',
+      },
+      {
+        href: 'https://stakwork.com/',
+        src: 'images/supporters/logo-stak.svg',
+        alt: 'StakWork',
+      },
+      {
+        href: 'https://sphinx.chat/',
+        src: 'images/supporters/Sphinx-Logo-V1.png',
+        alt: 'Sphinx',
+      },
+  ]}
+  />
 
    <!-- CallToAction Widget *********** -->
    <CallToAction
