@@ -17,7 +17,7 @@ tags:
 
 Free and Open Source Software (FOSS) thrives on collaboration, and both contributors and maintainers play crucial roles in sustaining these projects. To ensure a vibrant and ever-growing FOSS ecosystem, it's essential for contributors and maintainers alike to follow best practices that enhance communication, foster a positive environment, and promote continuous learning. 
 
-Also, if you are new to bounty hunting in FOSS, this post is for you. For advice from the experienced and wise, skip to the bottom section and check out the videos.
+Also, if you are new to bounty hunting in FOSS, this post is for you. For advice from the experienced and wise, skip to the next section and check out the videos.
 
 ### For FOSS Contributors
 
@@ -45,6 +45,17 @@ There is a growing trend in FOSS projects to offer bounties to work on issues. D
 #### Prioritize Communication
 Effective communication is key in any collaborative effort. Keep contributors and maintainers in the loop regarding your progress. Over-communicating is better than leaving others uninformed, and it helps create a transparent and collaborative environment.
 
+### Advice from the Experienced and Wise
+
+If you are a new developer, why should you join an existing FOSS project instead of building your own project?  From the guy (Matteo Collina) who has [17 Billion NPM downloads](https://youtu.be/4aYQ0QPUikg?feature=shared&t=729)
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4aYQ0QPUikg?si=9J2frio8Ho29KqhA&amp;start=731" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+“You don’t need to be extremely good to contribute to open source projects, but if you do, more importantly, people will review your code which will make you way way better…. Your skills will skyrocket. “ - Matteo Collina
+
+“FOSS is essentially like free work experience,..... It’s not really something you can do on your own” - Lane Wagner, Backend Banter
+
 
 ### For FOSS Project Maintainers
 
@@ -65,28 +76,18 @@ In any online community, trolls can emerge. Be vigilant and handle potentially c
 
 Effective collaboration within FOSS projects relies on the commitment and synergy between contributors and maintainers. By adhering to these best practices, both groups can create a thriving ecosystem that encourages continuous learning, celebrates achievements, and ultimately results in high-quality open source software. Remember, FOSS is a collective effort where everyone's contribution matters.
 
+## Some more useful advice
 
-### Advice from the Experienced and Wise
-
-If you are a new developer, why should you join an existing FOSS project instead of building your own project?  From the guy (Matteo Collina) who has [17 Billion NPM downloads](https://youtu.be/4aYQ0QPUikg?feature=shared&t=729)
-
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/4aYQ0QPUikg?si=9J2frio8Ho29KqhA&amp;start=731" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-“You don’t need to be extremely good to contribute to open source projects, but if you do, more importantly, people will review your code which will make you way way better…. Your skills will skyrocket. “ - Matteo Collina
-
-“FOSS is essentially like free work experience,..... It’s not really something you can do on your own” - Lane Wagner, Backend Banter
-
-[Wisdom from Linus | Prime Reacts](https://www.youtube.com/watch?v=EvzB_Q1gSds)
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/EvzB_Q1gSds?si=dAsdlisxP5pKS_vr&amp;start=4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-Linus Torvalds rants “You copied that function without understanding why it does what it does, and as a result your code IS GARBAGE. AGAIN.” - Linus Torvalds
-
-Open Source is Not about you - From the Clojure developers and Primeagen
+- Open Source is Not about you - From the Clojure developers and Primeagen
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/H9GkSSWbw4c?si=2u6VJVXOe2E1ql8F" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-5 Signs of an Inexperienced Self-Taught Developer [(and how to fix)](https://www.youtube.com/watch?v=B_HR2R3xsnQ)
+
+- 5 Signs of an Inexperienced Self-Taught Developer [(and how to fix)](https://www.youtube.com/watch?v=B_HR2R3xsnQ)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/B_HR2R3xsnQ?si=JuYFsmEW9tSdG4pX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+- Stop solving problems that don't exist - Lessons from a Legend that all new developers should learn from - From the Linus Torvalds.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EvzB_Q1gSds?si=dAsdlisxP5pKS_vr&amp;start=4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
