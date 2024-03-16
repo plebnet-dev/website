@@ -6,9 +6,9 @@ description: 'A guide to configuring essential environment variables for secure 
 image: /src/content/post/_images/env-setup.webp
 category: Education
 tags:
-  - environment variables
+  - environment variablesn
   - configuration
-  - development
+  - development setup
 ---
 
 # Essential Environment Setup

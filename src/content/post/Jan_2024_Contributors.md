@@ -1,7 +1,7 @@
 ---
 publishDate: 2024-2-28T00:00:00Z
 title: Member Contributions To Open Source Software - January 2024
-image: /src/content/post/_images/january.png
+image: /src/content/post/_images/january.jpg
 description: Contributions for the month of January 2024
 category: News and Updates
 author: surfersol and bitkarrot

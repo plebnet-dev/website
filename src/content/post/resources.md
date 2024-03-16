@@ -7,7 +7,7 @@ image:  /src/content/post/_images/Build_The_Future.webp
 category: News & Updates
 tags:
   - resources
-  - lightning
+  - lighting
   - nostr
   - signet
 ---
