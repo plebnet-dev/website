@@ -3,7 +3,7 @@ publishDate: 2024-03-03T22:16:44Z
 title: Upcoming and Past Events
 author: bitcoindad
 description: A list of Events at Plebnet.dev, both past and present in Discord. Last updated 03 Mar 2024.
-image: /src/content/post/_images/events.jpg
+image: /src/content/post/_images/events.png
 categories:
   - News and Updates
 tags:
