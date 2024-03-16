@@ -40,7 +40,7 @@
     "typescript": "^5.2.2"
   },
   "engines": {
-    "node": ">=18.14.1"
+    "node": "18.14.1"
   },
   "dependencies": {
     "@astrojs/check": "^0.2.1",
@@ -53,6 +53,7 @@
     "@sveltejs/adapter-vercel": "^3.0.3",
     "astro-compress": "^2.1.5",
     "dotenv": "^16.3.1",
+    "pinyin": "^4.0.0-alpha.0",
     "svelte": "^4.2.2",
     "svelte-awesome-icons": "^0.6.6",
     "uuid": "^9.0.1"
