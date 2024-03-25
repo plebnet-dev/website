@@ -24,6 +24,7 @@ export const cleanSlug = (text = '') =>
 export const BLOG_BASE = cleanSlug(APP_BLOG?.list?.pathname);
 export const CATEGORY_BASE = cleanSlug(APP_BLOG?.category?.pathname);
 export const TAG_BASE = cleanSlug(APP_BLOG?.tag?.pathname) || 'tag';
+export const JOIN_US = 'join-us';
 
 export const POST_PERMALINK_PATTERN = trimSlash(APP_BLOG?.post?.permalink || `${BLOG_BASE}/%slug%`);
 
@@ -69,6 +70,17 @@ export const getHomePermalink = (): string => getPermalink('/');
 
 /** */
 export const getBlogPermalink = (): string => getPermalink(BLOG_BASE);
+
+/** */
+export const getJoinPermalink = (): string => getPermalink(JOIN_US);
+
+/** */
+export const getDiscordPermalink = (): string => DISCORD_LINK;
+
+/** */
+export const getStorePermalink = (): string => {
+  return 'https://store.plebnet.dev';
+};
 
 /** */
 export const getAsset = (path: string): string =>
