@@ -1,0 +1,42 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Header from '~/components/widgets/Header.astro';
+
+const title = `Donate`;
+import { headerData } from '~/data';
+import { getStorePermalink } from '~/utils/permalinks';
+
+const meta = {
+  title: 'PLEBNET.DEV Donate',
+};
+---
+
+<Layout meta={{ title }}>
+  <Fragment slot="header">
+    <Header
+      {...headerData}
+      actions={[
+        {
+          type: 'orange',
+          text: 'Shop',
+          href: getStorePermalink(),
+          target: "_blank",
+          rel:'noopener noreferrer',
+        },
+      ]}
+      isSticky
+    />
+  </Fragment>
+
+  <section class="flex items-center h-full p-4">
+    <div class="container flex flex-col items-center justify-center px-5 mx-auto">
+      <div class="max-w-md text-center">
+        <h2 class="mb-4 font-bold text-4xl">Donate!</h2>
+        <p>Every satoshi will help us grow our community</p>
+      </div>
+    </div>
+  </section>
+  <section class="flex items-center justify-center my-8">
+    <iframe src="https://ln.plebnet.dev/tipjar/10" width="800" height="600"></iframe>
+  </section>
+</Layout>

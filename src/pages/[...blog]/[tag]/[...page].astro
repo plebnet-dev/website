@@ -1,35 +1,47 @@
 ---
-import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
-import { blogTagRobots, getStaticPathsBlogTag } from '~/utils/blog';
+import { SITE, BLOG } from '~/config.mjs';
 
 import Layout from '~/layouts/PageLayout.astro';
 import BlogList from '~/components/blog/List.astro';
-import Headline from '~/components/blog/Headline.astro';
 import Pagination from '~/components/blog/Pagination.astro';
 
-export const prerender = true;
+import { fetchPosts } from '~/utils/blog';
+import { TAG_BASE } from '~/utils/permalinks';
+import Headline from '~/components/blog/Headline.astro';
 
-export const getStaticPaths = (async ({ paginate }) => {
-  return await getStaticPathsBlogTag({ paginate });
-}) satisfies GetStaticPaths;
+export async function getStaticPaths({ paginate }) {
+  if (BLOG?.disabled || BLOG?.tag?.disabled) return [];
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+  const posts = await fetchPosts();
+  const tags = new Set();
+  posts.map((post) => {
+    Array.isArray(post.tags) && post.tags.map((tag) => tags.add(tag.toLowerCase()));
+  });
 
-const { page, tag } = Astro.props as Props;
+  return Array.from(tags).flatMap((tag: string) =>
+    paginate(
+      posts.filter((post) => Array.isArray(post.tags) && post.tags.find((elem) => elem.toLowerCase() === tag)),
+      {
+        params: { tag: tag, blog: TAG_BASE || undefined },
+        pageSize: BLOG.postsPerPage,
+        props: { tag },
+      }
+    )
+  );
+}
+
+const { page, tag } = Astro.props;
 
 const currentPage = page.currentPage ?? 1;
-
-const metadata = {
+const meta = {
   title: `Posts by tag '${tag}'${currentPage > 1 ? ` — Page ${currentPage} ` : ''}`,
-  robots: {
-    index: blogTagRobots?.index,
-    follow: blogTagRobots?.follow,
-  },
+  description: SITE.description,
+  noindex: BLOG?.tag?.noindex,
 };
 ---
 
-<Layout metadata={metadata}>
-  <section class="px-4 md:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
+<Layout meta={meta}>
+  <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
     <Headline>Tag: {tag}</Headline>
     <BlogList posts={page.data} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
