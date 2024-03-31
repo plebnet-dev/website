@@ -1,0 +1,32 @@
+---
+import Layout from "~/layouts/PageLayout.astro";
+import Header from "~/components/widgets/Header.astro";
+import { headerData } from "~/data";
+import CorpForm from '../components/CorpForm.svelte';
+import {getJoinPermalink } from '../utils/permalinks';
+
+const meta = {
+  title: "PLEBNET.DEV Join Us",
+};
+
+---
+<Layout {meta}>
+    <Fragment slot="header">
+      <Header
+        {...headerData}
+        actions={[
+          {
+            type: "primary",
+            text: "Sign Up",
+            href:  getJoinPermalink(),
+          },
+        ]}
+        isSticky
+      />
+    </Fragment>
+
+    <section class="flex items-center h-full p-6 dark:bg-slate-800">
+      <div class="flex flex-col max-w-xl mx-auto rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow p-4 sm:p-6 lg:p-8 w-full">
+      </div>
+    </section>
+</Layout>
