@@ -1,0 +1,141 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Prices from '~/components/widgets/Pricing.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+
+import { headerData } from '~/data';
+import { getStorePermalink } from '~/utils/permalinks';
+
+const meta = {
+  title: 'PLEBNET.DEV Join Us',
+};
+---
+
+<Layout {meta}>
+  <Fragment slot="header">
+    <Header
+      {...headerData}
+      actions={[
+        {
+          type: 'orange',
+          text: 'Shop',
+          href: getStorePermalink(),
+        },
+      ]}
+      isSticky
+    />
+  </Fragment>
+
+  <Prices
+    title="Join Us"
+    subtitle="Questions? See FAQ below. Not sure yet? Join a meetup in our Discord."
+    prices={[
+      {
+        title: 'Individual',
+        subtitle: 'Optimal choice for personal use',
+        price: 100000,
+        period: 'sats, one time fee',
+        items: [
+          {
+            description: 'Join Members only Workshops',
+          },
+          {
+            description: 'Access to Members only Discord',
+          },
+          {
+            description: 'Access to Member only resources',
+          },
+          {
+            description: 'Mentor or get access to mentoring',
+          },
+          {
+            description: 'Networking and career opportunities',
+          },
+        ],
+        callToAction: {
+          targetBlank: false,
+          text: 'Get started',
+          href: '/Indiv',
+        },
+        hasRibbon: true,
+        ribbonTitle: 'popular',
+      },
+      {
+        title: 'Corporate',
+        subtitle: 'Optimal choice for organizations',
+        price: 300000,
+        period: 'sats, one time fee',
+        items: [
+          {
+            description: 'Corporate Logo on website',
+          },
+          {
+            description: 'Up to five corporate members',
+          },
+          {
+            description: 'Access to Members only discord',
+          },
+          {
+            description: 'Sponsor a meetup or host an event',
+          },
+          {
+            description: 'Opportunity to post job openings',
+          },
+        ],
+        callToAction: {
+          targetBlank: false,
+          text: 'Get started',
+          href: '/Corp',
+        },
+        hasRibbon: true,
+        ribbonTitle: '',
+      },
+    ]}
+  />
+
+  <span id="faq"> </span>
+  <!-- FAQs Widget ******************* -->
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle=""
+    highlight="FAQs"
+    items={[
+      [
+      {
+          question: 'What are some benefits of joining?',
+          answer: 'We are a builders club and focus on collaborating on a wide range of projects. Moderators will help you tailor your experience in the best way to help you grow as an individual as well as refer you to open source and potential career development opportunities. We believe in learning by doing and the long term benefits of open source contrbutions.',
+        },
+        {
+          question: 'How can I find out more about plebnet.dev before I join?',
+          answer: 'You can join a public monthly meetup on our Discord at https://plebnet.dev/discord.',
+        },
+        {
+          question: 'In my country the income is lower, is it possible to get a discount?',
+          answer:
+            'Yes it is definitely possible, please reach out to us directly.',
+        },
+        {
+          question: 'Can I buy a membership with credit cards or fiat?',
+          answer:
+            'No we only accept payment in bitcoin lightning for memberships. The exception is the merch store, we are working on it.',
+        },
+      ],
+      [
+        {
+          question: "Is this a virtual group, and what region of the world?",
+          answer: 'Yes we meet online only. While we are open to anyone, however we focus primarily on the US and EU time zones from -8 UTC to UTC +2. (Visit https://time.is/UTC to check if your time zone is in this range)',
+        },
+        {
+          question: 'Is this right for me if I am not a developer? Or I am a beginner in software?',
+          answer: 'Yes, all levels are welcome. Beginners and experienced developers are welcome. You can also be an end user, tester, docs writer or project manager and still very welcome to participate. Individuals who are looking for an opportunity to expand their skillset or shift careers are also welcome.'
+        },
+        {
+          question: "Why isn't this just a free membership?",
+          answer:
+            'This is a not for profit initiative. All proceeds support maintaining and supporting Plebnet.dev resources.  Membership also means we eliminate the noise (bots, scams, spammers, shitcoiners, fake account, etc...) and we will never have to track or sell your data.',
+        },
+      ],
+    ]}
+  />
+</Layout>

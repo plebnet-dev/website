@@ -1,6 +1,5 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
-
 import { defineConfig, squooshImageService } from 'astro/config';
 
 import sitemap from '@astrojs/sitemap';
@@ -11,9 +10,10 @@ import icon from 'astro-icon';
 import compress from 'astro-compress';
 import tasks from './src/utils/tasks';
 
+
 import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin } from './src/utils/frontmatter.mjs';
 
-import { ANALYTICS, SITE } from './src/utils/config.ts';
+import { ANALYTICS, SITE, DISCORD_LINK } from './src/utils/config.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -25,10 +25,15 @@ const whenExternalScripts = (items = []) =>
     : [];
 
 export default defineConfig({
+  redirects: {
+    '/join': {
+      status: 302,
+      destination: '/join-us',
+    }
+  },
   site: SITE.site,
   base: SITE.base,
   trailingSlash: SITE.trailingSlash ? 'always' : 'never',
-
   output: 'static',
 
   integrations: [

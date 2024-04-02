@@ -1,7 +1,6 @@
 import slugify from 'limax';
 
-import { SITE, APP_BLOG } from '~/utils/config';
-
+import { SITE, BLOG, DISCORD_LINK } from '~/config.mjs';
 import { trim } from '~/utils/utils';
 
 export const trimSlash = (s: string) => trim(trim(s, '/'));
@@ -13,7 +12,7 @@ const createPath = (...params: string[]) => {
   return '/' + paths + (SITE.trailingSlash && paths ? '/' : '');
 };
 
-const BASE_PATHNAME = SITE.base || '/';
+const BASE_PATHNAME = SITE.basePathname || '/';
 
 export const cleanSlug = (text = '') =>
   trimSlash(text)
@@ -21,15 +20,16 @@ export const cleanSlug = (text = '') =>
     .map((slug) => slugify(slug))
     .join('/');
 
-export const BLOG_BASE = cleanSlug(APP_BLOG?.list?.pathname);
-export const CATEGORY_BASE = cleanSlug(APP_BLOG?.category?.pathname);
-export const TAG_BASE = cleanSlug(APP_BLOG?.tag?.pathname) || 'tag';
+export const BLOG_BASE = cleanSlug(BLOG?.list?.pathname);
+export const CATEGORY_BASE = cleanSlug(BLOG?.category?.pathname);
+export const TAG_BASE = cleanSlug(BLOG?.tag?.pathname) || 'tag';
+export const JOIN_US = 'join-us';
 
-export const POST_PERMALINK_PATTERN = trimSlash(APP_BLOG?.post?.permalink || `${BLOG_BASE}/%slug%`);
+export const POST_PERMALINK_PATTERN = trimSlash(BLOG?.post?.permalink || `${BLOG_BASE}/%slug%`);
 
 /** */
 export const getCanonical = (path = ''): string | URL => {
-  const url = String(new URL(path, SITE.site));
+  const url = String(new URL(path, SITE.origin));
   if (SITE.trailingSlash == false && path && url.endsWith('/')) {
     return url.slice(0, -1);
   } else if (SITE.trailingSlash == true && path && !url.endsWith('/')) {
@@ -69,6 +69,17 @@ export const getHomePermalink = (): string => getPermalink('/');
 
 /** */
 export const getBlogPermalink = (): string => getPermalink(BLOG_BASE);
+
+/** */
+export const getJoinPermalink = (): string => getPermalink(JOIN_US);
+
+/** */
+export const getDiscordPermalink = (): string => DISCORD_LINK;
+
+/** */
+export const getStorePermalink = (): string => {
+  return 'https://store.plebnet.dev';
+};
 
 /** */
 export const getAsset = (path: string): string =>
