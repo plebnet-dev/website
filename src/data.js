@@ -24,10 +24,6 @@ export const headerData = {
           href: getJoinPermalink() + '#faq',
         },
         {
-          text: 'Projects',
-          href: '/projects',
-        },
-        {
           text: 'Plebnet Wiki',
           href: 'https://plebnet.wiki',
         },
@@ -116,9 +112,8 @@ export const footerData = {
       links: [
         { text: 'Join Us', href: getJoinPermalink() },
         { text: 'FAQ', href: getJoinPermalink() + '#faq' },
-        { text: 'Projects', href: '/projects' },
+        { text: 'Events', href: '/events' },
         { text: 'Blog', href: '/blog' },
-        // { text: 'Directory', href: '/directory' },
       ],
     },
     {
@@ -147,7 +142,6 @@ export const footerData = {
       title: 'About',
       links: [
         { text: 'Our Story', href: '/about' },
-        // { text: 'Contact Us', href: '/contact' },
         { text: 'Press Kit', href: 'https://github.com/plebnet-dev/presskit' },
         { text: 'Terms of Service', href: '/terms' },
         { text: 'Privacy', href: '/privacy' },

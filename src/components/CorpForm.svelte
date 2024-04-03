@@ -192,40 +192,7 @@
       border-color: #fff;
       resize: none;
     }
-  
-    input[type='checkbox'] {
-      appearance: none;
-      background-color: transparent;
-      width: 20px;
-      height: 20px;
-      border: 1px solid #ccc;
-      border-radius: 2px;
-      cursor: pointer;
-      margin-right: 0rem;
-      margin-left: auto;
-      vertical-align: middle;
-      position: relative;
-      top: -18px;
-    }
-  
-    input[type='checkbox']:checked {
-      background-color: #ff9500;
-      border-color: #ff9500;
-    }
-  
-    input[type='checkbox']:checked::before {
-      content: '';
-      display: block;
-      width: 6px;
-      height: 10px;
-      border: solid white;
-      border-width: 0 2px 2px 0;
-      transform: rotate(45deg) translateY(-50%);
-      position: absolute;
-      bottom: 2px;
-      left: 2px;
-    }
-  
+
     .input-wrapper {
       /* position: relative;*/
       display: flex;

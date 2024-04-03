@@ -1,3 +1,24 @@
+# Plebnet.dev website
+
+Build the Future with Plebnet.dev on bitcoin and lightning.
+
+This is the new website running on astro v4.
+
+The old website has been archived and can be found at:
+https://github.com/plebnet-dev/website
+
+## IMPORTANT BUILD NOTE: As of 2 APR 2024
+
+Use Node version - lts/hydrogen -> v18.16.1
+```sh
+ npm install astro
+ npm install
+```
+
+This is the main website.
+
+<img width="1199" alt="Screenshot 2023-06-18 at 9 37 38 PM" src="https://github.com/plebnet-dev/website/assets/73979971/546c69d5-97a3-48ce-8045-5eaa02b7baac">
+
 # 🚀 AstroWind
 
 <img src="https://raw.githubusercontent.com/onwidget/.github/main/resources/astrowind/lighthouse-score.png" align="right"

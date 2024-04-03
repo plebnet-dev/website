@@ -26,9 +26,11 @@ const {
         images.map(
           (image) =>
             image.src && (
-              <div class="flex justify-center col-span-1 my-2 lg:my-4 py-1 px-3 rounded-md dark:bg-gray-200">
+              <div class="flex justify-center col-span-1 my-2 lg:my-4 py-1 px-3 rounded-md dark:bg-navy-800">
+                <a href={image.href} target="_blank">
                 <img src={image.src} alt={image.alt || ''} class="max-h-12" />
-              </div>
+                </a>
+              </div>       
             )
         )
     }

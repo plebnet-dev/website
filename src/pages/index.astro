@@ -1,17 +1,12 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
 import Brands from '~/components/widgets/Brands.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
-import Features from '~/components/widgets/Features.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Steps from '~/components/widgets/Steps.astro';
+import Header from '~/components/widgets/Header.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+
 import Content from '~/components/widgets/Content.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 
 import {getJoinPermalink } from '../utils/permalinks';
 import electricBitcoinImage from '~/assets/images/electricbitcoin.jpg';
@@ -20,15 +15,38 @@ import laptops from '~/assets/images/laptops.avif';
 
 import { headerData } from '~/data';
 
+// import Note from '~/components/widgets/Note.astro';
+// import Features from '~/components/widgets/Features.astro';
+// import Features2 from '~/components/widgets/Features2.astro';
+// import Steps from '~/components/widgets/Steps.astro';
+// import FAQs from '~/components/widgets/FAQs.astro';
+// import Stats from '~/components/widgets/Stats.astro';
+
+
 const meta = {
   title: 'PLEBNET.DEV Home',
 };
 ---
 
 <Layout metadata={meta}>
+  <Fragment slot="header">
+    <Header
+      {...headerData}
+      actions={[
+        {
+          type: "primary",
+          text: 'Join Us',
+          href:  getJoinPermalink(),
+        },
+      ]}
+      isSticky
+    />
+  </Fragment>
+
+
   <!-- Hero Widget ******************* -->
 
-  <Hero
+  <Hero2
     callToAction={{ text: 'Join Us', href:  getJoinPermalink() }}
     callToAction2={{ text: 'Learn More', href: '#more' }}
     image={{ src: electricBitcoinImage, alt: 'Plebnet.dev Hero Image' }}
@@ -49,7 +67,7 @@ const meta = {
         Plebnet.dev: Where developers come together.</span>
     </Fragment>
 
-  </Hero>
+  </Hero2>
 
   <!-- Note Widget ******************* -->
 
@@ -176,21 +194,21 @@ const meta = {
   />
 
   <!-- CallToAction Widget *********** -->
-
   <CallToAction
-   callToAction={{
-     text: 'Join Us',
-     href:  getJoinPermalink(),
-   }}
-  >
-   <Fragment slot="title">
-      <br class="block sm:hidden" />
-      <span class="sm:whitespace-nowrap"> Join The Community</span>
-   </Fragment>
-   <Fragment slot="subtitle">
-     <br class="hidden md:inline" />Don't
-     waste more time! Join plebnet.dev today!
-   </Fragment>
-  </CallToAction>
+  actions={[
+    {
+      variant: 'primary',
+      text: 'Let\'s Go',
+      href: getJoinPermalink(),
+      icon: 'tabler:arrow-big-right-line',
+    },
+  ]}>
+  <Fragment slot="title">
+    <span class="sm:whitespace-nowrap"> Join The Community</span>
+  </Fragment>
+  <Fragment slot="subtitle">
+    Don't waste more time!
+  </Fragment>
+</CallToAction>
 
 </Layout>
