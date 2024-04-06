@@ -7,7 +7,7 @@ category: News and Updates
 author: surfersol and bitkarrot
 tags:
   - events
-  - monthly meetup
+  - monthly contributions
 ---
 
 # Member Contributions for January 2024
@@ -98,3 +98,6 @@ In no particular order, let's celebrate all the member contributions from Plebne
 ### BitcOinDad (moderator)
 - Python Blitz: Code and Conquer Weekly (Weekly Event)
 - Chill and Chat (Bi-Weekly Event)
+
+### Surfersol
+- collected open source contributions and compiled this list.
