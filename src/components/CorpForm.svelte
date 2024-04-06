@@ -90,33 +90,26 @@
                 <label for="website">Website*</label>
                 <input type="text" id="website" bind:value={website} required />
               </div>
-      
               <div class="input-wrapper">
                 <label for="twitter">Twitter or Nostr</label>
                 <input type="text" id="twitter" bind:value={twitter} />
               </div>
-      
               <div class="input-wrapper">
                 <label id="why-join" for="goal">Any comments for us?*</label>
                 <textarea type="text" id="goal" bind:value={goal} required />
               </div>
-
               <div class="input-wrapper">
                 <label style="font-size:1.5rem; margin-top: 2rem;" class="text-center" for="qrCode">Membership Dues</label>
               <p style="color: #FF9500" class="text-center">{`${formatNumberWithCommas(corpMemberFee)} sats`}</p>
               </div>
-
               <div class="text-center">
                 <p style="margin-top:2rem;">
-                  Annual membership fee 
+                  One Time Membership Fee
                 </p>      
                 <button type="submit" class="btn">
                  <b>Pay with &nbsp;</b> <img src="/images/lnbitslogo.svg" width="70px" alt="LNBits" />
                 </button>
               </div>
-      
-
-
             </form>
       </div>
     </div>

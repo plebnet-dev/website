@@ -104,7 +104,6 @@
             <label for="goal">What do you want to get out of plebnet.dev?*</label>
             <textarea type="text" id="goal" bind:value={goal} required />
           </div>
-  
           <div class="input-wrapper">
             <label for="mentor" style="margin-top:2.5rem;">Do you want to mentor?</label>
             <input type="checkbox" id="mentor" bind:checked={mentor} />
@@ -115,7 +114,7 @@
           </div>
           <div class="text-center">
             <p style="margin-top:2rem;">
-              Annual membership fee 
+              One Time Membership Fee
             </p>
             <button type="submit" class="btn">
              <b>Pay with &nbsp;</b> <img src="/images/lnbitslogo.svg" width="70px" alt="LNBits" />
