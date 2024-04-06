@@ -34,7 +34,6 @@
     };
   
       //console.log(formData)
-  
       const response = await fetch('/api/new-user', {
           method: 'POST',
           headers: {
@@ -113,7 +112,6 @@
             </form>
       </div>
     </div>
-  
   <style>
   
     form {
