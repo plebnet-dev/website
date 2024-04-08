@@ -1,37 +1,43 @@
 ---
-import { Icon } from 'astro-icon';
-import { Picture } from 'astro:assets';
-
-interface CallToAction {
-  text: string;
-  href: string;
-  icon?: string;
-}
+import Image from '~/components/common/Image.astro';
+import Button from '~/components/ui/Button.astro';
+import type { CallToAction } from '~/types';
 
 export interface Props {
+  id?: string;
   title?: string;
   subtitle?: string;
-  callToAction?: string | CallToAction;
-  callToAction2?: string | CallToAction;
+  tagline?: string;
+  content?: string;
+  actions?: string | CallToAction[];
   image?: string | any; // TODO: find HTMLElementProps
 }
 
 const {
+  id,
   title = await Astro.slots.render('title'),
   subtitle = await Astro.slots.render('subtitle'),
+  tagline,
   content = await Astro.slots.render('content'),
-  callToAction = await Astro.slots.render('callToAction'),
-  callToAction2 = await Astro.slots.render('callToAction2'),
+  actions = await Astro.slots.render('actions'),
   image = await Astro.slots.render('image'),
 } = Astro.props;
 ---
 
-<section class="relative md:-mt-[76px]">
+<section class="relative md:-mt-[76px] not-prose" {...id ? { id } : {}}>
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
     <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
     <div class="py-12 md:py-20">
-      <div class="text-center pb-10 md:pb-16 max-w-screen-lg mx-auto">
+      <div class="text-center pb-10 md:pb-16 max-w-5xl mx-auto">
+        {
+          tagline && (
+            <p
+              class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase"
+              set:html={tagline}
+            />
+          )
+        }
         {
           title && (
             <h1
@@ -42,44 +48,21 @@ const {
         }
         <div class="max-w-3xl mx-auto">
           {subtitle && <p class="text-xl text-muted mb-6 dark:text-slate-300" set:html={subtitle} />}
-          <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4">
-            {
-              callToAction && (
-                <div class="flex w-full sm:w-auto">
-                  {typeof callToAction === 'string' ? (
-                    <Fragment set:html={callToAction} />
-                  ) : (
-                    <a class="btn btn-primary sm:mb-0 w-full" href={callToAction?.href} target="_blank" rel="noopener">
-                      {callToAction?.icon && (
-                        <>
-                          <Icon name={callToAction.icon} class="w-5 h-5 mr-1 -ml-1.5" />&nbsp;
-                        </>
-                      )}
-                      {callToAction?.text}
-                    </a>
-                  )}
-                </div>
-              )
-            }
-            {
-              callToAction2 && (
-                <div class="flex w-full sm:w-auto">
-                  {typeof callToAction2 === 'string' ? (
-                    <Fragment set:html={callToAction2} />
-                  ) : (
-                    <a class="btn w-full" href={callToAction2?.href}>
-                      {callToAction2?.icon && (
-                        <>
-                          <Icon name={callToAction2.icon} class="w-5 h-5 mr-1 -ml-1.5" />&nbsp;
-                        </>
-                      )}
-                      {callToAction2.text}
-                    </a>
-                  )}
-                </div>
-              )
-            }
-          </div>
+          {
+            actions && (
+              <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4">
+                {Array.isArray(actions) ? (
+                  actions.map((action) => (
+                    <div class="flex w-full sm:w-auto">
+                      <Button {...(action || {})} class="w-full sm:mb-0" />
+                    </div>
+                  ))
+                ) : (
+                  <Fragment set:html={actions} />
+                )}
+              </div>
+            )
+          }
         </div>
         {content && <Fragment set:html={content} />}
       </div>
@@ -90,7 +73,7 @@ const {
               {typeof image === 'string' ? (
                 <Fragment set:html={image} />
               ) : (
-                <Picture
+                <Image
                   class="mx-auto rounded-md w-full"
                   widths={[400, 768, 1024, 2040]}
                   sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"

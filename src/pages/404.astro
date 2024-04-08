@@ -1,14 +1,11 @@
 ---
-import Layout from '~/layouts/BaseLayout.astro';
+import Layout from '~/layouts/Layout.astro';
 import { getHomePermalink } from '~/utils/permalinks';
 
 const title = `Error 404`;
-
-// needed for astro's hybird rendering with vercel. - https://github.com/withastro/astro/issues/4164#issuecomment-1762591371
-export const prerender = false;
 ---
 
-<Layout meta={{ title }}>
+<Layout metadata={{ title }}>
   <section class="flex items-center h-full p-16">
     <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
       <div class="max-w-md text-center">
@@ -18,8 +15,7 @@ export const prerender = false;
         </h2>
         <p class="text-3xl font-semibold md:text-3xl">Sorry, we couldn't find this page.</p>
         <p class="mt-4 mb-8 text-lg text-muted dark:text-slate-400">
-          But dont worry, you can find plenty of other things on our 
-          homepage.
+          But dont worry, you can find plenty of other things on our homepage.
         </p>
         <a rel="noopener noreferrer" href={getHomePermalink()} class="btn ml-4">Back to homepage</a>
       </div>

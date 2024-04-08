@@ -1,0 +1,39 @@
+---
+import type { Brands } from '~/types';
+import Headline from '~/components/ui/Headline.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+const {
+  title = '',
+  subtitle = '',
+  tagline = '',
+  icons = [],
+  images = [],
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props as Brands;
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+  <Headline title={title} subtitle={subtitle} tagline={tagline} />
+
+  <div class="flex flex-wrap justify-center gap-x-6 sm:gap-x-12 lg:gap-x-24">
+    {icons && icons.map((icon) => 
+    icon    
+    )}
+    {
+      images &&
+        images.map(
+          (image) =>
+            image.src && (
+              <div class="flex justify-center col-span-1 my-2 lg:my-4 py-1 px-3 rounded-md dark:bg-navy-800">
+                <a href={image.href} target="_blank">
+                <img src={image.src} alt={image.alt || ''} class="max-h-12" />
+                </a>
+              </div>
+            )
+        )
+    }
+  </div>
+</WidgetWrapper>

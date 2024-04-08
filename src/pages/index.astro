@@ -3,21 +3,32 @@ import Layout from '~/layouts/PageLayout.astro';
 import Brands from '~/components/widgets/Brands.astro';
 import Header from '~/components/widgets/Header.astro';
 import Hero2 from '~/components/widgets/Hero2.astro';
-//import Steps2 from '~/components/widgets/Steps2.astro';
+
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 
 import {getJoinPermalink } from '../utils/permalinks';
+import electricBitcoinImage from '~/assets/images/electricbitcoin.jpg';
+import caos from '~/assets/images/caos.jpg';
+import laptops from '~/assets/images/laptops.avif';
 
 import { headerData } from '~/data';
+
+// import Note from '~/components/widgets/Note.astro';
+// import Features from '~/components/widgets/Features.astro';
+// import Features2 from '~/components/widgets/Features2.astro';
+// import Steps from '~/components/widgets/Steps.astro';
+// import FAQs from '~/components/widgets/FAQs.astro';
+// import Stats from '~/components/widgets/Stats.astro';
+
 
 const meta = {
   title: 'PLEBNET.DEV Home',
 };
 ---
 
-<Layout {meta}>
+<Layout metadata={meta}>
   <Fragment slot="header">
     <Header
       {...headerData}
@@ -32,12 +43,13 @@ const meta = {
     />
   </Fragment>
 
-  <!-- Hero2 Widget ******************* -->
+
+  <!-- Hero Widget ******************* -->
 
   <Hero2
     callToAction={{ text: 'Join Us', href:  getJoinPermalink() }}
     callToAction2={{ text: 'Learn More', href: '#more' }}
-    image={{ src: import('~/assets/images/electricbitcoin.jpg'), alt: 'Plebnet.dev Hero Image' }}
+    image={{ src: electricBitcoinImage, alt: 'Plebnet.dev Hero Image' }}
   >
     <Fragment slot="title">
       Build the <br/> 
@@ -54,7 +66,12 @@ const meta = {
       <span class="block mb-1 sm:hidden font-bold text-blue-600">
         Plebnet.dev: Where developers come together.</span>
     </Fragment>
+
   </Hero2>
+
+  <!-- Note Widget ******************* -->
+
+  <!-- Features Widget *************** -->
 
   <!-- Content Widget **************** -->
 
@@ -88,7 +105,7 @@ const meta = {
       }
     ]}
     image={{
-      src: import('~/assets/images/caos.jpg'),
+      src: caos,
       alt: 'Colorful Image',
     }}
   >
@@ -129,14 +146,13 @@ const meta = {
 
     ]}
     image={{
-      src: import('~/assets/images/laptops.avif'),
+      src: laptops,
       alt: 'Colorful Image',
     }}
   >
   </Content>
 
-
- <!-- HighlightedPosts Widget ******* -->
+  <!-- HighlightedPosts Widget ******* -->
 
   <BlogLatestPosts
     title="Find out more in our blog"
@@ -146,52 +162,53 @@ const meta = {
                 `}
   />
 
+  <!-- partnerships -->
 
-<!-- partnerships -->
-<Brands
-    title="Partnerships & Collaborations"
-    subtitle=""
-    icons={[]}
-    images={[
-      {
-        href: 'https://shop.lightnin.games',
-        src: 'images/supporters/light_lngames.png',
-        alt: 'Lightning Games',
-      },
+  <Brands
+      title="Partnerships & Collaborations"
+      subtitle=""
+      icons={[]}
+      images={[
+        {
+          href: 'https://shop.lightnin.games',
+          src: 'images/supporters/light_lngames.png',
+          alt: 'Lightning Games',
+        },
 
-      {
-        href: 'https://getalby.com/',
-        src: 'images/supporters/darkalby.png',
-        alt: 'Alby',
-      },
-      {
-        href: 'https://stakwork.com/',
-        src: 'images/supporters/logo-stak.svg',
-        alt: 'StakWork',
-      },
-      {
-        href: 'https://sphinx.chat/',
-        src: 'images/supporters/Sphinx-Logo-V1.png',
-        alt: 'Sphinx',
-      },
-  ]}
+        {
+          href: 'https://getalby.com/',
+          src: 'images/supporters/darkalby.png',
+          alt: 'Alby',
+        },
+        {
+          href: 'https://stakwork.com/',
+          src: 'images/supporters/logo-stak.svg',
+          alt: 'StakWork',
+        },
+        {
+          href: 'https://sphinx.chat/',
+          src: 'images/supporters/Sphinx-Logo-V1.png',
+          alt: 'Sphinx',
+        },
+    ]}
   />
 
-   <!-- CallToAction Widget *********** -->
-   <CallToAction
-   callToAction={{
-     text: 'Join Us',
-     href:  getJoinPermalink(),
-   }}
- >
-   <Fragment slot="title">
-      <br class="block sm:hidden" />
-      <span class="sm:whitespace-nowrap"> Join The Community</span>
-   </Fragment>
-   <Fragment slot="subtitle">
-     <br class="hidden md:inline" />Don't
-     waste more time! Join plebnet.dev today!
-   </Fragment>
- </CallToAction>
+  <!-- CallToAction Widget *********** -->
+  <CallToAction
+  actions={[
+    {
+      variant: 'primary',
+      text: 'Let\'s Go',
+      href: getJoinPermalink(),
+      icon: 'tabler:arrow-big-right-line',
+    },
+  ]}>
+  <Fragment slot="title">
+    <span class="sm:whitespace-nowrap"> Join The Community</span>
+  </Fragment>
+  <Fragment slot="subtitle">
+    Don't waste more time!
+  </Fragment>
+</CallToAction>
 
 </Layout>

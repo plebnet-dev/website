@@ -1,5 +1,5 @@
 ---
-title: 'PlebNet.Dev Privacy Policy'
+title: 'Plebnet.Dev Privacy Policy'
 layout: '~/layouts/MarkdownLayout.astro'
 ---
 
@@ -9,13 +9,13 @@ At PlebNet.Dev, we respect your privacy and are committed to protecting your per
 
 ## **1. Important Information and Who We Are**
 
-**Purpose of this Privacy Policy**:  
+**Purpose of this Privacy Policy**:
 This Privacy Policy aims to give you information on how PlebNet.Dev collects and processes your personal data through your use of this website.
 
-**Contact Details**:  
+**Contact Details**:
 Our full details are:
 
-- **Email address**: contact@plebnet.dev
+- **Email address**: contact[at]plebnet.dev
 
 ## **2. The Data We Collect About You**
 

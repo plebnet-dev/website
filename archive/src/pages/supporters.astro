@@ -1,0 +1,61 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Content from '~/components/widgets/Content.astro';
+import { getJoinPermalink } from '../utils/permalinks';
+
+import { headerData } from '~/data';
+
+const meta = {
+  title: 'PLEBNET.DEV Supporters',
+};
+---
+
+<Layout {meta}>
+  <Fragment slot="header">
+    <Header
+      {...headerData}
+      actions={[
+        {
+          type: 'primary',
+          text: 'Join Us',
+          href: getJoinPermalink(),
+        },
+      ]}
+      isSticky
+    />
+  </Fragment>
+
+  <Content>
+    <Fragment slot="content">
+      <h1 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Supporters</h1>
+      <p class="mb-8">Thank you to all our fabulous supporters!</p>
+      <div class="grid grid-cols-2 gap-8">
+        <div>
+          <a href="https://getalby.com/" target="_blank">
+            <img src="/images/supporters/darkalby.png" alt="Alby" width="150"/>
+          </a>
+        </div>
+        <div>
+          <a href="https://stakwork.com/" target="_blank">
+          <img src="/images/supporters/logo-stak.svg" alt="Stakwork" width="150"/>
+          </a>
+        </div>
+        <div>
+          <a href="http://sphinx.chat/" target="_blank">
+          <img src="/images/supporters/Sphinx-Logo-V1.png" alt="Sphinx Chat"  width="150"/>
+          </a>
+        </div>
+        <div>
+          <a href="https://shop.lightnin.games" target="_blank">
+            <img src="/images/supporters/light_lngames.png" alt="Lightning games"  width="150"  />
+          </a>
+        </div>
+        <div>
+          <img src="/images/icon-orange-transparent.png" alt="icon" width="100" height="150" />
+          <span style={{ fontSize: '1rem' }}>Your Logo Here!</span>
+        </div>
+      </div>
+    </Fragment>
+  </Content>
+</Layout>

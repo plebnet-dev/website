@@ -34,7 +34,6 @@
     };
   
       //console.log(formData)
-  
       const response = await fetch('/api/new-user', {
           method: 'POST',
           headers: {
@@ -90,37 +89,29 @@
                 <label for="website">Website*</label>
                 <input type="text" id="website" bind:value={website} required />
               </div>
-      
               <div class="input-wrapper">
                 <label for="twitter">Twitter or Nostr</label>
                 <input type="text" id="twitter" bind:value={twitter} />
               </div>
-      
               <div class="input-wrapper">
                 <label id="why-join" for="goal">Any comments for us?*</label>
                 <textarea type="text" id="goal" bind:value={goal} required />
               </div>
-
               <div class="input-wrapper">
                 <label style="font-size:1.5rem; margin-top: 2rem;" class="text-center" for="qrCode">Membership Dues</label>
               <p style="color: #FF9500" class="text-center">{`${formatNumberWithCommas(corpMemberFee)} sats`}</p>
               </div>
-
               <div class="text-center">
                 <p style="margin-top:2rem;">
-                  Annual membership fee 
+                  One Time Membership Fee
                 </p>      
                 <button type="submit" class="btn">
                  <b>Pay with &nbsp;</b> <img src="/images/lnbitslogo.svg" width="70px" alt="LNBits" />
                 </button>
               </div>
-      
-
-
             </form>
       </div>
     </div>
-  
   <style>
   
     form {
@@ -192,40 +183,7 @@
       border-color: #fff;
       resize: none;
     }
-  
-    input[type='checkbox'] {
-      appearance: none;
-      background-color: transparent;
-      width: 20px;
-      height: 20px;
-      border: 1px solid #ccc;
-      border-radius: 2px;
-      cursor: pointer;
-      margin-right: 0rem;
-      margin-left: auto;
-      vertical-align: middle;
-      position: relative;
-      top: -18px;
-    }
-  
-    input[type='checkbox']:checked {
-      background-color: #ff9500;
-      border-color: #ff9500;
-    }
-  
-    input[type='checkbox']:checked::before {
-      content: '';
-      display: block;
-      width: 6px;
-      height: 10px;
-      border: solid white;
-      border-width: 0 2px 2px 0;
-      transform: rotate(45deg) translateY(-50%);
-      position: absolute;
-      bottom: 2px;
-      left: 2px;
-    }
-  
+
     .input-wrapper {
       /* position: relative;*/
       display: flex;

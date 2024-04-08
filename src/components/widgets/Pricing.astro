@@ -1,6 +1,6 @@
 ---
-import { Icon } from 'astro-icon';
-//import CTA from '~/components/ui/CTA.astro';
+import { Icon } from 'astro-icon/components';
+import Button from '~/components/ui/Button.astro';
 import Headline from '~/components/ui/Headline.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import type { Pricing } from '~/types';
@@ -10,6 +10,7 @@ const {
   subtitle = '',
   tagline = '',
   prices = [],
+
   id,
   isDark = false,
   classes = {},
@@ -42,7 +43,7 @@ const {
                     <div class="my-8">
                       <div class="flex items-center justify-center text-center mb-1">
                         <span class="text-3xl"><img src="/images/sat-symbol/Satoshi-regular-white-trans.png" width="35" height="35"/></span>
-                        <span class="text-4xl font-extrabold">{price}</span>                        
+                        <span class="text-4xl font-extrabold">{price}</span>
                       </div>
                       <span class="text-base leading-6 lowercase text-gray-600 dark:text-slate-400">{period}</span>
                     </div>

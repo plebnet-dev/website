@@ -12,7 +12,7 @@ const createPath = (...params: string[]) => {
   return '/' + paths + (SITE.trailingSlash && paths ? '/' : '');
 };
 
-const BASE_PATHNAME = SITE.basePathname;
+const BASE_PATHNAME = SITE.basePathname || '/';
 
 export const cleanSlug = (text = '') =>
   trimSlash(text)
@@ -20,12 +20,12 @@ export const cleanSlug = (text = '') =>
     .map((slug) => slugify(slug))
     .join('/');
 
-export const POST_PERMALINK_PATTERN = trimSlash(BLOG?.post?.permalink || '/%slug%');
-
 export const BLOG_BASE = cleanSlug(BLOG?.list?.pathname);
-export const CATEGORY_BASE = cleanSlug(BLOG?.category?.pathname || 'category');
+export const CATEGORY_BASE = cleanSlug(BLOG?.category?.pathname);
 export const TAG_BASE = cleanSlug(BLOG?.tag?.pathname) || 'tag';
 export const JOIN_US = 'join-us';
+
+export const POST_PERMALINK_PATTERN = trimSlash(BLOG?.post?.permalink || `${BLOG_BASE}/%slug%`);
 
 /** */
 export const getCanonical = (path = ''): string | URL => {

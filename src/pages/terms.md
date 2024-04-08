@@ -1,5 +1,5 @@
 ---
-title: 'PlebNet.Dev Terms of Service'
+title: 'Plebnet.Dev Terms of Service'
 layout: '~/layouts/MarkdownLayout.astro'
 ---
 
@@ -60,6 +60,6 @@ Any feedback or suggestions you provide to PlebNet.Dev is entirely voluntary, an
 
 ## **12. Contact**
 
-For any queries related to these Terms or the services we provide, feel free to contact us at contact@plebnet.dev email address.
+For any queries related to these Terms or the services we provide, feel free to contact us at contact[at]plebnet.dev email address.
 
 By continuing to use PlebNet.Dev, you consent to these terms and any future updates. We are grateful for your trust and support, and we are excited to have you onboard as we build the future of Bitcoin and Lightning!

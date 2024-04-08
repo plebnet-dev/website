@@ -1,93 +1,74 @@
 ---
-import { Icon } from 'astro-icon';
-
-interface Item {
-  title: string;
-  description: string;
-  icon?: string;
-}
-
-interface CallToAction {
-  text: string;
-  href: string;
-  icon?: string;
-}
-
-export interface Props {
-  title?: string;
-  subtitle?: string;
-  highlight?: string;
-  callToAction?: string | CallToAction;
-  items: Array<Item>;
-}
+import { Icon } from 'astro-icon/components';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import Button from '~/components/ui/Button.astro';
+import type { Steps } from '~/types';
 
 const {
   title = await Astro.slots.render('title'),
   subtitle = await Astro.slots.render('subtitle'),
-  highlight,
+  tagline,
   callToAction = await Astro.slots.render('callToAction'),
   items = [],
-} = Astro.props;
+  isReversed = false,
 
-<section>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 overflow-hidden">
-    <div class="py-12 md:py-20">
-      <div class="py-4 sm:py-6 lg:py-8">
-        <div class="flex flex-wrap md:-mx-8">
-          <div class="w-full lg:w-1/2 px-0 sm:px-8 mb-12">
-            <div>
-              {
-                highlight && (
-                  <p
-                    class="text-base text-primary dark:text-blue-200 font-semibold tracking-wide uppercase"
-                    set:html={highlight}
-                  />
-                )
-              }
-              {title && <h2 class="mb-4 text-3xl lg:text-4xl font-bold font-heading" set:html={title} />}
-              {subtitle && <p class="mb-8 text-xl text-muted dark:text-slate-400" set:html={subtitle} />}
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props as Steps;
+---
 
-              <div class="w-full">
-                {
-                  typeof callToAction === 'string' ? (
-                    <Fragment set:html={callToAction} />
-                  ) : (
-                    callToAction &&
-                    callToAction.text &&
-                    callToAction.href && (
-                      <a class="btn btn-primary mb-4 sm:mb-0" href={callToAction.href} target="_blank" rel="noopener">
-                        {callToAction.icon && <Icon name={callToAction.icon} class="w-5 h-5 mr-1 -ml-1.5" />}
-                        {callToAction.text}
-                      </a>
-                    )
-                  )
-                }
-              </div>
-            </div>
-          </div>
-          <div class="w-full lg:w-1/2 px-0 sm:px-8">
-            <ul class="space-y-10">
-              {
-                items && items.length
-                  ? items.map(({ title: title2, description, icon }, index) => (
-                      <li class="flex md:-mx-4">
-                        <div class="pr-4 sm:pl-4">
-                          <span class="flex w-16 h-16 mx-auto items-center justify-center text-2xl font-bold rounded-full bg-blue-100 text-primary">
-                            {icon ? <Icon name={icon} class="w-6 h-6 icon-bold" /> : index + 1}
-                          </span>
-                        </div>
-                        <div class="pl-4">
-                          <h3 class="mb-4 text-xl font-semibold font-heading" set:html={title2} />
-                          <p class="text-muted dark:text-gray-400" set:html={description} />
-                        </div>
-                      </li>
-                    ))
-                  : ''
-              }
-            </ul>
-          </div>
-        </div>
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+  <div class={`flex flex-col gap-8 md:gap-12 md:flex-row ${isReversed ? 'md:flex-row-reverse' : ''}`}>
+    <div class={`w-full lg:w-1/2 gap-8 md:gap-12 ${isReversed ? 'lg:ml-16 md:ml-8 ml-0' : 'lg:mr-16 md:mr-8 mr-0'}`}>
+      <Headline
+        title={title}
+        subtitle={subtitle}
+        tagline={tagline}
+        classes={{
+          container: 'text-center md:text-left rtl:md:text-right mb-4 md:mb-8',
+          title: 'mb-4 text-3xl lg:text-4xl font-bold font-heading',
+          subtitle: 'mb-8 text-xl text-muted dark:text-slate-400',
+          // ...((classes?.headline as {}) ?? {}),
+        }}
+      />
+
+      <div class="w-full text-center md:text-left rtl:md:text-right">
+        {
+          typeof callToAction === 'string' ? (
+            <Fragment set:html={callToAction} />
+          ) : (
+            callToAction &&
+            callToAction.text &&
+            callToAction.href && (
+              <Button variant="primary" {...callToAction} class="mb-12 w-auto"/>
+            )
+          )
+        }
       </div>
     </div>
+    <div class="w-full lg:w-1/2 px-0">
+      <ul class="space-y-10">
+        {
+          items && items.length
+            ? items.map(({ title: title2, description, icon }, index) => (
+                <li class="flex md:-mx-4">
+                  <div class="pr-4 sm:pl-4 rtl:pr-0 rtl:pl-4 rtl:sm:pl-0 rtl:sm:pr-4">
+                    <span class="flex w-16 h-16 mx-auto items-center justify-center text-2xl font-bold rounded-full bg-blue-100 text-primary">
+                      {icon ? <Icon name={icon} class="w-6 h-6 icon-bold" /> : index + 1}
+                    </span>
+                  </div>
+                  <div class="pl-4 rtl:pl-0 rtl:pr-4">
+                    <h3 class="mb-4 text-xl font-semibold font-heading" set:html={title2} />
+                    <p class="text-muted dark:text-gray-400" set:html={description} />
+                  </div>
+                </li>
+              ))
+            : ''
+        }
+      </ul>
+    </div>
   </div>
-</section>
+</WidgetWrapper>
