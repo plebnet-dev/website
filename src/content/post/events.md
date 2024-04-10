@@ -17,6 +17,15 @@ tags:
 
 ---
 
+## Git Interactive Rebase Workshop
+
+- **Date:** Apr 26nd 03:00 PM EST
+- **Description:** A workshop on advanced git issues and git commit -p
+- **Duration:** 1 hour
+- [Meetup Link](https://discord.gg/Vbj7H8Bk?event=1227731092258426991)
+
+---
+
 ## Python Blitz: Code and Conquer Weekly (Weekly Event)
 
 - **Date:** Apr 12th, 19th, & 26nd 10:00 PM EST
