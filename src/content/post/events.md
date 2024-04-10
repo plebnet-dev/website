@@ -1,8 +1,8 @@
 ---
-publishDate: 2024-03-03T22:16:44Z
+publishDate: 2024-04-10T22:16:44Z
 title: Upcoming and Past Events
-author: bitcoindad
-description: A list of Events at Plebnet.dev, both past and present in Discord. Last updated 03 Mar 2024.
+author: Tony
+description: A list of Events at Plebnet.dev, both past and present in Discord. Last updated 10 Apr 2024.
 image: /src/content/post/_images/events.png
 categories:
   - News and Updates
@@ -19,7 +19,7 @@ tags:
 
 ## Python Blitz: Code and Conquer Weekly (Weekly Event)
 
-- **Date:** Mar 8th, 15th, 22nd, & 29th 2024, 10:00 PM EST
+- **Date:** Apr 12th, 19th, & 26nd 10:00 PM EST
 - **Description:** Join the excitement at "Python Blitz: Code & Conquer Weekly," where each session is an adventure in the world of Python programming.
 - **Duration:** 1 hour
 - [Meetup Link](https://discord.com/events/1097749919445569606/1213611597029711953)
@@ -28,7 +28,7 @@ tags:
 
 ## Alby Community Call
 
-- **Date:** Mar 7th & 21st 2024, 10:00 AM EST
+- **Date:** Apr 18th & May 2nd 2024, 10:00 AM EST
 - **Description:** Join the cozy e-meetup featuring Alby's team, power-users, and interesting new LN apps!
 - **Duration:** 1 hour
 - [Meetup Link](https://meet.fulmo.org/AlbyCommunityCall)
@@ -37,7 +37,7 @@ tags:
 
 ## Chill and Chat (Bi-Weekly Event)
 
-- **Date:** Mar 13th & 27th, 2024, 09:00 PM EST
+- **Date:** Apr 18th & May 2nd, 2024, 09:00 PM EST
 - **Description:** Come chat and chill about anything code related or anything else in the space, Get to know what other members are working on or use this time to pair program and trouble shoot issues that you are working on.
 - **Duration:** 1 hour
 - [Meetup Link](https://discord.gg/gHrVpdHm?event=1210320532340346900)
@@ -46,16 +46,16 @@ tags:
 
 ## Pleb Hangout (Bi-Weekly Event)
 
-- **Date:** Mar 15th & 29th, 2024, 03:00 PM EST
+- **Date:** Apr 12th & 26th, 2024, 03:00 PM EST
 - **Description:** Hang out with the Plebs!
 - **Duration:** 1 hour
 - [Meetup Link](https://discord.gg/gHrVpdHm?event=1213616201205416026)
 
 ---
 
-## 1st Quarterly Meetup
+## 2nd Quarterly Meetup
 
-- **Date:** Mar 30th 2024, 08:45 PM EST
+- **Date:** Jun 30th 2024, 08:45 PM EST
 - **Description:** Join our vibrant meetup to shape the future of Bitcoin and Lightning! Connect with global devs, share diverse perspectives, and engage in rich discussions.
 - **Duration:** 1 hour
 - [Meetup Link](https://discord.com/events/1097749919445569606/1200798438405722132)
@@ -65,6 +65,13 @@ tags:
 <!-- trunk-ignore(markdownlint/MD020) -->
 
 # Past Events
+
+## 1st Quarterly Meetup
+
+- **Date:** Mar 30th 2024, 08:45 PM EST
+- **Description:** Join our vibrant meetup to shape the future of Bitcoin and Lightning! Connect with global devs, share diverse perspectives, and engage in rich discussions.
+- **Duration:** 1 hour
+- [Meetup Link](https://discord.com/events/1097749919445569606/1200798438405722132)
 
 ## JavaScript 102: Another Cypher Deployment
 
