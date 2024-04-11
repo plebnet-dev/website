@@ -37,7 +37,7 @@ tags:
 
 ## Alby Community Call
 
-- **Date:** Apr 18th & May 2nd 2024, 10:00 AM EST
+- **Date:** Apr 18th & May 2nd 2024, 11:00 AM EST
 - **Description:** Join the cozy e-meetup featuring Alby's team, power-users, and interesting new LN apps!
 - **Duration:** 1 hour
 - [Meetup Link](https://meet.fulmo.org/AlbyCommunityCall)
@@ -46,7 +46,7 @@ tags:
 
 ## Chill and Chat (Bi-Weekly Event)
 
-- **Date:** Apr 18th & May 2nd, 2024, 09:00 PM EST
+- **Date:** Apr 18th & May 2nd, 2024, 10:00 PM EST
 - **Description:** Come chat and chill about anything code related or anything else in the space, Get to know what other members are working on or use this time to pair program and trouble shoot issues that you are working on.
 - **Duration:** 1 hour
 - [Meetup Link](https://discord.gg/gHrVpdHm?event=1210320532340346900)
