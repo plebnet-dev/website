@@ -11,14 +11,14 @@ metadata:
   title:
     default: PLEBNET.DEV
     template: '%s — PLEBNET.DEV'
-  description: "\U0001F680 Build the Bitcoin and Lightning Future."
+  description: "Build the Bitcoin and Lightning Future."
   robots:
     index: true
     follow: true
   openGraph:
     site_name: PLEBNET.DEV
     images:
-      - url: '~/assets/images/default.png'
+      - url: '~/assets/images/default.jpg'
         width: 1200
         height: 628
     type: website
