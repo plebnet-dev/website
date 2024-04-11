@@ -20,16 +20,16 @@ tags:
 ## Git Interactive Rebase Workshop
 
 - **Date:** Apr 26nd 03:00 PM EST
-- **Description:** A workshop on advanced git issues and git commit -p
+- **Description:** A workshop on advanced git issues and git commit -p, led by Rany McMillan
 - **Duration:** 1 hour
 - [Meetup Link](https://discord.gg/Vbj7H8Bk?event=1227731092258426991)
 
 ---
 
-## Python Blitz: Code and Conquer Weekly (Weekly Event)
+## Code Hangout - either Rust/Js/Python or trending topic
 
-- **Date:** Apr 12th, 19th, & 26nd 10:00 PM EST
-- **Description:** Join the excitement at "Python Blitz: Code & Conquer Weekly," where each session is an adventure in the world of Python programming.
+- **Date:** Apr 5th, 19th, May 3rd 10:30 PM EST
+- **Description:** This is the same event as python weekly, while asher is on vacation, bitkarrot will lead a bi-weekly series hangout.
 - **Duration:** 1 hour
 - [Meetup Link](https://discord.com/events/1097749919445569606/1213611597029711953)
 
@@ -53,7 +53,7 @@ tags:
 
 ---
 
-## Pleb Hangout (Bi-Weekly Event)
+## Pleb Hangout (Bi-Weekly Event) - Best for Eurozone Time Zone
 
 - **Date:** Apr 12th & 26th, 2024, 03:00 PM EST
 - **Description:** Hang out with the Plebs!
