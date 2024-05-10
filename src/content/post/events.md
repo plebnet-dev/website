@@ -1,8 +1,8 @@
 ---
-publishDate: 2024-04-10T22:16:44Z
+publishDate: 2024-05-10T22:16:44Z
 title: Upcoming and Past Events
-author: Tony
-description: A list of Events at Plebnet.dev, both past and present in Discord. Last updated 10 Apr 2024.
+author: plebnet.dev
+description: A list of Events at Plebnet.dev, both past and present in Discord. Last updated 10 May 2024.
 image: /src/content/post/_images/events.png
 categories:
   - News and Updates
@@ -11,11 +11,51 @@ tags:
   - plebnet.dev
 ---
 
-<!-- trunk-ignore(markdownlint/MD025) -->
-
 # Upcoming Events | [Past Events](#past-events)
 
+<!-- trunk-ignore(markdownlint/MD020) -->
+
+## Alby Community Call
+
+- **Date:**  May 16th, May 30, Jun 13, Jun 27 2024
+- **Time:** 8:00 AM PST / 11:00 AM EST / 17:00 CEST
+- **Description:** Join the cozy e-meetup featuring Alby's team, power-users, and interesting new LN apps!
+- **Duration:** 1 hour
+- [Meetup Link](https://meet.fulmo.org/AlbyCommunityCall)
+
 ---
+
+## Chill and Chat (Bi-Weekly Event) - Best for US Time Zones
+
+- **Date:** May 15, May 29, Jun 12, Jun 26, 2024
+- **Time:** 19:00 PST / 22:00 EST
+- **Description:** Come chat and chill about anything code related or anything else in the space, Get to know what other members are working on or use this time to pair program and trouble shoot issues that you are working on.
+- **Duration:** 1 hour
+- [Meetup Link](https://discord.gg/wFGTkWDWNh?event=1219745862725664899)
+
+---
+
+## Pleb Hangout (Bi-Weekly Event) - Best for Eurozone Time Zone
+
+- **Date:** May 24, Jun 7, Jun 21 2024
+- **Time:** 12:00 PST/ 15:00 EST / 21:00 CEST
+- **Description:** Hang out with the Plebs!
+- **Duration:** 1 hour
+- [Meetup Link](https://discord.gg/k7wUQBf9ZC?event=1235685024163172484)
+
+---
+
+## 2nd Quarterly Meetup
+
+- **Date:** Jun 30th 2024, 20:45 EST
+- **Description:** Join our vibrant meetup to shape the future of Bitcoin and Lightning! Connect with global devs, share diverse perspectives, and engage in rich discussions.
+- **Duration:** 1 hour
+- [Meetup Link](https://discord.com/events/1097749919445569606/1200798438405722132)
+
+---
+
+
+# Past Events
 
 ## Git Interactive Rebase Workshop
 
@@ -61,19 +101,6 @@ tags:
 - [Meetup Link](https://discord.gg/gHrVpdHm?event=1213616201205416026)
 
 ---
-
-## 2nd Quarterly Meetup
-
-- **Date:** Jun 30th 2024, 08:45 PM EST
-- **Description:** Join our vibrant meetup to shape the future of Bitcoin and Lightning! Connect with global devs, share diverse perspectives, and engage in rich discussions.
-- **Duration:** 1 hour
-- [Meetup Link](https://discord.com/events/1097749919445569606/1200798438405722132)
-
----
-
-<!-- trunk-ignore(markdownlint/MD020) -->
-
-# Past Events
 
 ## 1st Quarterly Meetup
 
