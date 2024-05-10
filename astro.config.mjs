@@ -22,6 +22,10 @@ export default defineConfig({
     '/join': {
       status: 302,
       destination: '/join-us'
+    },
+    '/projects': {
+      status:302,
+      destination: '/resources'
     }
   },
   site: SITE.site,

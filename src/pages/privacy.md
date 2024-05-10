@@ -42,7 +42,7 @@ We may have to share your personal data with the parties set out below for the p
 
 ## **5. Data Security**
 
-We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used, or accessed in an unauthorized way, altered, or disclosed. We limit access to your personal data to those employees, agents, contractors, and other third parties who have a business need to know.
+We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used, or accessed in an unauthorized way, altered, or disclosed. We limit access to your personal data to only group members.
 
 ## **6. Data Retention**
 
