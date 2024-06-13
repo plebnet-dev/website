@@ -1,5 +1,5 @@
 ---
-publishDate: 2024-05-10T22:16:44Z
+publishDate: 2024-06-12T22:16:44Z
 title: Upcoming and Past Events
 author: plebnet.dev
 description: A list of Events at Plebnet.dev, both past and present in Discord. Last updated 10 May 2024.
@@ -17,7 +17,7 @@ tags:
 
 ## Alby Community Call
 
-- **Date:**  May 16th, May 30, Jun 13, Jun 27 2024
+- **Date:**  Every other Thursday
 - **Time:** 8:00 AM PST / 11:00 AM EST / 17:00 CEST
 - **Description:** Join the cozy e-meetup featuring Alby's team, power-users, and interesting new LN apps!
 - **Duration:** 1 hour
@@ -27,7 +27,7 @@ tags:
 
 ## Chill and Chat (Bi-Weekly Event) - Best for US Time Zones
 
-- **Date:** May 15, May 29, Jun 12, Jun 26, 2024
+- **Date:** every other Wednesday
 - **Time:** 19:00 PST / 22:00 EST
 - **Description:** Come chat and chill about anything code related or anything else in the space, Get to know what other members are working on or use this time to pair program and trouble shoot issues that you are working on.
 - **Duration:** 1 hour
@@ -37,7 +37,7 @@ tags:
 
 ## Pleb Hangout (Bi-Weekly Event) - Best for Eurozone Time Zone
 
-- **Date:** May 24, Jun 7, Jun 21 2024
+- **Date:** Every other Friday
 - **Time:** 12:00 PST/ 15:00 EST / 21:00 CEST
 - **Description:** Hang out with the Plebs!
 - **Duration:** 1 hour
