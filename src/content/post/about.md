@@ -42,6 +42,11 @@ By joining us, you're not just participating in another developer space – you'
 
 ## The Creators
 
-Made with 🧡 by [Bitkarrot](https://github.com/bitkarrot/) in collaboration with the [Plebnet-Playground](https://github.com/PLEBNET-PLAYGROUND/) crew.
+Made with 🧡 
+
+- [Bitkarrot](https://github.com/bitkarrot/) Org architect
+- [Surfersol](https://github.com/surfersol) Lead Moderator.
+- [Sync](https://github.com/s7nc) European Moderator.
+- In collaboration with the [Plebnet-Playground](https://github.com/PLEBNET-PLAYGROUND/) crew.
 
 ![plebnet.dev](/images/logodark.png "plebnet-dev")
