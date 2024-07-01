@@ -41,9 +41,11 @@ tags:
 - **Time:** 12:00 PST/ 15:00 EST / 21:00 CEST
 - **Description:** Hang out with the Plebs!
 - **Duration:** 1 hour
-- [Meetup Link](https://discord.gg/k7wUQBf9ZC?event=1235685024163172484)
+- [Meetup Link](https://hivetalk.org/join/73147PlebnetEU)
 
 ---
+
+# Past Events
 
 ## 2nd Quarterly Meetup
 
@@ -53,9 +55,6 @@ tags:
 - [Meetup Link](https://discord.com/events/1097749919445569606/1200798438405722132)
 
 ---
-
-
-# Past Events
 
 ## Git Interactive Rebase Workshop
 
