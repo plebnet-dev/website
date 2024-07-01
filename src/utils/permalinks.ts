@@ -1,6 +1,6 @@
 import slugify from 'limax';
 
-import { SITE, BLOG, DISCORD_LINK } from '~/config.mjs';
+import { SITE, BLOG, DISCORD_LINK, MATRIX_LINK } from '~/config.mjs';
 import { trim } from '~/utils/utils';
 
 export const trimSlash = (s: string) => trim(trim(s, '/'));
@@ -75,6 +75,9 @@ export const getJoinPermalink = (): string => getPermalink(JOIN_US);
 
 /** */
 export const getDiscordPermalink = (): string => DISCORD_LINK;
+
+/** */
+export const getMatrixPermalink = (): string => MATRIX_LINK;
 
 /** */
 export const getStorePermalink = (): string => {

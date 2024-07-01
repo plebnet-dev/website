@@ -1,20 +1,19 @@
 ---
-publishDate: 2024-6-30T00:00:00Z
-title: Mentors
-description: Plebnet.dev Mentors
-category: News and Updates
+publishDate: 2027-6-30T00:00:00Z
+title: Plebnet.dev Mentors
 author: surfersol
+description: Plebnet.dev Mentors
+image: /src/content/post/_images/opensource.jpg
+categories:
+  - News and Updates
+tags:
+  - plebnet.dev
 ---
 
 # Plebnet.dev Mentors
 
-## Bitkarrot
-- Projects: HiveTalk, Contributor to LNBits, Core Lightning
-- [Github](https://github.com/bitkarrot)
-- [Calendar](https://cal.com/bitkarrot)
-
 ## Asher 
-- Projects:  Python and Rigly (Mining) talk 
+- Python and Rigly (Mining)
 - [Github](https://github.com/asherp)
 - [Calendar](https://cal.com/asherp/1-hr-meeting?user=asherp&duration=30)
 
@@ -37,3 +36,8 @@ author: surfersol
 - Fullstack development
 - [Github](https://github.com/samthomson)
 - [Calendar](https://cal.com/sam-123456789)
+
+## Bitkarrot
+- HiveTalk, Contributor to LNBits, Core Lightning
+- [Github](https://github.com/bitkarrot)
+- [Calendar](https://cal.com/bitkarrot)

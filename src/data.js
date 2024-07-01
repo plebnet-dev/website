@@ -2,6 +2,7 @@ import {
   getBlogPermalink,
   getJoinPermalink,
   getDiscordPermalink,
+  getMatrixPermalink,
   getAsset,
   getStorePermalink,
 } from './utils/permalinks';
@@ -82,6 +83,10 @@ export const headerData = {
           href: '/donate',
         },
         {
+          text: 'Matrix',
+          href: getMatrixPermalink(),
+        },
+        {
           text: 'Discord',
           href: getDiscordPermalink(),
         },
@@ -119,9 +124,9 @@ export const footerData = {
     {
       title: 'Connect',
       links: [
+        { text: 'Matrix', href: getMatrixPermalink() },
         { text: 'Discord', href: getDiscordPermalink() },
         { text: 'Donate', href: '/donate' },
-        { text: 'Supporters', href: '/supporters' },
         { text: 'Store', href: getStorePermalink() },
       ],
     },
@@ -145,6 +150,8 @@ export const footerData = {
         { text: 'Press Kit', href: 'https://github.com/plebnet-dev/presskit' },
         { text: 'Terms of Service', href: '/terms' },
         { text: 'Privacy', href: '/privacy' },
+        { text: 'Supporters', href: '/supporters' },
+
       ],
     },
   ],
@@ -155,6 +162,7 @@ export const footerData = {
   socialLinks: [
     // { text: 'Nostr', href: '#'},
     // { ariaLabel: 'Twitter', icon: 'tabler:brand-twitter', href: '#' },
+    { ariaLabel: 'Matrix', icon: 'tabler:brand-discord', href: getMatrixPermalink() },
     { ariaLabel: 'Discord', icon: 'tabler:brand-discord', href: getDiscordPermalink() },
     { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/plebnet-dev/' },
     { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
