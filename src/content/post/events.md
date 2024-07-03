@@ -35,16 +35,6 @@ tags:
 
 ---
 
-## Pleb Hangout (Bi-Weekly Event) - Best for Eurozone Time Zone
-
-- **Date:** Every other Friday
-- **Time:** 12:00 PST/ 15:00 EST / 21:00 CEST
-- **Description:** Hang out with the Plebs!
-- **Duration:** 1 hour
-- [Meetup Link](https://hivetalk.org/join/73147PlebnetEU)
-
----
-
 # Past Events
 
 ## 2nd Quarterly Meetup
