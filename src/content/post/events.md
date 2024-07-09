@@ -28,10 +28,11 @@ tags:
 ## Chill and Chat (Bi-Weekly Event) - Best for US Time Zones
 
 - **Date:** every other Wednesday
-- **Time:** 19:00 PST / 22:00 EST
+- **Time:** 18:00 PST / 21:00 EST
 - **Description:** Come chat and chill about anything code related or anything else in the space, Get to know what other members are working on or use this time to pair program and trouble shoot issues that you are working on.
 - **Duration:** 1 hour
-- [Meetup Link](https://discord.gg/wFGTkWDWNh?event=1219745862725664899)
+- [Meetup Link](https://hivetalk.org/join/devnight)
+
 
 ---
 
