@@ -12,6 +12,10 @@ tags:
 
 # Plebnet.dev Mentors
 
+## Tekkadan 
+- Nostr onboarding
+- [Calendar](https://cal.com/tekkadan)
+
 ## Asher 
 - Python and Rigly (Mining)
 - [Github](https://github.com/asherp)
