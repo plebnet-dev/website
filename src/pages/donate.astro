@@ -1,6 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import Header from '~/components/widgets/Header.astro';
+import DonateForm from '../components/DonateForm.svelte';
 
 const title = `Donate`;
 import { headerData } from '~/data';
@@ -33,10 +34,8 @@ const meta = {
       <div class="max-w-md text-center">
         <h2 class="mb-4 font-bold text-4xl">Donate!</h2>
         <p>Every satoshi will help us grow our community</p>
+        <DonateForm client:load />
       </div>
     </div>
-  </section>
-  <section class="flex items-center justify-center my-8">
-    <iframe src="https://ln.plebnet.dev/tipjar/10" width="800" height="600"></iframe>
   </section>
 </Layout>

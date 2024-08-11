@@ -45,7 +45,7 @@ By joining us, you're not just participating in another developer space – you'
 Made with 🧡 
 
 - [Bitkarrot](https://github.com/bitkarrot/) Org architect
-- [Surfersol](https://github.com/surfersol) Lead Moderator.
+- [Surfersol](https://github.com/surfersol) Lead Moderator, Americas.
 - [Sync](https://github.com/s7nc) European Moderator.
 - In collaboration with the [Plebnet-Playground](https://github.com/PLEBNET-PLAYGROUND/) crew.
 
