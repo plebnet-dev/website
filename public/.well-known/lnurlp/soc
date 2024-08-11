@@ -1,0 +1,17 @@
+{
+  "minSendable": 1000,
+  "maxSendable": 500000000,
+  "commentAllowed": 150,
+  "tag": "payRequest",
+  "metadata": "[[\"text/plain\",\"soc\"]]",
+  "callback": "https://api.zebedee.io/v0/process-static-charges/7ec884d1-cf70-4644-a857-d0098f7f6a3e",
+  "payerData": {
+    "name": {
+      "mandatory": false
+    },
+    "identifier": {
+      "mandatory": false
+    }
+  },
+  "disposable": false
+}
