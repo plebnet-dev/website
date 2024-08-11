@@ -1,6 +1,7 @@
 <script>
     import { onMount, onDestroy } from 'svelte';
-    
+    import QRCode from 'qrcode';  // Assuming you're using qrcode.js for QR code generation
+
     let indivMembershipFee = 333
     indivMembershipFee = import.meta.env.PUBLIC_INDIV_FEE || indivMembershipFee
   
@@ -12,9 +13,11 @@
     let goal = '';
     let mentor = false;
     let discordHandle = '';
+
+    let qrCodeData = null;
+    let invoiceRequest = '';
   
     onMount(async () => {
-      // console.log("indivMembershipFee", indivMembershipFee)
     });
   
     onDestroy(() => {
@@ -45,12 +48,13 @@
           });
   
           if (response.ok) { 
-            // console.log("Success submitting form")
             let body = await response.json()
-            // console.log("response", body, 'url', body['url'])
-  
-            let forwardlink = body['url']
-            window.location.href=forwardlink
+            invoiceRequest = body.invoiceRequest;
+              // Generate QR code
+              QRCode.toDataURL(invoiceRequest, function (err, url) {
+                if (err) console.error(err);
+                qrCodeData = url;
+            });
             
           } else { 
             console.log("Error submitting form", response.status, response.statusText)
@@ -65,11 +69,36 @@
       return Number(number).toLocaleString();
     }
   
-  </script>
+    function copyToClipboard() {
+        navigator.clipboard.writeText(invoiceRequest).then(() => {
+            alert('Invoice request copied to clipboard!');
+        }).catch(err => {
+            console.error('Could not copy text: ', err);
+        });
+    }
+</script>
+
   
   <div>
     <div>
+
         <h1>Individual Membership</h1>
+
+        {#if qrCodeData}
+          <div class="input-wrapper">
+              <p class="text-center invoice-text">
+                {#if invoiceRequest.length > 20}
+                    {invoiceRequest.slice(0, 20)}... 
+                    <button class="text-center copy-invoice" on:click={copyToClipboard}>
+                      Click to copy Invoice
+                      <img src={qrCodeData} alt="QR Code"/>
+                    </button>
+                {/if}
+              </p>
+              <h1 class="text-center mt-2"> Thank you! </h1>
+            </div>        
+        {:else}
+
         <form on:submit|preventDefault={handleSubmit}>
           <div class="input-wrapper">
             <label for="name">Name*</label>
@@ -117,10 +146,13 @@
               One Time Membership Fee
             </p>
             <button type="submit" class="btn">
-             <b>Pay with &nbsp;</b> <img src="/images/lnbitslogo.svg" width="70px" alt="LNBits" />
+             <b>Pay with  ⚡️Lightning⚡️ </b>
             </button>
             </div>
         </form>
+
+        {/if}
+
       </div>
     </div>
   

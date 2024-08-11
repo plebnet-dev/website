@@ -1,22 +1,20 @@
 export const prerender = false;
 import { createClient } from '@supabase/supabase-js';
-import { v4 as uuidv4 } from 'uuid';
+import fetch from 'node-fetch';
 
 let supabaseUrl =  import.meta.env.SUPABASE_URL || "none"
 let supabaseKey = import.meta.env.SUPABASE_KEY || "none"
-let paylinkurl = import.meta.env.PAYLINK_URL || "none"
 let indivFee = import.meta.env.PUBLIC_INDIV_FEE 
 let corpFee = import.meta.env.PUBLIC_CORP_FEE 
 
 let supabase = createClient(supabaseUrl, supabaseKey);
 
-// console.log('supabaseUrl: \n', supabaseUrl)
-// console.log('supabaseKey: \n', supabaseKey)
-// console.log('paylinkurl: \n', paylinkurl)
-
 const indiv_table = 'members-test-table'
 const corp_table = 'members-corp-test'
 
+let amount = '100'
+let description = 'plebnet_membership'
+let invoicelink = supabaseUrl
 
 export async function POST({request}) {
     try {
@@ -24,38 +22,44 @@ export async function POST({request}) {
         // console.log('formData: \n', formData)
         const { formType, ...otherData } = formData;
 
-        // Generate a unique identifier
-        const uniqueId = uuidv4();
-        // console.log("unique id",  uniqueId);
-
         // create paylink with customized url
         let forwardlink = ''
         if (formType === "individual") {
-            forwardlink = paylinkurl + '/fee/' + indivFee  + '?desc=' + uniqueId
+            amount = indivFee
+            description = 'plebnet_individual'
+            invoicelink = supabaseUrl +'/functions/v1/zbd-receive?amount=' + amount + '&description=' + description
         } else if (formType === "corporate") { 
-            forwardlink = paylinkurl + '/fee/' + corpFee  + '?desc=' + uniqueId
+            amount = corpFee
+            description = 'plebnet_corporate'
+            invoicelink = supabaseUrl +'/functions/v1/zbd-receive?amount=' + amount + '&description=' + description
         }
-        // console.log("forwardlink: \n", forwardlink)
+        console.log("invoicelink: \n", invoicelink)
 
-        const newData = { ...formData, payment_id: uniqueId, payment_status: false};
-        // console.log('newData: \n', newData)
+        // Fetch the invoice data
+        const invoiceResponse = await fetch(invoicelink);
+        console.log('invoiceResponse: \n', invoiceResponse)
+        const invoiceData = await invoiceResponse.json();
+        console.log('invoiceData: \n', invoiceData)
 
-        // // push formData to supabase database
+        // Extract the "request" field from the invoice data
+        const invoiceRequest = invoiceData.data.invoice.request;
+        console.log('invoiceRequest: \n', invoiceRequest)
+
+        let paymentId = invoiceData.data.id
+        console.log("paymentID: \n", paymentId)
+
+        const newData = { ...formData, payment_id: paymentId, payment_status: false};
+        console.log('newData: \n', newData)
+
+        // Insert the new data into the Supabase table
         if (formType === "individual") {
-            const { data, error } = await supabase.from(indiv_table).insert([newData]).select();
-            // console.log('individual member - supabase data: \n', data)
-            // console.log('supabase error: \n', error)
+            await supabase.from(indiv_table).insert([newData]).select();
         } else { 
-            const { data, error } = await supabase.from(corp_table).insert([newData]).select();
-            // console.log('corporate member - supabase data: \n', data)
-            // console.log('supabase error: \n', error)
+            await supabase.from(corp_table).insert([newData]).select();
         }
 
-        // create paylink json and respond to client request
-        let response_json = {'url': forwardlink}
-       // console.log('response_json: \n', response_json)
-
-        return new Response(JSON.stringify(response_json), {
+        // Respond with the invoice request
+        return new Response(JSON.stringify({ invoiceRequest }), {
             status: 200,
             headers: {
                 "Content-Type": "application/json"
