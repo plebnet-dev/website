@@ -27,7 +27,7 @@
     "limax": "4.1.0",
     "lodash.merge": "^4.6.2",
     "qrcode": "^1.5.4",
-    "svelte": "^4.2.12",
+    "svelte": "^4.2.19",
     "typescript-esbuild": "^0.3.10",
     "unpic": "^3.17.0",
     "uuid": "^9.0.1"
