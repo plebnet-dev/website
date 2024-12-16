@@ -45,7 +45,8 @@ By joining us, you're not just participating in another developer space – you'
 Made with 🧡 
 
 - [Bitkarrot](https://github.com/bitkarrot/) Org architect
-- [Surfersol](https://github.com/surfersol) Lead Moderator, Americas.
+- [Tigs](https://njump.me/npub1q7why7lw8kq9ufr43ps75ngz3vhx5duqt7xmgklcq3dljqqfjegq2km2vr) Dev Meetup Host (on Hivetalk.org)
+- [Surfersol](https://github.com/surfersol) Moderator, Americas.
 - [Sync](https://github.com/s7nc) European Moderator.
 - In collaboration with the [Plebnet-Playground](https://github.com/PLEBNET-PLAYGROUND/) crew.
 
