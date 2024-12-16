@@ -37,7 +37,7 @@
           mentor: mentor ? 'yes' : 'no',
         };
   
-        // console.log(formData)
+       // console.log(formData)
   
         const response = await fetch('/api/new-user', {
             method: 'POST',
@@ -46,11 +46,14 @@
             },
             body: JSON.stringify(formData),
           });
+
+          //console.log("response: ", response.ok)
   
           if (response.ok) { 
             let body = await response.json()
-            invoiceRequest = body.invoiceRequest;
-              // Generate QR code
+            invoiceRequest = body.invoice;
+            // console.log("invoiceRequest: ", invoiceRequest)
+            // Generate QR code
               QRCode.toDataURL(invoiceRequest, function (err, url) {
                 if (err) console.error(err);
                 qrCodeData = url;
@@ -115,7 +118,7 @@
             <input type="email" id="email" bind:value={email} required />
           </div>
           <div class="input-wrapper">
-            <label for="twitter">Twitter or Nostr npub</label>
+            <label for="twitter">Nostr npub or X/Twitter</label>
             <input type="text" id="twitter" bind:value={twitter} />
           </div>
   
