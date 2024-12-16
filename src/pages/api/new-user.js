@@ -13,9 +13,7 @@ let supabase = createClient(supabaseUrl, supabaseKey);
 const indiv_table = 'members-test-table'
 const corp_table = 'members-corp-test'
 
-let amount = '100'
-//let description = 'plebnet_membership'
-//let invoicelink = supabaseUrl
+let amount = '100000' // default amount
 
 function generateUUID() {
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -51,19 +49,14 @@ export async function POST({request}) {
         }
 
         const lightningAddress = 'soc@plebnet.dev';
-        await getLightningInvoice(lightningAddress, amount)
-        .then(invoice => {
-            console.log('BOLT11 Invoice:', invoice);
-            // Respond with the invoice request
-            return new Response(JSON.stringify({ invoice }), {
-              status: 200,
-              headers: {
-                  "Content-Type": "application/json"
-              }
-            });
-        })
-        .catch(error => {
-          console.error('Failed to get invoice:', error);
+        let invoice = await getLightningInvoice(lightningAddress, amount)
+        console.log("invoice: \n", invoice)
+
+        return new Response(JSON.stringify({ invoice }), {
+          status: 200,
+          headers: {
+              "Content-Type": "application/json"
+          }
         });
 
     } catch (error) {

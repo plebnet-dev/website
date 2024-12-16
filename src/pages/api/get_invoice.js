@@ -13,13 +13,13 @@ export async function getLightningInvoice(lightningAddress, satoshiAmount) {
 
     // Fetch the Lightning Address metadata
     const response = await fetch(`https://${domain}/.well-known/lnurlp/${username}`);
-    console.log(`https://${domain}/.well-known/lnurlp/${username}`)
+    // console.log(`https://${domain}/.well-known/lnurlp/${username}`)
     if (!response.ok) {
       throw new Error('Failed to fetch Lightning Address metadata');
     }
 
     const metadata = await response.json();
-    console.log(metadata)
+    //  console.log(metadata)
     if (!metadata.callback) {
       throw new Error('Invalid Lightning Address metadata');
     }
@@ -46,7 +46,7 @@ export async function getLightningInvoice(lightningAddress, satoshiAmount) {
     }
 
     const invoiceData = await invoiceResponse.json();
-    console.log(invoiceData)
+   // console.log(invoiceData)
     if (!invoiceData.pr) {
       throw new Error('Invalid invoice response');
     }
@@ -58,11 +58,16 @@ export async function getLightningInvoice(lightningAddress, satoshiAmount) {
   }
 }
 
-// // Usage example:
-/*
 const lightningAddress = 'soc@plebnet.dev';
 const amount = 100000; // Amount in satoshis
 
+// // Usage example 1
+// let result = await getLightningInvoice(lightningAddress, amount);
+// console.log(result)
+
+
+// Usage example 2
+/*
 getLightningInvoice(lightningAddress, amount)
   .then(invoice => {
     console.log('BOLT11 Invoice:', invoice);
