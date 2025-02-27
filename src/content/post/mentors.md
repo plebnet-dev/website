@@ -45,3 +45,8 @@ tags:
 - HiveTalk, Contributor to LNBits, Core Lightning
 - [Github](https://github.com/bitkarrot)
 - [Calendar](https://cal.com/bitkarrot)
+
+##Sync
+- Fullstack development, 
+- [Github](https://github.com/s7nc)
+- [Calendar](https://cal.com/sync-request)
