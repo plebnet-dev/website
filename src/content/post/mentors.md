@@ -41,7 +41,7 @@ tags:
 - [Github](https://github.com/samthomson)
 - [Calendar](https://cal.com/sam-123456789)
 
-##Sync
+## Sync
 - Fullstack development, Nostr
 - [Github](https://github.com/s7nc)
 - [Calendar](https://cal.com/sync-request)
