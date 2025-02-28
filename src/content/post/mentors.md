@@ -41,12 +41,13 @@ tags:
 - [Github](https://github.com/samthomson)
 - [Calendar](https://cal.com/sam-123456789)
 
+##Sync
+- Fullstack development, Nostr
+- [Github](https://github.com/s7nc)
+- [Calendar](https://cal.com/sync-request)
+
 ## Bitkarrot
 - HiveTalk, Contributor to LNBits, Core Lightning
 - [Github](https://github.com/bitkarrot)
 - [Calendar](https://cal.com/bitkarrot)
 
-##Sync
-- Fullstack development, 
-- [Github](https://github.com/s7nc)
-- [Calendar](https://cal.com/sync-request)
