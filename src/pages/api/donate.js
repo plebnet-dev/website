@@ -30,7 +30,8 @@ export async function POST({request}) {
         
 
     } catch (error) {
-        return new Response(JSON.stringify({ 'error': error }), {
+        console.error("An error occurred:", error); // Log the detailed error on the server
+        return new Response(JSON.stringify({ 'error': "An internal server error occurred" }), {
           status: 500,
           headers: {
             "Content-Type": "application/json"
