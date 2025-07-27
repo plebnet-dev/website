@@ -59,7 +59,7 @@ export async function getLightningInvoice(lightningAddress, satoshiAmount) {
 }
 
 const lightningAddress = 'soc@plebnet.dev';
-const amount = 100000; // Amount in satoshis
+//const amount = 100000; // Amount in satoshis
 
 // // Usage example 1
 // let result = await getLightningInvoice(lightningAddress, amount);
