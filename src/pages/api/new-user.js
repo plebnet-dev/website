@@ -5,15 +5,15 @@ import { getLightningInvoice } from './get_invoice';
 
 let supabaseUrl =  import.meta.env.SUPABASE_URL || "none"
 let supabaseKey = import.meta.env.SUPABASE_KEY || "none"
-let indivFee = import.meta.env.PUBLIC_INDIV_FEE 
-let corpFee = import.meta.env.PUBLIC_CORP_FEE 
+let indivFee = import.meta.env.PUBLIC_INDIV_FEE || '100000'
+let corpFee = import.meta.env.PUBLIC_CORP_FEE || '300000'
 
 let supabase = createClient(supabaseUrl, supabaseKey);
 
 const indiv_table = 'members-test-table'
 const corp_table = 'members-corp-test'
 
-let amount = '100000' // default amount
+// Default amount is now set from environment variables
 
 function generateUUID() {
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {

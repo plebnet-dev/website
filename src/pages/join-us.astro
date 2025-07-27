@@ -10,6 +10,9 @@ import { getStorePermalink } from '~/utils/permalinks';
 const meta = {
   title: 'PLEBNET.DEV Join Us',
 };
+
+const indivFee = import.meta.env.PUBLIC_INDIV_FEE || 100000;
+const corpFee = import.meta.env.PUBLIC_CORP_FEE || 300000;
 ---
 
 <Layout {meta}>
@@ -34,7 +37,7 @@ const meta = {
       {
         title: 'Individual',
         subtitle: 'Optimal choice for personal use',
-        price: 100000,
+        price: indivFee,
         period: 'sats, one time fee',
         items: [
           {
@@ -64,7 +67,7 @@ const meta = {
       {
         title: 'Corporate',
         subtitle: 'Optimal choice for organizations',
-        price: 300000,
+        price: corpFee,
         period: 'sats, one time fee',
         items: [
           {
