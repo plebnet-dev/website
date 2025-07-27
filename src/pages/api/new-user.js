@@ -29,6 +29,7 @@ export async function POST({request}) {
         // console.log('formData: \n', formData)
         const { formType, ...otherData } = formData;
 
+        let amount;
         if (formType === "individual") {
             amount = indivFee
         } else {
