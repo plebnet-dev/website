@@ -16,7 +16,15 @@ At [Plebnet.dev](https://plebnet.dev), our aim is to continually enrich our user
 
 ### **Resources:**
 
-- **LNBits Testnet**
+- **LNBits Signet**
+  Explore the Lightning Network on signet. A playground for developers and enthusiasts.
+  [Check it out here](https://signet.plebnet.dev)
+
+- **Signet Lightning Node**
+  Core Lightning on Signet. Feel free to open a channel to us.
+  [Find us here](https://mempool.space/signet/lightning/node/026a498299f07b5064bd903ac50c57fda1e63380f3a65bfdeddf5401b4094afce9)
+
+<!-- - **LNBits Testnet**
   Explore the Lightning Network on testnet. A playground for developers and enthusiasts.
   [Check it out here](https://testnet.plebnet.dev)
 
@@ -25,10 +33,7 @@ At [Plebnet.dev](https://plebnet.dev), our aim is to continually enrich our user
   [Find us here](https://mempool.space/testnet/lightning/node/03ba00a57cec1cef4873065ad54d0912696274cc53155b29a3b1256720e33a0943)
 
 - **Testnet Faucet**
-  For testnet funds, see [htlc.me](http://htlc.me/).
-
-- **Signet Lightning Node**
-  Feel free to open a channel to us. (Coming Soon)
+  For testnet funds, see [htlc.me](http://htlc.me/). -->
 
 - **Signet Faucets**
   In the pipeline. Stay tuned!

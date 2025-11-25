@@ -33,13 +33,21 @@ export const headerData = {
     {
       text: 'Resources',
       links: [
-        {
-          text: 'Testnet LNBits',
-          href: 'https://testnet.plebnet.dev',
+        // {
+        //   text: 'Testnet LNBits',
+        //   href: 'https://testnet.plebnet.dev',
+        // },
+        // {
+        //   text: 'Testnet LN Node',
+        //   href: 'https://mempool.space/testnet/lightning/node/03ba00a57cec1cef4873065ad54d0912696274cc53155b29a3b1256720e33a0943',
+        // },
+        { 
+          text: 'Signet LNBits',
+          href: 'https://signet.plebnet.dev' 
         },
         {
-          text: 'Testnet LN Node',
-          href: 'https://mempool.space/testnet/lightning/node/03ba00a57cec1cef4873065ad54d0912696274cc53155b29a3b1256720e33a0943',
+          text: 'Signet LN Node',
+          href: 'https://mempool.space/signet/lightning/node/026a498299f07b5064bd903ac50c57fda1e63380f3a65bfdeddf5401b4094afce9',
         },
         {
           text: 'Rate Converter',
@@ -133,10 +141,15 @@ export const footerData = {
     {
       title: 'Resources',
       links: [
-        { text: 'LNBits Testnet', href: 'https://testnet.plebnet.dev' },
+        // { text: 'LNBits Testnet', href: 'https://testnet.plebnet.dev' },
+        // {
+        //   text: 'CLN Testnet Node',
+        //   href: 'https://mempool.space/testnet/lightning/node/03ba00a57cec1cef4873065ad54d0912696274cc53155b29a3b1256720e33a0943',
+        // },
+        { text: 'LNBits Signet', href: 'https://signet.plebnet.dev'},
         {
-          text: 'CLN Testnet Node',
-          href: 'https://mempool.space/testnet/lightning/node/03ba00a57cec1cef4873065ad54d0912696274cc53155b29a3b1256720e33a0943',
+          text: 'CLN Signet Node',
+          href: 'https://mempool.space/signet/lightning/node/026a498299f07b5064bd903ac50c57fda1e63380f3a65bfdeddf5401b4094afce9',
         },
         { text: 'Nostr Relay', href: 'https://testnet.plebnet.dev/nostrrelay/1' },
         { text: 'Nostr Metadata', href: 'https://metadata.plebnet.dev/' },
