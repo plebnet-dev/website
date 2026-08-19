@@ -31,7 +31,7 @@
     "svelte": "^5.53.6",
     "typescript-esbuild": "^0.3.12",
     "unpic": "^3.22.0",
-    "uuid": "^9.0.1",
+    "uuid": "^14.0.0",
     "vite": "^6.4.3"
   },
   "devDependencies": {
