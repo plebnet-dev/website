@@ -1,4 +1,4 @@
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import type { Post } from '~/types';
 import { cleanSlug, trimSlash, POST_PERMALINK_PATTERN } from './permalinks';
@@ -29,8 +29,8 @@ const generatePermalink = async ({ id, slug, publishDate, category }) => {
 };
 
 const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> => {
-  const { id, slug: rawSlug = '', data } = post;
-  const { Content, remarkPluginFrontmatter } = await post.render();
+  const { id, data } = post;
+  const { Content, remarkPluginFrontmatter } = await render(post);
 
   const {
     tags: rawTags = [],
@@ -40,7 +40,10 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
     ...rest
   } = data;
 
-  const slug = cleanSlug(rawSlug.split('/').pop());
+  // In Astro 5 with glob loader, `slug` is no longer available.
+  // Use `id` (filename without extension) as the slug source.
+  const rawSlug = id.replace(/\.(md|mdx)$/, '').split('/').pop() || id;
+  const slug = cleanSlug(rawSlug);
   const publishDate = new Date(rawPublishDate);
   const category = rawCategory ? cleanSlug(rawCategory) : undefined;
   const tags = rawTags.map((tag: string) => cleanSlug(tag));
